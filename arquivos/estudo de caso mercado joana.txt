@@ -1,0 +1,42 @@
+Mercado dona Joana
+Desejam informatizar seus sistema de vendas de produtos, receitas e despesas.
+
+Deseja-se manter os dados dos cliente com nome, telefone, e-mail, endereço.
+
+Gerenciamento dos produtos e seus estoques
+Os produtos possuem um nome, código de barras, valor, quantidade em estoque, uma categoria e fornecedor.
+Os fornecedores possui nome, telefone e endereço.
+A categoria possuem apenas o nome.
+
+Entrada de produtos
+O usuário poderá realizar entrada de novos produtos através de um formulároio com os seguintes dados:
+ produto, valor unitário, quantidade comprada, número do lote e o fornecedor.
+ 
+Ao realizar uma entrada de produto: 
+	O valor, a quantidade e o fornecedor deverão ser alteradas na tabela de produtos.
+	Inserir uma nova despesa e perguntar se já está pago, se não, perguntar a data de vencimento.
+
+Em receitas: 
+	Deverá haver data e hora cadastro, data e hora pagamento, data vencimento, valor total, valor recebido e código da venda não obrigatório
+	Cada vez que ocorrer uma venda, o sistema irá lançar uma receita. Podendo fazer o famoso "Fiado".
+	
+Em despesas:
+	Deverão ser separadas por tipo:
+		Funcionários
+		Produtos
+	As despesas deverão possuir data e hora cadastro, data e hora pagamento, data vencimento, valor pago e código da entrada.
+	
+A venda será realizado com os seguinte itens:
+	Cliente - não obrigatoiro
+	Funcionário
+	Data e hora
+	
+Os funcionários terão nome, número do PIS, salário, endereço, telefone, e-mail, senha e o tipo de usuário se é caixa ou administrador
+A tabela tipos de usuários terá apenas o nome do tipo.
+
+O sistema terá uma tela incial que será o login.
+Se o login for feito por um funcionário caixa, entãoa brirá apenas a tela de vendas.
+Se o login for feito por um admin, todas os opções ficarão disponíveis, inclusive a venda.
+
+
+Vamos desenhar as telas antes de codificar.

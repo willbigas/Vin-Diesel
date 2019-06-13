@@ -11,7 +11,7 @@ public class TelaPrincipalFuncionarioControl {
 
     TelaPrincipalFuncionario telaPrincipalCaixa;
 
-    private TelaVendaControl telaVendaControl = null;
+    private TelaEntregaControl telaVendaControl = null;
     private TelaSobreControl telaSobreControl = null;
 
     public TelaPrincipalFuncionarioControl() {
@@ -28,7 +28,7 @@ public class TelaPrincipalFuncionarioControl {
         if (telaVendaControl != null) {
             telaVendaControl.chamarTelaVenda();
         } else {
-            telaVendaControl = new TelaVendaControl();
+            telaVendaControl = new TelaEntregaControl();
             telaVendaControl.chamarTelaVenda();
         }
     }

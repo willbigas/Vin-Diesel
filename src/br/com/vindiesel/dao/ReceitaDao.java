@@ -5,8 +5,8 @@
  */
 package br.com.vindiesel.dao;
 
-import br.com.vindiesel.model.Receita;
 import br.com.vindiesel.interfaces.DaoI;
+import br.com.vindiesel.model.Receita;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,17 +18,20 @@ import java.util.List;
 
 /**
  *
- * @author william.mauro
+ * @author William
  */
-public class ReceitaDao extends Dao implements DaoI<Receita> {
-
-    public ReceitaDao() {
+public class ReceitaDao extends Dao implements DaoI<Receita>{
+    
+    EntregaDao entregaDao;
+    
+     public ReceitaDao() {
         super();
+        entregaDao = new EntregaDao();
     }
 
     @Override
     public int inserir(Receita receita) {
-        String queryInsert = "INSERT INTO receitas (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, CODVENDA) VALUES(?, ?, ?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO receitas (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, ENTREGA_ID) VALUES(?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -45,7 +48,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
             } else {
                 stmt.setDouble(5, receita.getValorRecebido());
             }
-            stmt.setInt(6, receita.getCodVenda());
+            stmt.setInt(6, receita.getEntrega().getId());
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();
@@ -62,7 +65,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
 
     @Override
     public boolean alterar(Receita receita) {
-        String queryUpdate = "UPDATE receitas SET dataCadastro = ?, dataPagamento = ?, dataVencimento = ?, valorRecebido = ?, valorTotal = ?, codVenda = ? WHERE ID = ?";
+        String queryUpdate = "UPDATE receita SET dataCadastro = ?, dataPagamento = ?, dataVencimento = ?, valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ? WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setTimestamp(1, Timestamp.valueOf(receita.getDataCadastro()));
@@ -70,7 +73,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
             stmt.setDate(3, new Date(receita.getDataVencimento().getTime()));
             stmt.setDouble(4, receita.getValorRecebido());
             stmt.setDouble(5, receita.getValorTotal());
-            stmt.setInt(6, receita.getCodVenda());
+            stmt.setInt(6, receita.getEntrega().getId());
             stmt.setInt(7, receita.getId());
 
             return stmt.executeUpdate() > 0;
@@ -82,7 +85,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
 
     @Override
     public boolean deletar(Receita receita) {
-        String queryDelete = "DELETE FROM RECEITAS WHERE ID = ?";
+        String queryDelete = "DELETE FROM RECEITA WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryDelete);
             stmt.setInt(1, receita.getId());
@@ -95,7 +98,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
 
     @Override
     public boolean deletar(int id) {
-        String queryDelete = "DELETE FROM RECEITAS WHERE ID = ?";
+        String queryDelete = "DELETE FROM RECEITA WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryDelete);
             stmt.setInt(1, id);
@@ -118,7 +121,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
 
     @Override
     public List<Receita> pesquisar() {
-        String querySelect = "SELECT * FROM RECEITAS";
+        String querySelect = "SELECT * FROM RECEITA";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);
@@ -132,7 +135,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
                 receita.setDataVencimento(result.getDate("dataVencimento"));
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));
-                receita.setCodVenda(result.getInt("codVenda"));
+                receita.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
                 lista.add(receita);
             }
             return lista;
@@ -151,5 +154,5 @@ public class ReceitaDao extends Dao implements DaoI<Receita> {
     public Receita pesquisar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

@@ -5,12 +5,16 @@
  */
 package br.com.vindiesel.model;
 
+import java.time.LocalDate;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
 /**
  *
@@ -21,23 +25,29 @@ public class Usuario {
     private Integer id;
     @NotBlank
     private String nome;
-    @Digits(integer = 10, fraction = 0)
-    private Integer pis;
+    @NotNull
+    private LocalDate dataNascimento;
+    private String telefone;
+    @NotBlank
+    @Email
+    private String email;
+    @NotBlank
+    @CPF
+    private String cpf;
+    @NotBlank
+    @Size(min = 5, max = 45)
+    private String senha;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
     private Double salario;
-    @NotBlank
-    private String telefone;
-    @NotBlank
-    private String senha;
-    @NotBlank
-    private String email;
+    @Digits(integer = 10, fraction = 0)
+    private Integer pis;
+    @NotNull
+    private Boolean ativo;
     @Valid
     private TipoUsuario tipoUsuario;
     @Valid
     private Endereco endereco;
-    @NotNull
-    private Boolean ativo;
 
     public Integer getId() {
         return id;

@@ -2,6 +2,7 @@ package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
@@ -23,9 +24,11 @@ public class Receita {
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
     private Double valorTotal;
+    @DecimalMin(value = "0.00")
+    @DecimalMax("999999999.00")
     private Double valorRecebido;
-    @NotNull
-    private Integer codVenda;
+    @Valid
+    private Entrega entrega;
 
     public Integer getId() {
         return id;
@@ -75,17 +78,13 @@ public class Receita {
         this.valorRecebido = valorRecebido;
     }
 
-    public Integer getCodVenda() {
-        return codVenda;
+    public Entrega getEntrega() {
+        return entrega;
     }
 
-    public void setCodVenda(Integer codVenda) {
-        this.codVenda = codVenda;
+    public void setEntrega(Entrega entrega) {
+        this.entrega = entrega;
     }
-
-    @Override
-    public String toString() {
-        return "Receita{" + "id=" + id + ", dataCadastro=" + dataCadastro + ", dataPagamento=" + dataPagamento + ", dataVencimento=" + dataVencimento + ", valorTotal=" + valorTotal + ", valorRecebido=" + valorRecebido + ", codVenda=" + codVenda + '}';
-    }
+    
 
 }

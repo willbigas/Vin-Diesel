@@ -6,6 +6,7 @@
 package br.com.vindiesel.control;
 
 import br.com.vindiesel.dao.ReceitaDao;
+import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.Receita;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
@@ -44,14 +45,14 @@ public class TelaReceitaGerenciarControl {
         }
     }
 
-    public void criarReceita(Integer codVenda, Date dataVencimento, Double valorTotal) {
+    public void criarReceita(Entrega entrega, Date dataVencimento, Double valorTotal) {
         receita = new Receita();
         receita.setDataCadastro(LocalDateTime.now());
         receita.setDataPagamento(null);
         receita.setDataVencimento(dataVencimento);
         receita.setValorRecebido(null);
         receita.setValorTotal(valorTotal);
-        receita.setCodVenda(codVenda);
+        receita.setEntrega(entrega);
 
         if (Validacao.validaEntidade(receita) != null) {
             Mensagem.info(Validacao.validaEntidade(receita));

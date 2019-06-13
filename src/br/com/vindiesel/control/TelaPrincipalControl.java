@@ -12,16 +12,12 @@ public class TelaPrincipalControl {
     TelaPrincipal telaPrincipal;
 
     private TelaUsuarioGerenciarControl telaUsuarioGerenciarControl = null;
-    private TelaProdutoGerenciarControl telaProdutoGerenciarControl = null;
-    private TelaEntradaGerenciarControl telaEntradaGerenciarControl = null;
-    private TelaCategoriaGerenciarControl telaCategoriaGerenciarControl = null;
-    private TelaClienteGerenciarControl telaClienteGerenciarControl = null;
-    private TelaFornecedorGerenciarControl telaFornecedorGerenciarControl = null;
+    private TelaEncomendaGerenciarControl telaProdutoGerenciarControl = null;
+    private TelaDestinatarioGerenciarControl telaClienteGerenciarControl = null;
+    private TelaRemetenteGerenciarControl telaFornecedorGerenciarControl = null;
     private TelaTipoUsuarioGerenciarControl telaTipoUsuarioGerenciarControl = null;
     private TelaReceitaGerenciarControl telaReceitaGerenciarControl = null;
-    private TelaDespesaGerenciarControl telaDespesaGerenciarControl = null;
-    private TelaCategoriaRelatorioControl telaCategoriaRelatorioControl = null;
-    private TelaVendaControl telaVendaControl = null;
+    private TelaEntregaControl telaVendaControl = null;
     private TelaSobreControl telaSobreControl = null;
     private TelaConfiguracaoGerenciarControl telaConfiguracaoGerenciarControl = null;
 
@@ -48,36 +44,17 @@ public class TelaPrincipalControl {
         if (telaProdutoGerenciarControl != null) {
             telaProdutoGerenciarControl.chamarTelaProdutoGerenciar();
         } else {
-            telaProdutoGerenciarControl = new TelaProdutoGerenciarControl();
+            telaProdutoGerenciarControl = new TelaEncomendaGerenciarControl();
             telaProdutoGerenciarControl.chamarTelaProdutoGerenciar();
         }
     }
 
-    public void chamarTelaEntradaProdutoGerenciarAction() {
-        if (telaEntradaGerenciarControl != null) {
-            telaEntradaGerenciarControl.chamarTelaEntradaGerenciar();
-        } else {
-            telaEntradaGerenciarControl = new TelaEntradaGerenciarControl();
-            telaEntradaGerenciarControl.chamarTelaEntradaGerenciar();
-        }
-
-    }
-
-    public void chamarTelaCategoriaGerenciarAction() {
-        if (telaCategoriaGerenciarControl != null) {
-            telaCategoriaGerenciarControl.chamarTelaCategoriaGerenciar();
-        } else {
-            telaCategoriaGerenciarControl = new TelaCategoriaGerenciarControl();
-            telaCategoriaGerenciarControl.chamarTelaCategoriaGerenciar();
-        }
-
-    }
 
     public void chamarTelaClienteGerenciarAction() {
         if (telaClienteGerenciarControl != null) {
             telaClienteGerenciarControl.chamarTelaClienteGerenciar();
         } else {
-            telaClienteGerenciarControl = new TelaClienteGerenciarControl();
+            telaClienteGerenciarControl = new TelaDestinatarioGerenciarControl();
             telaClienteGerenciarControl.chamarTelaClienteGerenciar();
         }
     }
@@ -86,7 +63,7 @@ public class TelaPrincipalControl {
         if (telaFornecedorGerenciarControl != null) {
             telaFornecedorGerenciarControl.chamarTelaFornecedorGerenciar();
         } else {
-            telaFornecedorGerenciarControl = new TelaFornecedorGerenciarControl();
+            telaFornecedorGerenciarControl = new TelaRemetenteGerenciarControl();
             telaFornecedorGerenciarControl.chamarTelaFornecedorGerenciar();
         }
     }
@@ -107,28 +84,12 @@ public class TelaPrincipalControl {
             telaReceitaGerenciarControl.chamarTelaReceitaGerenciar();
         }
     }
-    public void chamarTelaDespesaGerenciarAction() {
-        if (telaDespesaGerenciarControl != null) {
-            telaDespesaGerenciarControl.chamarTelaDespesaGerenciar();
-        } else {
-            telaDespesaGerenciarControl = new TelaDespesaGerenciarControl();
-            telaDespesaGerenciarControl.chamarTelaDespesaGerenciar();
-        }
-    }
-    public void chamarTelaCategoriaRelatorioAction() {
-        if (telaCategoriaRelatorioControl != null) {
-            telaCategoriaRelatorioControl.chamarTelaCategoriaRelatorio();
-        } else {
-            telaCategoriaRelatorioControl = new TelaCategoriaRelatorioControl();
-            telaCategoriaRelatorioControl.chamarTelaCategoriaRelatorio();
-        }
-    }
 
     public void chamarTelaVendaAction() {
         if (telaVendaControl != null) {
             telaVendaControl.chamarTelaVenda();
         } else {
-            telaVendaControl = new TelaVendaControl();
+            telaVendaControl = new TelaEntregaControl();
             telaVendaControl.chamarTelaVenda();
         }
     }

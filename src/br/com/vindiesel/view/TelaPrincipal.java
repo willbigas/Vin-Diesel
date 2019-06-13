@@ -1,10 +1,8 @@
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.control.TelaCategoriaRelatorioControl;
 import br.com.vindiesel.control.TelaPrincipalControl;
 import br.com.vindiesel.uteis.Relatorio;
 import java.io.InputStream;
-import java.util.HashMap;
 
 /**
  *

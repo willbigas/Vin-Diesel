@@ -10,7 +10,7 @@ import br.com.vindiesel.model.Endereco;
 import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.model.TipoUsuario;
 import br.com.vindiesel.model.tablemodel.UsuarioTableModel;
-import br.com.vindiesel.uteis.Enderecos;
+import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.Validacao;
@@ -44,7 +44,7 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void carregarEstadosNaComboBox() {
-        telaUsuarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(Enderecos.ESTADOS_BRASILEIROS));
+        telaUsuarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
 
     public void chamarTelaFuncionarioGerenciar() {

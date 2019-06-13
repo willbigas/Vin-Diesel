@@ -7,15 +7,12 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaReceitaGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 
 /**
  *
- * @author william.mauro
+ * @author William
  */
 public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
-
     TelaReceitaGerenciarControl receitaGerenciarControl;
 
     /**
@@ -24,7 +21,6 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     public TelaReceitaGerenciar() {
         initComponents();
     }
-
     public TelaReceitaGerenciar(TelaReceitaGerenciarControl control) {
         initComponents();
         receitaGerenciarControl = control;
@@ -40,83 +36,24 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblReceita = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        tfPesquisar = new javax.swing.JTextField();
-        btVisualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btBuscar = new javax.swing.JButton();
 
-        setClosable(true);
-        setIconifiable(true);
-
-        tblReceita.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblReceita);
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Pesquisar:");
-
-        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/visualizar_32x32.png"))); // NOI18N
-        btVisualizar.setText("Visualizar");
-        btVisualizar.setToolTipText("Visualizar receita...");
-        btVisualizar.setBorder(null);
-        btVisualizar.setBorderPainted(false);
-        btVisualizar.setContentAreaFilled(false);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Gerenciar Receitas");
-
-        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lupa_32x32.png"))); // NOI18N
-        btBuscar.setText("Buscar");
-        btBuscar.setBorder(null);
-        btBuscar.setBorderPainted(false);
-        btBuscar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btVisualizar)
-                .addGap(15, 15, 15))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(173, 173, 173))
+                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(btVisualizar)
-                    .addComponent(btBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 258, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,29 +61,6 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBuscar;
-    private javax.swing.JButton btVisualizar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblReceita;
-    private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
-
-    public JTable getTblReceita() {
-        return tblReceita;
-    }
-
-    public void setTblReceita(JTable tblReceita) {
-        this.tblReceita = tblReceita;
-    }
-
-    public JTextField getTfPesquisar() {
-        return tfPesquisar;
-    }
-
-    public void setTfPesquisar(JTextField tfPesquisar) {
-        this.tfPesquisar = tfPesquisar;
-    }
-
 }

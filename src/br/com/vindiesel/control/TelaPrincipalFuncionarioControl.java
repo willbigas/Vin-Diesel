@@ -1,24 +1,24 @@
 package br.com.vindiesel.control;
 
-import br.com.vindiesel.view.TelaPrincipalCaixa;
+import br.com.vindiesel.view.TelaPrincipalFuncionario;
 import javax.swing.JFrame;
 
 /**
  *
  * @author William
  */
-public class TelaPrincipalCaixaControl {
+public class TelaPrincipalFuncionarioControl {
 
-    TelaPrincipalCaixa telaPrincipalCaixa;
+    TelaPrincipalFuncionario telaPrincipalCaixa;
 
     private TelaVendaControl telaVendaControl = null;
     private TelaSobreControl telaSobreControl = null;
 
-    public TelaPrincipalCaixaControl() {
+    public TelaPrincipalFuncionarioControl() {
     }
 
     public void chamarTelaPrincipalCaixa() {
-        telaPrincipalCaixa = new TelaPrincipalCaixa();
+        telaPrincipalCaixa = new TelaPrincipalFuncionario();
         telaPrincipalCaixa.setLocationRelativeTo(null);
         telaPrincipalCaixa.setExtendedState(JFrame.MAXIMIZED_BOTH);
         telaPrincipalCaixa.setVisible(true);

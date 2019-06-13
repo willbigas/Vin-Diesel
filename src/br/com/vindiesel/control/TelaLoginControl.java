@@ -18,12 +18,12 @@ public class TelaLoginControl {
     
     TelaLogin telaLogin; 
     TelaPrincipalControl telaPrincipalControl;
-    TelaPrincipalCaixaControl telaPrincipalCaixaControl;
+    TelaPrincipalFuncionarioControl telaPrincipalCaixaControl;
     UsuarioDao funcionarioDao;
     Usuario funcionario;
     
     public static final int ADMINISTRADOR = 1;
-    public static final int CAIXA = 2;
+    public static final int FUNCIONARIO = 2;
 
     public TelaLoginControl() {
         funcionarioDao = new UsuarioDao();
@@ -39,8 +39,8 @@ public class TelaLoginControl {
         telaPrincipalControl = new TelaPrincipalControl();
         telaPrincipalControl.chamarTelaPrincipal();
     }
-    private void chamarTelaPrincipalCaixa() {
-        telaPrincipalCaixaControl = new TelaPrincipalCaixaControl();
+    private void chamarTelaPrincipalFuncionario() {
+        telaPrincipalCaixaControl = new TelaPrincipalFuncionarioControl();
         telaPrincipalCaixaControl.chamarTelaPrincipalCaixa();
     }
     
@@ -62,8 +62,8 @@ public class TelaLoginControl {
             chamarTelaPrincipal();
         } 
         
-        if (funcionario.getTipoUsuario().getTipoPermissao() == CAIXA) {
-            chamarTelaPrincipalCaixa();
+        if (funcionario.getTipoUsuario().getTipoPermissao() == FUNCIONARIO) {
+            chamarTelaPrincipalFuncionario();
         }
         telaLogin.dispose();
     }

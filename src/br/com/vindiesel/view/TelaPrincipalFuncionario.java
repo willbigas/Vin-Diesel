@@ -1,21 +1,21 @@
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.control.TelaPrincipalCaixaControl;
+import br.com.vindiesel.control.TelaPrincipalFuncionarioControl;
 
 /**
  *
  * @author William
  */
-public class TelaPrincipalCaixa extends javax.swing.JFrame {
+public class TelaPrincipalFuncionario extends javax.swing.JFrame {
     
-    TelaPrincipalCaixaControl telaPrincipalCaixaControl;
+    TelaPrincipalFuncionarioControl telaPrincipalCaixaControl;
 
     /**
      * Creates new form TelaPrincipal
      */
-    public TelaPrincipalCaixa() {
+    public TelaPrincipalFuncionario() {
         initComponents();
-        telaPrincipalCaixaControl = new TelaPrincipalCaixaControl();
+        telaPrincipalCaixaControl = new TelaPrincipalFuncionarioControl();
     }
 
     /**
@@ -29,8 +29,11 @@ public class TelaPrincipalCaixa extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        menuItemVenda = new javax.swing.JMenuItem();
+        menuClientes = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        menuProdutos = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -49,41 +52,49 @@ public class TelaPrincipalCaixa extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(235, 193, 11));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Mercado Dona Joana");
+        jLabel1.setText("Vin Diesel");
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/clientes_32x32.png"))); // NOI18N
-        jMenu1.setText("Clientes");
-        jMenu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
+        menuClientes.setText("Pessoas");
+        menuClientes.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
-        menuItemVenda.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        menuItemVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/venda_32x32.png"))); // NOI18N
-        menuItemVenda.setText("Venda");
-        menuItemVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemVendaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuItemVenda);
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
+        jMenuItem3.setText("Gerenciar Remetentes");
+        menuClientes.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
+        jMenuItem4.setText("Gerenciar Destinatários");
+        menuClientes.add(jMenuItem4);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/info_32x32.png"))); // NOI18N
+        jMenuBar1.add(menuClientes);
+
+        menuProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
+        menuProdutos.setText("Entrega");
+        menuProdutos.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
+        jMenuItem5.setText("Gerenciar Entregas");
+        menuProdutos.add(jMenuItem5);
+
+        jMenuBar1.add(menuProdutos);
+
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/info_32x32.png"))); // NOI18N
         jMenu7.setText("Sobre");
         jMenu7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
         jMenuItem1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/ajuda_32x32.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/ajuda_32x32.png"))); // NOI18N
         jMenuItem1.setText("Ajuda");
         jMenu7.add(jMenuItem1);
 
         jMenuItem2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/developer_32x32.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/developer_32x32.png"))); // NOI18N
         jMenuItem2.setText("Sobre");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,10 +126,6 @@ public class TelaPrincipalCaixa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVendaActionPerformed
-        telaPrincipalCaixaControl.chamarTelaVendaAction();
-    }//GEN-LAST:event_menuItemVendaActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         telaPrincipalCaixaControl.chamarTelaSobreAction();
@@ -141,21 +148,23 @@ public class TelaPrincipalCaixa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalCaixa().setVisible(true);
+                new TelaPrincipalFuncionario().setVisible(true);
             }
         });
     }
@@ -163,11 +172,14 @@ public class TelaPrincipalCaixa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JDesktopPane desktopPane = new javax.swing.JDesktopPane();
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem menuItemVenda;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenu menuClientes;
+    private javax.swing.JMenu menuProdutos;
     // End of variables declaration//GEN-END:variables
 }

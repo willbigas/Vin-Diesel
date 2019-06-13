@@ -55,13 +55,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(235, 193, 11));
-        jLabel1.setText("Mercado");
+        jLabel1.setText("VIN DIESEL");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/usuario_32x32.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/usuario_32x32.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lock_32x32.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lock_32x32.png"))); // NOI18N
 
         tfLogin.setColumns(12);
         tfLogin.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -71,7 +71,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        btEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/entrar_32x32.png"))); // NOI18N
+        btEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrar_32x32.png"))); // NOI18N
         btEntrar.setToolTipText("Entrar...");
         btEntrar.setBorder(null);
         btEntrar.setBorderPainted(false);
@@ -90,7 +90,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/basket_64x64.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/delivery-truck_64x64.png"))); // NOI18N
 
         tfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -129,14 +129,14 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGap(138, 138, 138))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(120, 120, 120))))
+                        .addGap(97, 97, 97))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

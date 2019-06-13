@@ -25,7 +25,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public int inserir(Endereco endereco) {
-        String queryInsert = "INSERT INTO enderecos (cep, estado, cidade, bairro, rua, complemento, numero) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO endereco (cep, estado, cidade, bairro, rua, complemento, numero) VALUES(?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -52,7 +52,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public boolean alterar(Endereco endereco) {
-        String queryUpdate = "UPDATE enderecos SET CEP = ?, ESTADO = ?, CIDADE =?, BAIRRO = ?, RUA = ?, COMPLEMENTO = ?, NUMERO = ? WHERE ID = ?";
+        String queryUpdate = "UPDATE endereco SET CEP = ?, ESTADO = ?, CIDADE =?, BAIRRO = ?, RUA = ?, COMPLEMENTO = ?, NUMERO = ? WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setInt(1, endereco.getCep());
@@ -72,7 +72,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public boolean deletar(Endereco endereco) {
-        String queryDelete = "DELETE FROM enderecos WHERE ID = ?";
+        String queryDelete = "DELETE FROM endereco WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryDelete);
             stmt.setInt(1, endereco.getId());
@@ -85,7 +85,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public boolean deletar(int id) {
-        String queryDelete = "DELETE FROM enderecos WHERE ID = ?";
+        String queryDelete = "DELETE FROM endereco WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryDelete);
             stmt.setInt(1, id);
@@ -108,7 +108,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public List<Endereco> pesquisar() {
-        String querySelect = "SELECT * FROM ENDERECOS";
+        String querySelect = "SELECT * FROM ENDERECO";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);
@@ -135,7 +135,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public List<Endereco> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM enderecos WHERE (cep LIKE ?, rua LIKE ?, cidade LIKE ?, bairro LIKE ?, estado LIKE ?)";
+        String querySelectComTermo = "SELECT * FROM endereco WHERE (cep LIKE ?, rua LIKE ?, cidade LIKE ?, bairro LIKE ?, estado LIKE ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");
@@ -164,7 +164,7 @@ public class EnderecoDao extends Dao implements DaoI<Endereco> {
 
     @Override
     public Endereco pesquisar(int id) {
-        String querySelect = "SELECT * FROM ENDERECOS WHERE id = ?";
+        String querySelect = "SELECT * FROM ENDERECO WHERE id = ?";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);

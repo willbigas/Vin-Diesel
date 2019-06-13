@@ -1,6 +1,6 @@
-﻿create database mercado;
+﻿create database vindiesel;
 
-use mercado;
+use vindiesel;
 
 /** Criando Tabelas **/
 
@@ -145,17 +145,17 @@ fk_tipoDespesa int,
 PRIMARY KEY (id),
 foreign key(fk_tipoDespesa) references tipoDespesa(id));
 
-INSERT INTO `mercado`.`tipoUsuario` (`id`, `nome`, `ativo`, `tipoPermissao`) VALUES ('1', 'Administradores', '1', '1');
-INSERT INTO `mercado`.`tipoUsuario` (`id`, `nome`, `ativo`, `tipoPermissao`) VALUES ('2', 'Caixas', '1', '2');
+INSERT INTO `vindiesel`.`tipoUsuario` (`id`, `nome`, `ativo`, `tipoPermissao`) VALUES ('1', 'Administradores', '1', '1');
+INSERT INTO `vindiesel`.`tipoUsuario` (`id`, `nome`, `ativo`, `tipoPermissao`) VALUES ('2', 'Funcionarios', '1', '2');
 
-INSERT INTO `mercado`.`enderecos` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('1', '88133810', 'SC', 'Palhoça', 'Jardim das Palmeiras', 'Dália', 'Casa marrom areia', '538');
-INSERT INTO `mercado`.`enderecos` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('2', '88130800', 'SC', 'Palhoça', 'Jardim Eldorado', 'Não sei o nome', 'Casa Grande', '111');
+INSERT INTO `vindiesel`.`enderecos` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('1', '88133810', 'SC', 'Palhoça', 'Jardim das Palmeiras', 'Dália', 'Casa marrom areia', '538');
+INSERT INTO `vindiesel`.`enderecos` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('2', '88130800', 'SC', 'Palhoça', 'Jardim Eldorado', 'Não sei o nome', 'Casa Grande', '111');
 
-INSERT INTO `mercado`.`usuarios` (`id`, `nome`, `pis`, `salario`, `telefone`, `email`, `senha`, `ativo`, `fk_endereco`, `fk_tipoUsuario`) VALUES ('1', 'William Bigas Mauro', '12345789', '4500.00', '30337442', 'admin', '1234', '1', '1', '1');
-INSERT INTO `mercado`.`usuarios` (`id`, `nome`, `pis`, `salario`, `telefone`, `email`, `senha`, `ativo`, `fk_endereco`, `fk_tipoUsuario`) VALUES ('2', 'Agostinho Detofano Junior', '123456789', '3500.00', '996822475', 'caixa', '1234', '1', '2', '2');
+INSERT INTO `vindiesel`.`usuarios` (`id`, `nome`, `pis`, `salario`, `telefone`, `email`, `senha`, `ativo`, `fk_endereco`, `fk_tipoUsuario`) VALUES ('1', 'William Bigas Mauro', '12345789', '4500.00', '30337442', 'admin', '1234', '1', '1', '1');
+INSERT INTO `vindiesel`.`usuarios` (`id`, `nome`, `pis`, `salario`, `telefone`, `email`, `senha`, `ativo`, `fk_endereco`, `fk_tipoUsuario`) VALUES ('2', 'Agostinho Detofano Junior', '123456789', '3500.00', '996822475', 'funcionario', '1234', '1', '2', '2');
 
-INSERT INTO `mercado`.`tipodespesa` (`id`, `nome`) VALUES ('1', 'Fornecedor');
-INSERT INTO `mercado`.`tipodespesa` (`id`, `nome`) VALUES ('2', 'Funcionário');
+INSERT INTO `vindiesel`.`tipodespesa` (`id`, `nome`) VALUES ('1', 'Fornecedor');
+INSERT INTO `vindiesel`.`tipodespesa` (`id`, `nome`) VALUES ('2', 'Funcionário');
 
 
 select * from categorias;

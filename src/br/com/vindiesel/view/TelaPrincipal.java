@@ -72,6 +72,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VIN DIESEL");
 
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
         menuClientes.setText("Pessoas");
         menuClientes.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N

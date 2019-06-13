@@ -98,7 +98,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel2.setText("NOME:");
 
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/visualizar_32x32.png"))); // NOI18N
+        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btVisualizar.setText("Visualizar");
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
@@ -113,7 +113,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         tfNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/desativar_32x32.png"))); // NOI18N
+        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/desativar_32x32.png"))); // NOI18N
         btDesativar.setText("Desativar");
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
@@ -124,7 +124,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/save_32x32.png"))); // NOI18N
+        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
@@ -208,7 +208,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel13.setText("[Informações de Endereço]");
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lupa_32x32.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
         jButton2.setText("Buscar");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);

@@ -111,7 +111,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Pesquisar:");
 
-        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/visualizar_32x32.png"))); // NOI18N
+        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btVisualizar.setText("Visualizar");
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
@@ -122,7 +122,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/desativar_32x32.png"))); // NOI18N
+        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/desativar_32x32.png"))); // NOI18N
         btDesativar.setText("Desativar");
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
@@ -133,7 +133,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/save_32x32.png"))); // NOI18N
+        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
@@ -172,7 +172,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO");
 
-        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lupa_32x32.png"))); // NOI18N
+        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
         btBuscar.setText("Buscar");
         btBuscar.setBorder(null);
         btBuscar.setBorderPainted(false);
@@ -200,7 +200,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         tfComplemento.setToolTipText("Campo nao obrigatorio");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/localizacao_32x32.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/localizacao_32x32.png"))); // NOI18N
         jButton1.setText("Pesquisar");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);

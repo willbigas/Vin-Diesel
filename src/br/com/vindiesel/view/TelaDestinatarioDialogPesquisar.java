@@ -74,11 +74,20 @@ public class TelaDestinatarioDialogPesquisar extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
         jButton1.setText("Pesquisar");
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/impressora_32x32.png"))); // NOI18N
         jButton2.setText("Imprimir");
+        jButton2.setBorder(null);
+        jButton2.setContentAreaFilled(false);
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/voltar_32x32.png"))); // NOI18N
         jButton4.setText("Sair");
+        jButton4.setBorder(null);
+        jButton4.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,15 +107,15 @@ public class TelaDestinatarioDialogPesquisar extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jTextField1))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addGap(68, 68, 68))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +136,7 @@ public class TelaDestinatarioDialogPesquisar extends javax.swing.JDialog {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton4))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

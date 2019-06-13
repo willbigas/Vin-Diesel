@@ -239,7 +239,6 @@ public class TelaDestinatarioGerenciarControl {
                 || telaDestinatarioGerenciar.getTfCidade().getText().isEmpty()
                 || telaDestinatarioGerenciar.getTfNumero().getText().isEmpty()
                 || telaDestinatarioGerenciar.getTfNumero().getText().isEmpty()
-                || telaDestinatarioGerenciar.getTfTelefone().getText().isEmpty()
                 || telaDestinatarioGerenciar.getTfRua().getText().isEmpty()) {
             telaDestinatarioGerenciar.getTfNome().requestFocus();
             return true;
@@ -256,10 +255,8 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfComplemento().setText("");
         telaDestinatarioGerenciar.getCbEstado().setSelectedIndex(0);
         telaDestinatarioGerenciar.getTfNumero().setText("");
-        telaDestinatarioGerenciar.getTfTelefone().setText("");
         telaDestinatarioGerenciar.getTfPesquisa().setText("");
         telaDestinatarioGerenciar.getTfRua().setText("");
-        telaDestinatarioGerenciar.getCheckAtivo().setSelected(false);
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
     

@@ -147,6 +147,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `tipoUsuario` (
   `id` INT NOT NULL,
   `nome` VARCHAR(255) NOT NULL,
+  `tipoPermissao` INT(1) NOT NULL,
+  `ativo` TINYINT NOT NULL,
   PRIMARY KEY (`id`));
 
 SHOW WARNINGS;
@@ -177,3 +179,25 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('1', 'Administrador' , '1' , '1');
+INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('2', 'Caixa' ,'2' , '1');
+
+INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('1', '88133810', 'Palhoça', 'Jardim das Palmeiras', 'Dália', 'Casa Marrom', '538');
+INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('2', '88130800', 'Palhoça', 'Jardim Eldorado', 'Não sei o nome', 'Não sei', '500');
+
+INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('1', 'William Bigas Mauro', '1997-11-21', '30337442', 'admin', '10052185958', '1234', '1550.00', '123456', '1', '1', '1');
+INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('2', 'Agostinho Detófano Junior', '1996-02-12', '48968247', 'funcionario', '10052185964', '1234', '2000.00', '123987', '1', '2', '2');
+
+
+select * from TipoUsuario;
+
+select * from endereco;
+
+select * from Usuario;
+
+
+
+
+
+

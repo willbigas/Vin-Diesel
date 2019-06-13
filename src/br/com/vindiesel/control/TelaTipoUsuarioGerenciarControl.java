@@ -29,7 +29,7 @@ public class TelaTipoUsuarioGerenciarControl {
     Integer linhaSelecionada;
 
     private static final int ADMIN = 1;
-    private static final int CAIXA = 2;
+    private static final int FUNCIONARIO = 2;
 
     public TelaTipoUsuarioGerenciarControl() {
         tipoUsuarioDao = new TipoUsuarioDao();
@@ -66,8 +66,8 @@ public class TelaTipoUsuarioGerenciarControl {
         administrador.setNome("Administrador");
         listTipoPermissao.add(administrador);
         TipoPermissao caixa = new TipoPermissao();
-        caixa.setId(CAIXA);
-        caixa.setNome("Caixa");
+        caixa.setId(FUNCIONARIO);
+        caixa.setNome("Funcionario");
         listTipoPermissao.add(caixa);
     }
 
@@ -164,8 +164,8 @@ public class TelaTipoUsuarioGerenciarControl {
         if (tipoUsuario.getTipoPermissao() == ADMIN) {
             telaTipoUsuarioGerenciar.getCbPermissao().getModel().setSelectedItem(listTipoPermissao.get(ADMIN - 1));
         }
-        if (tipoUsuario.getTipoPermissao() == CAIXA) {
-            telaTipoUsuarioGerenciar.getCbPermissao().getModel().setSelectedItem(listTipoPermissao.get(CAIXA - 1));
+        if (tipoUsuario.getTipoPermissao() == FUNCIONARIO) {
+            telaTipoUsuarioGerenciar.getCbPermissao().getModel().setSelectedItem(listTipoPermissao.get(FUNCIONARIO - 1));
         }
         if (tipoUsuario.getAtivo() == true) {
             telaTipoUsuarioGerenciar.getCheckAtivo().setSelected(true);

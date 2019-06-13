@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaTipoUsuarioGerenciarControl;
@@ -70,7 +65,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nome:");
 
-        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/visualizar_32x32.png"))); // NOI18N
+        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btCarregar.setText("Visualizar");
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
@@ -83,7 +78,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         checkAtivo.setText("Ativo");
 
-        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/save_32x32.png"))); // NOI18N
+        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
@@ -109,7 +104,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Tipo de Permissão:");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/desativar_32x32.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/desativar_32x32.png"))); // NOI18N
         jButton1.setText("Desativar");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);

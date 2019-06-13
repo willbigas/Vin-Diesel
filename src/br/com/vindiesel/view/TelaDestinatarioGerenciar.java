@@ -46,14 +46,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar = new javax.swing.JButton();
         btDesativar = new javax.swing.JButton();
         btGravar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        tfTelefone = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         btBuscar = new javax.swing.JButton();
-        checkAtivo = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
         tfCep = new javax.swing.JTextField();
@@ -89,7 +86,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/visualizar_32x32.png"))); // NOI18N
+        btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btVisualizar.setText("Visualizar");
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
@@ -101,7 +98,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/desativar_32x32.png"))); // NOI18N
+        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/desativar_32x32.png"))); // NOI18N
         btDesativar.setText("Desativar");
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
@@ -113,7 +110,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/save_32x32.png"))); // NOI18N
+        btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
@@ -124,14 +121,8 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("TEL:");
-
-        tfTelefone.setColumns(15);
-        tfTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("E-MAIL:");
+        jLabel9.setText("CPF/CNPJ:");
 
         tfEmail.setColumns(15);
         tfEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -151,9 +142,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 btBuscarActionPerformed(evt);
             }
         });
-
-        checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        checkAtivo.setText("ATIVO");
 
         tblCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -223,7 +211,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Gerenciar Clientes");
+        jLabel1.setText("Gerenciar Destinatários");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,25 +237,13 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel8)))
-                .addGap(11, 11, 11)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(checkAtivo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -331,21 +307,13 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel9)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addGap(12, 12, 12)
-                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(checkAtivo))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -436,7 +404,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JCheckBox checkAtivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -448,7 +415,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -463,7 +429,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfNumero;
     private javax.swing.JTextField tfPesquisa;
     private javax.swing.JTextField tfRua;
-    private javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getCbEstado() {
@@ -544,22 +509,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setTfRua(JTextField tfRua) {
         this.tfRua = tfRua;
-    }
-
-    public JTextField getTfTelefone() {
-        return tfTelefone;
-    }
-
-    public void setTfTelefone(JTextField tfTelefone) {
-        this.tfTelefone = tfTelefone;
-    }
-
-    public JCheckBox getCheckAtivo() {
-        return checkAtivo;
-    }
-
-    public void setCheckAtivo(JCheckBox checkAtivo) {
-        this.checkAtivo = checkAtivo;
     }
 
     public JTextField getTfComplemento() {

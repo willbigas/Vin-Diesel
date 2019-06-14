@@ -6,6 +6,7 @@
 package br.com.vindiesel.dao;
 
 import br.com.vindiesel.model.Localizacao;
+import br.com.vindiesel.model.Location;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,17 +22,15 @@ import org.apache.http.util.EntityUtils;
 public class LocalizacaoDao {
 
     private static String URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-    private static String SUFIX = "&key=";
-    private static String key = "AIzaSyCO3jDaXJT4K4FCTV2pGfWndcEAjA11DG4";
+    private static String SUFIX = "&key=AIzaSyASECb7nFXRCzaTET55r_Nwe3pY-C6y7xM";
 
-    private static String URL_FULL = "https://maps.googleapis.com/maps/api/geocode/json?address=88136000&key=AIzaSyCO3jDaXJT4K4FCTV2pGfWndcEAjA11DG4";
+    private static String URL_FULL = "https://maps.googleapis.com/maps/api/geocode/json?address=88133810&key=AIzaSyASECb7nFXRCzaTET55r_Nwe3pY-C6y7xM";
 
-    public static Localizacao getLocalizacao() {
+    public static Location getLocalizacao(String cep) {
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
 
-        String cep = "88133810";
-//        HttpGet requisicaoGet = new HttpGet(URL + cep + SUFIX + key);
-        HttpGet requisicaoGet = new HttpGet(URL_FULL);
+        HttpGet requisicaoGet = new HttpGet(URL + cep + SUFIX);
+//        HttpGet requisicaoGet = new HttpGet();
 //        requisicaoGet.addHeader("content-type", "application/json");
 //        requisicaoGet.addHeader("Accept", "application/json");
         HttpResponse resposta;
@@ -44,18 +43,14 @@ public class LocalizacaoDao {
             String conteudo = EntityUtils.toString(entidade);
 
             localizacao = gson.fromJson(conteudo, Localizacao.class);
-            System.out.println(localizacao);
+            closeableHttpClient.close();
+            return localizacao.getResults().get(0).getGeometry().getLocation();
 
         } catch (Exception e) {
             localizacao = null;
         }
 
-        return localizacao;
-    }
-
-    public static void main(String[] args) {
-        getLocalizacao();
-
+        return null;
     }
 
 }

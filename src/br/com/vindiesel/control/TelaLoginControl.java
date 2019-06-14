@@ -20,7 +20,7 @@ public class TelaLoginControl {
     TelaPrincipalControl telaPrincipalControl;
     UsuarioDao usuarioDao;
     Usuario usuario;
-    public Integer tipoUsuarioLogado;
+    public static Integer tipoUsuarioLogado;
 
     public static final int ADMINISTRADOR = 1;
     public static final int FUNCIONARIO = 2;

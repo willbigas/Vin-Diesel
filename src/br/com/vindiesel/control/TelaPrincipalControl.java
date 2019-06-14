@@ -7,7 +7,7 @@ import javax.swing.JFrame;
  *
  * @author William
  */
-public class TelaPrincipalControl extends TelaLoginControl {
+public class TelaPrincipalControl{
 
     TelaPrincipal telaPrincipal;
     TelaLoginControl telaLoginControl;
@@ -27,7 +27,7 @@ public class TelaPrincipalControl extends TelaLoginControl {
 
     public void chamarTelaPrincipal() {
         telaPrincipal = new TelaPrincipal(this);
-        verificarAcesso();
+        verificarPermissaoPorTipoUsuario();
         telaPrincipal.setLocationRelativeTo(null);
         telaPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         telaPrincipal.setVisible(true);
@@ -114,9 +114,11 @@ public class TelaPrincipalControl extends TelaLoginControl {
         }
     }
      
-    public void verificarAcesso() {
-        if (tipoUsuarioLogado == 2) {
+    public void verificarPermissaoPorTipoUsuario() {
+        if (TelaLoginControl.tipoUsuarioLogado == 2) {
             telaPrincipal.getMenuFinanceiro().setVisible(false);
+            telaPrincipal.getMenuRelatorio().setVisible(false);
+            telaPrincipal.getMenuUsuario().setVisible(false);
         }
     } 
 

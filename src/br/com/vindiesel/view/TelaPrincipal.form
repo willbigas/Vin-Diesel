@@ -38,6 +38,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gerenciar Destinat&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemGerenciarDestinatarioActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

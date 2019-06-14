@@ -95,6 +95,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuItemGerenciarDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
         menuItemGerenciarDestinatario.setText("Gerenciar Destinatários");
+        menuItemGerenciarDestinatario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemGerenciarDestinatarioActionPerformed(evt);
+            }
+        });
         menuPessoa.add(menuItemGerenciarDestinatario);
 
         jMenuBar1.add(menuPessoa);
@@ -282,6 +287,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaPrincipalControl.chamarTelaEntregaAction();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void menuItemGerenciarDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarDestinatarioActionPerformed
+        // TODO add your handling code here:
+        telaPrincipalControl.chamarTelaDestinatarioGerenciarAction();
+    }//GEN-LAST:event_menuItemGerenciarDestinatarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,6 +469,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public void setMenuSobre(JMenu menuSobre) {
         this.menuSobre = menuSobre;
     }
+
+    public JMenu getMenuUsuario() {
+        return menuUsuario;
+    }
+
+    public void setMenuUsuario(JMenu menuUsuario) {
+        this.menuUsuario = menuUsuario;
+    }
+    
+    
 
 
 }

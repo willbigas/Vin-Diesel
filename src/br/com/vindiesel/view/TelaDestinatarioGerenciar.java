@@ -26,7 +26,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     public TelaDestinatarioGerenciar(TelaDestinatarioGerenciarControl control) {
         initComponents();
         clienteGerenciarControl = control;
-        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/Mercado/img/clientes_32x32.png");
+        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/destinatario_32x32.png");
         InterfaceJanela.centralizarInternalFrame(this);
     }
 
@@ -48,7 +48,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
-        btBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
         tfCep = new javax.swing.JTextField();
@@ -132,16 +131,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         tfNome.setColumns(15);
         tfNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lupa_32x32.png"))); // NOI18N
-        btBuscar.setBorder(null);
-        btBuscar.setBorderPainted(false);
-        btBuscar.setContentAreaFilled(false);
-        btBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarActionPerformed(evt);
-            }
-        });
 
         tblCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -300,9 +289,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(btBuscar)
-                        .addGap(12, 12, 12)
+                        .addGap(50, 50, 50)
                         .addComponent(btVisualizar)
                         .addGap(281, 281, 281)
                         .addComponent(btDesativar)
@@ -377,7 +364,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)))
-                    .addComponent(btBuscar)
                     .addComponent(btVisualizar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btGravar)
@@ -406,10 +392,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         clienteGerenciarControl.pesquisarClienteAction();
     }//GEN-LAST:event_tfPesquisaKeyReleased
 
-    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        clienteGerenciarControl.pesquisarClienteAction();
-    }//GEN-LAST:event_btBuscarActionPerformed
-
     private void tfCepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCepKeyReleased
         // clienteGerenciarControl.buscarCepAction();
     }//GEN-LAST:event_tfCepKeyReleased
@@ -422,7 +404,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBuscar;
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btVisualizar;

@@ -13,6 +13,7 @@ import br.com.vindiesel.model.tablemodel.UsuarioTableModel;
 import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
@@ -27,10 +28,10 @@ import javax.swing.JOptionPane;
 public class TelaUsuarioGerenciarControl {
 
     TelaUsuarioGerenciar telaUsuarioGerenciar;
-    List<TipoUsuario> listTiposUsuarios;
+    List<TipoUsuario> listTipoUsuarios;
     TipoUsuarioDao tipoUsuarioDao;
-    UsuarioDao funcionarioDao;
-    UsuarioTableModel tableModelFuncionarios;
+    UsuarioDao usuarioDao;
+    UsuarioTableModel usuarioTableModel;
     Usuario usuario;
     EnderecoDao enderecoDao;
     Integer linhaSelecionada;
@@ -38,16 +39,16 @@ public class TelaUsuarioGerenciarControl {
 
     public TelaUsuarioGerenciarControl() {
         tipoUsuarioDao = new TipoUsuarioDao();
-        funcionarioDao = new UsuarioDao();
+        usuarioDao = new UsuarioDao();
         enderecoDao = new EnderecoDao();
-        tableModelFuncionarios = new UsuarioTableModel();
+        usuarioTableModel = new UsuarioTableModel();
     }
 
     public void carregarEstadosNaComboBox() {
         telaUsuarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
 
-    public void chamarTelaFuncionarioGerenciar() {
+    public void chamarTelaUsuarioGerenciar() {
         if (telaUsuarioGerenciar == null) { // se tiver nulo chama janela normalmente
             telaUsuarioGerenciar = new TelaUsuarioGerenciar(this);
             TelaPrincipal.desktopPane.add(telaUsuarioGerenciar);
@@ -62,17 +63,17 @@ public class TelaUsuarioGerenciarControl {
         }
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
-        telaUsuarioGerenciar.getTblFuncionario().setModel(tableModelFuncionarios);
-        tableModelFuncionarios.adicionar(funcionarioDao.pesquisar());
+        telaUsuarioGerenciar.getTblFuncionario().setModel(usuarioTableModel);
+        usuarioTableModel.adicionar(usuarioDao.pesquisar());
     }
 
     private void carregarTiposUsuariosNaCombo() {
-        listTiposUsuarios = tipoUsuarioDao.pesquisar();
-        DefaultComboBoxModel<TipoUsuario> model = new DefaultComboBoxModel(listTiposUsuarios.toArray());
+        listTipoUsuarios = tipoUsuarioDao.pesquisar();
+        DefaultComboBoxModel<TipoUsuario> model = new DefaultComboBoxModel(listTipoUsuarios.toArray());
         telaUsuarioGerenciar.getCbTipoUsuario().setModel(model);
     }
 
-    private void inserirFuncionario() {
+    private void inserirUsuario() {
         usuario = new Usuario();
         criarFuncionario();
 
@@ -82,10 +83,10 @@ public class TelaUsuarioGerenciarControl {
             endereco = null;
             return;
         }
-        Integer idInserido = funcionarioDao.inserir(usuario);
+        Integer idInserido = usuarioDao.inserir(usuario);
         if (idInserido != 0) {
             usuario.setId(idInserido);
-            tableModelFuncionarios.adicionar(usuario);
+            usuarioTableModel.adicionar(usuario);
             limparCampos();
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
@@ -101,10 +102,10 @@ public class TelaUsuarioGerenciarControl {
             usuario = null;
             return;
         }
-        boolean alterado = funcionarioDao.alterar(usuario);
+        boolean alterado = usuarioDao.alterar(usuario);
         linhaSelecionada = telaUsuarioGerenciar.getTblFuncionario().getSelectedRow();
         if (alterado) {
-            tableModelFuncionarios.atualizar(linhaSelecionada, usuario);
+            usuarioTableModel.atualizar(linhaSelecionada, usuario);
             Mensagem.info(Texto.SUCESSO_EDITAR);
             limparCampos();
         } else {
@@ -115,15 +116,19 @@ public class TelaUsuarioGerenciarControl {
     }
 
     private void criarFuncionario() {
+        
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
+        usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
+        usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
         usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
         usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
         usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
         usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
 
         // modifica os atributos baseado no que o usuario modificar.
+        endereco = new Endereco();
         endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
         endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
         endereco.setCidade(telaUsuarioGerenciar.getTfCidade().getText());
@@ -173,7 +178,7 @@ public class TelaUsuarioGerenciarControl {
 
     public void gravarFuncionarioAction() {
         if (usuario == null) {
-            inserirFuncionario();
+            inserirUsuario();
         } else {
             alterarFuncionario();
         }
@@ -186,10 +191,10 @@ public class TelaUsuarioGerenciarControl {
             return;
         }
         if (retorno == JOptionPane.YES_OPTION) {
-            usuario = tableModelFuncionarios.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
-            boolean deletado = funcionarioDao.desativar(usuario.getId());
+            usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
+            boolean deletado = usuarioDao.desativar(usuario.getId());
             if (deletado) {
-                tableModelFuncionarios.remover(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
+                usuarioTableModel.remover(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
                 telaUsuarioGerenciar.getTblFuncionario().clearSelection();
                 Mensagem.info(Texto.SUCESSO_DESATIVAR);
             } else {
@@ -200,8 +205,10 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void carregarFuncionariosAction() {
-        usuario = tableModelFuncionarios.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
+        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
         telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
+        telaUsuarioGerenciar.getTfDataNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
+        telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
         telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
         telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
         telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
@@ -226,6 +233,8 @@ public class TelaUsuarioGerenciarControl {
 
     private void limparCampos() {
         telaUsuarioGerenciar.getTfNome().setText("");
+        telaUsuarioGerenciar.getTfCpf().setText("");
+        telaUsuarioGerenciar.getTfDataNascimento().setText("");
         telaUsuarioGerenciar.getTfTelefone().setText("");
         telaUsuarioGerenciar.getTfEmail().setText("");
         telaUsuarioGerenciar.getTfPis().setText("");
@@ -240,7 +249,7 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfNumero().setText("");
         telaUsuarioGerenciar.getCheckAtivo().setSelected(false);
         telaUsuarioGerenciar.getCbTipoUsuario().setSelectedItem(0);
-        telaUsuarioGerenciar.getCbEstado().setSelectedItem(0);
+        telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem("AC");
         telaUsuarioGerenciar.getTfNome().requestFocus();
     }
 }

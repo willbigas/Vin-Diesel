@@ -27,7 +27,7 @@ public class UsuarioDao extends Dao implements DaoI<Usuario> {
     @Override
     public int inserir(Usuario usuario) {
         String queryInsert = "INSERT INTO usuario (NOME, DATANASCIMENTO, TELEFONE, EMAIL , CPF ,"
-                + " SENHA , SALARIO , NUMEROPIS , ATIVO , ENDERECO_ID , TIPOUSUARIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " SENHA , SALARIO , NUMEROPIS , ATIVO , ENDERECO_ID , TIPOUSUARIO_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -74,6 +74,7 @@ public class UsuarioDao extends Dao implements DaoI<Usuario> {
             stmt.setBoolean(9, usuario.getAtivo());
             stmt.setInt(10, usuario.getEndereco().getId());
             stmt.setInt(11, usuario.getTipoUsuario().getId());
+            stmt.setInt(12, usuario.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

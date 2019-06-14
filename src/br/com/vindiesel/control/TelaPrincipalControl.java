@@ -33,10 +33,10 @@ public class TelaPrincipalControl {
 
     public void chamarTelaGerenciarFuncionarioAction() {
         if (telaUsuarioGerenciarControl != null) {
-            telaUsuarioGerenciarControl.chamarTelaFuncionarioGerenciar();
+            telaUsuarioGerenciarControl.chamarTelaUsuarioGerenciar();
         } else {
             telaUsuarioGerenciarControl = new TelaUsuarioGerenciarControl();
-            telaUsuarioGerenciarControl.chamarTelaFuncionarioGerenciar();
+            telaUsuarioGerenciarControl.chamarTelaUsuarioGerenciar();
         }
     }
 

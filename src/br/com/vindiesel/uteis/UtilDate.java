@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter;
  * @author william.mauro
  */
 public class UtilDate {
+
     /**
      * Convertendo String para Data no Formato DD/MM/AAAA
      *
@@ -29,15 +30,34 @@ public class UtilDate {
     }
 
     /**
+     * Convertendo String para Data no Formato DD/MM/AAAA
+     *
+     * @return Data
+     */
+    public static java.time.LocalDate dataLocal(String dataStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(dataStr, formatter);
+    }
+
+    /**
      * Convertendo Data para String no Formato DD/MM/AAAA
      *
      * @param data
      * @return String
-     * @throws Exception
      */
-    public static String data(java.util.Date data) throws Exception {
+    public static String data(java.util.Date data)  {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         return df.format(data);
+    }
+    /**
+     * Convertendo Data para String no Formato DD/MM/AAAA
+     *
+     * @param data
+     * @return String
+     */
+    public static String dataLocal(java.time.LocalDate data) {
+       DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+       return data.format(formatador);
     }
 
     /**
@@ -135,23 +155,25 @@ public class UtilDate {
 
         return dataVerificada.compareTo(hoje) == 0;
     }
-    
+
     /**
      * Converte uma data vinda no formato do banco de dados
+     *
      * @param data
      * @return data no formato dd/MM/yyyy
      */
-    public static String deSql(java.sql.Date data){
+    public static String deSql(java.sql.Date data) {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         return formatador.format(data);
     }
-    
+
     /**
-    * Converte uma data vinda no formato de string do usuário
-    * @param data
-    * @return data no formato do banco de dados
-    */
-    public static java.sql.Date paraSql(String data){
+     * Converte uma data vinda no formato de string do usuário
+     *
+     * @param data
+     * @return data no formato do banco de dados
+     */
+    public static java.sql.Date paraSql(String data) {
         try {
             SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
             java.util.Date dataUtil = formatador.parse(data);
@@ -160,18 +182,18 @@ public class UtilDate {
             System.out.println("Erro ao converter data");
             return null;
         }
-        
+
     }
-    
+
     /**
      * Retorna a data atual convertida em String no formato dd/MM/yyyy
-     * @return 
+     *
+     * @return
      */
-    public static String dataAtual(){
+    public static String dataAtual() {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date dataUtil = new java.util.Date();
         return formatador.format(dataUtil);
     }
-    
-    
+
 }

@@ -120,7 +120,6 @@ public class TelaTipoUsuarioGerenciarControl {
 
         if (Validacao.validaEntidade(tipoUsuario) != null) {
             Mensagem.info(Validacao.validaEntidade(tipoUsuario));
-            tipoUsuario = null;
             return;
         }
 

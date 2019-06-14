@@ -35,7 +35,7 @@ public class TelaEncomendaGerenciarControl {
         encomendaTableModel = new EncomendaTableModel();
     }
 
-    public void chamarTelaProdutoGerenciar() {
+    public void chamarTelaEncomendaGerenciar() {
         if (telaProdutoGerenciar == null) {
             telaProdutoGerenciar = new TelaEncomendaGerenciar(this);
             TelaPrincipal.desktopPane.add(telaProdutoGerenciar);

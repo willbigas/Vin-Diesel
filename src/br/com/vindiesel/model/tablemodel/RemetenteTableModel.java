@@ -17,13 +17,13 @@ import javax.swing.table.AbstractTableModel;
  */
 public class RemetenteTableModel extends AbstractTableModel implements AcoesTableModel<Remetente> {
 
-    private static final int CODIGO = 0;
+    private static final int CODIGO_PESSOA = 0;
     private static final int NOME = 1;
     private static final int TELEFONE = 2;
     private static final int CIDADE = 3;
 
     private List<Remetente> linhas;
-    private String[] COLUNAS = {"Código", "Nome", "Telefone","Cidade"};
+    private String[] COLUNAS = {"CPF/CNPJ", "NOME", "TELEFONE","CIDADE"};
 
     public RemetenteTableModel() {
         linhas = new ArrayList<>();
@@ -51,8 +51,8 @@ public class RemetenteTableModel extends AbstractTableModel implements AcoesTabl
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-            case CODIGO:
-                return Integer.class;
+            case CODIGO_PESSOA:
+                return String.class;
             case NOME:
                 return String.class;
             case TELEFONE:
@@ -66,16 +66,16 @@ public class RemetenteTableModel extends AbstractTableModel implements AcoesTabl
 
     @Override
     public Object getValueAt(int linha, int coluna) {
-        Remetente fornecedor = linhas.get(linha);
+        Remetente remetente = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                return fornecedor.getId();
+            case CODIGO_PESSOA:
+                return remetente.getCodigoPessoa();
             case NOME:
-                return fornecedor.getNome();
+                return remetente.getNome();
             case TELEFONE:
-                return fornecedor.getTelefone();
+                return remetente.getTelefone();
             case CIDADE:
-                return fornecedor.getEndereco().getCidade();
+                return remetente.getEndereco().getCidade();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -83,19 +83,19 @@ public class RemetenteTableModel extends AbstractTableModel implements AcoesTabl
 
     @Override
     public void setValueAt(Object valor, int linha, int coluna) {
-        Remetente fornecedor = linhas.get(linha);
+        Remetente remetente = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                fornecedor.setId(Integer.valueOf((String) valor));
+            case CODIGO_PESSOA:
+                remetente.setCodigoPessoa((String) valor);
                 break;
             case NOME:
-                fornecedor.setNome((String) valor);
+                remetente.setNome((String) valor);
                 break;
             case TELEFONE:
-                fornecedor.setTelefone((String) valor);
+                remetente.setTelefone((String) valor);
                 break;
             case CIDADE:
-                fornecedor.getEndereco().setCidade((String) valor);
+                remetente.getEndereco().setCidade((String) valor);
                 break;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -140,8 +140,8 @@ public class RemetenteTableModel extends AbstractTableModel implements AcoesTabl
     }
 
     @Override
-    public void atualizar(int indiceLinha, Remetente fornecedor) {
-        linhas.set(indiceLinha, fornecedor);
+    public void atualizar(int indiceLinha, Remetente remetente) {
+        linhas.set(indiceLinha, remetente);
         fireTableRowsUpdated(indiceLinha, indiceLinha); // atualiza delete
     }
 

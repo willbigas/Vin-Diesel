@@ -15,20 +15,20 @@ import java.net.URISyntaxException;
  * @author William
  */
 public class TelaLoginControl {
-    
-    TelaLogin telaLogin; 
+
+    TelaLogin telaLogin;
     TelaPrincipalControl telaPrincipalControl;
-    TelaPrincipalFuncionarioControl telaPrincipalCaixaControl;
-    UsuarioDao funcionarioDao;
-    Usuario funcionario;
-    
+    UsuarioDao usuarioDao;
+    Usuario usuario;
+    public Integer tipoUsuarioLogado;
+
     public static final int ADMINISTRADOR = 1;
     public static final int FUNCIONARIO = 2;
 
     public TelaLoginControl() {
-        funcionarioDao = new UsuarioDao();
+        usuarioDao = new UsuarioDao();
     }
-    
+
     public void chamarTelaLoginAction() {
         telaLogin = new TelaLogin(this);
         telaLogin.setLocationRelativeTo(null);
@@ -39,35 +39,36 @@ public class TelaLoginControl {
         telaPrincipalControl = new TelaPrincipalControl();
         telaPrincipalControl.chamarTelaPrincipal();
     }
-    private void chamarTelaPrincipalFuncionario() {
-        telaPrincipalCaixaControl = new TelaPrincipalFuncionarioControl();
-        telaPrincipalCaixaControl.chamarTelaPrincipalCaixa();
-    }
-    
+
     public void acessarTelaPrincipalAction() {
-        funcionario = funcionarioDao.pesquisarLogin(telaLogin.getTfLogin().getText());
-        if (funcionario == null) {
+        usuario = usuarioDao.pesquisarLogin(telaLogin.getTfLogin().getText());
+        if (usuario == null) {
             Mensagem.info(Texto.ERRO_USUARIO);
             return;
         }
         /**
-         * Get password retorna Char[] String então deve se instanciar uma nova string com os caracteres.
+         * Get password retorna Char[] String então deve se instanciar uma nova
+         * string com os caracteres.
          */
-        if (!funcionario.getSenha().equals(new String(telaLogin.getTfSenha().getPassword()))) { 
+        if (!usuario.getSenha().equals(new String(telaLogin.getTfSenha().getPassword()))) {
             Mensagem.atencao(Texto.SENHA_USUARIO);
             return;
         }
-        
-        if (funcionario.getTipoUsuario().getTipoPermissao() == ADMINISTRADOR) {
+
+        if (usuario.getTipoUsuario().getTipoPermissao() == ADMINISTRADOR) {
+            tipoUsuarioLogado = ADMINISTRADOR;
             chamarTelaPrincipal();
-        } 
-        
-        if (funcionario.getTipoUsuario().getTipoPermissao() == FUNCIONARIO) {
-            chamarTelaPrincipalFuncionario();
+
+        }
+
+        if (usuario.getTipoUsuario().getTipoPermissao() == FUNCIONARIO) {
+            tipoUsuarioLogado = FUNCIONARIO;
+            chamarTelaPrincipal();
+
         }
         telaLogin.dispose();
     }
-    
+
     public void abrirLink(String endereco) {
         try {
             Desktop desktop = null;
@@ -88,8 +89,5 @@ public class TelaLoginControl {
         } catch (IOException iOException) {
         }
     }
-    
-    
-    
-    
+
 }

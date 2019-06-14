@@ -35,7 +35,7 @@ public class Usuario {
     @CPF
     private String cpf;
     @NotBlank
-    @Size(min = 5, max = 45)
+    @Size(min = 4, max = 45)
     private String senha;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")

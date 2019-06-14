@@ -46,7 +46,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         tfPis = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblFuncionario = new javax.swing.JTable();
+        tblUsuario = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         tfPesquisar = new javax.swing.JTextField();
         btVisualizar = new javax.swing.JButton();
@@ -99,7 +99,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         tfPis.setColumns(15);
 
-        tblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -110,7 +110,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblFuncionario);
+        jScrollPane1.setViewportView(tblUsuario);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
@@ -483,7 +483,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable tblFuncionario;
+    private javax.swing.JTable tblUsuario;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
     private javax.swing.JTextField tfCidade;
@@ -525,12 +525,12 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         this.cbTipoUsuario = cbTipoUsuario;
     }
 
-    public JTable getTblFuncionario() {
-        return tblFuncionario;
+    public JTable getTblUsuario() {
+        return tblUsuario;
     }
 
-    public void setTblFuncionario(JTable tblFuncionario) {
-        this.tblFuncionario = tblFuncionario;
+    public void setTblUsuario(JTable tblUsuario) {
+        this.tblUsuario = tblUsuario;
     }
 
     public JTextField getTfBairro() {

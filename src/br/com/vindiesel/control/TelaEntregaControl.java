@@ -11,19 +11,15 @@ import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioDialogPesquisar;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceita;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,7 +52,7 @@ public class TelaEntregaControl {
 
     }
 
-    public void chamarTelaVenda() {
+    public void chamarTelaEntrega() {
         if (telaEntrega == null) {
             telaEntrega = new TelaEntrega(this);
             TelaPrincipal.desktopPane.add(telaEntrega);
@@ -88,8 +84,8 @@ public class TelaEntregaControl {
         UtilTable.redimensionar(telaEntrega.getTblProduto(), 2, 90);
         UtilTable.redimensionar(telaEntrega.getTblProduto(), 3, 95);
     }
-    
-     public void redimensionarTabelaItemVenda() {
+
+    public void redimensionarTabelaItemVenda() {
 
         UtilTable.redimensionar(telaEntrega.getTblVenda(), 0, 90);
         UtilTable.redimensionar(telaEntrega.getTblVenda(), 1, 280);
@@ -105,7 +101,7 @@ public class TelaEntregaControl {
         UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 3);
         UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 4);
     }
-    
+
     public void centralizarCabecalhoEConteudoTabelaItemVenda() {
         UtilTable.centralizarCabecalho(telaEntrega.getTblVenda());
         UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 0);
@@ -113,7 +109,7 @@ public class TelaEntregaControl {
         UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 2);
         UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 3);
     }
-    
+
     private void carregarClientesNaCombo() {
         listDestinatarios = destinatarioDao.pesquisar();
         DefaultComboBoxModel<Destinatario> model = new DefaultComboBoxModel(listDestinatarios.toArray());
@@ -126,7 +122,6 @@ public class TelaEntregaControl {
         telaEntrega.getCbUsuario().setModel(model);
     }
 
-
     public void chamarDialogVendaReceitaAction() {
         telaEntregaReceita = new TelaEntregaReceita(telaEntrega, true, this);
         telaEntregaReceita.setVisible(true);
@@ -134,9 +129,8 @@ public class TelaEntregaControl {
 
     public void adicionarVendaAction() {
         entrega = new Entrega();
-        
+
         // atributos de entrega 
-        
         if (Validacao.validaEntidade(entrega) != null) {
             Mensagem.info(Validacao.validaEntidade(entrega));
             entrega = null;
@@ -151,7 +145,7 @@ public class TelaEntregaControl {
         }
 
         entrega.setId(idVendaInserida);
-        
+
     }
 
     public void pesquisarEncomendaAction() {
@@ -164,7 +158,6 @@ public class TelaEntregaControl {
             encomendaTableModel.adicionar(produtosPesquisados);
         }
     }
-
 
     public void chamarDialogClienteAction() {
         telaDestinatarioDialogPesquisar = new TelaDestinatarioDialogPesquisar(telaEntrega, true, this);

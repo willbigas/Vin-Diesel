@@ -39,7 +39,7 @@ public class TelaDestinatarioGerenciarControl {
         destinatarioTableModel = new DestinatarioTableModel();
     }
     
-    public void chamarTelaClienteGerenciar() {
+    public void chamarTelaDestinatarioGerenciar() {
         if (telaDestinatarioGerenciar == null) {
             telaDestinatarioGerenciar = new TelaDestinatarioGerenciar(this);
             TelaPrincipal.desktopPane.add(telaDestinatarioGerenciar);

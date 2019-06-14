@@ -23,7 +23,7 @@ public class RemetenteDao extends Dao implements DaoI<Remetente> {
 
     @Override
     public int inserir(Remetente remetente) {
-        String queryInsert = "INSERT INTO remetente (NOME, CODIGOPESSOA , FK_ENDERECO, TELEFONE) VALUES(?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO remetente (NOME, CODIGOPESSOA , ENDERECO_ID, TELEFONE) VALUES(?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -47,7 +47,7 @@ public class RemetenteDao extends Dao implements DaoI<Remetente> {
 
     @Override
     public boolean alterar(Remetente remetente) {
-        String queryUpdate = "UPDATE remetente SET nome = ?, CODIGOPESSOA = ?, fk_endereco = ?, TELEFONE = ? WHERE ID = ?";
+        String queryUpdate = "UPDATE remetente SET nome = ?, CODIGOPESSOA = ?, ENDERECO_ID = ?, TELEFONE = ? WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setString(1, remetente.getNome());
@@ -96,7 +96,7 @@ public class RemetenteDao extends Dao implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
-                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("fk_endereco")));
+                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }
             return lista;
@@ -122,7 +122,7 @@ public class RemetenteDao extends Dao implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
-                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("fk_endereco")));
+                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }
             return lista;
@@ -145,7 +145,7 @@ public class RemetenteDao extends Dao implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
-                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("fk_endereco")));
+                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 return remetente;
             } else {
                 return null;

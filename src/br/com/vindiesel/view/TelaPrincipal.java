@@ -3,6 +3,8 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaPrincipalControl;
 import br.com.vindiesel.uteis.Relatorio;
 import java.io.InputStream;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -17,7 +19,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
-        telaPrincipalControl = new TelaPrincipalControl();
+    }
+    public TelaPrincipal(TelaPrincipalControl control) {
+        initComponents();
+        telaPrincipalControl = control;
+        
     }
 
     /**
@@ -31,20 +37,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuClientes = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        menuProdutos = new javax.swing.JMenu();
+        menuPessoa = new javax.swing.JMenu();
+        menuItemGerenciarRemetente = new javax.swing.JMenuItem();
+        menuItemGerenciarDestinatario = new javax.swing.JMenuItem();
+        menuEntrega = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         menuUsuario = new javax.swing.JMenu();
-        menuItemGerenciarFuncionario = new javax.swing.JMenuItem();
+        menuItemGerenciarUsuario = new javax.swing.JMenuItem();
         menuItemGerenciarTipoUsuario = new javax.swing.JMenuItem();
         menuFinanceiro = new javax.swing.JMenu();
         menuItemReceita = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        menuRelatorio = new javax.swing.JMenu();
         menuItemRelatorioReceitas = new javax.swing.JMenuItem();
-        menuItemRelatorioReceitas1 = new javax.swing.JMenuItem();
-        menuItemRelatorioReceitas2 = new javax.swing.JMenuItem();
+        menuItemRelatorioEntrega = new javax.swing.JMenuItem();
+        menuItemRelatorioUsuario = new javax.swing.JMenuItem();
         menuSobre = new javax.swing.JMenu();
         menuItemAjuda = new javax.swing.JMenuItem();
         menuItemSobre = new javax.swing.JMenuItem();
@@ -74,44 +80,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
-        menuClientes.setText("Pessoas");
-        menuClientes.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuPessoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
+        menuPessoa.setText("Pessoas");
+        menuPessoa.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
-        jMenuItem2.setText("Gerenciar Remetentes");
-        menuClientes.add(jMenuItem2);
+        menuItemGerenciarRemetente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
+        menuItemGerenciarRemetente.setText("Gerenciar Remetentes");
+        menuItemGerenciarRemetente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemGerenciarRemetenteActionPerformed(evt);
+            }
+        });
+        menuPessoa.add(menuItemGerenciarRemetente);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
-        jMenuItem3.setText("Gerenciar Destinatários");
-        menuClientes.add(jMenuItem3);
+        menuItemGerenciarDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
+        menuItemGerenciarDestinatario.setText("Gerenciar Destinatários");
+        menuPessoa.add(menuItemGerenciarDestinatario);
 
-        jMenuBar1.add(menuClientes);
+        jMenuBar1.add(menuPessoa);
 
-        menuProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
-        menuProdutos.setText("Entrega");
-        menuProdutos.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
+        menuEntrega.setText("Entrega");
+        menuEntrega.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem4.setText("Gerenciar Entregas");
-        menuProdutos.add(jMenuItem4);
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuEntrega.add(jMenuItem4);
 
-        jMenuBar1.add(menuProdutos);
+        jMenuBar1.add(menuEntrega);
 
         menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuUsuario.setText("Usuários");
         menuUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
-        menuItemGerenciarFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemGerenciarFuncionario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        menuItemGerenciarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
-        menuItemGerenciarFuncionario.setText("Gerenciar Usuários");
-        menuItemGerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        menuItemGerenciarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemGerenciarUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
+        menuItemGerenciarUsuario.setText("Gerenciar Usuários");
+        menuItemGerenciarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemGerenciarFuncionarioActionPerformed(evt);
+                menuItemGerenciarUsuarioActionPerformed(evt);
             }
         });
-        menuUsuario.add(menuItemGerenciarFuncionario);
+        menuUsuario.add(menuItemGerenciarUsuario);
 
         menuItemGerenciarTipoUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         menuItemGerenciarTipoUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -143,9 +159,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuFinanceiro);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/relatorio_32x32.png"))); // NOI18N
-        jMenu1.setText("Relatórios");
-        jMenu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/relatorio_32x32.png"))); // NOI18N
+        menuRelatorio.setText("Relatórios");
+        menuRelatorio.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
         menuItemRelatorioReceitas.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         menuItemRelatorioReceitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
@@ -155,29 +171,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 menuItemRelatorioReceitasActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemRelatorioReceitas);
+        menuRelatorio.add(menuItemRelatorioReceitas);
 
-        menuItemRelatorioReceitas1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        menuItemRelatorioReceitas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
-        menuItemRelatorioReceitas1.setText("Entregas");
-        menuItemRelatorioReceitas1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRelatorioEntrega.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
+        menuItemRelatorioEntrega.setText("Entregas");
+        menuItemRelatorioEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRelatorioReceitas1ActionPerformed(evt);
+                menuItemRelatorioEntregaActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemRelatorioReceitas1);
+        menuRelatorio.add(menuItemRelatorioEntrega);
 
-        menuItemRelatorioReceitas2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        menuItemRelatorioReceitas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
-        menuItemRelatorioReceitas2.setText("Usuarios");
-        menuItemRelatorioReceitas2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRelatorioUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
+        menuItemRelatorioUsuario.setText("Usuarios");
+        menuItemRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRelatorioReceitas2ActionPerformed(evt);
+                menuItemRelatorioUsuarioActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemRelatorioReceitas2);
+        menuRelatorio.add(menuItemRelatorioUsuario);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuRelatorio);
 
         menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/info_32x32.png"))); // NOI18N
         menuSobre.setText("Sobre");
@@ -223,9 +239,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuItemGerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarFuncionarioActionPerformed
+    private void menuItemGerenciarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarUsuarioActionPerformed
         telaPrincipalControl.chamarTelaGerenciarFuncionarioAction();
-    }//GEN-LAST:event_menuItemGerenciarFuncionarioActionPerformed
+    }//GEN-LAST:event_menuItemGerenciarUsuarioActionPerformed
 
     private void menuItemGerenciarTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarTipoUsuarioActionPerformed
         telaPrincipalControl.chamarTelaTipoUsuarioGerenciarAction();
@@ -248,13 +264,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Relatorio.chamarRelatorio(jasperFile, null);
     }//GEN-LAST:event_menuItemRelatorioReceitasActionPerformed
 
-    private void menuItemRelatorioReceitas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioReceitas1ActionPerformed
+    private void menuItemRelatorioEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEntregaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menuItemRelatorioReceitas1ActionPerformed
+    }//GEN-LAST:event_menuItemRelatorioEntregaActionPerformed
 
-    private void menuItemRelatorioReceitas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioReceitas2ActionPerformed
+    private void menuItemRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menuItemRelatorioReceitas2ActionPerformed
+    }//GEN-LAST:event_menuItemRelatorioUsuarioActionPerformed
+
+    private void menuItemGerenciarRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarRemetenteActionPerformed
+        // TODO add your handling code here:
+        telaPrincipalControl.chamarTelaRemetenteGerenciarAction();
+    }//GEN-LAST:event_menuItemGerenciarRemetenteActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        telaPrincipalControl.chamarTelaEntregaAction();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,23 +320,145 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JDesktopPane desktopPane = new javax.swing.JDesktopPane();
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenu menuClientes;
+    private javax.swing.JMenu menuEntrega;
     private javax.swing.JMenu menuFinanceiro;
     private javax.swing.JMenuItem menuItemAjuda;
-    private javax.swing.JMenuItem menuItemGerenciarFuncionario;
+    private javax.swing.JMenuItem menuItemGerenciarDestinatario;
+    private javax.swing.JMenuItem menuItemGerenciarRemetente;
     private javax.swing.JMenuItem menuItemGerenciarTipoUsuario;
+    private javax.swing.JMenuItem menuItemGerenciarUsuario;
     private javax.swing.JMenuItem menuItemReceita;
+    private javax.swing.JMenuItem menuItemRelatorioEntrega;
     private javax.swing.JMenuItem menuItemRelatorioReceitas;
-    private javax.swing.JMenuItem menuItemRelatorioReceitas1;
-    private javax.swing.JMenuItem menuItemRelatorioReceitas2;
+    private javax.swing.JMenuItem menuItemRelatorioUsuario;
     private javax.swing.JMenuItem menuItemSobre;
-    private javax.swing.JMenu menuProdutos;
+    private javax.swing.JMenu menuPessoa;
+    private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenu menuSobre;
     private javax.swing.JMenu menuUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public JMenu getMenuEntrega() {
+        return menuEntrega;
+    }
+
+    public void setMenuEntrega(JMenu menuEntrega) {
+        this.menuEntrega = menuEntrega;
+    }
+
+    public JMenu getMenuFinanceiro() {
+        return menuFinanceiro;
+    }
+
+    public void setMenuFinanceiro(JMenu menuFinanceiro) {
+        this.menuFinanceiro = menuFinanceiro;
+    }
+
+    public JMenuItem getMenuItemAjuda() {
+        return menuItemAjuda;
+    }
+
+    public void setMenuItemAjuda(JMenuItem menuItemAjuda) {
+        this.menuItemAjuda = menuItemAjuda;
+    }
+
+    public JMenuItem getMenuItemGerenciarDestinatario() {
+        return menuItemGerenciarDestinatario;
+    }
+
+    public void setMenuItemGerenciarDestinatario(JMenuItem menuItemGerenciarDestinatario) {
+        this.menuItemGerenciarDestinatario = menuItemGerenciarDestinatario;
+    }
+
+    public JMenuItem getMenuItemGerenciarRemetente() {
+        return menuItemGerenciarRemetente;
+    }
+
+    public void setMenuItemGerenciarRemetente(JMenuItem menuItemGerenciarRemetente) {
+        this.menuItemGerenciarRemetente = menuItemGerenciarRemetente;
+    }
+
+    public JMenuItem getMenuItemGerenciarTipoUsuario() {
+        return menuItemGerenciarTipoUsuario;
+    }
+
+    public void setMenuItemGerenciarTipoUsuario(JMenuItem menuItemGerenciarTipoUsuario) {
+        this.menuItemGerenciarTipoUsuario = menuItemGerenciarTipoUsuario;
+    }
+
+    public JMenuItem getMenuItemGerenciarUsuario() {
+        return menuItemGerenciarUsuario;
+    }
+
+    public void setMenuItemGerenciarUsuario(JMenuItem menuItemGerenciarUsuario) {
+        this.menuItemGerenciarUsuario = menuItemGerenciarUsuario;
+    }
+
+    public JMenuItem getMenuItemReceita() {
+        return menuItemReceita;
+    }
+
+    public void setMenuItemReceita(JMenuItem menuItemReceita) {
+        this.menuItemReceita = menuItemReceita;
+    }
+
+    public JMenuItem getMenuItemRelatorioEntrega() {
+        return menuItemRelatorioEntrega;
+    }
+
+    public void setMenuItemRelatorioEntrega(JMenuItem menuItemRelatorioEntrega) {
+        this.menuItemRelatorioEntrega = menuItemRelatorioEntrega;
+    }
+
+    public JMenuItem getMenuItemRelatorioReceitas() {
+        return menuItemRelatorioReceitas;
+    }
+
+    public void setMenuItemRelatorioReceitas(JMenuItem menuItemRelatorioReceitas) {
+        this.menuItemRelatorioReceitas = menuItemRelatorioReceitas;
+    }
+
+    public JMenuItem getMenuItemRelatorioUsuario() {
+        return menuItemRelatorioUsuario;
+    }
+
+    public void setMenuItemRelatorioUsuario(JMenuItem menuItemRelatorioUsuario) {
+        this.menuItemRelatorioUsuario = menuItemRelatorioUsuario;
+    }
+
+    public JMenuItem getMenuItemSobre() {
+        return menuItemSobre;
+    }
+
+    public void setMenuItemSobre(JMenuItem menuItemSobre) {
+        this.menuItemSobre = menuItemSobre;
+    }
+
+    public JMenu getMenuPessoa() {
+        return menuPessoa;
+    }
+
+    public void setMenuPessoa(JMenu menuPessoa) {
+        this.menuPessoa = menuPessoa;
+    }
+
+    public JMenu getMenuRelatorio() {
+        return menuRelatorio;
+    }
+
+    public void setMenuRelatorio(JMenu menuRelatorio) {
+        this.menuRelatorio = menuRelatorio;
+    }
+
+    public JMenu getMenuSobre() {
+        return menuSobre;
+    }
+
+    public void setMenuSobre(JMenu menuSobre) {
+        this.menuSobre = menuSobre;
+    }
+
+
 }

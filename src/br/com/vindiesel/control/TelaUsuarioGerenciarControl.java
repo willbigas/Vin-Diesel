@@ -63,7 +63,7 @@ public class TelaUsuarioGerenciarControl {
         }
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
-        telaUsuarioGerenciar.getTblFuncionario().setModel(usuarioTableModel);
+        telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
         usuarioTableModel.adicionar(usuarioDao.pesquisar());
     }
 
@@ -75,48 +75,7 @@ public class TelaUsuarioGerenciarControl {
 
     private void inserirUsuario() {
         usuario = new Usuario();
-        criarFuncionario();
 
-        if (Validacao.validaEntidade(usuario) != null) {
-            Mensagem.info(Validacao.validaEntidade(usuario));
-            usuario = null;
-            endereco = null;
-            return;
-        }
-        Integer idInserido = usuarioDao.inserir(usuario);
-        if (idInserido != 0) {
-            usuario.setId(idInserido);
-            usuarioTableModel.adicionar(usuario);
-            limparCampos();
-            Mensagem.info(Texto.SUCESSO_CADASTRAR);
-        } else {
-            Mensagem.info(Texto.ERRO_CADASTRAR);
-        }
-        usuario = null;
-    }
-
-    private void alterarFuncionario() {
-        criarFuncionario();
-        if (Validacao.validaEntidade(usuario) != null) {
-            Mensagem.info(Validacao.validaEntidade(usuario));
-            usuario = null;
-            return;
-        }
-        boolean alterado = usuarioDao.alterar(usuario);
-        linhaSelecionada = telaUsuarioGerenciar.getTblFuncionario().getSelectedRow();
-        if (alterado) {
-            usuarioTableModel.atualizar(linhaSelecionada, usuario);
-            Mensagem.info(Texto.SUCESSO_EDITAR);
-            limparCampos();
-        } else {
-            Mensagem.erro(Texto.ERRO_EDITAR);
-        }
-        usuario = null;
-        endereco = null;
-    }
-
-    private void criarFuncionario() {
-        
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
         usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
@@ -136,6 +95,7 @@ public class TelaUsuarioGerenciarControl {
         endereco.setEstado((String) telaUsuarioGerenciar.getCbEstado().getSelectedItem());
         endereco.setNumero(telaUsuarioGerenciar.getTfNumero().getText());
         endereco.setRua(telaUsuarioGerenciar.getTfRua().getText());
+
         Integer idEndereco = enderecoDao.inserir(endereco);
         endereco.setId(idEndereco);
         usuario.setEndereco(endereco);
@@ -145,6 +105,76 @@ public class TelaUsuarioGerenciarControl {
         } else {
             usuario.setAtivo(false);
         }
+
+        if (Validacao.validaEntidade(usuario) != null) {
+            Mensagem.info(Validacao.validaEntidade(usuario));
+            usuario = null;
+            endereco = null;
+            return;
+        }
+        Integer idInserido = usuarioDao.inserir(usuario);
+        if (idInserido != 0) {
+            usuario.setId(idInserido);
+            usuarioTableModel.adicionar(usuario);
+            limparCampos();
+            Mensagem.info(Texto.SUCESSO_CADASTRAR);
+        } else {
+            Mensagem.info(Texto.ERRO_CADASTRAR);
+        }
+        usuario = null;
+        endereco = null;
+    }
+
+    private void alterarUsuario() {
+        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+        usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
+        usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
+        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
+        usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
+        usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
+        usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
+        usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+        usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
+        usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
+
+        endereco = usuario.getEndereco();
+        endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
+        endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
+        endereco.setCidade(telaUsuarioGerenciar.getTfCidade().getText());
+        endereco.setComplemento(telaUsuarioGerenciar.getTfComplemento().getText());
+        endereco.setEstado((String) telaUsuarioGerenciar.getCbEstado().getSelectedItem());
+        endereco.setNumero(telaUsuarioGerenciar.getTfNumero().getText());
+        endereco.setRua(telaUsuarioGerenciar.getTfRua().getText());
+
+        boolean enderecoAlterado = enderecoDao.alterar(endereco);
+
+        if (!enderecoAlterado) {
+            Mensagem.erro(Texto.ERRO_EDITAR);
+            return;
+        }
+
+        if (telaUsuarioGerenciar.getCheckAtivo().isSelected()) {
+            usuario.setAtivo(true);
+        } else {
+            usuario.setAtivo(false);
+        }
+
+        if (Validacao.validaEntidade(usuario) != null) {
+            Mensagem.info(Validacao.validaEntidade(usuario));
+            return;
+        }
+        usuario.setEndereco(endereco);
+        boolean alterado = usuarioDao.alterar(usuario);
+        linhaSelecionada = telaUsuarioGerenciar.getTblUsuario().getSelectedRow();
+        if (alterado) {
+            usuarioTableModel.atualizar(linhaSelecionada, usuario);
+            Mensagem.info(Texto.SUCESSO_EDITAR);
+            limparCampos();
+        } else {
+            Mensagem.erro(Texto.ERRO_EDITAR);
+        }
+        usuario = null;
+        endereco = null;
     }
 
     public void buscarCepAction() {
@@ -180,7 +210,7 @@ public class TelaUsuarioGerenciarControl {
         if (usuario == null) {
             inserirUsuario();
         } else {
-            alterarFuncionario();
+            alterarUsuario();
         }
     }
 
@@ -191,11 +221,11 @@ public class TelaUsuarioGerenciarControl {
             return;
         }
         if (retorno == JOptionPane.YES_OPTION) {
-            usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
+            usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
             boolean deletado = usuarioDao.desativar(usuario.getId());
             if (deletado) {
-                usuarioTableModel.remover(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
-                telaUsuarioGerenciar.getTblFuncionario().clearSelection();
+                usuarioTableModel.remover(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+                telaUsuarioGerenciar.getTblUsuario().clearSelection();
                 Mensagem.info(Texto.SUCESSO_DESATIVAR);
             } else {
                 Mensagem.erro(Texto.ERRO_DESATIVAR);
@@ -205,7 +235,7 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void carregarFuncionariosAction() {
-        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblFuncionario().getSelectedRow());
+        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
         telaUsuarioGerenciar.getTfDataNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
         telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());

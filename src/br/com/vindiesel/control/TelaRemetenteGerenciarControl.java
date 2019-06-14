@@ -26,6 +26,7 @@ public class TelaRemetenteGerenciarControl {
 
     TelaRemetenteGerenciar telaRemetenteGerenciar;
     Remetente remetente;
+    Endereco endereco;
     RemetenteDao remetenteDao;
     RemetenteTableModel remetenteTableModel;
     EnderecoDao enderecoDao;
@@ -42,7 +43,7 @@ public class TelaRemetenteGerenciarControl {
 
     }
 
-    public void chamarTelaFornecedorGerenciar() {
+    public void chamarTelaRemetenteGerenciar() {
         if (telaRemetenteGerenciar == null) { // se tiver nulo chama janela normalmente
             telaRemetenteGerenciar = new TelaRemetenteGerenciar(this);
             TelaPrincipal.desktopPane.add(telaRemetenteGerenciar);
@@ -55,31 +56,23 @@ public class TelaRemetenteGerenciarControl {
                 telaRemetenteGerenciar.setVisible(true);
             }
         }
-        telaRemetenteGerenciar.getTblFornecedor().setModel(remetenteTableModel);
+        telaRemetenteGerenciar.getTblRemetente().setModel(remetenteTableModel);
         carregarEstadosNaComboBox();
         remetenteTableModel.limpar();
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
     }
 
-    private void cadastrarFornecedor() {
+    private void cadastrarRemetente() {
         remetente = new Remetente();
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
+        remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
 
-        Endereco endereco = new Endereco();
-        endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
+        endereco = new Endereco();
 
-        try {
-            endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
-
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
-            remetente = null;
-            endereco = null;
-            return;
-        }
-
+        endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
+        endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaRemetenteGerenciar.getCbEstado().getSelectedItem());
         endereco.setNumero(telaRemetenteGerenciar.getTfNumero().getText());
@@ -88,7 +81,6 @@ public class TelaRemetenteGerenciarControl {
         endereco.setId(idEndereco);
 
         remetente.setEndereco(endereco);
-
 
         if (Validacao.validaEntidade(remetente) != null) {
             Mensagem.info(Validacao.validaEntidade(remetente));
@@ -107,14 +99,16 @@ public class TelaRemetenteGerenciarControl {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
         remetente = null;
+        endereco = null;
     }
 
-    private void alterarFornecedor() {
-        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblFornecedor().getSelectedRow());
+    private void alterarRemetente() {
+        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
+        remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
 
-        Endereco endereco = new Endereco();
+        endereco = remetente.getEndereco();
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
@@ -125,20 +119,16 @@ public class TelaRemetenteGerenciarControl {
         boolean enderecoAlterado = enderecoDao.alterar(endereco);
         if (!enderecoAlterado) {
             Mensagem.erro(Texto.ERRO_EDITAR);
-            endereco = null;
-            remetente = null;
             return;
         }
 
         if (Validacao.validaEntidade(remetente) != null) {
             Mensagem.info(Validacao.validaEntidade(remetente));
-            remetente = null;
-            endereco = null;
             return;
         }
-
+        remetente.setEndereco(endereco);
         boolean alterado = remetenteDao.alterar(remetente);
-        linhaSelecionada = telaRemetenteGerenciar.getTblFornecedor().getSelectedRow();
+        linhaSelecionada = telaRemetenteGerenciar.getTblRemetente().getSelectedRow();
         if (alterado) {
             remetenteTableModel.atualizar(linhaSelecionada, remetente);
             Mensagem.info(Texto.SUCESSO_EDITAR);
@@ -147,6 +137,7 @@ public class TelaRemetenteGerenciarControl {
             Mensagem.erro(Texto.ERRO_EDITAR);
         }
         remetente = null;
+        endereco = null;
     }
 
     public void buscarCepAction() {
@@ -154,7 +145,7 @@ public class TelaRemetenteGerenciarControl {
         BuscaCepControl buscadorDeCep = new BuscaCepControl();
         try {
             buscadorDeCep.buscar(telaRemetenteGerenciar.getTfCep().getText());
-            Endereco endereco = new Endereco();
+            endereco = new Endereco();
             endereco.setEstado(buscadorDeCep.getUf());
             endereco.setBairro(buscadorDeCep.getBairro());
             endereco.setCidade(buscadorDeCep.getCidade());
@@ -179,9 +170,9 @@ public class TelaRemetenteGerenciarControl {
 
     public void gravarFornecedorAction() {
         if (remetente == null) {
-            cadastrarFornecedor();
+            cadastrarRemetente();
         } else {
-            alterarFornecedor();
+            alterarRemetente();
         }
     }
 
@@ -192,11 +183,11 @@ public class TelaRemetenteGerenciarControl {
             return;
         }
         if (retorno == JOptionPane.YES_OPTION) {
-            remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblFornecedor().getSelectedRow());
+            remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
             boolean deletado = remetenteDao.desativar(remetente.getId());
             if (deletado) {
-                remetenteTableModel.remover(telaRemetenteGerenciar.getTblFornecedor().getSelectedRow());
-                telaRemetenteGerenciar.getTblFornecedor().clearSelection();
+                remetenteTableModel.remover(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
+                telaRemetenteGerenciar.getTblRemetente().clearSelection();
                 Mensagem.info(Texto.SUCESSO_DESATIVAR);
             } else {
                 Mensagem.erro(Texto.ERRO_DESATIVAR);
@@ -217,9 +208,10 @@ public class TelaRemetenteGerenciarControl {
     }
 
     public void carregarFornecedorAction() {
-        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblFornecedor().getSelectedRow());
+        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
+        telaRemetenteGerenciar.getTfCodigoPessoa().setText(remetente.getCodigoPessoa());
 
         telaRemetenteGerenciar.getTfBairro().setText(remetente.getEndereco().getBairro());
         telaRemetenteGerenciar.getTfCidade().setText(remetente.getEndereco().getCidade());
@@ -229,11 +221,11 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfRua().setText(remetente.getEndereco().getRua());
         telaRemetenteGerenciar.getTfCep().setText(String.valueOf(remetente.getEndereco().getCep()));
 
-
     }
 
     private void limparCampos() {
         telaRemetenteGerenciar.getTfNome().setText("");
+        telaRemetenteGerenciar.getTfCodigoPessoa().setText("");
         telaRemetenteGerenciar.getTfBairro().setText("");
         telaRemetenteGerenciar.getTfCep().setText("");
         telaRemetenteGerenciar.getTfCidade().setText("");
@@ -243,7 +235,6 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfTelefone().setText("");
         telaRemetenteGerenciar.getTfPesquisar().setText("");
         telaRemetenteGerenciar.getTfRua().setText("");
-        telaRemetenteGerenciar.getCheckAtivo().setSelected(false);
         telaRemetenteGerenciar.getTfNome().requestFocus();
     }
 }

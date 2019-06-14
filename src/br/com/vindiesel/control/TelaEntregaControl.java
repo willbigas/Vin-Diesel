@@ -4,10 +4,17 @@ import br.com.vindiesel.dao.DestinatarioDao;
 import br.com.vindiesel.dao.EncomendaDao;
 import br.com.vindiesel.dao.UsuarioDao;
 import br.com.vindiesel.dao.EntregaDao;
+import br.com.vindiesel.dao.RemetenteDao;
+import br.com.vindiesel.exceptions.BuscaCepException;
+import br.com.vindiesel.interfaces.BuscaCepEventos;
+import br.com.vindiesel.interfaces.BuscaCepEventosImpl;
 import br.com.vindiesel.model.Destinatario;
 import br.com.vindiesel.model.Encomenda;
+import br.com.vindiesel.model.Endereco;
+import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.model.Entrega;
+import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
@@ -32,23 +39,20 @@ public class TelaEntregaControl {
     TelaDestinatarioDialogPesquisar telaDestinatarioDialogPesquisar;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     DestinatarioDao destinatarioDao;
-    UsuarioDao usuarioDao;
     EncomendaDao encomendaDao;
+    RemetenteDao remetenteDao;
     EntregaDao entregaDao;
-    List<Destinatario> listDestinatarios;
-    List<Usuario> listUsuarios;
-    EncomendaTableModel encomendaTableModel;
+    List<Encomenda> listEncomendas;
+    List<Remetente> listRemetentes;
     Entrega entrega;
     Encomenda encomenda;
 
     public TelaEntregaControl() {
         destinatarioDao = new DestinatarioDao();
-        usuarioDao = new UsuarioDao();
         encomendaDao = new EncomendaDao();
+        remetenteDao = new RemetenteDao();
         entregaDao = new EntregaDao();
-        listDestinatarios = new ArrayList<>();
-        listUsuarios = new ArrayList<>();
-        encomendaTableModel = new EncomendaTableModel();
+        listEncomendas = new ArrayList<>();
 
     }
 
@@ -65,61 +69,25 @@ public class TelaEntregaControl {
                 telaEntrega.setVisible(true);
             }
         }
-        carregarClientesNaCombo();
-        carregarUsuariosNaCombo();
-        telaEntrega.getTblProduto().setModel(encomendaTableModel);
-        encomendaTableModel.limpar();
-        encomendaTableModel.adicionar(encomendaDao.pesquisar());
-        redimensionarTabelaProduto();
-        redimensionarTabelaItemVenda();
-        centralizarCabecalhoEConteudoTabelaProduto();
-        centralizarCabecalhoEConteudoTabelaItemVenda();
-
+        carregarEncomendasNaCombo();
+        carregarRemetentesNaCombo();
     }
 
-    public void redimensionarTabelaProduto() {
-
-        UtilTable.redimensionar(telaEntrega.getTblProduto(), 0, 90);
-        UtilTable.redimensionar(telaEntrega.getTblProduto(), 1, 223);
-        UtilTable.redimensionar(telaEntrega.getTblProduto(), 2, 90);
-        UtilTable.redimensionar(telaEntrega.getTblProduto(), 3, 95);
+    
+      public void carregarEstadosNaComboBox() {
+        telaEntrega.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
 
-    public void redimensionarTabelaItemVenda() {
-
-        UtilTable.redimensionar(telaEntrega.getTblVenda(), 0, 90);
-        UtilTable.redimensionar(telaEntrega.getTblVenda(), 1, 280);
-        UtilTable.redimensionar(telaEntrega.getTblVenda(), 2, 90);
-        UtilTable.redimensionar(telaEntrega.getTblVenda(), 3, 113);
+    private void carregarEncomendasNaCombo() {
+        listEncomendas = encomendaDao.pesquisar();
+        DefaultComboBoxModel<Encomenda> model = new DefaultComboBoxModel(listEncomendas.toArray());
+        telaEntrega.getCbEncomenda().setModel(model);
     }
 
-    public void centralizarCabecalhoEConteudoTabelaProduto() {
-        UtilTable.centralizarCabecalho(telaEntrega.getTblProduto());
-        UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 0);
-        UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 1);
-        UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 2);
-        UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 3);
-        UtilTable.centralizarConteudo(telaEntrega.getTblProduto(), 4);
-    }
-
-    public void centralizarCabecalhoEConteudoTabelaItemVenda() {
-        UtilTable.centralizarCabecalho(telaEntrega.getTblVenda());
-        UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 0);
-        UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 1);
-        UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 2);
-        UtilTable.centralizarConteudo(telaEntrega.getTblVenda(), 3);
-    }
-
-    private void carregarClientesNaCombo() {
-        listDestinatarios = destinatarioDao.pesquisar();
-        DefaultComboBoxModel<Destinatario> model = new DefaultComboBoxModel(listDestinatarios.toArray());
-        telaEntrega.getCbCliente().setModel(model);
-    }
-
-    private void carregarUsuariosNaCombo() {
-        listUsuarios = usuarioDao.pesquisar();
-        DefaultComboBoxModel<Usuario> model = new DefaultComboBoxModel(listUsuarios.toArray());
-        telaEntrega.getCbUsuario().setModel(model);
+    private void carregarRemetentesNaCombo() {
+        listRemetentes = remetenteDao.pesquisar();
+        DefaultComboBoxModel<Remetente> model = new DefaultComboBoxModel(listRemetentes.toArray());
+        telaEntrega.getCbRemetente().setModel(model);
     }
 
     public void chamarDialogVendaReceitaAction() {
@@ -148,20 +116,38 @@ public class TelaEntregaControl {
 
     }
 
-    public void pesquisarEncomendaAction() {
-        List<Encomenda> produtosPesquisados = encomendaDao.pesquisar(telaEntrega.getTfPesquisaProduto().getText());
-        if (produtosPesquisados == null) {
-            encomendaTableModel.limpar();
-            produtosPesquisados = encomendaDao.pesquisar();
-        } else {
-            encomendaTableModel.limpar();
-            encomendaTableModel.adicionar(produtosPesquisados);
-        }
-    }
-
     public void chamarDialogClienteAction() {
         telaDestinatarioDialogPesquisar = new TelaDestinatarioDialogPesquisar(telaEntrega, true, this);
         telaDestinatarioDialogPesquisar.setVisible(true);
+    }
+    
+       public void buscarCepAction() {
+        BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
+        BuscaCepControl buscadorDeCep = new BuscaCepControl();
+        try {
+            buscadorDeCep.buscar(telaEntrega.getTfCep().getText());
+            Endereco endereco = new Endereco();
+            endereco.setEstado(buscadorDeCep.getUf());
+            endereco.setBairro(buscadorDeCep.getBairro());
+            endereco.setCidade(buscadorDeCep.getCidade());
+            endereco.setRua(buscadorDeCep.getLogradouro());
+            endereco.setComplemento(buscadorDeCep.getComplemento());
+            System.out.println("Endereco encontrado" + endereco);
+
+            // mostra na tela o cep pesquisado
+            telaEntrega.getTfBairro().setText(endereco.getBairro());
+            telaEntrega.getTfCidade().setText(endereco.getCidade());
+            telaEntrega.getTfComplemento().setText(endereco.getComplemento());
+            telaEntrega.getCbEstado().getModel().setSelectedItem(endereco.getEstado());
+            telaEntrega.getTfRua().setText(endereco.getRua());
+            telaEntrega.getTfCep().setText(telaEntrega.getTfCep().getText());
+        } catch (BuscaCepException buscaCepException) {
+            System.out.println(buscaCepException.getMessage());
+            buscaCepException.printStackTrace();
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(numberFormatException.getMessage());
+            numberFormatException.printStackTrace();
+        }
     }
 
 }

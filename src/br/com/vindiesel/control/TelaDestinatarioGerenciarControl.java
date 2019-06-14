@@ -53,20 +53,9 @@ public class TelaDestinatarioGerenciarControl {
             }
         }
         telaDestinatarioGerenciar.getTblCliente().setModel(destinatarioTableModel);
-        redimensionarTela();
         carregarEstadosNaComboBox();
         destinatarioTableModel.limpar();
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
-    }
-    
-    private void redimensionarTela() {
-        UtilTable.centralizarCabecalho(telaDestinatarioGerenciar.getTblCliente());
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 0, 50);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 1, 355);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 2, 100);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 3, 225);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 4, 150);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblCliente(), 5, 50);
     }
     
     private void carregarEstadosNaComboBox() {

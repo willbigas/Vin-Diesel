@@ -64,6 +64,7 @@ public class TelaUsuarioGerenciarControl {
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
+        usuarioTableModel.limpar();
         usuarioTableModel.adicionar(usuarioDao.pesquisar());
     }
 

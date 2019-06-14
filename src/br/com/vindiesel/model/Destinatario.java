@@ -14,7 +14,7 @@ public class Destinatario {
     @NotBlank
     private String nome;
     @NotBlank
-    @Size(min = 8 , max = 18)
+    @Size(min = 8, max = 18)
     private String codigoPessoa;
     @Valid
     private Endereco endereco;
@@ -50,7 +50,10 @@ public class Destinatario {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Destinatario{" + "id=" + id + ", nome=" + nome + ", codigoPessoa=" + codigoPessoa + ", endereco=" + endereco + '}';
+    }
 
 }

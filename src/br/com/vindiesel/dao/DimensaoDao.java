@@ -5,7 +5,6 @@ import br.com.vindiesel.model.Dimensao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -16,7 +15,7 @@ public class DimensaoDao extends Dao implements DaoI<Dimensao> {
 
     @Override
     public int inserir(Dimensao obj) {
-        String queryInsert = "INSERT INTO dimensao (COMPRIMENTO, LARGURA, ALTURA) VALUES(?, ?, ?)";
+        String queryInsert = "INSERT INTO DIMENSAO (COMPRIMENTO, LARGURA, ALTURA) VALUES(?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -56,12 +55,28 @@ public class DimensaoDao extends Dao implements DaoI<Dimensao> {
 
     @Override
     public boolean deletar(Dimensao obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String queryDelete = "DELETE FROM DIMENSAO WHERE ID = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
+            stmt.setInt(1, obj.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean deletar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String queryDelete = "DELETE FROM DIMENSAO WHERE ID = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -86,7 +101,7 @@ public class DimensaoDao extends Dao implements DaoI<Dimensao> {
 
     @Override
     public Dimensao pesquisar(int id) {
-         String querySelect = "SELECT * FROM DIMENSAO WHERE id = ?";
+        String querySelect = "SELECT * FROM DIMENSAO WHERE id = ?";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);

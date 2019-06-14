@@ -1,7 +1,5 @@
 package br.com.vindiesel.dao;
 
-import br.com.vindiesel.model.Destinatario;
-import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.interfaces.DaoI;
 import java.sql.PreparedStatement;
@@ -30,7 +28,7 @@ public class EntregaDao extends Dao implements DaoI<Entrega> {
 
     @Override
     public int inserir(Entrega entrega) {
-        String queryInsert = "INSERT INTO vendas(valorTotal, dataCadastro, dataEntrega , entregue , "
+        String queryInsert = "INSERT INTO entrega(valorTotal, dataCadastro, dataEntrega , entregue , "
                 + " remetente_id , destinatario_id , encomenda_id) VALUES(?, ?, ? , ?, ? ,? , ?)";
         try {
             PreparedStatement stmt;
@@ -58,7 +56,7 @@ public class EntregaDao extends Dao implements DaoI<Entrega> {
 
     @Override
     public boolean alterar(Entrega entrega) {
-        String queryUpdate = "UPDATE VENDAS SET valorTotal = ?, dataCadastro = ?, dataEntrega = ? , "
+        String queryUpdate = "UPDATE entrega SET valorTotal = ?, dataCadastro = ?, dataEntrega = ? , "
                 + " entregue = ? , remetente_id = ? , destinatario_id = ? , encomenda_id = ?  WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);

@@ -19,6 +19,9 @@ public class Encomenda {
     private Double peso;
     @Valid
     private Dimensao dimensao;
+    @DecimalMin(value = "0.00")
+    @DecimalMax("999999999.00")
+    private Double valorNotaFiscal;
 
     public Integer getId() {
         return id;
@@ -48,10 +51,21 @@ public class Encomenda {
         return dimensao;
     }
 
+    public Double getValorNotaFiscal() {
+        return valorNotaFiscal;
+    }
+
+    public void setValorNotaFiscal(Double valorNotaFiscal) {
+        this.valorNotaFiscal = valorNotaFiscal;
+    }
+
     public void setDimensao(Dimensao dimensao) {
         this.dimensao = dimensao;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Encomenda{" + "id=" + id + ", codigoRastreio=" + codigoRastreio + ", peso=" + peso + ", dimensao=" + dimensao + ", valorNotaFiscal=" + valorNotaFiscal + '}';
+    }
 
 }

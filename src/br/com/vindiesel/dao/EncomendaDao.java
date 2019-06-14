@@ -23,13 +23,14 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
 
     @Override
     public int inserir(Encomenda encomenda) {
-        String queryInsert = "INSERT INTO ENCOMENDA (CODIGORASTREIO, PESO, DIMENSAO_ID) VALUES(?, ?, ?)";
+        String queryInsert = "INSERT INTO ENCOMENDA (CODIGORASTREIO, PESO,VALORNOTAFISCAL DIMENSAO_ID) VALUES(?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
             stmt.setString(1, encomenda.getCodigoRastreio());
             stmt.setDouble(2, encomenda.getPeso());
-            stmt.setInt(3, encomenda.getDimensao().getId());
+            stmt.setDouble(3, encomenda.getValorNotaFiscal());
+            stmt.setInt(4, encomenda.getDimensao().getId());
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();
@@ -46,14 +47,15 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
 
     @Override
     public boolean alterar(Encomenda encomenda) {
-        String queryUpdate = "UPDATE ENCOMENDA SET CODIGORASTREIO = ?, PESO = ?, DIMENSAO_ID = ? "
+        String queryUpdate = "UPDATE ENCOMENDA SET CODIGORASTREIO = ?, PESO = ?, VALORNOTAFISCAL = ?, DIMENSAO_ID = ? "
                 + "WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setString(1, encomenda.getCodigoRastreio());
             stmt.setDouble(2, encomenda.getPeso());
-            stmt.setInt(3, encomenda.getDimensao().getId());
-            stmt.setInt(4, encomenda.getId());
+            stmt.setDouble(3, encomenda.getValorNotaFiscal());
+            stmt.setInt(4, encomenda.getDimensao().getId());
+            stmt.setInt(5, encomenda.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -100,6 +102,7 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
                 encomenda.setId(result.getInt("id"));
                 encomenda.setCodigoRastreio(result.getString("codigoRastreio"));
                 encomenda.setPeso(result.getDouble("peso"));
+                encomenda.setValorNotaFiscal(result.getDouble("valorNotaFiscal"));
                 encomenda.setDimensao(dimensaoDao.pesquisar(result.getInt("dimensao_id")));
                 lista.add(encomenda);
             }
@@ -123,6 +126,7 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
                 encomenda.setId(result.getInt("id"));
                 encomenda.setCodigoRastreio(result.getString("codigoRastreio"));
                 encomenda.setPeso(result.getDouble("peso"));
+                encomenda.setValorNotaFiscal(result.getDouble("valorNotaFiscal"));
                 encomenda.setDimensao(dimensaoDao.pesquisar(result.getInt("dimensao_id")));
                 lista.add(encomenda);
             }
@@ -145,6 +149,7 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
                 encomenda.setId(result.getInt("id"));
                 encomenda.setCodigoRastreio(result.getString("codigoRastreio"));
                 encomenda.setPeso(result.getDouble("peso"));
+                encomenda.setValorNotaFiscal(result.getDouble("valorNotaFiscal"));
                 encomenda.setDimensao(dimensaoDao.pesquisar(result.getInt("dimensao_id")));
                 return encomenda;
             } else {

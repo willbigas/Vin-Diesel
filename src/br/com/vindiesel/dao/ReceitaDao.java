@@ -20,18 +20,20 @@ import java.util.List;
  *
  * @author William
  */
-public class ReceitaDao extends Dao implements DaoI<Receita>{
-    
+public class ReceitaDao extends Dao implements DaoI<Receita> {
+
     EntregaDao entregaDao;
-    
-     public ReceitaDao() {
+    FormaPagamentoDao formaPagamentoDao;
+
+    public ReceitaDao() {
         super();
         entregaDao = new EntregaDao();
+        formaPagamentoDao = new FormaPagamentoDao();
     }
 
     @Override
     public int inserir(Receita receita) {
-        String queryInsert = "INSERT INTO receitas (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, ENTREGA_ID) VALUES(?, ?, ?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO receitas (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, ENTREGA_ID, FORMAPAGAMENTO_ID) VALUES(?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -49,6 +51,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita>{
                 stmt.setDouble(5, receita.getValorRecebido());
             }
             stmt.setInt(6, receita.getEntrega().getId());
+            stmt.setInt(7, receita.getFormaPagamento().getId());
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();
@@ -65,7 +68,8 @@ public class ReceitaDao extends Dao implements DaoI<Receita>{
 
     @Override
     public boolean alterar(Receita receita) {
-        String queryUpdate = "UPDATE receita SET dataCadastro = ?, dataPagamento = ?, dataVencimento = ?, valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ? WHERE ID = ?";
+        String queryUpdate = "UPDATE receita SET dataCadastro = ?, dataPagamento = ?, dataVencimento = ?,"
+                + " valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ?, FORMAPAGAMENTO_ID WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setTimestamp(1, Timestamp.valueOf(receita.getDataCadastro()));
@@ -74,7 +78,8 @@ public class ReceitaDao extends Dao implements DaoI<Receita>{
             stmt.setDouble(4, receita.getValorRecebido());
             stmt.setDouble(5, receita.getValorTotal());
             stmt.setInt(6, receita.getEntrega().getId());
-            stmt.setInt(7, receita.getId());
+            stmt.setInt(7, receita.getFormaPagamento().getId());
+            stmt.setInt(8, receita.getId());
 
             return stmt.executeUpdate() > 0;
         } catch (SQLException ex) {
@@ -136,6 +141,7 @@ public class ReceitaDao extends Dao implements DaoI<Receita>{
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));
                 receita.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                receita.setFormaPagamento(formaPagamentoDao.pesquisar(result.getInt("formaPagamento_id")));
                 lista.add(receita);
             }
             return lista;
@@ -154,5 +160,5 @@ public class ReceitaDao extends Dao implements DaoI<Receita>{
     public Receita pesquisar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

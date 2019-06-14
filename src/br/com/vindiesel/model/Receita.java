@@ -29,6 +29,8 @@ public class Receita {
     private Double valorRecebido;
     @Valid
     private Entrega entrega;
+    @Valid
+    private FormaPagamento formaPagamento;
 
     public Integer getId() {
         return id;
@@ -85,6 +87,18 @@ public class Receita {
     public void setEntrega(Entrega entrega) {
         this.entrega = entrega;
     }
-    
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+    @Override
+    public String toString() {
+        return "Receita{" + "id=" + id + ", dataCadastro=" + dataCadastro + ", dataPagamento=" + dataPagamento + ", dataVencimento=" + dataVencimento + ", valorTotal=" + valorTotal + ", valorRecebido=" + valorRecebido + ", entrega=" + entrega + ", formaPagamento=" + formaPagamento + '}';
+    }
 
 }

@@ -92,8 +92,10 @@ public class Entrega {
     public void setEncomenda(Encomenda encomenda) {
         this.encomenda = encomenda;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Entrega{" + "id=" + id + ", valorTotal=" + valorTotal + ", dataCadastro=" + dataCadastro + ", dataEntrega=" + dataEntrega + ", entregue=" + entregue + ", remetente=" + remetente + ", destinatario=" + destinatario + ", encomenda=" + encomenda + '}';
+    }
 
 }

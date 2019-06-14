@@ -104,7 +104,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         });
 
         btGravarVenda.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btGravarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/save_32x32.png"))); // NOI18N
+        btGravarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravarVenda.setText("Gravar");
         btGravarVenda.setToolTipText("Gravar venda...");
         btGravarVenda.setBorder(null);
@@ -145,7 +145,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel5.setText("BUSCAR:");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
+        jLabel5.setText("Pesquisar:");
 
         tblProduto.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         tblProduto.setModel(new javax.swing.table.DefaultTableModel(
@@ -186,8 +187,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         tfValor.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
 
-        btBuscarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/lupa_32x32.png"))); // NOI18N
-        btBuscarProduto.setText("Buscar");
+        btBuscarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
+        btBuscarProduto.setText("Visualizar");
         btBuscarProduto.setBorder(null);
         btBuscarProduto.setBorderPainted(false);
         btBuscarProduto.setContentAreaFilled(false);
@@ -307,7 +308,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btGravarVenda)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

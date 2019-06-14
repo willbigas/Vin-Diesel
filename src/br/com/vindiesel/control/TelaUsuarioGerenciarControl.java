@@ -142,7 +142,7 @@ public class TelaUsuarioGerenciarControl {
         }
     }
 
-    public void buscaCepEMostraNaTela() {
+    public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
         BuscaCepControl buscadorDeCep = new BuscaCepControl();
         try {

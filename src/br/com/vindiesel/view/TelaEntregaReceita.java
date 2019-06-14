@@ -54,7 +54,10 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
 
         jLabel2.setText("Data  Vencimento");
 
+        btGerarDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
         btGerarDespesa.setText("Gerar");
+        btGerarDespesa.setBorder(null);
+        btGerarDespesa.setContentAreaFilled(false);
         btGerarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGerarDespesaActionPerformed(evt);
@@ -102,7 +105,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
                     .addComponent(tfValorRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btGerarDespesa)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

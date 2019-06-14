@@ -44,7 +44,7 @@ public class TelaSobre extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("VIM DIESEL");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/basket_64x64.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/delivery-truck_64x64.png"))); // NOI18N
 
         jLabel3.setText("Versão do Sofware : 1.0");
 
@@ -59,16 +59,16 @@ public class TelaSobre extends javax.swing.JFrame {
 
         jLabel7.setText("Projeto Open Source - 2019");
 
-        githubProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/github_32x32.png"))); // NOI18N
+        githubProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/github_32x32.png"))); // NOI18N
         githubProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 githubProjetoMouseClicked(evt);
             }
         });
 
-        linkedinAgostinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/linkdin_24x24.png"))); // NOI18N
+        linkedinAgostinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
 
-        linkedinWilliam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mercado/img/linkdin_24x24.png"))); // NOI18N
+        linkedinWilliam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
         linkedinWilliam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 linkedinWilliamMouseClicked(evt);

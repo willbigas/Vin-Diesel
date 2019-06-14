@@ -87,10 +87,8 @@ public class TelaEncomendaGerenciarControl {
 
     private void cadastrarProduto() {
         encomenda = new Encomenda();
-        
+
         /// pegar atributos de encomenda aqui.
-
-
         if (Validacao.validaEntidade(encomenda) != null) {
             Mensagem.info(Validacao.validaEntidade(encomenda));
             encomenda = null;
@@ -111,10 +109,8 @@ public class TelaEncomendaGerenciarControl {
 
     private void alterarProduto() {
         encomenda = encomendaTableModel.pegaObjeto(telaProdutoGerenciar.getTblProduto().getSelectedRow());
-        
-        
-        // atributos de encomenda
 
+        // atributos de encomenda
         linhaSelecionada = telaProdutoGerenciar.getTblProduto().getSelectedRow();
 
         if (Validacao.validaEntidade(encomenda) != null) {
@@ -145,9 +141,8 @@ public class TelaEncomendaGerenciarControl {
 
     public void carregarProdutoAction() {
         encomenda = encomendaTableModel.pegaObjeto(telaProdutoGerenciar.getTblProduto().getSelectedRow());
-        
-        // Atributos de encomenda
 
+        // Atributos de encomenda
     }
 
     public void desativarProdutoAction() {

@@ -97,8 +97,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         tfComplemento = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btEfetivarEntrega = new javax.swing.JButton();
+        btLimparEfetivarEntrega = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -205,11 +205,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1))
+                .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1)
+                    .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton5)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -532,9 +533,19 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Efetivar");
+        btEfetivarEntrega.setText("Efetivar");
+        btEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEfetivarEntregaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Limpar");
+        btLimparEfetivarEntrega.setText("Limpar");
+        btLimparEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparEfetivarEntregaActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("...");
 
@@ -567,9 +578,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btLimparEfetivarEntrega)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btEfetivarEntrega)))
                 .addGap(21, 21, 21))
         );
         panelEfetivarEntregaLayout.setVerticalGroup(
@@ -592,8 +603,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btEfetivarEntrega)
+                    .addComponent(btLimparEfetivarEntrega))
                 .addContainerGap())
         );
 
@@ -628,19 +639,28 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         entregaControl.buscarCepAction();
     }//GEN-LAST:event_btPesquisarCepActionPerformed
 
+    private void btLimparEfetivarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparEfetivarEntregaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btLimparEfetivarEntregaActionPerformed
+
+    private void btEfetivarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEfetivarEntregaActionPerformed
+        // TODO add your handling code here:
+        entregaControl.adicionarEntregaAction();
+    }//GEN-LAST:event_btEfetivarEntregaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionarTramite;
+    private javax.swing.JButton btEfetivarEntrega;
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btLimparEfetivarEntrega;
     private javax.swing.JButton btPesquisarCep;
     private javax.swing.JButton btRemoverTramite;
     private javax.swing.JComboBox<Encomenda> cbEncomenda;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JComboBox<Remetente> cbRemetente;
     private javax.swing.JComboBox<String> cbTipoTramite;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

@@ -65,7 +65,7 @@ public class Encomenda {
 
     @Override
     public String toString() {
-        return "Encomenda{" + "id=" + id + ", codigoRastreio=" + codigoRastreio + ", peso=" + peso + ", dimensao=" + dimensao + ", valorNotaFiscal=" + valorNotaFiscal + '}';
+        return codigoRastreio;
     }
 
 }

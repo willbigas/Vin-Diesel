@@ -18,7 +18,6 @@ public class Entrega {
     private Double valorTotal;
     @NotNull
     private LocalDateTime dataCadastro;
-    @NotNull
     private LocalDateTime dataEntrega;
     @NotNull
     private Boolean entregue;

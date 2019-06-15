@@ -28,7 +28,10 @@ public class DistanciaCalculoControl {
         primeiraLocalizacao = LocalizacaoDao.getLocalizacao(primeiroCep);
         segundaLocalizacao = LocalizacaoDao.getLocalizacao(segundoCep);
         distancia = DistanciaDao.getDistancia(primeiraLocalizacao, segundaLocalizacao);
-        return distancia.getRoutes().get(0).getLegs().get(0).getDistance().getText();
+        String distanciaEncontrada = distancia.getRoutes().get(0).getLegs().get(0).getDistance().getText();
+        String[] campos = distanciaEncontrada.split(" ");
+        
+        return campos[0];
     }
 
     /**

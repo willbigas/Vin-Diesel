@@ -45,13 +45,13 @@ public class TelaReceitaGerenciarControl {
         }
     }
 
-    public void criarReceita(Entrega entrega, Date dataVencimento, Double valorTotal) {
+    public void criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
         receita = new Receita();
         receita.setDataCadastro(LocalDateTime.now());
         receita.setDataPagamento(null);
         receita.setDataVencimento(dataVencimento);
         receita.setValorRecebido(null);
-        receita.setValorTotal(valorTotal);
+        receita.setValorTotal(valorFrete);
         receita.setEntrega(entrega);
 
         if (Validacao.validaEntidade(receita) != null) {

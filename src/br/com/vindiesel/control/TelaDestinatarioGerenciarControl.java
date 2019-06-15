@@ -228,7 +228,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         return false;
     }
-
+    
     private void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");

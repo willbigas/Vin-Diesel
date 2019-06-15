@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,11 @@ public class EntregaDao extends Dao implements DaoI<Entrega> {
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
             stmt.setDouble(1, entrega.getValorTotal());
             stmt.setTimestamp(2, Timestamp.valueOf(entrega.getDataCadastro()));
-            stmt.setTimestamp(3, Timestamp.valueOf(entrega.getDataEntrega()));
+             if (entrega.getDataEntrega()== null) {
+                stmt.setNull(3, Types.TIMESTAMP);
+            } else {
+                 stmt.setTimestamp(3, Timestamp.valueOf(entrega.getDataEntrega()));
+            }
             stmt.setBoolean(4, entrega.getEntregue());
             stmt.setInt(5, entrega.getRemetente().getId());
             stmt.setInt(6, entrega.getDestinatario().getId());

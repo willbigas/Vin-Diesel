@@ -24,9 +24,13 @@ public class UtilDate {
      * @return Data
      * @throws Exception
      */
-    public static java.util.Date data(String dataStr) throws Exception {
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        return df.parse(dataStr);
+    public static java.util.Date data(String dataStr) {
+        try {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            return df.parse(dataStr);
+        } catch (ParseException parseException) {
+            return null;
+        }
     }
 
     /**

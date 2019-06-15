@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  */
 public class TelaEntregaReceita extends javax.swing.JDialog {
     
-    TelaEntregaControl telaVendaControl;
+    TelaEntregaControl telaEntregaControl;
 
     /**
      * Creates new form TelaEntradaDespesa
@@ -28,7 +28,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
-        telaVendaControl = control;
+        telaEntregaControl = control;
     }
 
     /**
@@ -113,7 +113,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
 
     private void btGerarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarDespesaActionPerformed
         // TODO add your handling code here:
-        telaVendaControl.adicionarVendaAction();
+        telaEntregaControl.adicionarEntregaAction();
     }//GEN-LAST:event_btGerarDespesaActionPerformed
 
     /**

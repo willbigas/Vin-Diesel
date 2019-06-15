@@ -201,7 +201,7 @@ DROP TABLE IF EXISTS `tramite` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `tramite` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `data_hora` DATETIME NOT NULL,
+  `dataHora` DATETIME NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `observacao` TEXT NULL,
   `entrega_id` INT NOT NULL,

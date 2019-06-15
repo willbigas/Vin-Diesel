@@ -1,31 +1,37 @@
+
 package br.com.vindiesel.model.tablemodel;
 
-import br.com.vindiesel.model.Destinatario;
+import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.interfaces.AcoesTableModel;
+import br.com.vindiesel.model.Tramite;
+import br.com.vindiesel.uteis.UtilDecimalFormat;
+import java.sql.Timestamp;
+import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author william.mauro
+ * @author William
  */
-public class DestinatarioTableModel extends AbstractTableModel implements AcoesTableModel<Destinatario> {
+public class TramiteTableModel extends AbstractTableModel implements AcoesTableModel<Tramite> {
 
-    private static final int CODIGO = 0;
+    private static final int DATA_HORA = 0;
     private static final int NOME = 1;
-    private static final int CODIGO_PESSOA = 2;
-    private static final int CIDADE = 3;
+    private static final int OBSERVACAO = 2;
+    private static final int CODIGO_ENCOMENDA = 3;
 
-    private List<Destinatario> linhas;
-    private String[] COLUNAS = {"Código", "Nome", "Codigo Pessoa", "Cidade"};
+    private List<Tramite> linhas;
+    private String[] COLUNAS = {"DATA E HORA", "NOME", "OBSERVACAO", "CODIGO DA ENCOMENDA"};
 
-    public DestinatarioTableModel() {
+    public TramiteTableModel() {
         linhas = new ArrayList<>();
     }
 
-    public DestinatarioTableModel(List<Destinatario> listClientes) {
-        linhas = new ArrayList<>(listClientes);
+    public TramiteTableModel(List<Tramite> listTramites) {
+        linhas = new ArrayList<>(listTramites);
     }
 
     @Override
@@ -46,13 +52,13 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-            case CODIGO:
-                return Integer.class;
+            case DATA_HORA:
+                return LocalDateTime.class;
             case NOME:
                 return String.class;
-            case CODIGO_PESSOA:
+            case OBSERVACAO:
                 return String.class;
-            case CIDADE:
+            case CODIGO_ENCOMENDA:
                 return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -61,16 +67,16 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
 
     @Override
     public Object getValueAt(int linha, int coluna) {
-        Destinatario destinatario = linhas.get(linha);
+        Tramite tramite = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                return destinatario.getId();
+            case DATA_HORA:
+                return tramite.getId();
             case NOME:
-                return destinatario.getNome();
-            case CODIGO_PESSOA:
-                return destinatario.getCodigoPessoa();
-            case CIDADE:
-                return destinatario.getEndereco().getCidade();
+                return tramite.getNome();
+            case OBSERVACAO:
+                return tramite.getObservacao();
+            case CODIGO_ENCOMENDA:
+                return tramite.getEntrega().getEncomenda().getCodigoRastreio();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -78,19 +84,19 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
 
     @Override
     public void setValueAt(Object valor, int linha, int coluna) {
-        Destinatario cliente = linhas.get(linha);
+        Tramite tramite = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                cliente.setId(Integer.valueOf((String) valor));
+            case DATA_HORA:
+                tramite.setDataHora((LocalDateTime) valor);
                 break;
             case NOME:
-                cliente.setNome((String) valor);
+                tramite.setNome((String) valor);
                 break;
-            case CODIGO_PESSOA:
-                cliente.setCodigoPessoa((String) valor);
+            case OBSERVACAO:
+                tramite.setObservacao((String) valor);
                 break;
-            case CIDADE:
-                cliente.getEndereco().setCidade((String) valor);
+            case CODIGO_ENCOMENDA:
+                tramite.getEntrega().getEncomenda().setCodigoRastreio((String) valor);
                 break;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -101,22 +107,22 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
     }
 
     @Override
-    public Destinatario pegaObjeto(int indiceLinha) {
+    public Tramite pegaObjeto(int indiceLinha) {
         return linhas.get(indiceLinha);
     }
 
     @Override
-    public void adicionar(Destinatario destinatario) {
-        linhas.add(destinatario);
+    public void adicionar(Tramite tramite) {
+        linhas.add(tramite);
         int ultimoIndice = getRowCount() - 1; // linhas -1
         fireTableRowsInserted(ultimoIndice, ultimoIndice); // atualiza insert
     }
 
     @Override
-    public void adicionar(List<Destinatario> destinatarios) {
+    public void adicionar(List<Tramite> tramites) {
         int indice = getRowCount();
-        linhas.addAll(destinatarios);
-        fireTableRowsInserted(indice, indice + destinatarios.size());
+        linhas.addAll(tramites);
+        fireTableRowsInserted(indice, indice + tramites.size());
         fireTableDataChanged();
     }
 
@@ -128,7 +134,6 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
 
     @Override
     public void remover(int linhaInicio, int linhaFim) {
-
         for (int i = linhaInicio; i <= linhaFim; i++) {
             linhas.remove(i);
             fireTableRowsDeleted(linhaInicio, linhaFim); // atualiza delete
@@ -137,8 +142,8 @@ public class DestinatarioTableModel extends AbstractTableModel implements AcoesT
     }
 
     @Override
-    public void atualizar(int indiceLinha, Destinatario destinatario) {
-        linhas.set(indiceLinha, destinatario);
+    public void atualizar(int indiceLinha, Tramite tramite) {
+        linhas.set(indiceLinha, tramite);
         fireTableRowsUpdated(indiceLinha, indiceLinha); // atualiza delete
     }
 

@@ -80,7 +80,7 @@ public class DestinatarioDao extends Dao implements DaoI<Destinatario> {
 
     @Override
     public boolean deletar(int id) {
-          String queryDelete = "DELETE FROM destinatario WHERE ID = ?";
+        String queryDelete = "DELETE FROM destinatario WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryDelete);
             stmt.setInt(1, id);
@@ -103,6 +103,7 @@ public class DestinatarioDao extends Dao implements DaoI<Destinatario> {
                 Destinatario cliente = new Destinatario();
                 cliente.setId(result.getInt("id"));
                 cliente.setNome(result.getString("nome"));
+                cliente.setCodigoPessoa(result.getString("codigoPessoa"));
                 cliente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(cliente);
             }
@@ -115,16 +116,18 @@ public class DestinatarioDao extends Dao implements DaoI<Destinatario> {
 
     @Override
     public List<Destinatario> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM destinatario WHERE (nome LIKE ?)";
+        String querySelectComTermo = "SELECT * FROM destinatario WHERE (nome LIKE ? or codigoPessoa like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Destinatario> lista = new ArrayList<>();
             while (result.next()) {
                 Destinatario cliente = new Destinatario();
                 cliente.setId(result.getInt("id"));
                 cliente.setNome(result.getString("nome"));
+                cliente.setCodigoPessoa(result.getString("codigoPessoa"));
                 cliente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(cliente);
             }

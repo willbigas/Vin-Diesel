@@ -6,6 +6,8 @@ import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -55,6 +57,19 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         panelEditarEntrega = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        tfDataEntrega = new javax.swing.JFormattedTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        cbTipoTramite = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        btAdicionarTramite = new javax.swing.JButton();
+        btRemoverTramite = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTramite = new javax.swing.JTable();
+        tfNomeTramite = new javax.swing.JTextField();
+        btGravar = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
         panelEfetivarEntrega = new javax.swing.JPanel();
         cbEncomenda = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -102,10 +117,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(221, 221, 221))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,10 +206,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,20 +219,127 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
                     .addComponent(jLabel20))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         jTabbedPane1.addTab("Listar", panelListarEntrega);
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setText("Editar Entrega");
+
+        tfDataEntrega.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setText("DATA ENTREGA:");
+
+        cbTipoTramite.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbTipoTramite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saiu de :", "Foi para :" }));
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel25.setText("TIPO DE TRAMITE :");
+
+        btAdicionarTramite.setText("Adicionar");
+
+        btRemoverTramite.setText("Remover");
+
+        tblTramite.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTramite);
+
+        tfNomeTramite.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        btGravar.setText("Gravar");
+
+        btLimpar.setText("Limpar");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfNomeTramite, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btAdicionarTramite)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btRemoverTramite)
+                        .addGap(14, 14, 14))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btGravar)
+                .addGap(21, 21, 21))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(btAdicionarTramite)
+                    .addComponent(btRemoverTramite)
+                    .addComponent(tfNomeTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btGravar)
+                    .addComponent(btLimpar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelEditarEntregaLayout = new javax.swing.GroupLayout(panelEditarEntrega);
         panelEditarEntrega.setLayout(panelEditarEntregaLayout);
         panelEditarEntregaLayout.setHorizontalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addGroup(panelEditarEntregaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarEntregaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(276, 276, 276))
+            .addGroup(panelEditarEntregaLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEditarEntregaLayout.setVerticalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGroup(panelEditarEntregaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(14, 14, 14)
+                .addGroup(panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(109, 109, 109))
         );
 
         jTabbedPane1.addTab("Editar", panelEditarEntrega);
@@ -508,10 +630,15 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAdicionarTramite;
+    private javax.swing.JButton btGravar;
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btPesquisarCep;
+    private javax.swing.JButton btRemoverTramite;
     private javax.swing.JComboBox<Encomenda> cbEncomenda;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JComboBox<Remetente> cbRemetente;
+    private javax.swing.JComboBox<String> cbTipoTramite;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -520,6 +647,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -531,6 +659,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -539,20 +669,25 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelEditarEntrega;
     private javax.swing.JPanel panelEfetivarEntrega;
     private javax.swing.JPanel panelListarEntrega;
+    private javax.swing.JTable tblTramite;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
     private javax.swing.JTextField tfCidade;
     private javax.swing.JTextField tfCodigoPessoa;
     private javax.swing.JTextField tfComplemento;
+    private javax.swing.JFormattedTextField tfDataEntrega;
     private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfNomeTramite;
     private javax.swing.JTextField tfNumero;
     private javax.swing.JTextField tfRua;
     // End of variables declaration//GEN-END:variables
@@ -644,6 +779,43 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     public void setTfNome(JTextField tfNome) {
         this.tfNome = tfNome;
     }
+
+    public JComboBox<String> getCbTipoTramite() {
+        return cbTipoTramite;
+    }
+
+    public void setCbTipoTramite(JComboBox<String> cbTipoTramite) {
+        this.cbTipoTramite = cbTipoTramite;
+    }
+
+    public JTable getTblTramite() {
+        return tblTramite;
+    }
+
+    public void setTblTramite(JTable tblTramite) {
+        this.tblTramite = tblTramite;
+    }
+
+    public JFormattedTextField getTfDataEntrega() {
+        return tfDataEntrega;
+    }
+
+    public void setTfDataEntrega(JFormattedTextField tfDataEntrega) {
+        this.tfDataEntrega = tfDataEntrega;
+    }
+
+    public JTextField getTfNomeTramite() {
+        return tfNomeTramite;
+    }
+
+    public void setTfNomeTramite(JTextField tfNomeTramite) {
+        this.tfNomeTramite = tfNomeTramite;
+    }
+    
+    
+    
+    
+    
     
     
 

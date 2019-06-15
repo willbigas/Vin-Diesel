@@ -43,6 +43,9 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReceita = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Gerenciar Receitas");
 

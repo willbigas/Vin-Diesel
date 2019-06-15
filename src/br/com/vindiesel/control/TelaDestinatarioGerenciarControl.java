@@ -24,21 +24,21 @@ import javax.swing.JOptionPane;
  * @author Will
  */
 public class TelaDestinatarioGerenciarControl {
-    
+
     private TelaDestinatarioGerenciar telaDestinatarioGerenciar;
     private Destinatario destinatario;
-    private Endereco enderecoCliente;
+    private Endereco endereco;
     private DestinatarioDao destinatarioDao;
     private DestinatarioTableModel destinatarioTableModel;
     private EnderecoDao enderecoDao;
     private Integer linhaSelecionada;
-    
+
     public TelaDestinatarioGerenciarControl() {
         destinatarioDao = new DestinatarioDao();
         enderecoDao = new EnderecoDao();
         destinatarioTableModel = new DestinatarioTableModel();
     }
-    
+
     public void chamarTelaDestinatarioGerenciar() {
         if (telaDestinatarioGerenciar == null) {
             telaDestinatarioGerenciar = new TelaDestinatarioGerenciar(this);
@@ -52,46 +52,41 @@ public class TelaDestinatarioGerenciarControl {
                 telaDestinatarioGerenciar.setVisible(true);
             }
         }
-        telaDestinatarioGerenciar.getTblCliente().setModel(destinatarioTableModel);
+        telaDestinatarioGerenciar.getTblDestinatario().setModel(destinatarioTableModel);
         carregarEstadosNaComboBox();
         destinatarioTableModel.limpar();
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
     }
-    
+
     private void carregarEstadosNaComboBox() {
         telaDestinatarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
-    
+
     private void cadastrarDestinatario() {
         destinatario = new Destinatario();
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
-        
-        
+        destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
+
+        endereco = new Endereco();
+        endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
+        endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
+        endereco.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
+        endereco.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
+        endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
+        endereco.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
+        endereco.setRua(telaDestinatarioGerenciar.getTfRua().getText());
+
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
             destinatario = null;
+            endereco = null;
             return;
         }
-        
-        enderecoCliente = new Endereco();
-        enderecoCliente.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        enderecoCliente.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
-        enderecoCliente.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
-        enderecoCliente.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
-        enderecoCliente.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
-        enderecoCliente.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
-        enderecoCliente.setRua(telaDestinatarioGerenciar.getTfRua().getText());
-        
-        if (Validacao.validaEntidade(enderecoCliente) != null) {
-            Mensagem.info(Validacao.validaEntidade(enderecoCliente));
-            enderecoCliente = null;
-            return;
-        }
-        
-        Integer idEndereco = enderecoDao.inserir(enderecoCliente);
-        
-        enderecoCliente.setId(idEndereco);
-        destinatario.setEndereco(enderecoCliente);
+
+        Integer idEndereco = enderecoDao.inserir(endereco);
+
+        endereco.setId(idEndereco);
+        destinatario.setEndereco(endereco);
         Integer idInserido = destinatarioDao.inserir(destinatario);
         if (idInserido != 0) {
             destinatario.setId(idInserido);
@@ -102,33 +97,33 @@ public class TelaDestinatarioGerenciarControl {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
         destinatario = null;
-        
+
     }
-    
+
     private void alterarCliente() {
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
-        
-        
-        
+        destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
+        destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
+
+        endereco = destinatario.getEndereco();
+        endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
+        endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
+        endereco.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
+        endereco.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
+        endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
+        endereco.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
+        endereco.setRua(telaDestinatarioGerenciar.getTfRua().getText());
+
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
-            destinatario = null;
             return;
         }
-        
-        enderecoCliente = new Endereco();
-        enderecoCliente.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        enderecoCliente.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
-        enderecoCliente.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
-        enderecoCliente.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
-        enderecoCliente.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
-        enderecoCliente.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
-        enderecoCliente.setRua(telaDestinatarioGerenciar.getTfRua().getText());
-        Integer idEndereco = enderecoDao.inserir(enderecoCliente);
-        enderecoCliente.setId(idEndereco);
-        destinatario.setEndereco(enderecoCliente);
+
+        Boolean enderecoAlterado = enderecoDao.alterar(endereco);
+
+        destinatario.setEndereco(endereco);
         boolean alterado = destinatarioDao.alterar(destinatario);
-        linhaSelecionada = telaDestinatarioGerenciar.getTblCliente().getSelectedRow();
+        linhaSelecionada = telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow();
         if (alterado) {
             destinatarioTableModel.atualizar(linhaSelecionada, destinatario);
             Mensagem.info(Texto.SUCESSO_EDITAR);
@@ -138,7 +133,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         destinatario = null;
     }
-    
+
     public void gravarClienteAction() {
         if (destinatario == null) {
             cadastrarDestinatario();
@@ -146,7 +141,7 @@ public class TelaDestinatarioGerenciarControl {
             alterarCliente();
         }
     }
-    
+
     public void desativarClienteAction() {
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
         if (retorno == JOptionPane.NO_OPTION) {
@@ -155,34 +150,34 @@ public class TelaDestinatarioGerenciarControl {
         if (retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }
-        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblCliente().getSelectedRow());
+        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         boolean deletado = destinatarioDao.desativar(destinatario);
         if (deletado) {
-            destinatarioTableModel.remover(telaDestinatarioGerenciar.getTblCliente().getSelectedRow());
-            telaDestinatarioGerenciar.getTblCliente().clearSelection();
+            destinatarioTableModel.remover(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
+            telaDestinatarioGerenciar.getTblDestinatario().clearSelection();
             Mensagem.info(Texto.SUCESSO_DESATIVAR);
         } else {
             Mensagem.erro(Texto.ERRO_DESATIVAR);
         }
         destinatario = null;
     }
-    
+
     public void pesquisarClienteAction() {
-        List<Destinatario> fornecedoresPesquisados = destinatarioDao.pesquisar(telaDestinatarioGerenciar.getTfPesquisa().getText());
-        if (fornecedoresPesquisados == null) {
+        List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioGerenciar.getTfPesquisa().getText());
+        if (destinatariosPesquisados == null) {
             destinatarioTableModel.limpar();
-            fornecedoresPesquisados = destinatarioDao.pesquisar();
+            destinatariosPesquisados = destinatarioDao.pesquisar();
         } else {
             destinatarioTableModel.limpar();
-            destinatarioTableModel.adicionar(fornecedoresPesquisados);
+            destinatarioTableModel.adicionar(destinatariosPesquisados);
         }
     }
-    
+
     public void carregarClienteAction() {
-        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblCliente().getSelectedRow());
+        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         telaDestinatarioGerenciar.getTfNome().setText(destinatario.getNome());
-        
-        
+        telaDestinatarioGerenciar.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
+
         telaDestinatarioGerenciar.getTfBairro().setText(destinatario.getEndereco().getBairro());
         telaDestinatarioGerenciar.getTfCidade().setText(destinatario.getEndereco().getCidade());
         telaDestinatarioGerenciar.getTfComplemento().setText(destinatario.getEndereco().getComplemento());
@@ -191,7 +186,7 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfRua().setText(destinatario.getEndereco().getRua());
         telaDestinatarioGerenciar.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
     }
-    
+
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
         BuscaCepControl buscadorDeCep = new BuscaCepControl();
@@ -203,7 +198,6 @@ public class TelaDestinatarioGerenciarControl {
             endereco.setCidade(buscadorDeCep.getCidade());
             endereco.setRua(buscadorDeCep.getLogradouro());
             endereco.setComplemento(buscadorDeCep.getComplemento());
-            System.out.println("Endereco encontrado" + endereco);
 
             // mostra na tela o cep pesquisado
             telaDestinatarioGerenciar.getTfBairro().setText(endereco.getBairro());
@@ -220,7 +214,7 @@ public class TelaDestinatarioGerenciarControl {
             numberFormatException.printStackTrace();
         }
     }
-    
+
     private boolean validarCampos() {
         if (telaDestinatarioGerenciar.getTfNome().getText().isEmpty()
                 || telaDestinatarioGerenciar.getTfBairro().getText().isEmpty()
@@ -234,7 +228,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         return false;
     }
-    
+
     private void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");
@@ -248,5 +242,5 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfRua().setText("");
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
-    
+
 }

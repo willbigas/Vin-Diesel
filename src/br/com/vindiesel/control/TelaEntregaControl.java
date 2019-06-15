@@ -5,20 +5,18 @@ import br.com.vindiesel.dao.EncomendaDao;
 import br.com.vindiesel.dao.UsuarioDao;
 import br.com.vindiesel.dao.EntregaDao;
 import br.com.vindiesel.dao.RemetenteDao;
+import br.com.vindiesel.dao.TramiteDao;
 import br.com.vindiesel.exceptions.BuscaCepException;
 import br.com.vindiesel.interfaces.BuscaCepEventos;
 import br.com.vindiesel.interfaces.BuscaCepEventosImpl;
-import br.com.vindiesel.model.Destinatario;
 import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.Endereco;
 import br.com.vindiesel.model.EnderecoSigla;
-import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.Remetente;
-import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
+import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioDialogPesquisar;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -38,10 +36,12 @@ public class TelaEntregaControl {
     TelaEntregaReceita telaEntregaReceita;
     TelaDestinatarioDialogPesquisar telaDestinatarioDialogPesquisar;
     TelaReceitaGerenciarControl receitaGerenciarControl;
+    TramiteTableModel tramiteTableModel;
     DestinatarioDao destinatarioDao;
     EncomendaDao encomendaDao;
     RemetenteDao remetenteDao;
     EntregaDao entregaDao;
+    TramiteDao tramiteDao;
     List<Encomenda> listEncomendas;
     List<Remetente> listRemetentes;
     Entrega entrega;
@@ -52,6 +52,7 @@ public class TelaEntregaControl {
         encomendaDao = new EncomendaDao();
         remetenteDao = new RemetenteDao();
         entregaDao = new EntregaDao();
+        tramiteDao = new TramiteDao();
         listEncomendas = new ArrayList<>();
 
     }

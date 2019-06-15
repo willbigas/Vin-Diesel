@@ -42,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemGerenciarDestinatario = new javax.swing.JMenuItem();
         menuEntrega = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuUsuario = new javax.swing.JMenu();
         menuItemGerenciarUsuario = new javax.swing.JMenuItem();
         menuItemGerenciarTipoUsuario = new javax.swing.JMenuItem();
@@ -118,6 +120,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuEntrega.add(jMenuItem4);
 
         jMenuBar1.add(menuEntrega);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
+        jMenu1.setText("Encomenda");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
+        jMenuItem1.setText("Gerenciar Encomendas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuUsuario.setText("Usuários");
@@ -292,6 +308,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaPrincipalControl.chamarTelaDestinatarioGerenciarAction();
     }//GEN-LAST:event_menuItemGerenciarDestinatarioActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        telaPrincipalControl.chamarTelaEncomendaAction();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,7 +351,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JDesktopPane desktopPane = new javax.swing.JDesktopPane();
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menuEntrega;
     private javax.swing.JMenu menuFinanceiro;

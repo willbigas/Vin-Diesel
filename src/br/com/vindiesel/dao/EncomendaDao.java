@@ -23,7 +23,7 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
 
     @Override
     public int inserir(Encomenda encomenda) {
-        String queryInsert = "INSERT INTO ENCOMENDA (CODIGORASTREIO, PESO,VALORNOTAFISCAL DIMENSAO_ID) VALUES(?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO ENCOMENDA (CODIGORASTREIO, PESO, VALORNOTAFISCAL , DIMENSAO_ID) VALUES(?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -115,10 +115,10 @@ public class EncomendaDao extends Dao implements DaoI<Encomenda> {
 
     @Override
     public List<Encomenda> pesquisar(String codigoRastreio) {
-        String querySelectComTermo = "SELECT * FROM ENCOMENDA WHERE CODIGORASTREIO = ? ";
+        String querySelectComTermo = "SELECT * FROM ENCOMENDA WHERE CODIGORASTREIO LIKE ? ";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-            stmt.setString(1, codigoRastreio);
+            stmt.setString(1, "%" + codigoRastreio + "%");
             ResultSet result = stmt.executeQuery();
             List<Encomenda> lista = new ArrayList<>();
             while (result.next()) {

@@ -1,18 +1,17 @@
 package br.com.vindiesel.control;
 
+import br.com.vindiesel.dao.DimensaoDao;
 import br.com.vindiesel.dao.RemetenteDao;
 import br.com.vindiesel.dao.EncomendaDao;
-import br.com.vindiesel.model.Remetente;
+import br.com.vindiesel.model.Dimensao;
 import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEncomendaGerenciar;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,76 +20,63 @@ import javax.swing.JOptionPane;
  */
 public class TelaEncomendaGerenciarControl {
 
-    TelaEncomendaGerenciar telaProdutoGerenciar;
-    List<Remetente> listFornecedores;
+    TelaEncomendaGerenciar telaEncomendaGerenciar;
     EncomendaTableModel encomendaTableModel;
-    RemetenteDao remetenteDao;
     EncomendaDao encomendaDao;
+    DimensaoDao dimensaoDao;
     Encomenda encomenda;
+    Dimensao dimensao;
     Integer linhaSelecionada;
 
     public TelaEncomendaGerenciarControl() {
-        remetenteDao = new RemetenteDao();
         encomendaDao = new EncomendaDao();
+        dimensaoDao = new DimensaoDao();
         encomendaTableModel = new EncomendaTableModel();
     }
 
     public void chamarTelaEncomendaGerenciar() {
-        if (telaProdutoGerenciar == null) {
-            telaProdutoGerenciar = new TelaEncomendaGerenciar(this);
-            TelaPrincipal.desktopPane.add(telaProdutoGerenciar);
-            telaProdutoGerenciar.setVisible(true);
+        if (telaEncomendaGerenciar == null) {
+            telaEncomendaGerenciar = new TelaEncomendaGerenciar(this);
+            TelaPrincipal.desktopPane.add(telaEncomendaGerenciar);
+            telaEncomendaGerenciar.setVisible(true);
         } else {
-            if (telaProdutoGerenciar.isVisible()) {
-                telaProdutoGerenciar.pack();
+            if (telaEncomendaGerenciar.isVisible()) {
+                telaEncomendaGerenciar.pack();
             } else {
-                TelaPrincipal.desktopPane.add(telaProdutoGerenciar);
-                telaProdutoGerenciar.setVisible(true);
+                TelaPrincipal.desktopPane.add(telaEncomendaGerenciar);
+                telaEncomendaGerenciar.setVisible(true);
             }
         }
 
-        telaProdutoGerenciar.getTblProduto().setModel(encomendaTableModel);
-        carregarFornecedoresNaCombo();
+        telaEncomendaGerenciar.getTblProduto().setModel(encomendaTableModel);
         encomendaTableModel.limpar();
         encomendaTableModel.adicionar(encomendaDao.pesquisar());
-        telaProdutoGerenciar.getTfNome().requestFocus();
-        redimensionarTabelaDeProdutos();
-        centralizarCabecalhoEConteudoTabelaProduto();
     }
 
-    private void redimensionarTabelaDeProdutos() {
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 0, 70);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 1, 280);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 2, 100);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 3, 80);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 4, 80);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 5, 100);
-        UtilTable.redimensionar(telaProdutoGerenciar.getTblProduto(), 6, 66);
-    }
-
-    public void centralizarCabecalhoEConteudoTabelaProduto() {
-        UtilTable.centralizarCabecalho(telaProdutoGerenciar.getTblProduto());
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 0);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 1);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 2);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 3);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 4);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 5);
-        UtilTable.centralizarConteudo(telaProdutoGerenciar.getTblProduto(), 6);
-    }
-
-    private void carregarFornecedoresNaCombo() {
-        listFornecedores = remetenteDao.pesquisar();
-        DefaultComboBoxModel<Remetente> model = new DefaultComboBoxModel(listFornecedores.toArray());
-        TelaEncomendaGerenciar.cbFornecedor.setModel(model);
-    }
-
-    private void cadastrarProduto() {
+    private void cadastrarEncomenda() {
         encomenda = new Encomenda();
+        encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
+        encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
+        encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
 
-        /// pegar atributos de encomenda aqui.
+        dimensao = new Dimensao();
+        dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
+        dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
+        dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+
+        if (Validacao.validaEntidade(dimensao) != null) {
+            Mensagem.info(Validacao.validaEntidade(dimensao));
+            dimensao = null;
+            encomenda = null;
+            return;
+        }
+        int idDimensaoInserida = dimensaoDao.inserir(dimensao);
+        dimensao.setId(idDimensaoInserida);
+        encomenda.setDimensao(dimensao);
+
         if (Validacao.validaEntidade(encomenda) != null) {
             Mensagem.info(Validacao.validaEntidade(encomenda));
+            dimensao = null;
             encomenda = null;
             return;
         }
@@ -107,18 +93,32 @@ public class TelaEncomendaGerenciarControl {
         encomenda = null;
     }
 
-    private void alterarProduto() {
-        encomenda = encomendaTableModel.pegaObjeto(telaProdutoGerenciar.getTblProduto().getSelectedRow());
+    private void alterarEncomenda() {
+        linhaSelecionada = telaEncomendaGerenciar.getTblProduto().getSelectedRow();
+        
+        encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+        encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
+        encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
+        encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
 
-        // atributos de encomenda
-        linhaSelecionada = telaProdutoGerenciar.getTblProduto().getSelectedRow();
+        dimensao = encomenda.getDimensao();
+        dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
+        dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
+        dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
 
-        if (Validacao.validaEntidade(encomenda) != null) {
-            Mensagem.info(Validacao.validaEntidade(encomenda));
-            encomenda = null;
+        if (Validacao.validaEntidade(dimensao) != null) {
+            Mensagem.info(Validacao.validaEntidade(dimensao));
             return;
         }
 
+        boolean dimensaoAlterada = dimensaoDao.alterar(dimensao);
+        encomenda.setDimensao(dimensao);
+
+        if (Validacao.validaEntidade(encomenda) != null) {
+            Mensagem.info(Validacao.validaEntidade(encomenda));
+            return;
+        }
+        // atributos de encomenda
         boolean alterado = encomendaDao.alterar(encomenda);
 
         if (alterado) {
@@ -129,62 +129,68 @@ public class TelaEncomendaGerenciarControl {
             Mensagem.erro(Texto.ERRO_EDITAR);
         }
         encomenda = null;
+        dimensao = null;
     }
 
     public void gravarProdutoAction() {
         if (encomenda == null) {
-            cadastrarProduto();
+            cadastrarEncomenda();
         } else {
-            alterarProduto();
+            alterarEncomenda();
         }
     }
 
-    public void carregarProdutoAction() {
-        encomenda = encomendaTableModel.pegaObjeto(telaProdutoGerenciar.getTblProduto().getSelectedRow());
-
+    public void carregarEncomendaAction() {
+        encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+        telaEncomendaGerenciar.getTfCodigoRastreio().setText(encomenda.getCodigoRastreio());
+        telaEncomendaGerenciar.getTfPeso().setText(String.valueOf(encomenda.getPeso()));
+        telaEncomendaGerenciar.getTfValorNf().setText(String.valueOf(encomenda.getValorNotaFiscal()));
+        telaEncomendaGerenciar.getTfComprimento().setText(String.valueOf(encomenda.getDimensao().getComprimento()));
+        telaEncomendaGerenciar.getTfAltura().setText(String.valueOf(encomenda.getDimensao().getAltura()));
+        telaEncomendaGerenciar.getTfLargura().setText(String.valueOf(encomenda.getDimensao().getLargura()));
+        telaEncomendaGerenciar.getTpProduto().setSelectedIndex(1);
         // Atributos de encomenda
     }
 
-    public void desativarProdutoAction() {
-        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
+    public void excluirEncomendaAction() {
+        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR);
         if (retorno == JOptionPane.NO_OPTION) {
             return;
         }
 
         if (retorno == JOptionPane.YES_OPTION) {
-            encomenda = encomendaTableModel.pegaObjeto(telaProdutoGerenciar.getTblProduto().getSelectedRow());
-            if (remetenteDao.desativar(encomenda.getId())) {
-                encomendaTableModel.remover(telaProdutoGerenciar.getTblProduto().getSelectedRow());
-                telaProdutoGerenciar.getTblProduto().clearSelection();
-                Mensagem.info(Texto.SUCESSO_DESATIVAR);
+            encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+            if (encomendaDao.deletar(encomenda.getId())) {
+                encomendaTableModel.remover(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+                telaEncomendaGerenciar.getTblProduto().clearSelection();
+                Mensagem.info(Texto.SUCESSO_REMOVER);
             } else {
-                Mensagem.erro(Texto.ERRO_DESATIVAR);
+                Mensagem.erro(Texto.ERRO_DELETAR);
             }
         }
         encomenda = null;
     }
 
     public void pesquisarProdutoAction() {
-        List<Encomenda> produtosPesquisados = encomendaDao.pesquisar(telaProdutoGerenciar.getTfPesquisar().getText());
-        if (produtosPesquisados == null) {
+        List<Encomenda> encomendasPesquisadas = encomendaDao.pesquisar(telaEncomendaGerenciar.getTfPesquisar().getText());
+        if (encomendasPesquisadas == null) {
             encomendaTableModel.limpar();
-            produtosPesquisados = encomendaDao.pesquisar();
+            encomendasPesquisadas = encomendaDao.pesquisar();
         } else {
             encomendaTableModel.limpar();
-            encomendaTableModel.adicionar(produtosPesquisados);
+            encomendaTableModel.adicionar(encomendasPesquisadas);
         }
 
     }
 
     public void limparCampos() {
-        telaProdutoGerenciar.getTfNome().setText("");
-        telaProdutoGerenciar.getTfPesquisar().setText("");
-        telaProdutoGerenciar.getTfQuantidade().setText("");
-        telaProdutoGerenciar.getTfCodigoBarras().setText("");
-        telaProdutoGerenciar.getTfValor().setText("");
-        telaProdutoGerenciar.getCbFornecedor().setSelectedIndex(0);
-        telaProdutoGerenciar.getCheckAtivo().setSelected(false);
-        telaProdutoGerenciar.getTblProduto().clearSelection();
-        telaProdutoGerenciar.getTfNome().requestFocus();
+        telaEncomendaGerenciar.getTfCodigoRastreio().setText("");
+        telaEncomendaGerenciar.getTfPeso().setText("");
+        telaEncomendaGerenciar.getTfValorNf().setText("");
+        telaEncomendaGerenciar.getTfAltura().setText("");
+        telaEncomendaGerenciar.getTfComprimento().setText("");
+        telaEncomendaGerenciar.getTfLargura().setText("");
+        telaEncomendaGerenciar.getTfPesquisar().setText("");
+        telaEncomendaGerenciar.getTblProduto().clearSelection();
     }
 }

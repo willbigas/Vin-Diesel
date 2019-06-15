@@ -21,7 +21,7 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
     private static final int COMPRIMENTO = 4;
 
     private List<Encomenda> linhas;
-    private String[] COLUNAS = {"CÓDIGO RASTREAMENTO", "PESO", "LARGURA", "ALTURA", "COMPRIMENTO"};
+    private String[] COLUNAS = {"CÓDIGO RASTREIO", "PESO", "LARGURA", "ALTURA", "COMPRIMENTO"};
 
     public EncomendaTableModel() {
         linhas = new ArrayList<>();
@@ -66,18 +66,18 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
 
     @Override
     public Object getValueAt(int linha, int coluna) {
-        Encomenda produto = linhas.get(linha);
+        Encomenda encomenda = linhas.get(linha);
         switch (coluna) {
             case CODIGO_RASTREIO:
-                return produto.getId();
+                return encomenda.getCodigoRastreio();
             case PESO:
-                return produto.getPeso();
+                return encomenda.getPeso();
             case LARGURA:
-                return produto.getDimensao().getLargura();
+                return encomenda.getDimensao().getLargura();
             case ALTURA:
-                return produto.getDimensao().getAltura();
+                return encomenda.getDimensao().getAltura();
             case COMPRIMENTO:
-                return produto.getDimensao().getComprimento();
+                return encomenda.getDimensao().getComprimento();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }

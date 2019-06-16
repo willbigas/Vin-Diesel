@@ -94,7 +94,7 @@ public class TelaEntregaControl {
         telaEntrega.getTblTramite().setModel(tramiteTableModel);
         entregaTableModel.limpar();
         entregaTableModel.adicionar(entregaDao.pesquisar());
-
+        telaEntrega.getTpEntrega().setEnabledAt(1, false); // disabilita o tabbed pane
     }
 
     public void carregarEstadosNaComboBox() {
@@ -264,6 +264,8 @@ public class TelaEntregaControl {
         entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
         tramiteTableModel.limpar();
         tramiteTableModel.adicionar(tramiteDao.pesquisarTramitesPorEntrega(entrega));
+        telaEntrega.getTpEntrega().setEnabledAt(1, true);
+        telaEntrega.getTpEntrega().setSelectedIndex(1);
     }
 
 }

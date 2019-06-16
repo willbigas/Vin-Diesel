@@ -51,8 +51,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         tblEntrega = new javax.swing.JTable();
         cbPesquisarEntrega = new javax.swing.JComboBox<>();
         tfPesquisarEntrega = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        brBuscarEntrega = new javax.swing.JButton();
+        btEditarEntrega = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -70,8 +70,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTramite = new javax.swing.JTable();
         tfNomeTramite = new javax.swing.JTextField();
-        btGravar = new javax.swing.JButton();
-        btLimpar = new javax.swing.JButton();
+        btGravarListTramite = new javax.swing.JButton();
+        btLimparCamposTramite = new javax.swing.JButton();
         panelEfetivarEntrega = new javax.swing.JPanel();
         cbEncomenda = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -168,11 +168,16 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         tfPesquisarEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton5.setText("Buscar");
+        brBuscarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        brBuscarEntrega.setText("Buscar");
 
-        jButton6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton6.setText("Editar");
+        btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btEditarEntrega.setText("Editar");
+        btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarEntregaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel9.setText("[F1-Visualizar]");
@@ -218,9 +223,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(brBuscarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(btEditarEntrega)
                 .addGap(19, 19, 19))
         );
         panelListarEntregaLayout.setVerticalGroup(
@@ -230,8 +235,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(brBuscarEntrega)
+                    .addComponent(btEditarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,9 +286,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         tfNomeTramite.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        btGravar.setText("Gravar");
+        btGravarListTramite.setText("Gravar");
 
-        btLimpar.setText("Limpar");
+        btLimparCamposTramite.setText("Limpar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -308,9 +313,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btLimpar)
+                        .addComponent(btLimparCamposTramite)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btGravar)
+                        .addComponent(btGravarListTramite)
                         .addGap(11, 11, 11))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -327,8 +332,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btLimpar)
-                    .addComponent(btGravar))
+                    .addComponent(btLimparCamposTramite)
+                    .addComponent(btGravarListTramite))
                 .addGap(9, 9, 9))
         );
 
@@ -675,12 +680,20 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btEditarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarEntregaActionPerformed
+        // TODO add your handling code here:
+        entregaControl.listarTramitesDeUmaEntregaAction();
+        
+    }//GEN-LAST:event_btEditarEntregaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton brBuscarEntrega;
     private javax.swing.JButton btAdicionarTramite;
+    private javax.swing.JButton btEditarEntrega;
     private javax.swing.JButton btEfetivarEntrega;
-    private javax.swing.JButton btGravar;
-    private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btGravarListTramite;
+    private javax.swing.JButton btLimparCamposTramite;
     private javax.swing.JButton btLimparEfetivarEntrega;
     private javax.swing.JButton btPesquisarCep;
     private javax.swing.JButton btRemoverTramite;
@@ -691,8 +704,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbTipoTramite;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

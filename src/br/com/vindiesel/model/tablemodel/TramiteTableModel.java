@@ -1,12 +1,8 @@
 
 package br.com.vindiesel.model.tablemodel;
 
-import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.interfaces.AcoesTableModel;
 import br.com.vindiesel.model.Tramite;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
-import java.sql.Timestamp;
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +20,7 @@ public class TramiteTableModel extends AbstractTableModel implements AcoesTableM
     private static final int CODIGO_ENCOMENDA = 3;
 
     private List<Tramite> linhas;
-    private String[] COLUNAS = {"DATA E HORA", "NOME", "OBSERVACAO", "CODIGO DA ENCOMENDA"};
+    private String[] COLUNAS = {"DATA/HORA", "NOME", "OBSERVACAO", "COD ENCOMENDA"};
 
     public TramiteTableModel() {
         linhas = new ArrayList<>();
@@ -70,7 +66,7 @@ public class TramiteTableModel extends AbstractTableModel implements AcoesTableM
         Tramite tramite = linhas.get(linha);
         switch (coluna) {
             case DATA_HORA:
-                return tramite.getId();
+                return tramite.getDataHora();
             case NOME:
                 return tramite.getNome();
             case OBSERVACAO:

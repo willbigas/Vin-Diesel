@@ -6,6 +6,7 @@
 package br.com.vindiesel.dao;
 
 import br.com.vindiesel.interfaces.DaoI;
+import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.Tramite;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,15 +22,17 @@ import java.util.List;
 public class TramiteDao extends DaoBD implements DaoI<Tramite> {
 
     EntregaDao entregaDao;
+    TipoTramiteDao tipoTramiteDao;
 
     public TramiteDao() {
         super();
         entregaDao = new EntregaDao();
+        tipoTramiteDao = new TipoTramiteDao();
     }
 
     @Override
     public int inserir(Tramite obj) {
-        String queryInsert = "INSERT INTO TRAMITE (DATAHORA, NOME , OBSERVACAO, ENTREGA_ID) VALUES(?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO TRAMITE (DATAHORA, NOME , OBSERVACAO, ENTREGA_ID , TIPOTRAMITE_ID) VALUES(?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -37,6 +40,7 @@ public class TramiteDao extends DaoBD implements DaoI<Tramite> {
             stmt.setString(2, obj.getNome());
             stmt.setString(3, obj.getObservacao());
             stmt.setInt(4, obj.getEntrega().getId());
+            stmt.setInt(5, obj.getTipoTramite().getId());
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();
@@ -53,14 +57,15 @@ public class TramiteDao extends DaoBD implements DaoI<Tramite> {
 
     @Override
     public boolean alterar(Tramite obj) {
-        String queryUpdate = "UPDATE TRAMITE SET dataHora = ?, nome = ?, observacao = ?, entrega_id = ? WHERE ID = ? ";
+        String queryUpdate = "UPDATE TRAMITE SET dataHora = ?, nome = ?, observacao = ?, entrega_id = ? , tipoTramite_id = ? WHERE ID = ? ";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setTimestamp(1, Timestamp.valueOf(obj.getDataHora()));
             stmt.setString(2, obj.getNome());
             stmt.setString(3, obj.getObservacao());
             stmt.setInt(4, obj.getEntrega().getId());
-            stmt.setInt(5, obj.getId());
+            stmt.setInt(5, obj.getTipoTramite().getId());
+            stmt.setInt(6, obj.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -118,6 +123,8 @@ public class TramiteDao extends DaoBD implements DaoI<Tramite> {
                 tramite.setDataHora((result.getTimestamp("dataHora").toLocalDateTime()));
                 tramite.setNome(result.getString("nome"));
                 tramite.setObservacao(result.getString("observacao"));
+                tramite.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                tramite.setTipoTramite(tipoTramiteDao.pesquisar(result.getInt("tipoTramite_id")));
                 lista.add(tramite);
             }
             return lista;
@@ -142,14 +149,40 @@ public class TramiteDao extends DaoBD implements DaoI<Tramite> {
             if (result.next()) {
                 Tramite tramite = new Tramite();
                 tramite.setId(result.getInt("id"));
-                tramite.setId(result.getInt("id"));
                 tramite.setDataHora((result.getTimestamp("dataHora").toLocalDateTime()));
                 tramite.setNome(result.getString("nome"));
                 tramite.setObservacao(result.getString("observacao"));
+                tramite.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                tramite.setTipoTramite(tipoTramiteDao.pesquisar(result.getInt("tipoTramite_id")));
                 return tramite;
             } else {
                 return null;
             }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Tramite> pesquisarTramitesPorEntrega(Entrega entrega) {
+        String querySelect = "SELECT * FROM TRAMITE where entrega_id = ? ";
+        try {
+            PreparedStatement stmt;
+            stmt = conexao.prepareStatement(querySelect);
+            stmt.setInt(1, entrega.getId());
+            ResultSet result = stmt.executeQuery();
+            List<Tramite> lista = new ArrayList<>();
+            while (result.next()) {
+                Tramite tramite = new Tramite();
+                tramite.setId(result.getInt("id"));
+                tramite.setDataHora((result.getTimestamp("dataHora").toLocalDateTime()));
+                tramite.setNome(result.getString("nome"));
+                tramite.setObservacao(result.getString("observacao"));
+                tramite.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                tramite.setTipoTramite(tipoTramiteDao.pesquisar(result.getInt("tipoTramite_id")));
+                lista.add(tramite);
+            }
+            return lista;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;

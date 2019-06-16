@@ -23,6 +23,10 @@ public class Tramite {
     private String observacao;
     @Valid
     private Entrega entrega;
+    @Valid
+    private TipoTramite tipoTramite;
+    
+    
 
     public Integer getId() {
         return id;
@@ -63,6 +67,15 @@ public class Tramite {
     public void setEntrega(Entrega entrega) {
         this.entrega = entrega;
     }
+
+    public TipoTramite getTipoTramite() {
+        return tipoTramite;
+    }
+
+    public void setTipoTramite(TipoTramite tipoTramite) {
+        this.tipoTramite = tipoTramite;
+    }
+    
 
     @Override
     public String toString() {

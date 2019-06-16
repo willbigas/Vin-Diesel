@@ -15,6 +15,7 @@ import br.com.vindiesel.model.Endereco;
 import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.Remetente;
+import br.com.vindiesel.model.Tramite;
 import br.com.vindiesel.model.tablemodel.EntregaTableModel;
 import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
@@ -41,6 +42,7 @@ public class TelaEntregaControl {
     TelaEntregaReceita telaEntregaReceita;
     TelaDestinatarioDialogPesquisar telaDestinatarioDialogPesquisar;
     TelaReceitaGerenciarControl receitaGerenciarControl;
+    TramiteControl tramiteControl;
     DistanciaCalculoControl calculoDeDistancia;
     TramiteTableModel tramiteTableModel;
     EntregaTableModel entregaTableModel;
@@ -59,7 +61,9 @@ public class TelaEntregaControl {
 
     public TelaEntregaControl() {
         calculoDeDistancia = new DistanciaCalculoControl();
+        tramiteControl = new TramiteControl();
         entregaTableModel = new EntregaTableModel();
+        tramiteTableModel = new TramiteTableModel();
         destinatarioDao = new DestinatarioDao();
         encomendaDao = new EncomendaDao();
         remetenteDao = new RemetenteDao();
@@ -87,6 +91,7 @@ public class TelaEntregaControl {
         carregarEncomendasNaCombo();
         carregarRemetentesNaCombo();
         telaEntrega.getTblEntrega().setModel(entregaTableModel);
+        telaEntrega.getTblTramite().setModel(tramiteTableModel);
         entregaTableModel.limpar();
         entregaTableModel.adicionar(entregaDao.pesquisar());
 
@@ -181,6 +186,12 @@ public class TelaEntregaControl {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
 
+        int idTramiteInserido = tramiteControl.adicionarTramite(entrega, "VIN DIESEL", "Encomenda foi registrada para entrega na transportadora", 3);
+
+        List<Tramite> tramites = new ArrayList<>();
+        tramites.add(tramiteDao.pesquisar(idTramiteInserido));
+        entrega.setTramites(tramites);
+
         Date dataVencimento = UtilDate.data(telaEntregaReceita.getTfDataVencimento().getText());
         receitaGerenciarControl = new TelaReceitaGerenciarControl();
         receitaGerenciarControl.criarReceita(entrega, dataVencimento, valorFrete);
@@ -226,8 +237,11 @@ public class TelaEntregaControl {
     }
 
     private Double calcularFrete(Remetente remetente, Destinatario destinatario, Entrega entrega) {
+
+        System.out.println("Cep do Remetente :" + remetente.getEndereco().getCep());
+        System.out.println("Cep do Destinatario :" + destinatario.getEndereco().getCep());
+
         String distanciaEmKm = calculoDeDistancia.calculaDistanciaEmKm(String.valueOf(remetente.getEndereco().getCep()), String.valueOf(destinatario.getEndereco().getCep()));
-        System.out.println("Distancia em km :" + distanciaEmKm);
         Double valorTotalFrete;
         Double valorDimensao;
         Double valorEntrega;
@@ -244,6 +258,12 @@ public class TelaEntregaControl {
         valorTotalFrete = valorDimensao + valorEntrega + 0.015;
         System.out.println(valorTotalFrete);
         return valorTotalFrete;
+    }
+
+    public void listarTramitesDeUmaEntregaAction() {
+        entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
+        tramiteTableModel.limpar();
+        tramiteTableModel.adicionar(tramiteDao.pesquisarTramitesPorEntrega(entrega));
     }
 
 }

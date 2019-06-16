@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author ADJ-PC
  */
-public class TramiteDao extends Dao implements DaoI<Tramite> {
+public class TramiteDao extends DaoBD implements DaoI<Tramite> {
 
     EntregaDao entregaDao;
 

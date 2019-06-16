@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author william.mauro
  */
-public class RemetenteDao extends Dao implements DaoI<Remetente> {
+public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     EnderecoDao enderecoDao;
 

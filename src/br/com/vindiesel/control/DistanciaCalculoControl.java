@@ -1,9 +1,9 @@
 package br.com.vindiesel.control;
 
-import br.com.vindiesel.dao.DistanciaDao;
-import br.com.vindiesel.dao.LocalizacaoDao;
-import br.com.vindiesel.model.Distancia;
-import br.com.vindiesel.model.Location;
+import br.com.vindiesel.dao.DaoDirectionsAPI;
+import br.com.vindiesel.dao.DaoGeocodingAPI;
+import br.com.vindiesel.model.directions.Distancia;
+import br.com.vindiesel.model.geocoding.Location;
 
 /**
  *
@@ -25,9 +25,9 @@ public class DistanciaCalculoControl {
      * mais curta
      */
     public String calculaDistanciaEmKm(String primeiroCep, String segundoCep) {
-        primeiraLocalizacao = LocalizacaoDao.getLocalizacao(primeiroCep);
-        segundaLocalizacao = LocalizacaoDao.getLocalizacao(segundoCep);
-        distancia = DistanciaDao.getDistancia(primeiraLocalizacao, segundaLocalizacao);
+        primeiraLocalizacao = DaoGeocodingAPI.getLocalizacao(primeiroCep);
+        segundaLocalizacao = DaoGeocodingAPI.getLocalizacao(segundoCep);
+        distancia = DaoDirectionsAPI.getDistancia(primeiraLocalizacao, segundaLocalizacao);
         String distanciaEncontrada = distancia.getRoutes().get(0).getLegs().get(0).getDistance().getText();
         String[] campos = distanciaEncontrada.split(" ");
         
@@ -44,9 +44,9 @@ public class DistanciaCalculoControl {
      * mais curta
      */
     public Integer calculaDistanciaEmMetros(String primeiroCep, String segundoCep) {
-        primeiraLocalizacao = LocalizacaoDao.getLocalizacao(primeiroCep);
-        segundaLocalizacao = LocalizacaoDao.getLocalizacao(segundoCep);
-        distancia = DistanciaDao.getDistancia(primeiraLocalizacao, segundaLocalizacao);
+        primeiraLocalizacao = DaoGeocodingAPI.getLocalizacao(primeiroCep);
+        segundaLocalizacao = DaoGeocodingAPI.getLocalizacao(segundoCep);
+        distancia = DaoDirectionsAPI.getDistancia(primeiraLocalizacao, segundaLocalizacao);
         return distancia.getRoutes().get(0).getLegs().get(0).getDistance().getValue();
     }
 

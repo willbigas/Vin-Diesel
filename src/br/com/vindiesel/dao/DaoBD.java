@@ -7,11 +7,11 @@ import java.sql.Connection;
  *
  * @author William
  */
-public class Dao {
+public class DaoBD {
 
     protected Connection conexao;
 
-    public Dao() {
+    public DaoBD() {
         conexao = Conexao.getConexao();
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author William
  */
-public class EncomendaDao extends Dao implements DaoI<Encomenda> {
+public class EncomendaDao extends DaoBD implements DaoI<Encomenda> {
 
     DimensaoDao dimensaoDao;
 

@@ -1,4 +1,4 @@
-package br.com.vindiesel.model;
+package br.com.vindiesel.model.directions;
 
 import java.util.List;
 

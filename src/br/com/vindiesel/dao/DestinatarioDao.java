@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author william.mauro
  */
-public class DestinatarioDao extends Dao implements DaoI<Destinatario> {
+public class DestinatarioDao extends DaoBD implements DaoI<Destinatario> {
 
     EnderecoDao enderecoDao;
 

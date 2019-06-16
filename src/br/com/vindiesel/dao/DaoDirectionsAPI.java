@@ -5,9 +5,8 @@
  */
 package br.com.vindiesel.dao;
 
-import br.com.vindiesel.model.Distancia;
-import br.com.vindiesel.model.Localizacao;
-import br.com.vindiesel.model.Location;
+import br.com.vindiesel.model.directions.Distancia;
+import br.com.vindiesel.model.geocoding.Location;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,7 +19,7 @@ import org.apache.http.util.EntityUtils;
  *
  * @author agostinho.junior
  */
-public class DistanciaDao {
+public class DaoDirectionsAPI {
 
     private static String URL = "https://maps.googleapis.com/maps/api/directions/json?origin=";
     private static String MIDDLE = "&destination=";
@@ -58,16 +57,4 @@ public class DistanciaDao {
 
         return null;
     }
-
-    public static void main(String[] args) {
-        Location localizacao1 = LocalizacaoDao.getLocalizacao("88133810");
-        Location localizacao2 = LocalizacaoDao.getLocalizacao("88130400");
-        System.out.println("Primeiro Cep: 88133810");
-        System.out.println("Segundo Cep: 88130400");
-        Distancia distancia = getDistancia(localizacao1, localizacao2);
-        System.out.println("Distancia em KM: " + distancia.getRoutes().get(0).getLegs().get(0).getDistance().getText());
-        System.out.println("Distancia em Metros: " + distancia.getRoutes().get(0).getLegs().get(0).getDistance().getValue());
-
-    }
-
 }

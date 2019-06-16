@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author William
  */
-public class ReceitaDao extends Dao implements DaoI<Receita> {
+public class ReceitaDao extends DaoBD implements DaoI<Receita> {
 
     EntregaDao entregaDao;
     FormaPagamentoDao formaPagamentoDao;

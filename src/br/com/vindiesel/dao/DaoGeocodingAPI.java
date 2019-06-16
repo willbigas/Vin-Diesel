@@ -5,8 +5,8 @@
  */
 package br.com.vindiesel.dao;
 
-import br.com.vindiesel.model.Localizacao;
-import br.com.vindiesel.model.Location;
+import br.com.vindiesel.model.geocoding.Localizacao;
+import br.com.vindiesel.model.geocoding.Location;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,7 +19,7 @@ import org.apache.http.util.EntityUtils;
  *
  * @author agostinho.junior
  */
-public class LocalizacaoDao {
+public class DaoGeocodingAPI {
 
     private static String URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
     private static String SUFIX = "&key=AIzaSyASECb7nFXRCzaTET55r_Nwe3pY-C6y7xM";

@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author william.mauro
  */
-public class UsuarioDao extends Dao implements DaoI<Usuario> {
+public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
 
     EnderecoDao enderecoDao;
     TipoUsuarioDao tipoUsuarioDao;

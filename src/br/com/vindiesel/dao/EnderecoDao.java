@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author ADJ-PC
  */
-public class EnderecoDao extends Dao implements DaoI<Endereco> {
+public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
 
     public EnderecoDao() {
         super();

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author William
  */
-public class DimensaoDao extends Dao implements DaoI<Dimensao> {
+public class DimensaoDao extends DaoBD implements DaoI<Dimensao> {
 
     @Override
     public int inserir(Dimensao obj) {

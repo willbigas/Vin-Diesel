@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author william.mauro
  */
-public class TipoUsuarioDao extends Dao implements DaoI<TipoUsuario> {
+public class TipoUsuarioDao extends DaoBD implements DaoI<TipoUsuario> {
 
     public TipoUsuarioDao() {
         super();

@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author ADJ-PC
  */
-public class FormaPagamentoDao extends Dao implements DaoI<FormaPagamento> {
+public class FormaPagamentoDao extends DaoBD implements DaoI<FormaPagamento> {
 
     public FormaPagamentoDao() {
         super();

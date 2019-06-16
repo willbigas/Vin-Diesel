@@ -124,12 +124,12 @@ public class DestinatarioDao extends DaoBD implements DaoI<Destinatario> {
             ResultSet result = stmt.executeQuery();
             List<Destinatario> lista = new ArrayList<>();
             while (result.next()) {
-                Destinatario cliente = new Destinatario();
-                cliente.setId(result.getInt("id"));
-                cliente.setNome(result.getString("nome"));
-                cliente.setCodigoPessoa(result.getString("codigoPessoa"));
-                cliente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
-                lista.add(cliente);
+                Destinatario destinatario = new Destinatario();
+                destinatario.setId(result.getInt("id"));
+                destinatario.setNome(result.getString("nome"));
+                destinatario.setCodigoPessoa(result.getString("codigoPessoa"));
+                destinatario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                lista.add(destinatario);
             }
             return lista;
         } catch (SQLException ex) {
@@ -140,7 +140,26 @@ public class DestinatarioDao extends DaoBD implements DaoI<Destinatario> {
 
     @Override
     public Destinatario pesquisar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String querySelect = "SELECT * FROM DESTINATARIO WHERE id = ?";
+        try {
+            PreparedStatement stmt;
+            stmt = conexao.prepareStatement(querySelect);
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
+            while (result.next()) {
+                Destinatario destinatario = new Destinatario();
+                destinatario.setId(result.getInt("id"));
+                destinatario.setNome(result.getString("nome"));
+                destinatario.setCodigoPessoa(result.getString("codigoPessoa"));
+                destinatario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                return destinatario;
+            }
+            return null;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+
     }
 
     @Override

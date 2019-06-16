@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `receita` (
   `dataPagamento` DATETIME NULL,
   `dataVencimento` DATE NOT NULL,
   `valorTotal` DECIMAL(9,2) NOT NULL,
-  `valorRecebido` DECIMAL(9,2) NOT NULL,
+  `valorRecebido` DECIMAL(9,2) NULL,
   `entrega_id` INT NOT NULL,
   `formaPagamento_id` INT NULL,
   PRIMARY KEY (`id`));
@@ -213,6 +213,10 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `vindiesel`.`formapagamento` (`id`, `nome`) VALUES ('1', 'DINHEIRO');
+INSERT INTO `vindiesel`.`formapagamento` (`id`, `nome`) VALUES ('2', 'DEPOSITO EM CONTA');
+INSERT INTO `vindiesel`.`formapagamento` (`id`, `nome`) VALUES ('3', 'BOLETO');
 
 
 INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('1', 'Administrador' , '1' , '1');

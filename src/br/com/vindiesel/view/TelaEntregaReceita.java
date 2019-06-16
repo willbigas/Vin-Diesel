@@ -44,15 +44,16 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         tfDataVencimento = new javax.swing.JTextField();
         btGerarDespesa = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        tfValorRecebimento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Gerar Receita");
 
-        jLabel2.setText("Data  Vencimento");
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Data Vencimento");
+
+        tfDataVencimento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         btGerarDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
         btGerarDespesa.setText("Gerar");
@@ -64,48 +65,38 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setText("Valor a Receber:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btGerarDespesa)
-                .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfValorRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel1)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(75, 75, 75))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btGerarDespesa)
+                        .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfValorRecebimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btGerarDespesa)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,6 +105,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
     private void btGerarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarDespesaActionPerformed
         // TODO add your handling code here:
         telaEntregaControl.adicionarEntregaAction();
+        this.dispose();
     }//GEN-LAST:event_btGerarDespesaActionPerformed
 
     /**
@@ -165,9 +157,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
     private javax.swing.JButton btGerarDespesa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField tfDataVencimento;
-    private javax.swing.JTextField tfValorRecebimento;
     // End of variables declaration//GEN-END:variables
 
     public JTextField getTfDataVencimento() {
@@ -177,16 +167,5 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
     public void setTfDataVencimento(JTextField tfDataVencimento) {
         this.tfDataVencimento = tfDataVencimento;
     }
-
-    public JTextField getTfValorRecebimento() {
-        return tfValorRecebimento;
-    }
-
-    public void setTfValorRecebimento(JTextField tfValorRecebimento) {
-        this.tfValorRecebimento = tfValorRecebimento;
-    }
-
-  
-
 
 }

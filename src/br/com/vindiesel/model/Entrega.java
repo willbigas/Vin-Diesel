@@ -1,6 +1,7 @@
 package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -27,6 +28,8 @@ public class Entrega {
     private Destinatario destinatario;
     @Valid
     private Encomenda encomenda;
+    @Valid
+    List<Tramite> tramites;
 
     public Integer getId() {
         return id;

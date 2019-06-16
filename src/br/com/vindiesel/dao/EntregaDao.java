@@ -2,11 +2,14 @@ package br.com.vindiesel.dao;
 
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.interfaces.DaoI;
+import br.com.vindiesel.uteis.UtilDate;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,7 +132,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
                 entrega.setId(result.getInt("id"));
                 entrega.setValorTotal(result.getDouble("valorTotal"));
                 entrega.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                entrega.setDataEntrega((result.getTimestamp("dataEntrega").toLocalDateTime()));
+                if ((result.getTimestamp("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                       entrega.setDataEntrega(result.getTimestamp("dataEntrega").toLocalDateTime());
+                }
                 entrega.setEntregue(result.getBoolean("entregue"));
                 entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
                 entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));

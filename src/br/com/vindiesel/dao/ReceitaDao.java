@@ -33,7 +33,7 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
 
     @Override
     public int inserir(Receita receita) {
-        String queryInsert = "INSERT INTO receitas (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, ENTREGA_ID, FORMAPAGAMENTO_ID) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO receita (DATACADASTRO, DATAPAGAMENTO, DATAVENCIMENTO, VALORTOTAL, VALORRECEBIDO, ENTREGA_ID, FORMAPAGAMENTO_ID) VALUES(?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -51,7 +51,11 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
                 stmt.setDouble(5, receita.getValorRecebido());
             }
             stmt.setInt(6, receita.getEntrega().getId());
-            stmt.setInt(7, receita.getFormaPagamento().getId());
+            if (receita.getFormaPagamento() == null) {
+                stmt.setNull(7, Types.INTEGER);
+            } else {
+                stmt.setInt(7, receita.getFormaPagamento().getId());
+            }
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();

@@ -50,6 +50,7 @@ public class TelaReceitaGerenciarControl {
         receita.setDataCadastro(LocalDateTime.now());
         receita.setDataPagamento(null);
         receita.setDataVencimento(dataVencimento);
+        receita.setFormaPagamento(null);
         receita.setValorRecebido(null);
         receita.setValorTotal(valorFrete);
         receita.setEntrega(entrega);

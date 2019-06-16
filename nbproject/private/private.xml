@@ -12,10 +12,21 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ADJ-PC/Documents/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaUsuarioGerenciarControl.java</file>
-            <file>file:/C:/Users/ADJ-PC/Documents/GitHub/Vin-Diesel/src/br/com/vindiesel/view/TelaDestinatarioGerenciar.java</file>
-            <file>file:/C:/Users/ADJ-PC/Documents/GitHub/Vin-Diesel/src/br/com/vindiesel/view/TelaUsuarioGerenciar.java</file>
-            <file>file:/C:/Users/ADJ-PC/Documents/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaDestinatarioGerenciarControl.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/view/TelaEntregaReceita.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/model/Usuario.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/control/DistanciaCalculoControl.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaEntregaControl.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/dao/EntregaDao.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/model/Dimensao.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/uteis/UtilDate.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/dao/DistanciaDao.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaLoginControl.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaReceitaGerenciarControl.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/model/Endereco.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/VinDiesel.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/TestandoFrete.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/view/TelaEntrega.java</file>
+            <file>file:/D:/GitHub/Vin-Diesel/src/br/com/vindiesel/control/TelaPrincipalControl.java</file>
         </group>
     </open-files>
 </project-private>

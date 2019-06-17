@@ -20,10 +20,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
     }
+
     public TelaPrincipal(TelaPrincipalControl control) {
         initComponents();
         telaPrincipalControl = control;
-        
+
     }
 
     /**
@@ -50,6 +51,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuFinanceiro = new javax.swing.JMenu();
         menuItemReceita = new javax.swing.JMenuItem();
         menuRelatorio = new javax.swing.JMenu();
+        menuItemRelatorioRementente = new javax.swing.JMenuItem();
+        menuItemRelatorioDestinatario = new javax.swing.JMenuItem();
+        menuItemRelatorioEncomenda = new javax.swing.JMenuItem();
         menuItemRelatorioReceitas = new javax.swing.JMenuItem();
         menuItemRelatorioEntrega = new javax.swing.JMenuItem();
         menuItemRelatorioUsuario = new javax.swing.JMenuItem();
@@ -184,6 +188,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuRelatorio.setText("Relatórios");
         menuRelatorio.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
+        menuItemRelatorioRementente.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioRementente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
+        menuItemRelatorioRementente.setText("Remetentes");
+        menuItemRelatorioRementente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRelatorioRemententeActionPerformed(evt);
+            }
+        });
+        menuRelatorio.add(menuItemRelatorioRementente);
+
+        menuItemRelatorioDestinatario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
+        menuItemRelatorioDestinatario.setText("Destinatarios");
+        menuItemRelatorioDestinatario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRelatorioDestinatarioActionPerformed(evt);
+            }
+        });
+        menuRelatorio.add(menuItemRelatorioDestinatario);
+
+        menuItemRelatorioEncomenda.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioEncomenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
+        menuItemRelatorioEncomenda.setText("Encomendas");
+        menuItemRelatorioEncomenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRelatorioEncomendaActionPerformed(evt);
+            }
+        });
+        menuRelatorio.add(menuItemRelatorioEncomenda);
+
         menuItemRelatorioReceitas.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         menuItemRelatorioReceitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
         menuItemRelatorioReceitas.setText("Receitas");
@@ -287,10 +321,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEntregaActionPerformed
         // TODO add your handling code here:
+        InputStream jasperFile = getClass().getResourceAsStream("/reports/entregas.jasper");
+        Relatorio.chamarRelatorio(jasperFile, null);
     }//GEN-LAST:event_menuItemRelatorioEntregaActionPerformed
 
     private void menuItemRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioUsuarioActionPerformed
         // TODO add your handling code here:
+        InputStream jasperFile = getClass().getResourceAsStream("/reports/usuarios.jasper");
+        Relatorio.chamarRelatorio(jasperFile, null);
     }//GEN-LAST:event_menuItemRelatorioUsuarioActionPerformed
 
     private void menuItemGerenciarRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarRemetenteActionPerformed
@@ -312,6 +350,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         telaPrincipalControl.chamarTelaEncomendaAction();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuItemRelatorioRemententeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioRemententeActionPerformed
+        // TODO add your handling code here:
+        InputStream jasperFile = getClass().getResourceAsStream("/reports/remetentes.jasper");
+        Relatorio.chamarRelatorio(jasperFile, null);
+    }//GEN-LAST:event_menuItemRelatorioRemententeActionPerformed
+
+    private void menuItemRelatorioDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioDestinatarioActionPerformed
+        // TODO add your handling code here:
+        InputStream jasperFile = getClass().getResourceAsStream("/reports/destinatarios.jasper");
+        Relatorio.chamarRelatorio(jasperFile, null);
+    }//GEN-LAST:event_menuItemRelatorioDestinatarioActionPerformed
+
+    private void menuItemRelatorioEncomendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEncomendaActionPerformed
+        // TODO add your handling code here:
+        InputStream jasperFile = getClass().getResourceAsStream("/reports/encomendas.jasper");
+        Relatorio.chamarRelatorio(jasperFile, null);
+    }//GEN-LAST:event_menuItemRelatorioEncomendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,8 +419,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemGerenciarTipoUsuario;
     private javax.swing.JMenuItem menuItemGerenciarUsuario;
     private javax.swing.JMenuItem menuItemReceita;
+    private javax.swing.JMenuItem menuItemRelatorioDestinatario;
+    private javax.swing.JMenuItem menuItemRelatorioEncomenda;
     private javax.swing.JMenuItem menuItemRelatorioEntrega;
     private javax.swing.JMenuItem menuItemRelatorioReceitas;
+    private javax.swing.JMenuItem menuItemRelatorioRementente;
     private javax.swing.JMenuItem menuItemRelatorioUsuario;
     private javax.swing.JMenuItem menuItemSobre;
     private javax.swing.JMenu menuPessoa;
@@ -500,8 +559,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public void setMenuUsuario(JMenu menuUsuario) {
         this.menuUsuario = menuUsuario;
     }
-    
-    
-
 
 }

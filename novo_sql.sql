@@ -229,7 +229,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
+INSERT INTO `vindiesel`.`tipotramite` (`id`, `nome`) VALUES ('1', 'SAIU DE:');
+INSERT INTO `vindiesel`.`tipotramite` (`id`, `nome`) VALUES ('2', 'FOI PARA:');
+INSERT INTO `vindiesel`.`tipotramite` (`id`, `nome`) VALUES ('3', 'CHEGOU EM:');
 
 
 INSERT INTO `vindiesel`.`formapagamento` (`id`, `nome`) VALUES ('1', 'DINHEIRO');

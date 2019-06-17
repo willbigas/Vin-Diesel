@@ -17,13 +17,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class UsuarioTableModel extends AbstractTableModel implements AcoesTableModel<Usuario> {
 
-    private static final int CODIGO = 0;
+    private static final int CPF = 0;
     private static final int NOME = 1;
-    private static final int TELEFONE = 2;
-    private static final int ATIVO = 3;
+    private static final int EMAIL = 2;
+    private static final int TELEFONE = 3;
+    private static final int ATIVO = 4;
 
     private List<Usuario> linhas;
-    private String[] COLUNAS = {"Código", "Nome", "Telefone", "Ativo"};
+    private String[] COLUNAS = {"CPF", "NOME" ,"EMAIL", "TELEFONE", "ATIVO"};
 
     public UsuarioTableModel() {
         linhas = new ArrayList<>();
@@ -51,9 +52,11 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
-            case CODIGO:
-                return Integer.class;
+            case CPF:
+                return String.class;
             case NOME:
+                return String.class;
+            case EMAIL:
                 return String.class;
             case TELEFONE:
                 return String.class;
@@ -68,10 +71,12 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     public Object getValueAt(int linha, int coluna) {
         Usuario funcionario = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                return funcionario.getId();
+            case CPF:
+                return funcionario.getCpf();
             case NOME:
                 return funcionario.getNome();
+            case EMAIL:
+                return funcionario.getEmail();
             case TELEFONE:
                 return funcionario.getTelefone();
             case ATIVO:
@@ -89,11 +94,14 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     public void setValueAt(Object valor, int linha, int coluna) {
         Usuario funcionario = linhas.get(linha);
         switch (coluna) {
-            case CODIGO:
-                funcionario.setId(Integer.valueOf((String) valor));
+            case CPF:
+                funcionario.setCpf((String) valor);
                 break;
             case NOME:
                 funcionario.setNome((String) valor);
+                break;
+            case EMAIL:
+                funcionario.setEmail((String) valor);
                 break;
             case TELEFONE:
                 funcionario.setTelefone((String) valor);

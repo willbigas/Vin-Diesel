@@ -51,11 +51,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuFinanceiro = new javax.swing.JMenu();
         menuItemReceita = new javax.swing.JMenuItem();
         menuRelatorio = new javax.swing.JMenu();
+        menuItemRelatorioEntrega = new javax.swing.JMenuItem();
         menuItemRelatorioRementente = new javax.swing.JMenuItem();
         menuItemRelatorioDestinatario = new javax.swing.JMenuItem();
         menuItemRelatorioEncomenda = new javax.swing.JMenuItem();
         menuItemRelatorioReceitas = new javax.swing.JMenuItem();
-        menuItemRelatorioEntrega = new javax.swing.JMenuItem();
         menuItemRelatorioUsuario = new javax.swing.JMenuItem();
         menuSobre = new javax.swing.JMenu();
         menuItemAjuda = new javax.swing.JMenuItem();
@@ -127,6 +127,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
         jMenu1.setText("Encomenda");
+        jMenu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem1.setText("Gerenciar Encomendas");
@@ -188,6 +189,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuRelatorio.setText("Relatórios");
         menuRelatorio.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
 
+        menuItemRelatorioEntrega.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
+        menuItemRelatorioEntrega.setText("Entregas");
+        menuItemRelatorioEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRelatorioEntregaActionPerformed(evt);
+            }
+        });
+        menuRelatorio.add(menuItemRelatorioEntrega);
+
         menuItemRelatorioRementente.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         menuItemRelatorioRementente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
         menuItemRelatorioRementente.setText("Remetentes");
@@ -227,16 +238,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         menuRelatorio.add(menuItemRelatorioReceitas);
-
-        menuItemRelatorioEntrega.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        menuItemRelatorioEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
-        menuItemRelatorioEntrega.setText("Entregas");
-        menuItemRelatorioEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRelatorioEntregaActionPerformed(evt);
-            }
-        });
-        menuRelatorio.add(menuItemRelatorioEntrega);
 
         menuItemRelatorioUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         menuItemRelatorioUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N

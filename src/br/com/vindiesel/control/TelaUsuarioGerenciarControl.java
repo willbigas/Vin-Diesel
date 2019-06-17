@@ -261,6 +261,18 @@ public class TelaUsuarioGerenciarControl {
         }
 
     }
+    
+     public void pesquisarUsuarioAction() {
+        List<Usuario> encomendasPesquisadas = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
+        if (encomendasPesquisadas == null) {
+            usuarioTableModel.limpar();
+            encomendasPesquisadas = usuarioDao.pesquisar();
+        } else {
+            usuarioTableModel.limpar();
+            usuarioTableModel.adicionar(encomendasPesquisadas);
+        }
+
+    }
 
     private void limparCampos() {
         telaUsuarioGerenciar.getTfNome().setText("");

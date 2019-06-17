@@ -124,6 +124,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel5.setText("Pesquisar:");
 
         tfPesquisar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisarKeyReleased(evt);
+            }
+        });
 
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
@@ -503,6 +508,12 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         usuarioGerenciarControl.buscarCepAction();
     }//GEN-LAST:event_btPesquisarCepActionPerformed
+
+    private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
+        // TODO add your handling code here:
+        usuarioGerenciarControl.pesquisarUsuarioAction();
+        
+    }//GEN-LAST:event_tfPesquisarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

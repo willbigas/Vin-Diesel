@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -102,6 +103,15 @@ public class UtilDate {
         } catch (ParseException parseException) {
         }
         return null;
+    }
+    /**
+     * Convertendo String para Data no Formato HH:mm:ss
+     *
+     * @param dataStr
+     * @return Data
+     */
+    public static LocalTime hora(LocalTime dataStr) {
+         return LocalTime.parse(dataStr.toString(), DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 
     /**
@@ -199,5 +209,7 @@ public class UtilDate {
         java.util.Date dataUtil = new java.util.Date();
         return formatador.format(dataUtil);
     }
+    
+    
 
 }

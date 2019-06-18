@@ -3,6 +3,7 @@ package br.com.vindiesel.model.tablemodel;
 
 import br.com.vindiesel.interfaces.AcoesTableModel;
 import br.com.vindiesel.model.Tramite;
+import br.com.vindiesel.uteis.UtilDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class TramiteTableModel extends AbstractTableModel implements AcoesTableM
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case DATA_HORA:
-                return LocalDateTime.class;
+                return String.class;
             case NOME:
                 return String.class;
             case OBSERVACAO:
@@ -66,7 +67,7 @@ public class TramiteTableModel extends AbstractTableModel implements AcoesTableM
         Tramite tramite = linhas.get(linha);
         switch (coluna) {
             case DATA_HORA:
-                return tramite.getDataHora();
+                return UtilDate.dataLocal(tramite.getDataHora().toLocalDate()) + " as " + UtilDate.hora(tramite.getDataHora().toLocalTime());
             case NOME:
                 return tramite.getNome();
             case OBSERVACAO:

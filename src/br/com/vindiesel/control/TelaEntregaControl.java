@@ -57,6 +57,7 @@ public class TelaEntregaControl {
     Entrega entrega;
     Destinatario destinatario;
     Encomenda encomenda;
+    Tramite tramite;
     Endereco endereco;
 
     public TelaEntregaControl() {
@@ -259,13 +260,29 @@ public class TelaEntregaControl {
         System.out.println(valorTotalFrete);
         return valorTotalFrete;
     }
-
+    
     public void listarTramitesDeUmaEntregaAction() {
         entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
         tramiteTableModel.limpar();
         tramiteTableModel.adicionar(tramiteDao.pesquisarTramitesPorEntrega(entrega));
         telaEntrega.getTpEntrega().setEnabledAt(1, true);
         telaEntrega.getTpEntrega().setSelectedIndex(1);
+    }
+    
+     public void adicionarTramitesDeUmaEntregaAction() {
+        int cbSelecionada = telaEntrega.getCbTipoTramite().getSelectedIndex();
+       int idTramiteInserido = tramiteControl.adicionarTramite(entrega, telaEntrega.getTfNomeTramite().getText()
+                , telaEntrega.getTfObservacaoTramite().getText(), cbSelecionada + 1);
+       if (idTramiteInserido == 0) {
+           Mensagem.erro(Texto.ERRO_CADASTRAR);
+           entrega = null;
+           tramite = null;
+           return;
+       }
+       tramiteTableModel.adicionar(tramiteDao.pesquisar(idTramiteInserido));
+       Mensagem.info(Texto.SUCESSO_CADASTRAR);
+       
+       
     }
 
 }

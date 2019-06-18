@@ -245,8 +245,8 @@ INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) 
 INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('1', '88133810', 'SC', 'Palhoça', 'Jardim das Palmeiras', 'Dália', 'Casa Marrom', '538');
 INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('2', '88130800', 'SC', 'Palhoça', 'Jardim Eldorado', 'Não sei o nome', 'Não sei', '500');
 
-INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('1', 'William Bigas Mauro', '1997-11-21', '30337442', 'admin', '10052185958', '1234', '1550.00', '123456', '1', '1', '1');
-INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('2', 'Agostinho Detófano Junior', '1996-02-12', '48968247', 'funcionario', '10052185964', '1234', '2000.00', '123987', '1', '2', '2');
+INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('1', 'William Bigas Mauro', '1997-11-21', '30337442', 'admin', '100.521.859.58', '1234', '1550.00', '123456', '1', '1', '1');
+INSERT INTO `vindiesel`.`Usuario` (`id`, `nome`, `dataNascimento`, `telefone`, `email`, `cpf`, `senha`, `salario`, `numeroPis`, `ativo`, `endereco_id`, `tipoUsuario_id`) VALUES ('2', 'Agostinho Detófano Junior', '1996-02-12', '48968247', 'funcionario', '100.521.859.64', '1234', '2000.00', '123987', '1', '2', '2');
 
 
 select * from TipoUsuario;

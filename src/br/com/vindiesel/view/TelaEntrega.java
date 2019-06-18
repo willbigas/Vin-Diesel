@@ -62,8 +62,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         panelEditarEntrega = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        tfDataEntrega = new javax.swing.JFormattedTextField();
-        jLabel24 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cbTipoTramite = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
@@ -74,6 +72,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         tfNomeTramite = new javax.swing.JTextField();
         btGravarListTramite = new javax.swing.JButton();
         btLimparCamposTramite = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tfObservacaoTramite = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
         panelEfetivarEntrega = new javax.swing.JPanel();
         cbEncomenda = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -224,10 +225,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addGroup(panelListarEntregaLayout.createSequentialGroup()
                         .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(brBuscarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(brBuscarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(btEditarEntrega)
                 .addGap(19, 19, 19))
         );
@@ -259,18 +260,18 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setText("Editar Tramites da Entrega");
 
-        tfDataEntrega.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setText("DATA ENTREGA:");
-
         cbTipoTramite.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbTipoTramite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saiu de :", "Foi para :" }));
+        cbTipoTramite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saiu de :", "Foi para :", "Chegou Em :" }));
 
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel25.setText("TRAMITE:");
+        jLabel25.setText("OBSERVAÇÃO:");
 
         btAdicionarTramite.setText("Adicionar");
+        btAdicionarTramite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarTramiteActionPerformed(evt);
+            }
+        });
 
         btRemoverTramite.setText("Remover");
 
@@ -293,6 +294,13 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         btLimparCamposTramite.setText("Limpar");
 
+        tfObservacaoTramite.setColumns(20);
+        tfObservacaoTramite.setRows(5);
+        jScrollPane4.setViewportView(tfObservacaoTramite);
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setText("TRAMITE:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -301,39 +309,55 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfNomeTramite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btAdicionarTramite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btRemoverTramite)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btLimparCamposTramite)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btGravarListTramite)
-                        .addGap(11, 11, 11))))
+                        .addGap(11, 11, 11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4)
+                            .addComponent(tfNomeTramite))
+                        .addGap(90, 90, 90)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btRemoverTramite)
+                            .addComponent(btAdicionarTramite))
+                        .addGap(23, 23, 23))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
-                    .addComponent(btAdicionarTramite)
-                    .addComponent(btRemoverTramite)
-                    .addComponent(tfNomeTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(tfNomeTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btAdicionarTramite)
+                                .addGap(18, 18, 18)
+                                .addComponent(btRemoverTramite)
+                                .addGap(16, 16, 16)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparCamposTramite)
                     .addComponent(btGravarListTramite))
@@ -345,34 +369,22 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         panelEditarEntregaLayout.setHorizontalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEditarEntregaLayout.createSequentialGroup()
-                .addGroup(panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelEditarEntregaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelEditarEntregaLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarEntregaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelEditarEntregaLayout.createSequentialGroup()
+                .addGap(222, 222, 222)
                 .addComponent(jLabel10)
-                .addGap(199, 199, 199))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEditarEntregaLayout.setVerticalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEditarEntregaLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jLabel10)
-                .addGap(14, 14, 14)
-                .addGroup(panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         tpEntrega.addTab("Editar Tramites", panelEditarEntrega);
@@ -694,6 +706,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btEditarEntregaActionPerformed
 
+    private void btAdicionarTramiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarTramiteActionPerformed
+        // TODO add your handling code here:
+        entregaControl.adicionarTramitesDeUmaEntregaAction();
+    }//GEN-LAST:event_btAdicionarTramiteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brBuscarEntrega;
@@ -725,8 +742,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -741,6 +758,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPanel panelEditarEntrega;
     private javax.swing.JPanel panelEfetivarEntrega;
     private javax.swing.JPanel panelListarEntrega;
@@ -751,10 +769,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfCidade;
     private javax.swing.JTextField tfCodigoPessoa;
     private javax.swing.JTextArea tfComplemento;
-    private javax.swing.JFormattedTextField tfDataEntrega;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNomeTramite;
     private javax.swing.JTextField tfNumero;
+    private javax.swing.JTextArea tfObservacaoTramite;
     private javax.swing.JTextField tfPesquisarEntrega;
     private javax.swing.JTextField tfRua;
     private javax.swing.JTabbedPane tpEntrega;
@@ -864,14 +882,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         this.tblTramite = tblTramite;
     }
 
-    public JFormattedTextField getTfDataEntrega() {
-        return tfDataEntrega;
-    }
-
-    public void setTfDataEntrega(JFormattedTextField tfDataEntrega) {
-        this.tfDataEntrega = tfDataEntrega;
-    }
-
     public JTextField getTfNomeTramite() {
         return tfNomeTramite;
     }
@@ -911,5 +921,15 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     public void setTpEntrega(JTabbedPane tpEntrega) {
         this.tpEntrega = tpEntrega;
     }
+
+    public JTextArea getTfObservacaoTramite() {
+        return tfObservacaoTramite;
+    }
+
+    public void setTfObservacaoTramite(JTextArea tfObservacaoTramite) {
+        this.tfObservacaoTramite = tfObservacaoTramite;
+    }
+    
+    
 
 }

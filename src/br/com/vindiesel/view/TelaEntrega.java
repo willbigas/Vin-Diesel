@@ -60,6 +60,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        btLimparCamposTabEntrega = new javax.swing.JButton();
         panelEditarEntrega = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -204,6 +205,13 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel20.setText("[F5-Recarregar]");
 
+        btLimparCamposTabEntrega.setText("Limpar");
+        btLimparCamposTabEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparCamposTabEntregaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelListarEntregaLayout = new javax.swing.GroupLayout(panelListarEntrega);
         panelListarEntrega.setLayout(panelListarEntregaLayout);
         panelListarEntregaLayout.setHorizontalGroup(
@@ -213,7 +221,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarEntregaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addComponent(btLimparCamposTabEntrega)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
@@ -226,14 +236,16 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22))
             .addGroup(panelListarEntregaLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
+                .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelListarEntregaLayout.createSequentialGroup()
                         .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(brBuscarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(brBuscarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelListarEntregaLayout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(btEditarEntrega)
                 .addGap(19, 19, 19))
@@ -259,6 +271,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addComponent(jLabel19)
                     .addComponent(jLabel20))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarEntregaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btLimparCamposTabEntrega)
+                .addContainerGap())
         );
 
         tpEntrega.addTab("Listar Entregas", panelListarEntrega);
@@ -737,6 +753,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tpEntregaMouseReleased
 
+    private void btLimparCamposTabEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntregaActionPerformed
+        // TODO add your handling code here:
+        entregaControl.limparCamposTabEntrega();
+        
+    }//GEN-LAST:event_btLimparCamposTabEntregaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brBuscarEntrega;
@@ -744,6 +766,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JButton btEditarEntrega;
     private javax.swing.JButton btEfetivarEntrega;
     private javax.swing.JButton btGravarListTramite;
+    private javax.swing.JButton btLimparCamposTabEntrega;
     private javax.swing.JButton btLimparCamposTramite;
     private javax.swing.JButton btLimparEfetivarEntrega;
     private javax.swing.JButton btPesquisarCep;

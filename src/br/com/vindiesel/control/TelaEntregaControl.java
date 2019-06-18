@@ -21,6 +21,7 @@ import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioDialogPesquisar;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -305,5 +306,12 @@ public class TelaEntregaControl {
         tramite = null;
         telaEntrega.getTpEntrega().setEnabledAt(1, false);
     }
+    
+    public void limparCamposTabEntrega() {
+        telaEntrega.getCbPesquisarEntrega().setSelectedIndex(0);
+        telaEntrega.getTfPesquisarEntrega().setText("");
+        UtilTable.limparSelecaoDaTabela(telaEntrega.getTblEntrega());
+    }
+    
 
 }

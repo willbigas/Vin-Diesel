@@ -5,6 +5,10 @@
  */
 package br.com.vindiesel.uteis;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+
 /**
  *
  * @author william.mauro
@@ -59,4 +63,19 @@ public class UtilDecimalFormat {
         return df.format(numero);
     }
 
+    public static Double toDecimalUs(String valorDecimal) {
+        double d = 0;
+        try {
+            NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
+            Number number = format.parse(valorDecimal);
+            d = number.doubleValue();
+        } catch (ParseException parseException) {
+            Mensagem.erro("Erro ao converter para NumberFormat com [.]");
+        }
+        return d;
+    }
+    
+      public static String trocarParaPonto(String valorDecimal) {
+         return valorDecimal.replace(",",".");
+    }
 }

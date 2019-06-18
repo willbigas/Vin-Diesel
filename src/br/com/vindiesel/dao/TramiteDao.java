@@ -98,7 +98,7 @@ public class TramiteDao extends DaoBD implements DaoI<Tramite> {
             return false;
         }
     }
-
+    
     @Override
     public boolean desativar(Tramite obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

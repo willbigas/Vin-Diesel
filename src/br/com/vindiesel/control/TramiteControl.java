@@ -1,5 +1,6 @@
 package br.com.vindiesel.control;
 
+import br.com.vindiesel.dao.EntregaDao;
 import br.com.vindiesel.dao.TipoTramiteDao;
 import br.com.vindiesel.dao.TramiteDao;
 import br.com.vindiesel.model.Entrega;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 public class TramiteControl {
 
     TramiteDao tramiteDao;
+    EntregaDao entregaDao;
     TipoTramiteDao tipoTramiteDao;
     Tramite tramite;
     TipoTramite tipoTramite;
@@ -56,6 +58,13 @@ public class TramiteControl {
 
         int idInserido = tramiteDao.inserir(tramite);
         return idInserido;
+    }
+
+    public boolean removerTramite(Tramite tramiteRecebido) {
+        tramite = tramiteDao.pesquisar(tramiteRecebido.getId());
+        boolean deletado = tramiteDao.deletar(tramite.getId());
+        return deletado;
+
     }
 
 }

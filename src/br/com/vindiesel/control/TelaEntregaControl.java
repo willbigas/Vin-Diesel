@@ -260,7 +260,7 @@ public class TelaEntregaControl {
         System.out.println(valorTotalFrete);
         return valorTotalFrete;
     }
-    
+
     public void listarTramitesDeUmaEntregaAction() {
         entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
         tramiteTableModel.limpar();
@@ -268,21 +268,42 @@ public class TelaEntregaControl {
         telaEntrega.getTpEntrega().setEnabledAt(1, true);
         telaEntrega.getTpEntrega().setSelectedIndex(1);
     }
-    
-     public void adicionarTramitesDeUmaEntregaAction() {
+
+    public void adicionarTramitesDeUmaEntregaAction() {
         int cbSelecionada = telaEntrega.getCbTipoTramite().getSelectedIndex();
-       int idTramiteInserido = tramiteControl.adicionarTramite(entrega, telaEntrega.getTfNomeTramite().getText()
-                , telaEntrega.getTfObservacaoTramite().getText(), cbSelecionada + 1);
-       if (idTramiteInserido == 0) {
-           Mensagem.erro(Texto.ERRO_CADASTRAR);
-           entrega = null;
-           tramite = null;
-           return;
-       }
-       tramiteTableModel.adicionar(tramiteDao.pesquisar(idTramiteInserido));
-       Mensagem.info(Texto.SUCESSO_CADASTRAR);
-       
-       
+        int idTramiteInserido = tramiteControl.adicionarTramite(entrega, telaEntrega.getTfNomeTramite().getText(),
+                telaEntrega.getTfObservacaoTramite().getText(), cbSelecionada + 1);
+        if (idTramiteInserido == 0) {
+            Mensagem.erro(Texto.ERRO_CADASTRAR);
+            tramite = null;
+            return;
+        }
+        tramite = tramiteDao.pesquisar(idTramiteInserido);
+        tramiteTableModel.adicionar(tramite);
+        Mensagem.info(Texto.SUCESSO_CADASTRAR);
+        tramite = null;
+
+    }
+
+    public void removerTramitesDeUmaEntregaAction() {
+        int linhaSelecionada = telaEntrega.getTblTramite().getSelectedRow();
+        tramite = tramiteTableModel.pegaObjeto(telaEntrega.getTblTramite().getSelectedRow());
+        boolean removido = tramiteControl.removerTramite(tramite);
+        if (!removido) {
+            tramite = null;
+            Mensagem.erro(Texto.ERRO_DELETAR);
+            return;
+        }
+        tramiteTableModel.remover(linhaSelecionada);
+        Mensagem.info(Texto.SUCESSO_DELETAR);
+        tramite = null;
+
+    }
+
+    public void resetarEntregaETramitesAction() {
+        entrega = null;
+        tramite = null;
+        telaEntrega.getTpEntrega().setEnabledAt(1, false);
     }
 
 }

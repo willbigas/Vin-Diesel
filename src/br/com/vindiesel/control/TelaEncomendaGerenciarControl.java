@@ -1,7 +1,6 @@
 package br.com.vindiesel.control;
 
 import br.com.vindiesel.dao.DimensaoDao;
-import br.com.vindiesel.dao.RemetenteDao;
 import br.com.vindiesel.dao.EncomendaDao;
 import br.com.vindiesel.model.Dimensao;
 import br.com.vindiesel.model.Encomenda;

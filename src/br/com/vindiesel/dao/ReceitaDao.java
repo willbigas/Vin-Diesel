@@ -73,7 +73,7 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
     @Override
     public boolean alterar(Receita receita) {
         String queryUpdate = "UPDATE receita SET dataCadastro = ?, dataPagamento = ?, dataVencimento = ?,"
-                + " valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ?, FORMAPAGAMENTO_ID WHERE ID = ?";
+                + " valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ?, FORMAPAGAMENTO_ID = ? WHERE ID = ? ";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setTimestamp(1, Timestamp.valueOf(receita.getDataCadastro()));

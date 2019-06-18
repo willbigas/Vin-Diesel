@@ -96,7 +96,7 @@ public class FormaPagamentoDao extends DaoBD implements DaoI<FormaPagamento> {
 
     @Override
     public List<FormaPagamento> pesquisar() {
-        String querySelect = "SELECT * FROM FORMAPAGAMEMTO";
+            String querySelect = "SELECT * FROM formaPagamento";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);

@@ -35,7 +35,7 @@ public class FormaPagamento {
 
     @Override
     public String toString() {
-        return "FormaPagamento{" + "id=" + id + ", nome=" + nome + '}';
+        return nome;
     }
 
 }

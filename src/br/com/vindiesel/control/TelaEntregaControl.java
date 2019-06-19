@@ -211,7 +211,7 @@ public class TelaEntregaControl {
 
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
-        BuscaCepControl buscadorDeCep = new BuscaCepControl();
+        BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
         try {
             buscadorDeCep.buscar(telaEntrega.getTfCep().getText());
             Endereco endereco = new Endereco();

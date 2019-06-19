@@ -1,6 +1,6 @@
 package br.com.vindiesel.interfaces;
 
-import br.com.vindiesel.control.BuscaCepControl;
+import br.com.vindiesel.control.BuscadorDeCepControl;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class BuscaCepEventosImpl implements BuscaCepEventos {
 
     @Override
-    public void sucessoAoEncontrar(BuscaCepControl buscaCep) {
+    public void sucessoAoEncontrar(BuscadorDeCepControl buscaCep) {
         JOptionPane.showMessageDialog(null, "Cep " + buscaCep.getCep() + " Encontrado");
     }
 

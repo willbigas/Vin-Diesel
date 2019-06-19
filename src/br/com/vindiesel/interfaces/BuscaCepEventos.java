@@ -1,13 +1,13 @@
 package br.com.vindiesel.interfaces;
 
-import br.com.vindiesel.control.BuscaCepControl;
+import br.com.vindiesel.control.BuscadorDeCepControl;
 
 public interface BuscaCepEventos {
     /**
      * Quando o CEP for encontrado com sucesso
      * @param cep retorna o objeto BuscaCep
      */
-    public void sucessoAoEncontrar(BuscaCepControl cep);
+    public void sucessoAoEncontrar(BuscadorDeCepControl cep);
     
     /**
      * Quando ocorrer qualquer erro ao encontrar o CEP

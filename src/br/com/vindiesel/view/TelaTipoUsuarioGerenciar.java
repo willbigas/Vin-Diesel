@@ -108,7 +108,13 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblTipoUsuario);
 
+        cbPermissao.setEditable(true);
         cbPermissao.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbPermissao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cbPermissaoKeyReleased(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO PERMISSAO:");
@@ -227,6 +233,11 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tipoUsuarioGerenciarControl.desativarTipoUsuarioAction();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbPermissaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbPermissaoKeyReleased
+        // TODO add your handling code here:
+        tipoUsuarioGerenciarControl.pesquisarItensNaComboTipoUsuario();
+    }//GEN-LAST:event_cbPermissaoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

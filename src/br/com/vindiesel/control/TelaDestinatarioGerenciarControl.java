@@ -189,7 +189,7 @@ public class TelaDestinatarioGerenciarControl {
 
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
-        BuscaCepControl buscadorDeCep = new BuscaCepControl();
+        BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
         try {
             buscadorDeCep.buscar(telaDestinatarioGerenciar.getTfCep().getText());
             Endereco endereco = new Endereco();

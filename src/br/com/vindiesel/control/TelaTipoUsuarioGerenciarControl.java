@@ -191,4 +191,18 @@ public class TelaTipoUsuarioGerenciarControl {
 
     }
 
+    public void pesquisarItensNaComboTipoUsuario() {
+            // TESTANDO!
+//        List<TipoUsuario> tiposUsuariosPesquisados = tipoUsuarioDao.pesquisar((String) telaTipoUsuarioGerenciar.getCbPermissao().getSelectedItem());
+//        if (tiposUsuariosPesquisados == null) {
+//            tipoUsuarioTableModel.limpar();
+//            tiposUsuariosPesquisados = tipoUsuarioDao.pesquisar();
+//            DefaultComboBoxModel<TipoPermissao> model = new DefaultComboBoxModel(tiposUsuariosPesquisados.toArray());
+//            telaTipoUsuarioGerenciar.getCbPermissao().setModel(model);
+//        } else {
+//            tipoUsuarioTableModel.limpar();
+//            tipoUsuarioTableModel.adicionar(tiposUsuariosPesquisados);
+//        }
+
+    }
 }

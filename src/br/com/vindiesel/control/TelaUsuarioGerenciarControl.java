@@ -180,7 +180,7 @@ public class TelaUsuarioGerenciarControl {
 
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
-        BuscaCepControl buscadorDeCep = new BuscaCepControl();
+        BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
         try {
             buscadorDeCep.buscar(telaUsuarioGerenciar.getTfCep().getText());
             Endereco endereco = new Endereco();

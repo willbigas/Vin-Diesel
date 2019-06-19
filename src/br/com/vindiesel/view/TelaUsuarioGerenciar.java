@@ -97,10 +97,15 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(207, 207, 207));
         setClosable(true);
         setIconifiable(true);
 
+        jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jTabbedPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(207, 207, 207));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
@@ -152,7 +157,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Listar Usuarios");
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -180,7 +184,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addComponent(btVisualizar)
                 .addGap(18, 18, 18)
                 .addComponent(btDesativar)
@@ -228,38 +232,59 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Listar", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(207, 207, 207));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        jPanel2.setForeground(new java.awt.Color(204, 226, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tfCpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
             tfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfCpf.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfCpf.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfCpf.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 166, 115, 31));
 
         tfTelefone.setColumns(15);
-        tfTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfTelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfTelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfTelefone.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 269, 140, -1));
 
         tfSalario.setColumns(15);
-        tfSalario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfSalario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfSalario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfSalario.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 203, 140, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel17.setText("DATA:");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 135, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("TEL:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 273, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setText("SENHA");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 339, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("EMAIL:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 306, -1, -1));
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereco do Destinatario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(183, 28, 28))); // NOI18N
+        jPanel7.setBackground(new java.awt.Color(207, 207, 207));
+        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("CEP");
 
-        tfCep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfCep.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfCep.setToolTipText("Busca automatica");
+        tfCep.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfCep.setPreferredSize(new java.awt.Dimension(0, 25));
         tfCep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfCepKeyPressed(evt);
@@ -279,14 +304,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("UF:");
 
-        cbEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbEstado.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        cbEstado.setPreferredSize(new java.awt.Dimension(0, 25));
 
-        tfCidade.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfCidade.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfCidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfCidade.setPreferredSize(new java.awt.Dimension(0, 25));
 
-        tfNumero.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfNumero.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfNumero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfNumero.setPreferredSize(new java.awt.Dimension(0, 25));
 
         tfBairro.setColumns(15);
-        tfBairro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfBairro.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfBairro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfBairro.setPreferredSize(new java.awt.Dimension(0, 25));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setText("NUM:");
@@ -294,7 +326,9 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("RUA:");
 
-        tfRua.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfRua.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfRua.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfRua.setPreferredSize(new java.awt.Dimension(0, 25));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setText("COMPLEMENTO");
@@ -306,7 +340,9 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel11.setText("BAIRR:");
 
         tfComplemento.setColumns(20);
+        tfComplemento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfComplemento.setRows(5);
+        tfComplemento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         jScrollPane4.setViewportView(tfComplemento);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -326,7 +362,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfNumero)
+                                    .addComponent(tfNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -337,19 +373,19 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(tfCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
-                            .addComponent(tfRua))
+                                    .addComponent(tfBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(tfCidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(tfRua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(tfCep, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btPesquisarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                         .addComponent(jLabel15)
-                        .addGap(67, 67, 67))))
+                        .addGap(78, 78, 78))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,21 +428,33 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tfPis.setColumns(15);
-        tfPis.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 136, -1, -1));
 
+        tfPis.setColumns(15);
+        tfPis.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfPis.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfPis.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfPis, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 236, 140, -1));
+
+        checkAtivo.setBackground(new java.awt.Color(207, 207, 207));
         checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkAtivo.setText("ATIVO");
+        checkAtivo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        jPanel2.add(checkAtivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 91, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("PIS:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 240, -1, -1));
 
+        tfDataNascimento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
             tfDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfDataNascimento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfDataNascimento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfDataNascimento.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 130, 86, 30));
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
@@ -419,138 +467,60 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 btGravarActionPerformed(evt);
             }
         });
+        jPanel2.add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, 94, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("SALÁRIO:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 207, -1, -1));
 
         tfNome.setColumns(15);
-        tfNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfNome.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfNome.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 90, 236, 30));
 
         tfEmail.setColumns(15);
-        tfEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfEmail.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfEmail.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 302, 140, -1));
 
         tfSenha.setColumns(15);
-        tfSenha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfSenha.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfSenha.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 335, 140, -1));
 
-        cbTipoUsuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbTipoUsuario.setEditable(true);
+        cbTipoUsuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        cbTipoUsuario.setPreferredSize(new java.awt.Dimension(0, 25));
+        cbTipoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cbTipoUsuarioKeyReleased(evt);
+            }
+        });
+        jPanel2.add(cbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 89, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOME:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 94, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel18.setText("CPF:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 171, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO DE USUARIO");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 94, 128, -1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Editar Usuário");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel2))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(checkAtivo))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfPis, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addComponent(jLabel19)))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkAtivo)
-                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel17))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfPis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btGravar)
-                    .addComponent(jLabel10))
-                .addGap(35, 35, 35))
-        );
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
         jTabbedPane1.addTab("Editar", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(183, 28, 28));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -619,6 +589,10 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             usuarioGerenciarControl.buscarCepAction();
         }
     }//GEN-LAST:event_tfCepKeyPressed
+
+    private void cbTipoUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbTipoUsuarioKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoUsuarioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

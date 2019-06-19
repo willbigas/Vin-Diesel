@@ -72,11 +72,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 848, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -85,11 +85,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("VIN DIESEL");
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(767, 45));
 
         menuPessoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
         menuPessoa.setText("Pessoas");
-        menuPessoa.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuPessoa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
+        menuItemGerenciarRemetente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarRemetente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
         menuItemGerenciarRemetente.setText("Gerenciar Remetentes");
         menuItemGerenciarRemetente.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +101,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuPessoa.add(menuItemGerenciarRemetente);
 
+        menuItemGerenciarDestinatario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
         menuItemGerenciarDestinatario.setText("Gerenciar Destinatários");
         menuItemGerenciarDestinatario.addActionListener(new java.awt.event.ActionListener() {
@@ -112,8 +115,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
         menuEntrega.setText("Entrega");
-        menuEntrega.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuEntrega.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
+        jMenuItem4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem4.setText("Gerenciar Entregas");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +131,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
         jMenu1.setText("Encomenda");
-        jMenu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem1.setText("Gerenciar Encomendas");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +147,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuUsuario.setText("Usuários");
-        menuUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemGerenciarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemGerenciarUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemGerenciarUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         menuItemGerenciarUsuario.setText("Gerenciar Usuários");
         menuItemGerenciarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuUsuario.add(menuItemGerenciarUsuario);
 
         menuItemGerenciarTipoUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemGerenciarTipoUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemGerenciarTipoUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemGerenciarTipoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/cardUser_32x32.png"))); // NOI18N
         menuItemGerenciarTipoUsuario.setText("Tipo de Usuário");
         menuItemGerenciarTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +175,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/money_32x32.png"))); // NOI18N
         menuFinanceiro.setText("Financeiro");
-        menuFinanceiro.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuFinanceiro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemReceita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemReceita.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemReceita.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
         menuItemReceita.setText("Receitas");
         menuItemReceita.addActionListener(new java.awt.event.ActionListener() {
@@ -187,9 +192,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/relatorio_32x32.png"))); // NOI18N
         menuRelatorio.setText("Relatórios");
-        menuRelatorio.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuRelatorio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        menuItemRelatorioEntrega.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioEntrega.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
         menuItemRelatorioEntrega.setText("Entregas");
         menuItemRelatorioEntrega.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +204,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuRelatorio.add(menuItemRelatorioEntrega);
 
-        menuItemRelatorioRementente.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioRementente.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioRementente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
         menuItemRelatorioRementente.setText("Remetentes");
         menuItemRelatorioRementente.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +214,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuRelatorio.add(menuItemRelatorioRementente);
 
-        menuItemRelatorioDestinatario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioDestinatario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
         menuItemRelatorioDestinatario.setText("Destinatarios");
         menuItemRelatorioDestinatario.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +224,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuRelatorio.add(menuItemRelatorioDestinatario);
 
-        menuItemRelatorioEncomenda.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioEncomenda.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioEncomenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
         menuItemRelatorioEncomenda.setText("Encomendas");
         menuItemRelatorioEncomenda.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuRelatorio.add(menuItemRelatorioEncomenda);
 
-        menuItemRelatorioReceitas.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioReceitas.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioReceitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
         menuItemRelatorioReceitas.setText("Receitas");
         menuItemRelatorioReceitas.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +244,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuRelatorio.add(menuItemRelatorioReceitas);
 
-        menuItemRelatorioUsuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemRelatorioUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemRelatorioUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuItemRelatorioUsuario.setText("Usuarios");
         menuItemRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -253,16 +258,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/info_32x32.png"))); // NOI18N
         menuSobre.setText("Sobre");
-        menuSobre.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        menuSobre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemAjuda.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemAjuda.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/ajuda_32x32.png"))); // NOI18N
         menuItemAjuda.setText("Ajuda");
         menuSobre.add(menuItemAjuda);
 
         menuItemSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        menuItemSobre.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        menuItemSobre.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         menuItemSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/developer_32x32.png"))); // NOI18N
         menuItemSobre.setText("Sobre");
         menuItemSobre.addActionListener(new java.awt.event.ActionListener() {
@@ -280,16 +285,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
             .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(desktopPane)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

@@ -172,8 +172,11 @@ public class TelaRemetenteGerenciarControl {
     public void gravarRemetenteAction() {
         if (remetente == null) {
             cadastrarRemetente();
+            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
         } else {
             alterarRemetente();
+            telaRemetenteGerenciar.getTpRemetente().setEnabledAt(0, true); // disabilita o tabbed pane
+            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
         }
     }
 

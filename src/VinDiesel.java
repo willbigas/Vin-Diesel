@@ -14,7 +14,6 @@ public class VinDiesel {
 
     public static void main(String[] args) {
         
-
         try {
             InterfaceJanela.MudaSwingParaPadraoDoSO();
         } catch (Exception exception) {

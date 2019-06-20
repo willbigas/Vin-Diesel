@@ -6,6 +6,7 @@ import br.com.vindiesel.model.TipoUsuario;
 import br.com.vindiesel.model.tablemodel.TipoUsuarioTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaTipoUsuarioGerenciar;
@@ -53,6 +54,15 @@ public class TelaTipoUsuarioGerenciarControl {
         carregarComboBoxDeTipoPermissao();
         telaTipoUsuarioGerenciar.getTblTipoUsuario().setModel(tipoUsuarioTableModel);
         atualizarTabelaTipoUsuario();
+        redimensionarTela();
+    }
+
+    private void redimensionarTela() {
+        UtilTable.centralizarCabecalho(telaTipoUsuarioGerenciar.getTblTipoUsuario());
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 0, 50);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 1, 350);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 2, 100);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 3, 102);
     }
 
     private void atualizarTabelaTipoUsuario() {
@@ -192,7 +202,7 @@ public class TelaTipoUsuarioGerenciarControl {
     }
 
     public void pesquisarItensNaComboTipoUsuario() {
-            // TESTANDO!
+        // TESTANDO!
 //        List<TipoUsuario> tiposUsuariosPesquisados = tipoUsuarioDao.pesquisar((String) telaTipoUsuarioGerenciar.getCbPermissao().getSelectedItem());
 //        if (tiposUsuariosPesquisados == null) {
 //            tipoUsuarioTableModel.limpar();

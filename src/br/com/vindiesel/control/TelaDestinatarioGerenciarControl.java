@@ -11,6 +11,7 @@ import br.com.vindiesel.model.tablemodel.DestinatarioTableModel;
 import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -55,6 +56,15 @@ public class TelaDestinatarioGerenciarControl {
         carregarEstadosNaComboBox();
         destinatarioTableModel.limpar();
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
+        redimensionarTela();
+    }
+
+    private void redimensionarTela() {
+        UtilTable.centralizarCabecalho(telaDestinatarioGerenciar.getTblDestinatario());
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 0, 50);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 1, 350);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 133);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
     }
 
     private void carregarEstadosNaComboBox() {
@@ -136,8 +146,11 @@ public class TelaDestinatarioGerenciarControl {
     public void gravarDestinatarioAction() {
         if (destinatario == null) {
             cadastrarDestinatario();
+            telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(0); // seleciona o tabbed pane
         } else {
             alterarDestinatario();
+            telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(0, true); // disabilita o tabbed pane
+            telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(0); // seleciona o tabbed pane
         }
     }
 

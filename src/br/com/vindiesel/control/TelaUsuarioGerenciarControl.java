@@ -14,6 +14,7 @@ import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
@@ -66,6 +67,16 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
         usuarioTableModel.limpar();
         usuarioTableModel.adicionar(usuarioDao.pesquisar());
+        redimensionarTela();
+    }
+
+    private void redimensionarTela() {
+        UtilTable.centralizarCabecalho(telaUsuarioGerenciar.getTblUsuario());
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 110);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 350);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 2, 185);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 3, 102);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 102);
     }
 
     private void carregarTiposUsuariosNaCombo() {
@@ -198,6 +209,8 @@ public class TelaUsuarioGerenciarControl {
             telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem(endereco.getEstado());
             telaUsuarioGerenciar.getTfRua().setText(endereco.getRua());
             telaUsuarioGerenciar.getTfCep().setText(telaUsuarioGerenciar.getTfCep().getText());
+            telaUsuarioGerenciar.getTfNumero().requestFocus();
+
         } catch (BuscaCepException buscaCepException) {
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();
@@ -261,8 +274,8 @@ public class TelaUsuarioGerenciarControl {
         }
 
     }
-    
-     public void pesquisarUsuarioAction() {
+
+    public void pesquisarUsuarioAction() {
         List<Usuario> encomendasPesquisadas = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
         if (encomendasPesquisadas == null) {
             usuarioTableModel.limpar();

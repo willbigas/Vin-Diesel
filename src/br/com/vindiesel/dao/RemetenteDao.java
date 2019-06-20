@@ -64,12 +64,28 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     @Override
     public boolean deletar(Remetente obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String queryDelete = "DELETE FROM REMETENTE WHERE ID = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
+            stmt.setInt(1, obj.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean deletar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String queryDelete = "DELETE FROM REMETENTE WHERE ID = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override

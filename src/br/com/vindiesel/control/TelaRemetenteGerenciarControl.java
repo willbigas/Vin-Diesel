@@ -169,7 +169,7 @@ public class TelaRemetenteGerenciarControl {
         }
     }
 
-    public void gravarFornecedorAction() {
+    public void gravarRemetenteAction() {
         if (remetente == null) {
             cadastrarRemetente();
         } else {
@@ -177,7 +177,7 @@ public class TelaRemetenteGerenciarControl {
         }
     }
 
-    public void desativarFornecedorAction() {
+    public void excluirRemententeAction() {
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
 
         if (retorno == JOptionPane.NO_OPTION) {
@@ -185,30 +185,30 @@ public class TelaRemetenteGerenciarControl {
         }
         if (retorno == JOptionPane.YES_OPTION) {
             remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
-            boolean deletado = remetenteDao.desativar(remetente.getId());
+            boolean deletado = remetenteDao.deletar(remetente.getId());
             if (deletado) {
                 remetenteTableModel.remover(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
                 telaRemetenteGerenciar.getTblRemetente().clearSelection();
-                Mensagem.info(Texto.SUCESSO_DESATIVAR);
+                Mensagem.info(Texto.SUCESSO_DELETAR);
             } else {
-                Mensagem.erro(Texto.ERRO_DESATIVAR);
+                Mensagem.erro(Texto.ERRO_DELETAR);
             }
         }
         remetente = null;
     }
 
-    public void pesquisarFornecedorAction() {
-        List<Remetente> fornecedoresPesquisados = remetenteDao.pesquisar(telaRemetenteGerenciar.getTfPesquisar().getText());
-        if (fornecedoresPesquisados == null) {
+    public void pesquisarRemetenteAction() {
+        List<Remetente> remetentesPesquisados = remetenteDao.pesquisar(telaRemetenteGerenciar.getTfPesquisar().getText());
+        if (remetentesPesquisados == null) {
             remetenteTableModel.limpar();
-            fornecedoresPesquisados = remetenteDao.pesquisar();
+            remetentesPesquisados = remetenteDao.pesquisar();
         } else {
             remetenteTableModel.limpar();
-            remetenteTableModel.adicionar(fornecedoresPesquisados);
+            remetenteTableModel.adicionar(remetentesPesquisados);
         }
     }
 
-    public void carregarFornecedorAction() {
+    public void carregarRemetenteAction() {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
@@ -221,6 +221,10 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfNumero().setText(remetente.getEndereco().getNumero());
         telaRemetenteGerenciar.getTfRua().setText(remetente.getEndereco().getRua());
         telaRemetenteGerenciar.getTfCep().setText(String.valueOf(remetente.getEndereco().getCep()));
+
+        telaRemetenteGerenciar.getTpRemetente().setEnabledAt(0, false); // disabilita o tabbed pane
+        telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
+        telaRemetenteGerenciar.getTfNome().requestFocus();
 
     }
 

@@ -11,7 +11,6 @@ import br.com.vindiesel.model.tablemodel.DestinatarioTableModel;
 import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -100,7 +99,7 @@ public class TelaDestinatarioGerenciarControl {
 
     }
 
-    private void alterarCliente() {
+    private void alterarDestinatario() {
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
@@ -134,15 +133,15 @@ public class TelaDestinatarioGerenciarControl {
         destinatario = null;
     }
 
-    public void gravarClienteAction() {
+    public void gravarDestinatarioAction() {
         if (destinatario == null) {
             cadastrarDestinatario();
         } else {
-            alterarCliente();
+            alterarDestinatario();
         }
     }
 
-    public void desativarClienteAction() {
+    public void desativarDestinatarioAction() {
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
         if (retorno == JOptionPane.NO_OPTION) {
             return;
@@ -151,18 +150,18 @@ public class TelaDestinatarioGerenciarControl {
             return;
         }
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
-        boolean deletado = destinatarioDao.desativar(destinatario);
+        boolean deletado = destinatarioDao.deletar(destinatario);
         if (deletado) {
             destinatarioTableModel.remover(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
             telaDestinatarioGerenciar.getTblDestinatario().clearSelection();
-            Mensagem.info(Texto.SUCESSO_DESATIVAR);
+            Mensagem.info(Texto.SUCESSO_DELETAR);
         } else {
-            Mensagem.erro(Texto.ERRO_DESATIVAR);
+            Mensagem.erro(Texto.ERRO_DELETAR);
         }
         destinatario = null;
     }
 
-    public void pesquisarClienteAction() {
+    public void pesquisarDestinatarioAction() {
         List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioGerenciar.getTfPesquisa().getText());
         if (destinatariosPesquisados == null) {
             destinatarioTableModel.limpar();
@@ -173,7 +172,7 @@ public class TelaDestinatarioGerenciarControl {
         }
     }
 
-    public void carregarClienteAction() {
+    public void carregarDestinatarioAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         telaDestinatarioGerenciar.getTfNome().setText(destinatario.getNome());
         telaDestinatarioGerenciar.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
@@ -185,6 +184,10 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfNumero().setText(destinatario.getEndereco().getNumero());
         telaDestinatarioGerenciar.getTfRua().setText(destinatario.getEndereco().getRua());
         telaDestinatarioGerenciar.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
+
+        telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(0, false); // disabilita o tabbed pane
+        telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1); // seleciona o tabbed pane
+        telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
 
     public void buscarCepAction() {

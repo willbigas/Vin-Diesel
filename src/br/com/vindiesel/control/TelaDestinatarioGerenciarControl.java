@@ -206,6 +206,7 @@ public class TelaDestinatarioGerenciarControl {
             telaDestinatarioGerenciar.getCbEstado().getModel().setSelectedItem(endereco.getEstado());
             telaDestinatarioGerenciar.getTfRua().setText(endereco.getRua());
             telaDestinatarioGerenciar.getTfCep().setText(telaDestinatarioGerenciar.getTfCep().getText());
+            telaDestinatarioGerenciar.getTfNumero().requestFocus();
         } catch (BuscaCepException buscaCepException) {
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();
@@ -228,7 +229,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         return false;
     }
-    
+
     private void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");

@@ -66,7 +66,7 @@ public class BuscadorDeCepControl extends EnderecoViaCep {
         cepAtual = cep;
 
         // define a url
-        String url = "http://viacep.com.br/ws/" + cep + "/json/";
+        String url = "http://viacep.com.br/ws/" + cep + "/json/unicode";
 
         // define os dados
         JSONObject obj = new JSONObject(getHttpGET(url));

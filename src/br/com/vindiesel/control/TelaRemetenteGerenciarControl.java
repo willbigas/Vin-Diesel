@@ -159,6 +159,7 @@ public class TelaRemetenteGerenciarControl {
             telaRemetenteGerenciar.getCbEstado().getModel().setSelectedItem(endereco.getEstado());
             telaRemetenteGerenciar.getTfRua().setText(endereco.getRua());
             telaRemetenteGerenciar.getTfCep().setText(telaRemetenteGerenciar.getTfCep().getText());
+            telaRemetenteGerenciar.getTfNumero().requestFocus();
         } catch (BuscaCepException buscaCepException) {
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();

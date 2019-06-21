@@ -5,26 +5,44 @@
 # Sistema de Transportadora | Projeto Acadêmico SENAC
 
 
-is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Este projeto é um mini sistema de gerenciamento para transportadora de encomendas feito em JavaSE, sua finalidade é para fins educativos e não lucrativos, o sistema conta com diversas apis para busca de localização e calculo de frete , relatórios com o framework jasper reports, validações genéricas com Hibernate validator e Buscador de Endereço do VIACEP API.
 
 
 ### Objetivo:
- Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+Criar um sistema Escavável, Performatico e de facil manutenção para fins educativos e aprendizado do JAVASE e suas Libs e Frameworks.
 
 ### Público-alvo:
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+Sistema inicialmente para fins educativos.
+Destinado a todo cliente de transporado que deseja automatizar seu processo de entrega de encomendas.
 
 
 ### Requisitos Funcionais
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+##### O Acesso ao sistema deverá ser através de login, com dois tipos de perfis: administrador, que terá acesso total a todas as funcionalidades do sistema e funcionário, que terá acesso ao cadastro e edição de clientes e envios e recebimentos de encomendas.
+##### Para realizar o envio de uma encomenda será necessário o cadastro do remetente, fornecimento do nome, cpf ou cnpj e endereço do destinatário.
+##### Controle sobre a entrada e saída de encomendas.
+##### Relatórios para obter melhor controle financeiro, e futuramente melhorar eficiência
+de entregas.
+##### O frete será calculado de acordo com o peso, as dimensões da encomenda e distância. E deverá ser possível rastreá-la por um código único.
+##### Fórmula para cálculo do frete: (((C x L x A) / 6.000) * 1,5)+ D / 20 + 0.015:
+#### ● D = Distância em Km
+#### ● C: comprimento do pacote em centímetros;
+#### ● L: largura do pacote em centímetros;
+#### ● A: altura do pacote em centímetros;
+
+
 
 
 ### Requisitos não funcionais
-Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
+#### Interface com multi telas e atalhos de teclado
+#### Relatórios dinamicos e com parametros em jasper
 
-### Linguagens e Bibliotecas:
+
+
+### Linguagens, Bibliotecas e Apis:
 - Java
-- ViaCep api - Consulta de Cep
+- Consumo de API ViACEP
+- Consumo de Google DirectionsAPI
+- Consumo de Google GeocodingApi
 - MySQL com Conexão JDBC
 - Hibernate Validator
 - JasperSoft Studio
@@ -32,7 +50,7 @@ Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Ma
 - Swing
 
 ### Carga horária Até agora:
-Aproximadamente 0hrs 
+Aproximadamente 25hrs 
 
 
 ### License:

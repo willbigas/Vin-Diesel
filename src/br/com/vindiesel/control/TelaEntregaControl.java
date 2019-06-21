@@ -325,5 +325,29 @@ public class TelaEntregaControl {
         telaEntrega.getTfPesquisarEntrega().setText("");
         UtilTable.limparSelecaoDaTabela(telaEntrega.getTblEntrega());
     }
+    
+    public void carregaDadosDestinatarioDoDialogPesquisaAvancadaAction() {
+        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioPesquisaAvancada.getTblDestinatario().getSelectedRow());
+        telaEntrega.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
+        telaEntrega.getTfNome().setText(destinatario.getNome());
+        telaEntrega.getTfBairro().setText(destinatario.getEndereco().getBairro());
+        telaEntrega.getTfCidade().setText(destinatario.getEndereco().getCidade());
+        telaEntrega.getTfComplemento().setText(destinatario.getEndereco().getComplemento());
+        telaEntrega.getCbEstado().getModel().setSelectedItem(destinatario.getEndereco().getEstado());
+        telaEntrega.getTfRua().setText(destinatario.getEndereco().getRua());
+        telaEntrega.getTfNumero().setText(destinatario.getEndereco().getNumero());
+        telaEntrega.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
+    }
+    
+    public void pesquisarDestinatariosNoDialogPesquisaAvancadaAction() {
+        List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioPesquisaAvancada.getTfCampoPesquisa().getText());
+        if (destinatariosPesquisados == null) {
+            destinatarioTableModel.limpar();
+            destinatariosPesquisados = destinatarioDao.pesquisar();
+        } else {
+            destinatarioTableModel.limpar();
+            destinatarioTableModel.adicionar(destinatariosPesquisados);
+        }
+    }
 
 }

@@ -43,7 +43,6 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbStatus = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         tfCampoPesquisa = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -52,9 +51,15 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOME", "CODIGOPESSOA", "CIDADE" }));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("BUSCAR POR:");
 
-        jLabel1.setText("PESQUISAR POR:");
+        tfCampoPesquisa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfCampoPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCampoPesquisaKeyReleased(evt);
+            }
+        });
 
         tblDestinatario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,6 +72,11 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblDestinatario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblDestinatarioMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDestinatario);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -76,36 +86,46 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfCampoPesquisa)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(134, 134, 134))
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblDestinatarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDestinatarioMouseReleased
+        // TODO add your handling code here:
+         if (evt.getClickCount() == 2) {
+            telaEntregaControl.carregaDadosDestinatarioDoDialogPesquisaAvancadaAction();
+            this.dispose();
+        }
+    }//GEN-LAST:event_tblDestinatarioMouseReleased
+
+    private void tfCampoPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCampoPesquisaKeyReleased
+        // TODO add your handling code here:
+        telaEntregaControl.pesquisarDestinatariosNoDialogPesquisaAvancadaAction();
+    }//GEN-LAST:event_tfCampoPesquisaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -165,21 +185,12 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDestinatario;
     private javax.swing.JTextField tfCampoPesquisa;
     // End of variables declaration//GEN-END:variables
-
-    public JComboBox<String> getCbStatus() {
-        return cbStatus;
-    }
-
-    public void setCbStatus(JComboBox<String> cbStatus) {
-        this.cbStatus = cbStatus;
-    }
 
     public JTable getTblDestinatario() {
         return tblDestinatario;

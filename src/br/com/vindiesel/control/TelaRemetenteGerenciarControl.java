@@ -70,7 +70,14 @@ public class TelaRemetenteGerenciarControl {
 
         endereco = new Endereco();
 
-        endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
+        try {
+            endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
+            remetente = null;
+            return;
+        }
+        
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());

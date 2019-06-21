@@ -88,7 +88,8 @@ public class Texto {
     
     
     
-    public static final String CAMPO_CPF_CNPJ = "O campo [CPF/CNPJ] deve conter somente Caracteres Numéricos!";
+    public static final String CAMPO_CPF_CNPJ = "O campo [CPF/CNPJ] deve conter está "
+            + "no formato correto \r\n para CPF : XXX.XXX.XXX-XX \r\n para CNPJ: XX.XXX.XXX/XXXX-XX";
     
     
 

@@ -20,7 +20,6 @@ public class TelaPrincipalControl{
     private TelaReceitaGerenciarControl telaReceitaGerenciarControl = null;
     private TelaEntregaControl telaEntregaControl = null;
     private TelaSobreControl telaSobreControl = null;
-    private TelaConfiguracaoGerenciarControl telaConfiguracaoGerenciarControl = null;
 
     public TelaPrincipalControl() {
     }
@@ -105,15 +104,6 @@ public class TelaPrincipalControl{
         }
     }
     
-     public void chamarTelaConfiguracaoGerenciarAction() {
-        if (telaConfiguracaoGerenciarControl != null) {
-            telaConfiguracaoGerenciarControl.chamarTelaConfiguracaoGerenciar();
-        } else {
-            telaConfiguracaoGerenciarControl = new TelaConfiguracaoGerenciarControl();
-            telaConfiguracaoGerenciarControl.chamarTelaConfiguracaoGerenciar();
-        }
-    }
-     
     public void verificarPermissaoPorTipoUsuario() {
         if (TelaLoginControl.tipoUsuarioLogado == 2) {
             telaPrincipal.getMenuFinanceiro().setVisible(false);

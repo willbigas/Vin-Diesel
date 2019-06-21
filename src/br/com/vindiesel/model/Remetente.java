@@ -17,8 +17,8 @@ public class Remetente {
     @NotBlank
     private String nome;
     @NotBlank
-    @Size(min = 8, max = 18)
-    @Pattern(regexp = "[^0-9]", message = Texto.CAMPO_CPF_CNPJ)
+    @Size(min = 8, max = 21)
+    @Pattern(regexp = "^([0-9]{3}\\.?[0-9]{3}\\.?[0-9]{3}\\-?[0-9]{2}|[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2})$", message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @NotBlank
     private String telefone;

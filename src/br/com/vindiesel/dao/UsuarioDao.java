@@ -151,12 +151,13 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
 
     @Override
     public List<Usuario> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM usuario WHERE (nome LIKE ? or email LIKE ? or telefone LIKE ?)";
+        String querySelectComTermo = "SELECT * FROM usuario WHERE (nome LIKE ? or email LIKE ? or telefone LIKE ? or cpf LIKE ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");
             stmt.setString(2, "%" + termo + "%");
             stmt.setString(3, "%" + termo + "%");
+            stmt.setString(4, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Usuario> lista = new ArrayList<>();
             while (result.next()) {

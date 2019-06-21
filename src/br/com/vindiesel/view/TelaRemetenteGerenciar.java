@@ -108,6 +108,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        tpRemetente.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         jPanel2.setBackground(new java.awt.Color(207, 207, 207));
 
         tblRemetente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
@@ -420,7 +422,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btGravar)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         tpRemetente.addTab("Editar", jPanel3);
@@ -437,7 +439,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tpRemetente))
+                .addComponent(tpRemetente, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
         );
 
         pack();

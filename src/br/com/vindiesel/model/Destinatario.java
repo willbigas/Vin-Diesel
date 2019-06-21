@@ -1,6 +1,8 @@
 package br.com.vindiesel.model;
 
+import br.com.vindiesel.uteis.Texto;
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -15,6 +17,7 @@ public class Destinatario {
     private String nome;
     @NotBlank
     @Size(min = 8, max = 18)
+    @Pattern(regexp = "[^0-9]", message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @Valid
     private Endereco endereco;

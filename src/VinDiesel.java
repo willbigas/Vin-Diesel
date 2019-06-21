@@ -4,8 +4,6 @@ import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import br.com.vindiesel.uteis.Texto;
 
-
-
 /**
  *
  * @author William
@@ -13,7 +11,7 @@ import br.com.vindiesel.uteis.Texto;
 public class VinDiesel {
 
     public static void main(String[] args) {
-        
+
         try {
             InterfaceJanela.MudaSwingParaPadraoDoSO();
         } catch (Exception exception) {

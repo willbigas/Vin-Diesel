@@ -54,14 +54,21 @@ public class TelaEncomendaGerenciarControl {
 
     private void cadastrarEncomenda() {
         encomenda = new Encomenda();
-        encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
-        encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
-        encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
+        try {
+            encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
+            encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
+            encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
 
-        dimensao = new Dimensao();
-        dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
-        dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
-        dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+            dimensao = new Dimensao();
+            dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
+            dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
+            dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_DECIMAL);
+            dimensao = null;
+            encomenda = null;
+            return;
+        }
 
         if (Validacao.validaEntidade(dimensao) != null) {
             Mensagem.info(Validacao.validaEntidade(dimensao));
@@ -94,16 +101,22 @@ public class TelaEncomendaGerenciarControl {
 
     private void alterarEncomenda() {
         linhaSelecionada = telaEncomendaGerenciar.getTblProduto().getSelectedRow();
-        
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
-        encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
-        encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
-        encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
 
-        dimensao = encomenda.getDimensao();
-        dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
-        dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
-        dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+        try {
+
+            encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
+            encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
+            encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
+
+            dimensao = encomenda.getDimensao();
+            dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
+            dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
+            dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_DECIMAL);
+            return;
+        }
 
         if (Validacao.validaEntidade(dimensao) != null) {
             Mensagem.info(Validacao.validaEntidade(dimensao));

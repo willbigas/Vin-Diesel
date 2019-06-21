@@ -69,18 +69,18 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
 
     @Override
     public Object getValueAt(int linha, int coluna) {
-        Usuario funcionario = linhas.get(linha);
+        Usuario usuario = linhas.get(linha);
         switch (coluna) {
             case CPF:
-                return funcionario.getCpf();
+                return usuario.getCpf();
             case NOME:
-                return funcionario.getNome();
+                return usuario.getNome();
             case EMAIL:
-                return funcionario.getEmail();
+                return usuario.getEmail();
             case TELEFONE:
-                return funcionario.getTelefone();
+                return usuario.getTelefone();
             case ATIVO:
-                if (funcionario.getAtivo() == true) {
+                if (usuario.getAtivo() == true) {
                     return "Ativado";
                 } else {
                     return "Desativado";
@@ -92,25 +92,25 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
 
     @Override
     public void setValueAt(Object valor, int linha, int coluna) {
-        Usuario funcionario = linhas.get(linha);
+        Usuario usuario = linhas.get(linha);
         switch (coluna) {
             case CPF:
-                funcionario.setCpf((String) valor);
+                usuario.setCpf((String) valor);
                 break;
             case NOME:
-                funcionario.setNome((String) valor);
+                usuario.setNome((String) valor);
                 break;
             case EMAIL:
-                funcionario.setEmail((String) valor);
+                usuario.setEmail((String) valor);
                 break;
             case TELEFONE:
-                funcionario.setTelefone((String) valor);
+                usuario.setTelefone((String) valor);
                 break;
             case ATIVO:
                 if (valor.equals("Ativado")) {
-                    funcionario.setAtivo(true);
+                    usuario.setAtivo(true);
                 } else {
-                    funcionario.setAtivo(false);
+                    usuario.setAtivo(false);
                 }
                 ;
                 break;
@@ -128,17 +128,17 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     }
 
     @Override
-    public void adicionar(Usuario funcionario) {
-        linhas.add(funcionario);
+    public void adicionar(Usuario usuario) {
+        linhas.add(usuario);
         int ultimoIndice = getRowCount() - 1; // linhas -1
         fireTableRowsInserted(ultimoIndice, ultimoIndice); // atualiza insert
     }
 
     @Override
-    public void adicionar(List<Usuario> funcionarios) {
+    public void adicionar(List<Usuario> usuarios) {
         int indice = getRowCount();
-        linhas.addAll(funcionarios);
-        fireTableRowsInserted(indice, indice + funcionarios.size());
+        linhas.addAll(usuarios);
+        fireTableRowsInserted(indice, indice + usuarios.size());
         fireTableDataChanged();
     }
 
@@ -157,8 +157,8 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     }
 
     @Override
-    public void atualizar(int indiceLinha, Usuario funcionario) {
-        linhas.set(indiceLinha, funcionario);
+    public void atualizar(int indiceLinha, Usuario usuario) {
+        linhas.set(indiceLinha, usuario);
         fireTableRowsUpdated(indiceLinha, indiceLinha); // atualiza delete
     }
 

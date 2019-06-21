@@ -27,6 +27,7 @@ public class Usuario {
     private String nome;
     @NotNull
     private LocalDate dataNascimento;
+    @NotBlank
     private String telefone;
     @NotBlank
     @Email

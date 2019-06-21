@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -41,7 +42,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tpGerenciarUsuario = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tfPesquisar = new javax.swing.JTextField();
@@ -57,7 +58,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel24 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         tfCpf = new javax.swing.JFormattedTextField();
-        tfTelefone = new javax.swing.JTextField();
         tfSalario = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -94,6 +94,8 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        Tftelefone = new javax.swing.JFormattedTextField();
+        btLimpar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -101,9 +103,9 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
 
-        jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
-        jTabbedPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
-        jTabbedPane1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tpGerenciarUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        tpGerenciarUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tpGerenciarUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(207, 207, 207));
 
@@ -230,12 +232,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12))
         );
 
-        jTabbedPane1.addTab("Listar", jPanel1);
+        tpGerenciarUsuario.addTab("Listar", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(207, 207, 207));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         jPanel2.setForeground(new java.awt.Color(204, 226, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfCpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
@@ -245,35 +246,23 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         }
         tfCpf.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfCpf.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 166, 115, 31));
-
-        tfTelefone.setColumns(15);
-        tfTelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfTelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
-        tfTelefone.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 269, 140, -1));
 
         tfSalario.setColumns(15);
         tfSalario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfSalario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfSalario.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 203, 140, -1));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel17.setText("DATA:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 135, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("TEL:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 273, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setText("SENHA");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 339, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("EMAIL:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 306, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(207, 207, 207));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
@@ -428,23 +417,18 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 136, -1, -1));
-
         tfPis.setColumns(15);
         tfPis.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfPis.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfPis.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfPis, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 236, 140, -1));
 
         checkAtivo.setBackground(new java.awt.Color(207, 207, 207));
         checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkAtivo.setText("ATIVO");
         checkAtivo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
-        jPanel2.add(checkAtivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 91, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("PIS:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 240, -1, -1));
 
         tfDataNascimento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
@@ -454,7 +438,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         }
         tfDataNascimento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfDataNascimento.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 130, 86, 30));
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
@@ -467,31 +450,25 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 btGravarActionPerformed(evt);
             }
         });
-        jPanel2.add(btGravar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, 94, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("SALÁRIO:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 207, -1, -1));
 
         tfNome.setColumns(15);
         tfNome.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfNome.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 90, 236, 30));
 
         tfEmail.setColumns(15);
         tfEmail.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfEmail.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 302, 140, -1));
 
         tfSenha.setColumns(15);
         tfSenha.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfSenha.setPreferredSize(new java.awt.Dimension(0, 25));
-        jPanel2.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 335, 140, -1));
 
-        cbTipoUsuario.setEditable(true);
         cbTipoUsuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         cbTipoUsuario.setPreferredSize(new java.awt.Dimension(0, 25));
         cbTipoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -499,25 +476,160 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 cbTipoUsuarioKeyReleased(evt);
             }
         });
-        jPanel2.add(cbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 89, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOME:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 94, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel18.setText("CPF:");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 171, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO DE USUARIO");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 94, 128, -1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel19.setText("Editar Usuário");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
-        jTabbedPane1.addTab("Editar", jPanel2);
+        Tftelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        try {
+            Tftelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        Tftelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
+        btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
+        btLimpar.setText("Limpar");
+        btLimpar.setBorder(null);
+        btLimpar.setBorderPainted(false);
+        btLimpar.setContentAreaFilled(false);
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(358, 358, 358)
+                .addComponent(jLabel19))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addGap(6, 6, 6)
+                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(checkAtivo))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel17))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel18))
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel9)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Tftelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPis, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel10)
+                .addGap(6, 6, 6)
+                .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(399, 399, 399)
+                .addComponent(btLimpar)
+                .addGap(28, 28, 28)
+                .addComponent(btGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel4))
+                    .addComponent(cbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(checkAtivo)))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel17)
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel18)
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel7)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel3)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel8)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(tfPis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(Tftelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel10))
+                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btGravar)
+                            .addComponent(btLimpar)))))
+        );
+
+        tpGerenciarUsuario.addTab("Editar", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(183, 28, 28));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
@@ -547,7 +659,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(tpGerenciarUsuario)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -555,18 +667,18 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1))
+                .addComponent(tpGerenciarUsuario))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVisualizarActionPerformed
-        usuarioGerenciarControl.carregarFuncionariosAction();
+        usuarioGerenciarControl.carregarUsuarioAction();
     }//GEN-LAST:event_btVisualizarActionPerformed
 
     private void btDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDesativarActionPerformed
-        usuarioGerenciarControl.desativarFuncionarioAction();
+        usuarioGerenciarControl.desativarUsuarioAction();
     }//GEN-LAST:event_btDesativarActionPerformed
 
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
@@ -576,7 +688,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tfPesquisarKeyReleased
 
     private void btGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGravarActionPerformed
-        usuarioGerenciarControl.gravarFuncionarioAction();
+        usuarioGerenciarControl.gravarUsuarioAction();
     }//GEN-LAST:event_btGravarActionPerformed
 
     private void btPesquisarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarCepActionPerformed
@@ -594,10 +706,17 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbTipoUsuarioKeyReleased
 
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+        // TODO add your handling code here:
+        usuarioGerenciarControl.limparCamposAction();
+    }//GEN-LAST:event_btLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField Tftelefone;
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btPesquisarCep;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
@@ -634,7 +753,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblUsuario;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
@@ -650,7 +768,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfRua;
     private javax.swing.JTextField tfSalario;
     private javax.swing.JTextField tfSenha;
-    private javax.swing.JTextField tfTelefone;
+    private javax.swing.JTabbedPane tpGerenciarUsuario;
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getCbEstado() {
@@ -782,12 +900,12 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         this.tfSenha = tfSenha;
     }
 
-    public JTextField getTfTelefone() {
-        return tfTelefone;
+    public JFormattedTextField getTftelefone() {
+        return Tftelefone;
     }
 
-    public void setTfTelefone(JTextField tfTelefone) {
-        this.tfTelefone = tfTelefone;
+    public void setTftelefone(JFormattedTextField Tftelefone) {
+        this.Tftelefone = Tftelefone;
     }
 
     public JFormattedTextField getTfCpf() {
@@ -798,6 +916,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         this.tfCpf = tfCpf;
     }
 
+
     public JFormattedTextField getTfDataNascimento() {
         return tfDataNascimento;
     }
@@ -805,5 +924,15 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     public void setTfDataNascimento(JFormattedTextField tfDataNascimento) {
         this.tfDataNascimento = tfDataNascimento;
     }
+
+    public JTabbedPane getTpGerenciarUsuario() {
+        return tpGerenciarUsuario;
+    }
+
+    public void setTpGerenciarUsuario(JTabbedPane tpGerenciarUsuario) {
+        this.tpGerenciarUsuario = tpGerenciarUsuario;
+    }
+    
+    
 
 }

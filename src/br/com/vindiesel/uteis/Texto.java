@@ -67,6 +67,11 @@ public class Texto {
     public static final String ERRO_COVERTER_CAMPO_DATA = "Atenção, Erro ao converter o campo para data";
     
      public static final String ERRO_COVERTER_CAMPO_CEP = "Atenção, o campo de [CEP] deve conter 8 digitos Ex:[00000000]";
+     
+     public static final String ERRO_COVERTER_CAMPO_DECIMAL = "Atenção, os campos devem ser em formato decimal Ex: 00.00";
+     
+     public static final String ERRO_COVERTER_CAMPO_PIS_SALARIO = "Atenção, "
+             + "os campo [PIS] deve ser somente em numeros Ex: 000000000 \r\n e o campo [Salário] deve ser somente em valores decimais Ex: 00.00";
     
     
     // Mensagens de Bean Categoria 
@@ -81,6 +86,9 @@ public class Texto {
     
     public static final String CATEGORIA_ATIVO_NULO = "O campo [Ativo] não pode ser nulo";
     
+    
+    
+    public static final String CAMPO_CPF_CNPJ = "O campo [CPF/CNPJ] deve conter somente Caracteres Numéricos!";
     
     
 

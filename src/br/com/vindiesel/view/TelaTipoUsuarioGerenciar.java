@@ -108,7 +108,6 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblTipoUsuario);
 
-        cbPermissao.setEditable(true);
         cbPermissao.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         cbPermissao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

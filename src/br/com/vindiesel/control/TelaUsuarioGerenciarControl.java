@@ -90,11 +90,18 @@ public class TelaUsuarioGerenciarControl {
 
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
         usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
+        usuario.setTelefone(telaUsuarioGerenciar.getTftelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
-        usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-        usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+        try {
+
+            usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
+            usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
+            usuario = null;
+            return;
+        }
         usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
         usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
 
@@ -128,7 +135,7 @@ public class TelaUsuarioGerenciarControl {
         if (idInserido != 0) {
             usuario.setId(idInserido);
             usuarioTableModel.adicionar(usuario);
-            limparCampos();
+            limparCamposAction();
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
@@ -140,12 +147,21 @@ public class TelaUsuarioGerenciarControl {
     private void alterarUsuario() {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
+
         usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
+        usuario.setTelefone(telaUsuarioGerenciar.getTftelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
-        usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-        usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+
+        try {
+
+            usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
+            usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
+            return;
+        }
+
         usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
         usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
 
@@ -181,7 +197,7 @@ public class TelaUsuarioGerenciarControl {
         if (alterado) {
             usuarioTableModel.atualizar(linhaSelecionada, usuario);
             Mensagem.info(Texto.SUCESSO_EDITAR);
-            limparCampos();
+            limparCamposAction();
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);
         }
@@ -220,7 +236,7 @@ public class TelaUsuarioGerenciarControl {
         }
     }
 
-    public void gravarFuncionarioAction() {
+    public void gravarUsuarioAction() {
         if (usuario == null) {
             inserirUsuario();
         } else {
@@ -228,7 +244,7 @@ public class TelaUsuarioGerenciarControl {
         }
     }
 
-    public void desativarFuncionarioAction() {
+    public void desativarUsuarioAction() {
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
 
         if (retorno == JOptionPane.NO_OPTION) {
@@ -248,12 +264,13 @@ public class TelaUsuarioGerenciarControl {
         usuario = null;
     }
 
-    public void carregarFuncionariosAction() {
+    public void carregarUsuarioAction() {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
         telaUsuarioGerenciar.getTfDataNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
+        System.out.println("Cpf do Usuário :" + usuario.getCpf());
         telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
-        telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
+        telaUsuarioGerenciar.getTftelefone().setText(usuario.getTelefone());
         telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
         telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
         telaUsuarioGerenciar.getTfSalario().setText(String.valueOf(usuario.getSalario()));
@@ -272,7 +289,7 @@ public class TelaUsuarioGerenciarControl {
         } else {
             telaUsuarioGerenciar.getCheckAtivo().setSelected(false);
         }
-
+        telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
     }
 
     public void pesquisarUsuarioAction() {
@@ -287,11 +304,11 @@ public class TelaUsuarioGerenciarControl {
 
     }
 
-    private void limparCampos() {
+    public void limparCamposAction() {
         telaUsuarioGerenciar.getTfNome().setText("");
         telaUsuarioGerenciar.getTfCpf().setText("");
         telaUsuarioGerenciar.getTfDataNascimento().setText("");
-        telaUsuarioGerenciar.getTfTelefone().setText("");
+        telaUsuarioGerenciar.getTftelefone().setText("");
         telaUsuarioGerenciar.getTfEmail().setText("");
         telaUsuarioGerenciar.getTfPis().setText("");
         telaUsuarioGerenciar.getTfSalario().setText("");
@@ -304,7 +321,7 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfCep().setText("");
         telaUsuarioGerenciar.getTfNumero().setText("");
         telaUsuarioGerenciar.getCheckAtivo().setSelected(false);
-        telaUsuarioGerenciar.getCbTipoUsuario().setSelectedItem(0);
+        telaUsuarioGerenciar.getCbTipoUsuario().getModel().setSelectedItem(tipoUsuarioDao.pesquisar(1));
         telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem("AC");
         telaUsuarioGerenciar.getTfNome().requestFocus();
     }

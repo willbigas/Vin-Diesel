@@ -112,7 +112,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         });
 
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lixeira_32x32.png"))); // NOI18N
+        btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/excluir_32x32.png"))); // NOI18N
         btDesativar.setText("Excluir");
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);

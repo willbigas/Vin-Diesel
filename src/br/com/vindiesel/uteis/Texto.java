@@ -92,5 +92,8 @@ public class Texto {
             + "no formato correto \r\n para CPF : XXX.XXX.XXX-XX \r\n para CNPJ: XX.XXX.XXX/XXXX-XX";
     
     
+    public static final String REGEX_CPF_AND_CNPJ = "^([0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}|[0-9]{2}.?[0-9]{3}.?[0-9]{3}/?[0-9]{4}-?[0-9]{2})$";
+    
+    
 
 }

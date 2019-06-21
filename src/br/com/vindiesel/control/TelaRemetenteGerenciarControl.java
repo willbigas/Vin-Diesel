@@ -11,6 +11,7 @@ import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.model.tablemodel.RemetenteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaRemetenteGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -77,7 +78,7 @@ public class TelaRemetenteGerenciarControl {
             remetente = null;
             return;
         }
-        
+
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
@@ -101,6 +102,7 @@ public class TelaRemetenteGerenciarControl {
             remetente.setId(idInserido);
             remetenteTableModel.adicionar(remetente);
             limparCampos();
+            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
@@ -117,7 +119,13 @@ public class TelaRemetenteGerenciarControl {
 
         endereco = remetente.getEndereco();
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
+
+        try {
+            endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
+        }
+
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaRemetenteGerenciar.getCbEstado().getSelectedItem());
@@ -138,6 +146,8 @@ public class TelaRemetenteGerenciarControl {
         linhaSelecionada = telaRemetenteGerenciar.getTblRemetente().getSelectedRow();
         if (alterado) {
             remetenteTableModel.atualizar(linhaSelecionada, remetente);
+            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
+            UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
             Mensagem.info(Texto.SUCESSO_EDITAR);
             limparCampos();
         } else {
@@ -179,11 +189,8 @@ public class TelaRemetenteGerenciarControl {
     public void gravarRemetenteAction() {
         if (remetente == null) {
             cadastrarRemetente();
-            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
         } else {
             alterarRemetente();
-            telaRemetenteGerenciar.getTpRemetente().setEnabledAt(0, true); // disabilita o tabbed pane
-            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
         }
     }
 

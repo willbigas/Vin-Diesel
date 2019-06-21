@@ -78,7 +78,13 @@ public class TelaDestinatarioGerenciarControl {
 
         endereco = new Endereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
+        
+        try {
+            endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
+            
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
+        }
         endereco.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());

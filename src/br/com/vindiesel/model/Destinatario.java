@@ -17,7 +17,7 @@ public class Destinatario {
     private String nome;
     @NotBlank
     @Size(min = 8, max = 21)
-    @Pattern(regexp = "^([0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}|[0-9]{2}.?[0-9]{3}.?[0-9]{3}/?[0-9]{4}-?[0-9]{2})$", message = Texto.CAMPO_CPF_CNPJ)
+    @Pattern(regexp = Texto.REGEX_CPF_AND_CNPJ, message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @Valid
     private Endereco endereco;

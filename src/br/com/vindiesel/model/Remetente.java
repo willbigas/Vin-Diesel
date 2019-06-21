@@ -2,7 +2,6 @@ package br.com.vindiesel.model;
 
 import br.com.vindiesel.uteis.Texto;
 import javax.validation.Valid;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
@@ -18,7 +17,7 @@ public class Remetente {
     private String nome;
     @NotBlank
     @Size(min = 8, max = 21)
-    @Pattern(regexp = "^([0-9]{3}\\.?[0-9]{3}\\.?[0-9]{3}\\-?[0-9]{2}|[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2})$", message = Texto.CAMPO_CPF_CNPJ)
+    @Pattern(regexp = Texto.REGEX_CPF_AND_CNPJ, message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @NotBlank
     private String telefone;

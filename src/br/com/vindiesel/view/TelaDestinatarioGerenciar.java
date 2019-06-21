@@ -55,6 +55,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        btNovo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         tfCep = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -108,6 +109,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
 
         tpDestinatario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tpDestinatario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tpDestinatarioMouseReleased(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
@@ -179,6 +185,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel18.setText("[F5-Recarregar]");
 
+        btNovo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
+        btNovo.setText("Novo");
+        btNovo.setBorder(null);
+        btNovo.setBorderPainted(false);
+        btNovo.setContentAreaFilled(false);
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -202,7 +220,9 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                        .addComponent(btNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btVisualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btDesativar)
@@ -217,7 +237,8 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVisualizar)
-                    .addComponent(btDesativar))
+                    .addComponent(btDesativar)
+                    .addComponent(btNovo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -435,10 +456,21 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblDestinatarioMouseClicked
 
+    private void tpDestinatarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpDestinatarioMouseReleased
+        // TODO add your handling code here:
+        tpDestinatario.setEnabledAt(1, false);
+    }//GEN-LAST:event_tpDestinatarioMouseReleased
+
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        // TODO add your handling code here:
+        destinatarioGerenciarControl.novoDestinatarioAction();
+    }//GEN-LAST:event_btNovoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btNovo;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JLabel jLabel1;

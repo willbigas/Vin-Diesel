@@ -6,6 +6,7 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
+import javax.swing.JFormattedTextField;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -42,18 +43,16 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tfDataVencimento = new javax.swing.JTextField();
         btGerarDespesa = new javax.swing.JButton();
+        tfDataVencimento = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Gerar Receita");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Data Vencimento");
-
-        tfDataVencimento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         btGerarDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
         btGerarDespesa.setText("Gerar");
@@ -64,6 +63,13 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
                 btGerarDespesaActionPerformed(evt);
             }
         });
+
+        try {
+            tfDataVencimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfDataVencimento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,9 +85,9 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(63, 63, 63)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -90,13 +96,13 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(19, 19, 19)
                 .addComponent(btGerarDespesa)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,15 +163,16 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
     private javax.swing.JButton btGerarDespesa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tfDataVencimento;
+    private javax.swing.JFormattedTextField tfDataVencimento;
     // End of variables declaration//GEN-END:variables
 
-    public JTextField getTfDataVencimento() {
+    public JFormattedTextField getTfDataVencimento() {
         return tfDataVencimento;
     }
 
-    public void setTfDataVencimento(JTextField tfDataVencimento) {
+    public void setTfDataVencimento(JFormattedTextField tfDataVencimento) {
         this.tfDataVencimento = tfDataVencimento;
     }
 
+  
 }

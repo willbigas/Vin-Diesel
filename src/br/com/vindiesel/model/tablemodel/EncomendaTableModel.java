@@ -15,13 +15,14 @@ import javax.swing.table.AbstractTableModel;
 public class EncomendaTableModel extends AbstractTableModel implements AcoesTableModel<Encomenda> {
 
     private static final int CODIGO_RASTREIO = 0;
-    private static final int PESO = 1;
-    private static final int LARGURA = 2;
-    private static final int ALTURA = 3;
-    private static final int COMPRIMENTO = 4;
+    private static final int VALOR_ENCOMENDA = 1;
+    private static final int PESO = 2;
+    private static final int LARGURA = 3;
+    private static final int ALTURA = 4;
+    private static final int COMPRIMENTO = 5;
 
     private List<Encomenda> linhas;
-    private String[] COLUNAS = {"CÓDIGO RASTREIO", "PESO", "LARGURA", "ALTURA", "COMPRIMENTO"};
+    private String[] COLUNAS = {"CÓDIGO RASTREIO", "VALOR_NF" , "PESO", "LARGURA", "ALTURA", "COMPRIMENTO"};
 
     public EncomendaTableModel() {
         linhas = new ArrayList<>();
@@ -50,15 +51,17 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case CODIGO_RASTREIO:
-                return Integer.class;
+                return String.class;
+            case VALOR_ENCOMENDA:
+                return String.class;
             case PESO:
-                return Double.class;
+                return String.class;
             case LARGURA:
-                return Double.class;
+                return String.class;
             case ALTURA:
-                return Double.class;
+                return String.class;
             case COMPRIMENTO:
-                return Double.class;
+                return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -70,14 +73,16 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
         switch (coluna) {
             case CODIGO_RASTREIO:
                 return encomenda.getCodigoRastreio();
+            case VALOR_ENCOMENDA:
+                return UtilDecimalFormat.decimalFormat(encomenda.getValorNotaFiscal());
             case PESO:
-                return encomenda.getPeso();
+                return UtilDecimalFormat.decimalFormatR$(encomenda.getPeso());
             case LARGURA:
-                return encomenda.getDimensao().getLargura();
+                return UtilDecimalFormat.decimalFormat(encomenda.getPeso());
             case ALTURA:
-                return encomenda.getDimensao().getAltura();
+                return UtilDecimalFormat.decimalFormat(encomenda.getDimensao().getAltura());
             case COMPRIMENTO:
-                return encomenda.getDimensao().getComprimento();
+                return UtilDecimalFormat.decimalFormat(encomenda.getDimensao().getComprimento());
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -88,10 +93,13 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
         Encomenda produto = linhas.get(linha);
         switch (coluna) {
             case CODIGO_RASTREIO:
-                produto.setId(Integer.valueOf((String) valor));
+                produto.setCodigoRastreio((String) valor);
+                break;
+            case VALOR_ENCOMENDA:
+                produto.setValorNotaFiscal(Double.valueOf((String) valor));
                 break;
             case PESO:
-                produto.setCodigoRastreio((String) valor);
+                produto.setPeso((Double) valor);
                 break;
             case LARGURA:
                 produto.getDimensao().setLargura((Double) valor);

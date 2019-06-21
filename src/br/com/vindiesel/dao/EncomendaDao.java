@@ -114,11 +114,12 @@ public class EncomendaDao extends DaoBD implements DaoI<Encomenda> {
     }
 
     @Override
-    public List<Encomenda> pesquisar(String codigoRastreio) {
-        String querySelectComTermo = "SELECT * FROM ENCOMENDA WHERE CODIGORASTREIO LIKE ? ";
+    public List<Encomenda> pesquisar(String termo) {
+        String querySelectComTermo = "SELECT * FROM ENCOMENDA WHERE (CODIGORASTREIO LIKE ? or valorNotaFiscal LIKE ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-            stmt.setString(1, "%" + codigoRastreio + "%");
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Encomenda> lista = new ArrayList<>();
             while (result.next()) {

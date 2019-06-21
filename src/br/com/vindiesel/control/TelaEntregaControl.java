@@ -16,6 +16,7 @@ import br.com.vindiesel.model.EnderecoSigla;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.model.Tramite;
+import br.com.vindiesel.model.tablemodel.DestinatarioTableModel;
 import br.com.vindiesel.model.tablemodel.EntregaTableModel;
 import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
@@ -23,7 +24,7 @@ import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
-import br.com.vindiesel.view.TelaDestinatarioDialogPesquisar;
+import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceita;
@@ -41,12 +42,13 @@ public class TelaEntregaControl {
 
     TelaEntrega telaEntrega;
     TelaEntregaReceita telaEntregaReceita;
-    TelaDestinatarioDialogPesquisar telaDestinatarioDialogPesquisar;
+    TelaDestinatarioPesquisaAvancada telaDestinatarioPesquisaAvancada;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     TramiteControl tramiteControl;
     DistanciaCalculoControl calculoDeDistancia;
     TramiteTableModel tramiteTableModel;
     EntregaTableModel entregaTableModel;
+    DestinatarioTableModel destinatarioTableModel;
     DestinatarioDao destinatarioDao;
     EncomendaDao encomendaDao;
     RemetenteDao remetenteDao;
@@ -66,6 +68,7 @@ public class TelaEntregaControl {
         tramiteControl = new TramiteControl();
         entregaTableModel = new EntregaTableModel();
         tramiteTableModel = new TramiteTableModel();
+        destinatarioTableModel = new DestinatarioTableModel();
         destinatarioDao = new DestinatarioDao();
         encomendaDao = new EncomendaDao();
         remetenteDao = new RemetenteDao();
@@ -134,7 +137,15 @@ public class TelaEntregaControl {
 
         endereco = new Endereco();
         endereco.setBairro(telaEntrega.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaEntrega.getTfCep().getText()));
+
+        try {
+
+            endereco.setCep(Integer.valueOf(telaEntrega.getTfCep().getText()));
+
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
+        }
+
         endereco.setCidade(telaEntrega.getTfCidade().getText());
         endereco.setComplemento(telaEntrega.getTfComplemento().getText());
         endereco.setEstado((String) telaEntrega.getCbEstado().getSelectedItem());
@@ -204,9 +215,12 @@ public class TelaEntregaControl {
 
     }
 
-    public void chamarDialogRemetenteAction() {
-        telaDestinatarioDialogPesquisar = new TelaDestinatarioDialogPesquisar(telaEntrega, true, this);
-        telaDestinatarioDialogPesquisar.setVisible(true);
+    public void chamarDialogPesquisaAvancadaDestinatarioAction() {
+        telaDestinatarioPesquisaAvancada = new TelaDestinatarioPesquisaAvancada(telaEntrega, true, this);
+        telaDestinatarioPesquisaAvancada.getTblDestinatario().setModel(destinatarioTableModel);
+        destinatarioTableModel.limpar();
+        destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
+        telaDestinatarioPesquisaAvancada.setVisible(true);
     }
 
     public void buscarCepAction() {
@@ -233,8 +247,7 @@ public class TelaEntregaControl {
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();
         } catch (NumberFormatException numberFormatException) {
-            System.out.println(numberFormatException.getMessage());
-            numberFormatException.printStackTrace();
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
         }
     }
 
@@ -306,12 +319,11 @@ public class TelaEntregaControl {
         tramite = null;
         telaEntrega.getTpEntrega().setEnabledAt(1, false);
     }
-    
+
     public void limparCamposTabEntrega() {
         telaEntrega.getCbPesquisarEntrega().setSelectedIndex(0);
         telaEntrega.getTfPesquisarEntrega().setText("");
         UtilTable.limparSelecaoDaTabela(telaEntrega.getTblEntrega());
     }
-    
 
 }

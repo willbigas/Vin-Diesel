@@ -86,7 +86,6 @@ public class TelaReceitaGerenciarControl {
 
         int inserido = receitaDao.inserir(receita);
         if (inserido != 0) {
-            Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.erro(Texto.ERRO_CADASTRAR);
         }

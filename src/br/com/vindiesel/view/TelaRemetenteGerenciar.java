@@ -56,6 +56,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         btVisualizar = new javax.swing.JButton();
         btDesativar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        btNovoRemetente = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         tfCodigoPessoa = new javax.swing.JTextField();
@@ -109,6 +110,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         );
 
         tpRemetente.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tpRemetente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tpRemetenteMouseReleased(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(207, 207, 207));
 
@@ -171,6 +177,18 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel12.setText("Listar Remetentes");
 
+        btNovoRemetente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btNovoRemetente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
+        btNovoRemetente.setText("Novo");
+        btNovoRemetente.setBorder(null);
+        btNovoRemetente.setBorderPainted(false);
+        btNovoRemetente.setContentAreaFilled(false);
+        btNovoRemetente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoRemetenteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -189,9 +207,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btVisualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btNovoRemetente)
+                        .addGap(29, 29, 29)
+                        .addComponent(btVisualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btDesativar)
                         .addGap(16, 16, 16))))
         );
@@ -205,7 +225,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVisualizar)
-                    .addComponent(btDesativar))
+                    .addComponent(btDesativar)
+                    .addComponent(btNovoRemetente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -422,7 +443,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btGravar)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         tpRemetente.addTab("Editar", jPanel3);
@@ -439,7 +460,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tpRemetente, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
+                .addComponent(tpRemetente))
         );
 
         pack();
@@ -474,10 +495,21 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblRemetenteMouseClicked
 
+    private void tpRemetenteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpRemetenteMouseReleased
+        // TODO add your handling code here:
+        tpRemetente.setEnabledAt(1, false);
+    }//GEN-LAST:event_tpRemetenteMouseReleased
+
+    private void btNovoRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoRemetenteActionPerformed
+        // TODO add your handling code here:
+        remetenteGerenciarControl.novoRemetenteAction();
+    }//GEN-LAST:event_btNovoRemetenteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btNovoRemetente;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JLabel jLabel1;

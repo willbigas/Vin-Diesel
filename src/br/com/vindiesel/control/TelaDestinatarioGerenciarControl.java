@@ -57,6 +57,7 @@ public class TelaDestinatarioGerenciarControl {
         destinatarioTableModel.limpar();
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
         redimensionarTela();
+        telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, false);
     }
 
     private void redimensionarTela() {
@@ -71,6 +72,15 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
 
+    public void novoDestinatarioAction() {
+        limparCampos();
+        telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, true);
+        UtilTable.limparSelecaoDaTabela(telaDestinatarioGerenciar.getTblDestinatario());
+        destinatario = null;
+        telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1);
+
+    }
+
     private void cadastrarDestinatario() {
         destinatario = new Destinatario();
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
@@ -78,10 +88,10 @@ public class TelaDestinatarioGerenciarControl {
 
         endereco = new Endereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        
+
         try {
             endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
-            
+
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
         }
@@ -203,8 +213,7 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfNumero().setText(destinatario.getEndereco().getNumero());
         telaDestinatarioGerenciar.getTfRua().setText(destinatario.getEndereco().getRua());
         telaDestinatarioGerenciar.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
-
-        telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(0, false); // disabilita o tabbed pane
+        telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, true);
         telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1); // seleciona o tabbed pane
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }

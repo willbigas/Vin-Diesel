@@ -61,6 +61,16 @@ public class TelaRemetenteGerenciarControl {
         carregarEstadosNaComboBox();
         remetenteTableModel.limpar();
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
+        telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
+    }
+    
+      public void novoRemetenteAction() {
+        limparCampos();
+        telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, true);
+        UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
+        remetente = null;
+        telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1);
+
     }
 
     private void cadastrarRemetente() {
@@ -239,7 +249,7 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfRua().setText(remetente.getEndereco().getRua());
         telaRemetenteGerenciar.getTfCep().setText(String.valueOf(remetente.getEndereco().getCep()));
 
-        telaRemetenteGerenciar.getTpRemetente().setEnabledAt(0, false); // disabilita o tabbed pane
+        telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, true); // disabilita o tabbed pane
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
         telaRemetenteGerenciar.getTfNome().requestFocus();
 

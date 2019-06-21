@@ -33,8 +33,8 @@ de entregas.
 
 
 ### Requisitos não funcionais
-#### Interface com multi telas e atalhos de teclado
-#### Relatórios dinamicos e com parametros em jasper
+##### Interface com multi telas e atalhos de teclado
+##### Relatórios dinamicos e com parametros em jasper
 
 
 

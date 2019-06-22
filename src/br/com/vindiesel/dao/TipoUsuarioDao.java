@@ -97,7 +97,7 @@ public class TipoUsuarioDao extends DaoBD implements DaoI<TipoUsuario> {
 
     @Override
     public List<TipoUsuario> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM TIPOUSUARIO WHERE (NOME like ?, TIPOPERMISSAO like ?)";
+        String querySelectComTermo = "SELECT * FROM TIPOUSUARIO WHERE (NOME like ? or TIPOPERMISSAO like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");
@@ -109,6 +109,7 @@ public class TipoUsuarioDao extends DaoBD implements DaoI<TipoUsuario> {
                 tipoUsuario.setId(result.getInt("id"));
                 tipoUsuario.setNome(result.getString("nome"));
                 tipoUsuario.setTipoPermissao(result.getInt("tipoPermissao"));
+                tipoUsuario.setAtivo(result.getBoolean("ativo"));
                 lista.add(tipoUsuario);
             }
             return lista;

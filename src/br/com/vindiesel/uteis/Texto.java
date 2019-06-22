@@ -95,5 +95,8 @@ public class Texto {
     public static final String REGEX_CPF_AND_CNPJ = "^([0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}|[0-9]{2}.?[0-9]{3}.?[0-9]{3}/?[0-9]{4}-?[0-9]{2})$";
     
     
+    public static final String ERRO_CONVERTER_CAMPO_MASCARA_CNPJ = "Atencao , Erro ao converter campo de mascara de CNPJ , contate o administrador do sistema.";
+    
+    
 
 }

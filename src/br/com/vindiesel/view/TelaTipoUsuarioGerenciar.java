@@ -61,6 +61,11 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel3.setText("Pesquisar:");
 
         tfPesquisar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisarKeyReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOME:");
@@ -141,7 +146,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(69, 69, 69))
         );
@@ -179,8 +184,8 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCarregar)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)))
@@ -237,6 +242,11 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tipoUsuarioGerenciarControl.pesquisarItensNaComboTipoUsuario();
     }//GEN-LAST:event_cbPermissaoKeyReleased
+
+    private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
+        // TODO add your handling code here:
+        tipoUsuarioGerenciarControl.pesquisarTipoUsuarioAction();
+    }//GEN-LAST:event_tfPesquisarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

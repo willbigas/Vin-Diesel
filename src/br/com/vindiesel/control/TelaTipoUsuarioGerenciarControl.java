@@ -200,6 +200,18 @@ public class TelaTipoUsuarioGerenciarControl {
         telaTipoUsuarioGerenciar.getTfNome().requestFocus();
 
     }
+    
+    public void pesquisarTipoUsuarioAction() {
+        List<TipoUsuario> tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(telaTipoUsuarioGerenciar.getTfPesquisar().getText());
+        if (tipoUsuarioPesquisados == null) {
+            tipoUsuarioTableModel.limpar();
+            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar();
+        } else {
+            tipoUsuarioTableModel.limpar();
+            tipoUsuarioTableModel.adicionar(tipoUsuarioPesquisados);
+        }
+
+    }
 
     public void pesquisarItensNaComboTipoUsuario() {
         // TESTANDO!

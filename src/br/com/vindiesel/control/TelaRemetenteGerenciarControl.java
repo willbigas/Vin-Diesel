@@ -15,9 +15,11 @@ import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaRemetenteGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
+import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.text.DefaultFormatterFactory;
 
 /**
  *
@@ -253,6 +255,23 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
         telaRemetenteGerenciar.getTfNome().requestFocus();
 
+    }
+    
+    public void formataTfCodigoPessoaParaCNPJ() {
+        try {
+            DefaultFormatterFactory formatadorCNPJ = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##"));
+            telaRemetenteGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCNPJ);
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
+        }
+    }
+    public void formataTfCodigoPessoaParaCPF() {
+        try {
+            DefaultFormatterFactory formatadorCPF = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##"));
+            telaRemetenteGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCPF);
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
+        }
     }
 
     private void limparCampos() {

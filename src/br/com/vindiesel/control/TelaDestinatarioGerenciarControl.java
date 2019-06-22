@@ -15,9 +15,12 @@ import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
+import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -261,10 +264,27 @@ public class TelaDestinatarioGerenciarControl {
         return false;
     }
 
+    public void formataTfCodigoPessoaParaCNPJ() {
+        try {
+            DefaultFormatterFactory formatadorCNPJ = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##"));
+            telaDestinatarioGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCNPJ);
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
+        }
+    }
+    public void formataTfCodigoPessoaParaCPF() {
+        try {
+            DefaultFormatterFactory formatadorCPF = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##"));
+            telaDestinatarioGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCPF);
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
+        }
+    }
+
     private void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");
-        telaDestinatarioGerenciar.getTfEmail().setText("");
+        telaDestinatarioGerenciar.getTfCodigoPessoa().setText("");
         telaDestinatarioGerenciar.getTfCep().setText("");
         telaDestinatarioGerenciar.getTfCidade().setText("");
         telaDestinatarioGerenciar.getTfComplemento().setText("");

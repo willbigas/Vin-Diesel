@@ -51,7 +51,7 @@ public class TipoUsuarioTableModel extends AbstractTableModel implements AcoesTa
             case NOME:
                 return String.class;
             case PERMISSAO:
-                return Integer.class;
+                return String.class;
             case ATIVO:
                 return String.class;
             default:
@@ -68,7 +68,11 @@ public class TipoUsuarioTableModel extends AbstractTableModel implements AcoesTa
             case NOME:
                 return tipoUsuario.getNome();
             case PERMISSAO:
-                return tipoUsuario.getTipoPermissao();
+                if (tipoUsuario.getTipoPermissao() == 1) {
+                    return "Administrador";
+                } else {
+                    return "Caixa";
+                }
             case ATIVO:
                 if (tipoUsuario.getAtivo() == true) {
                     return "Ativado";

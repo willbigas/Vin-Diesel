@@ -124,12 +124,12 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     @Override
     public List<Remetente> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM remetente WHERE (nome LIKE ? or telefone LIKE ? or codigoPessoa = ?)";
+        String querySelectComTermo = "SELECT * FROM remetente WHERE (nome LIKE ? or telefone LIKE ? or codigoPessoa like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");
             stmt.setString(2, "%" + termo + "%");
-            stmt.setString(3, termo);
+            stmt.setString(3, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Remetente> lista = new ArrayList<>();
             while (result.next()) {

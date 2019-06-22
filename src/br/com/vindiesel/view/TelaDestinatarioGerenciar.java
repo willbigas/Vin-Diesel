@@ -4,6 +4,7 @@ import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -67,7 +68,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         tfRua = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        tfCodigoPessoa = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -77,6 +77,8 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btGravar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tfComplemento = new javax.swing.JTextArea();
+        checkCnpj = new javax.swing.JCheckBox();
+        tfCodigoPessoa = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -289,9 +291,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("CPF/CNPJ:");
 
-        tfCodigoPessoa.setColumns(15);
-        tfCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("NOME:");
 
@@ -324,28 +323,44 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfComplemento.setRows(5);
         jScrollPane2.setViewportView(tfComplemento);
 
+        checkCnpj.setText("CNPJ");
+        checkCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCnpjActionPerformed(evt);
+            }
+        });
+
+        try {
+            tfCodigoPessoa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkCnpj))
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane2)
                             .addComponent(tfBairro)
@@ -356,7 +371,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel6)
@@ -366,7 +381,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                                     .addGap(7, 7, 7)
                                     .addComponent(jLabel10)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(tfRua)))
+                                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(133, 133, 133)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,13 +395,17 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(checkCnpj)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tfCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -406,15 +425,15 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel11))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
                                     .addComponent(tfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(37, 37, 37)
                                 .addComponent(btGravar)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         tpDestinatario.addTab("Editar", jPanel3);
@@ -466,6 +485,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         destinatarioGerenciarControl.novoDestinatarioAction();
     }//GEN-LAST:event_btNovoActionPerformed
 
+    private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
+        // TODO add your handling code here:
+        if (checkCnpj.isSelected()) {
+            tfCodigoPessoa.setText("");
+            destinatarioGerenciarControl.formataTfCodigoPessoaParaCNPJ();
+        }
+        if (!checkCnpj.isSelected()) {
+            tfCodigoPessoa.setText("");
+            destinatarioGerenciarControl.formataTfCodigoPessoaParaCPF();
+        }
+    }//GEN-LAST:event_checkCnpjActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
@@ -473,6 +504,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JCheckBox checkCnpj;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -498,7 +530,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
     private javax.swing.JTextField tfCidade;
-    private javax.swing.JTextField tfCodigoPessoa;
+    private javax.swing.JFormattedTextField tfCodigoPessoa;
     private javax.swing.JTextArea tfComplemento;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNumero;
@@ -545,14 +577,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setTfClientes(JTable tfClientes) {
         this.tblDestinatario = tfClientes;
-    }
-
-    public JTextField getTfEmail() {
-        return tfCodigoPessoa;
-    }
-
-    public void setTfEmail(JTextField tfEmail) {
-        this.tfCodigoPessoa = tfEmail;
     }
 
     public JTextField getTfNome() {
@@ -603,11 +627,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         this.tblDestinatario = tblDestinatario;
     }
 
-    public JTextField getTfCodigoPessoa() {
+    public JFormattedTextField getTfCodigoPessoa() {
         return tfCodigoPessoa;
     }
 
-    public void setTfCodigoPessoa(JTextField tfCodigoPessoa) {
+    public void setTfCodigoPessoa(JFormattedTextField tfCodigoPessoa) {
         this.tfCodigoPessoa = tfCodigoPessoa;
     }
 

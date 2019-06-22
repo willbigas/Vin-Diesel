@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
@@ -89,6 +90,12 @@ public class InterfaceJanela {
         url = jframe.getClass().getResource(enderecoArq);
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         jframe.setIconImage(imagemTitulo);
+    }
+    public static void alteraIconePrincipalDoFrame(JDialog dialog, String enderecoArq) {
+        URL url;
+        url = dialog.getClass().getResource(enderecoArq);
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        dialog.setIconImage(imagemTitulo);
     }
 
     public static void alteraIconePrincipaldoJInternalFrame(JInternalFrame internalFrame, String enderecoArq) {

@@ -1,21 +1,24 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaSobreControl;
+import br.com.vindiesel.uteis.InterfaceJanela;
 
 /**
  *
  * @author Will
  */
 public class TelaSobre extends javax.swing.JFrame {
-    
+
     TelaSobreControl telaSobreControl;
-    
+
     public TelaSobre() {
         initComponents();
     }
+
     public TelaSobre(TelaSobreControl control) {
         initComponents();
         telaSobreControl = control;
+        InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**

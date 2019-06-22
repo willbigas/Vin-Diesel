@@ -31,7 +31,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         initComponents();
         entregaControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
-
+        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**
@@ -757,7 +757,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private void btLimparCamposTabEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntregaActionPerformed
         // TODO add your handling code here:
         entregaControl.limparCamposTabEntrega();
-        
+
     }//GEN-LAST:event_btLimparCamposTabEntregaActionPerformed
 
     private void btPesquisaAvancadaRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaAvancadaRemetenteActionPerformed
@@ -768,7 +768,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private void btPesquisaAvancadaDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaAvancadaDestinatarioActionPerformed
         // TODO add your handling code here:
         entregaControl.chamarDialogPesquisaAvancadaDestinatarioAction();
-        
+
     }//GEN-LAST:event_btPesquisaAvancadaDestinatarioActionPerformed
 
 

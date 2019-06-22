@@ -6,6 +6,7 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
+import br.com.vindiesel.uteis.InterfaceJanela;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JInternalFrame;
@@ -16,7 +17,7 @@ import javax.swing.JTextField;
  * @author Will
  */
 public class TelaEntregaReceita extends javax.swing.JDialog {
-    
+
     TelaEntregaControl telaEntregaControl;
 
     /**
@@ -26,11 +27,13 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    public TelaEntregaReceita(JInternalFrame parent, boolean modal , TelaEntregaControl control) {
+
+    public TelaEntregaReceita(JInternalFrame parent, boolean modal, TelaEntregaControl control) {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
         telaEntregaControl = control;
+        InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**
@@ -167,5 +170,4 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         this.tfDataVencimento = tfDataVencimento;
     }
 
-  
 }

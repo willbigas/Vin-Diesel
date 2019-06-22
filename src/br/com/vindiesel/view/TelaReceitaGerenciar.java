@@ -20,6 +20,7 @@ import javax.swing.JTextField;
  * @author William
  */
 public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
+
     TelaReceitaGerenciarControl receitaGerenciarControl;
 
     /**
@@ -28,10 +29,12 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     public TelaReceitaGerenciar() {
         initComponents();
     }
+
     public TelaReceitaGerenciar(TelaReceitaGerenciarControl control) {
         initComponents();
         receitaGerenciarControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
+        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**
@@ -306,12 +309,12 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     private void brEditarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brEditarReceitaActionPerformed
         // TODO add your handling code here:
         receitaGerenciarControl.carregarCamposReceitaAction();
-        
+
     }//GEN-LAST:event_brEditarReceitaActionPerformed
 
     private void tpReceitaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpReceitaMouseReleased
         // TODO add your handling code here:
-         if (tpReceita.getSelectedIndex() == 0) {
+        if (tpReceita.getSelectedIndex() == 0) {
             receitaGerenciarControl.resetarReceitaAction();
         }
     }//GEN-LAST:event_tpReceitaMouseReleased
@@ -429,6 +432,5 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     public void setTfDataVencimento(JTextField tfDataVencimento) {
         this.tfDataVencimento = tfDataVencimento;
     }
-    
 
 }

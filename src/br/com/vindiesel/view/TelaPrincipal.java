@@ -1,6 +1,7 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaPrincipalControl;
+import br.com.vindiesel.uteis.InterfaceJanela;
 import br.com.vindiesel.uteis.Relatorio;
 import java.io.InputStream;
 import javax.swing.JMenu;
@@ -24,6 +25,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal(TelaPrincipalControl control) {
         initComponents();
         telaPrincipalControl = control;
+        InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
 
     }
 

@@ -35,6 +35,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         initComponents();
         remetenteGerenciarControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
+        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/delivery_truck_16x16.png");
         ButtonGroup bg = new ButtonGroup();
         bg.add(checkCnpj);
         bg.add(checkCpf);
@@ -129,7 +130,6 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(207, 207, 207));
 
-        tblRemetente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tblRemetente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tblRemetente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,7 +154,6 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel5.setText("Pesquisar:");
 
         tfPesquisar.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfPesquisar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfPesquisarKeyReleased(evt);
@@ -295,13 +294,12 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
         tfNome.setColumns(15);
         tfNome.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel13.setText("Editar Remetentes");
 
         jPanel4.setBackground(new java.awt.Color(207, 207, 207));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Informacoes de Endereco"));
         jPanel4.setPreferredSize(new java.awt.Dimension(843, 167));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -320,13 +318,10 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel11.setText("NUM:");
 
         cbEstado.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        cbEstado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
 
         tfCep.setColumns(15);
         tfCep.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfCep.setToolTipText("Clicando enter busca o Cep automaticamente, caso não encontrar é necessário digitar o endereço completo.");
-        tfCep.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
-        tfCep.setPreferredSize(new java.awt.Dimension(0, 30));
         tfCep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfCepKeyReleased(evt);
@@ -340,25 +335,20 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel4.setText("RUA:");
 
         tfRua.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfRua.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfRua.setPreferredSize(new java.awt.Dimension(0, 30));
 
         tfBairro.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfBairro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfBairro.setPreferredSize(new java.awt.Dimension(0, 30));
 
         tfNumero.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfNumero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfNumero.setPreferredSize(new java.awt.Dimension(0, 30));
 
         tfComplemento.setColumns(20);
         tfComplemento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfComplemento.setRows(5);
-        tfComplemento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         jScrollPane2.setViewportView(tfComplemento);
 
         tfCidade.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tfCidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         tfCidade.setPreferredSize(new java.awt.Dimension(0, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -401,7 +391,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfBairro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         jPanel4Layout.setVerticalGroup(
@@ -460,8 +450,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCodigoPessoa.setPreferredSize(new java.awt.Dimension(47, 30));
 
-        tfTelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
             tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
@@ -470,6 +460,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         tfTelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
         checkCpf.setBackground(new java.awt.Color(207, 207, 207));
+        checkCpf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCpf.setText("CPF");
         checkCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,30 +479,30 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel13))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel2))
+                                .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(checkCnpj)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(checkCpf)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfTelefone))
-                                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                                .addComponent(checkCnpj)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(checkCpf)
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btGravar)
-                .addGap(72, 72, 72))
+                .addGap(81, 81, 81))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,10 +524,10 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(checkCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addComponent(btGravar)
-                .addGap(12, 12, 12))
+                .addGap(50, 50, 50))
         );
 
         tpRemetente.addTab("Editar", jPanel3);
@@ -600,14 +591,14 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
         // TODO add your handling code here:
-        tfCodigoPessoa.setText("");
         remetenteGerenciarControl.formataTfCodigoPessoaParaCNPJ();
+        tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCnpjActionPerformed
 
     private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
         // TODO add your handling code here:
-        tfCodigoPessoa.setText("");
         remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
+        tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCpfActionPerformed
 
 

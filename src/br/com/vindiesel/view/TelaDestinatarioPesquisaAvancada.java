@@ -6,7 +6,7 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
-import javax.swing.JComboBox;
+import br.com.vindiesel.uteis.InterfaceJanela;
 import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  * @author William
  */
 public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
-    
+
     TelaEntregaControl telaEntregaControl;
 
     /**
@@ -27,11 +27,12 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
         initComponents();
     }
 
-    public TelaDestinatarioPesquisaAvancada(JInternalFrame parent, boolean modal , TelaEntregaControl control) {
+    public TelaDestinatarioPesquisaAvancada(JInternalFrame parent, boolean modal, TelaEntregaControl control) {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
         telaEntregaControl = control;
+        InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**
@@ -116,7 +117,7 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
 
     private void tblDestinatarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDestinatarioMouseReleased
         // TODO add your handling code here:
-         if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2) {
             telaEntregaControl.carregaDadosDestinatarioDoDialogPesquisaAvancadaAction();
             this.dispose();
         }

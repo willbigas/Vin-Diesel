@@ -25,8 +25,9 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
     public TelaTipoUsuarioGerenciar(TelaTipoUsuarioGerenciarControl control) {
         initComponents();
-        tipoUsuarioGerenciarControl = control;  
+        tipoUsuarioGerenciarControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
+        InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**
@@ -307,6 +308,4 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         this.tfPesquisar = tfPesquisar;
     }
 
-    
-    
 }

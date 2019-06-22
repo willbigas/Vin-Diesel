@@ -29,6 +29,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         loginControl = control;
         lblRecuperarSenha.setText("<html><u>" + lblRecuperarSenha.getText() + " </u></html>");
+        InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
     /**

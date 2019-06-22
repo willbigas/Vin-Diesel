@@ -94,7 +94,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        Tftelefone = new javax.swing.JFormattedTextField();
+        tfTelefone = new javax.swing.JFormattedTextField();
         btLimpar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -489,13 +489,13 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel19.setText("Editar Usuário");
 
-        Tftelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tfTelefone.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
         try {
-            Tftelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+            tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        Tftelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tfTelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
         btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
@@ -548,7 +548,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel9)))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Tftelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -610,7 +610,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                         .addGap(8, 8, 8)
                         .addComponent(tfPis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(Tftelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -713,7 +713,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField Tftelefone;
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btLimpar;
@@ -768,6 +767,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfRua;
     private javax.swing.JTextField tfSalario;
     private javax.swing.JTextField tfSenha;
+    private javax.swing.JFormattedTextField tfTelefone;
     private javax.swing.JTabbedPane tpGerenciarUsuario;
     // End of variables declaration//GEN-END:variables
 
@@ -900,12 +900,12 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         this.tfSenha = tfSenha;
     }
 
-    public JFormattedTextField getTftelefone() {
-        return Tftelefone;
+    public JFormattedTextField getTfTelefone() {
+        return tfTelefone;
     }
 
-    public void setTftelefone(JFormattedTextField Tftelefone) {
-        this.Tftelefone = Tftelefone;
+    public void setTfTelefone(JFormattedTextField tfTelefone) {
+        this.tfTelefone = tfTelefone;
     }
 
     public JFormattedTextField getTfCpf() {

@@ -63,8 +63,21 @@ public class TelaRemetenteGerenciarControl {
         carregarEstadosNaComboBox();
         remetenteTableModel.limpar();
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
+        redimensionarTela();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
     }
+    
+    private void redimensionarTela() {
+        UtilTable.centralizarCabecalho(telaRemetenteGerenciar.getTblRemetente());
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 0, 120);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 1, 470);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 2, 110);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 3, 160);
+    }
+    
+    
+    
+    
     
       public void novoRemetenteAction() {
         limparCampos();

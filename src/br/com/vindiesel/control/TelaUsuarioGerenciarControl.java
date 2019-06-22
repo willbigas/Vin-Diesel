@@ -90,7 +90,7 @@ public class TelaUsuarioGerenciarControl {
 
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
         usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTftelefone().getText());
+        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
         try {
@@ -149,7 +149,7 @@ public class TelaUsuarioGerenciarControl {
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
 
         usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTftelefone().getText());
+        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
 
@@ -270,7 +270,7 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfDataNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
         System.out.println("Cpf do Usuário :" + usuario.getCpf());
         telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
-        telaUsuarioGerenciar.getTftelefone().setText(usuario.getTelefone());
+        telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
         telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
         telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
         telaUsuarioGerenciar.getTfSalario().setText(String.valueOf(usuario.getSalario()));
@@ -308,7 +308,7 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfNome().setText("");
         telaUsuarioGerenciar.getTfCpf().setText("");
         telaUsuarioGerenciar.getTfDataNascimento().setText("");
-        telaUsuarioGerenciar.getTftelefone().setText("");
+        telaUsuarioGerenciar.getTfTelefone().setText("");
         telaUsuarioGerenciar.getTfEmail().setText("");
         telaUsuarioGerenciar.getTfPis().setText("");
         telaUsuarioGerenciar.getTfSalario().setText("");

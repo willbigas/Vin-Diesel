@@ -343,7 +343,7 @@
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Tftelefone" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="tfTelefone" min="-2" pref="140" max="-2" attributes="0"/>
                           <Component id="tfDataNascimento" min="-2" pref="86" max="-2" attributes="0"/>
                           <Component id="tfCpf" min="-2" pref="115" max="-2" attributes="0"/>
                           <Component id="tfSalario" min="-2" pref="140" max="-2" attributes="0"/>
@@ -415,7 +415,7 @@
                               <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
                               <Component id="tfPis" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="Tftelefone" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="tfTelefone" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tfEmail" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1040,7 +1040,7 @@
                 <Property name="text" type="java.lang.String" value="Editar Usu&#xe1;rio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="Tftelefone">
+            <Component class="javax.swing.JFormattedTextField" name="tfTelefone">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

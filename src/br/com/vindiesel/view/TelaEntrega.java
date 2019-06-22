@@ -725,6 +725,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btEfetivarEntregaActionPerformed
 
     private void btPesquisaAvancadaEncomendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisaAvancadaEncomendaActionPerformed
+        entregaControl.chamarDialogPesquisaAvancadaEncomendaAction();
         // TODO add your handling code here:
     }//GEN-LAST:event_btPesquisaAvancadaEncomendaActionPerformed
 

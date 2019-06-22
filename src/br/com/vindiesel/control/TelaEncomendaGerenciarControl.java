@@ -11,6 +11,7 @@ import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEncomendaGerenciar;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +51,7 @@ public class TelaEncomendaGerenciarControl {
         telaEncomendaGerenciar.getTblProduto().setModel(encomendaTableModel);
         encomendaTableModel.limpar();
         encomendaTableModel.adicionar(encomendaDao.pesquisar());
+        telaEncomendaGerenciar.getTfCodigoRastreio().setEditable(false);
     }
 
     private void cadastrarEncomenda() {
@@ -204,5 +206,24 @@ public class TelaEncomendaGerenciarControl {
         telaEncomendaGerenciar.getTfLargura().setText("");
         telaEncomendaGerenciar.getTfPesquisar().setText("");
         telaEncomendaGerenciar.getTblProduto().clearSelection();
+    }
+    
+    private String gerarCodigoRandomico() {
+        Random rand = new Random();
+        String prefixo = "VIN";
+        String randomico = Integer.toHexString(rand.nextInt()).toUpperCase();
+        String codigoMontado = prefixo + randomico;
+        return codigoMontado;
+    }
+    
+    public void geraCodigoRastreamentoRandomicoAction() {
+      String codigoFinal = "";  
+      String codigoGeradoRancomicamente =  gerarCodigoRandomico();
+      if (encomendaDao.pesquisar(codigoGeradoRancomicamente) != null) {
+        codigoFinal =  gerarCodigoRandomico();
+      } else {
+          codigoFinal = codigoGeradoRancomicamente;
+      }
+      telaEncomendaGerenciar.getTfCodigoRastreio().setText(codigoFinal);
     }
 }

@@ -18,6 +18,9 @@ import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -89,7 +92,7 @@ public class TelaUsuarioGerenciarControl {
         usuario = new Usuario();
 
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
-        usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
+        usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
@@ -147,8 +150,7 @@ public class TelaUsuarioGerenciarControl {
     private void alterarUsuario() {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
-
-        usuario.setDataNascimento(UtilDate.dataLocal(telaUsuarioGerenciar.getTfDataNascimento().getText()));
+        usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
@@ -267,7 +269,7 @@ public class TelaUsuarioGerenciarControl {
     public void carregarUsuarioAction() {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
-        telaUsuarioGerenciar.getTfDataNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
+        telaUsuarioGerenciar.getTfDataNascimento().setDate(UtilDate.toDate(usuario.getDataNascimento()));
         System.out.println("Cpf do Usuário :" + usuario.getCpf());
         telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
         telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
@@ -307,7 +309,7 @@ public class TelaUsuarioGerenciarControl {
     public void limparCamposAction() {
         telaUsuarioGerenciar.getTfNome().setText("");
         telaUsuarioGerenciar.getTfCpf().setText("");
-        telaUsuarioGerenciar.getTfDataNascimento().setText("");
+        telaUsuarioGerenciar.getTfDataNascimento().setDate(Date.from(Instant.now()));
         telaUsuarioGerenciar.getTfTelefone().setText("");
         telaUsuarioGerenciar.getTfEmail().setText("");
         telaUsuarioGerenciar.getTfPis().setText("");

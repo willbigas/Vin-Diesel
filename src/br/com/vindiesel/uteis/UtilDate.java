@@ -8,9 +8,12 @@ package br.com.vindiesel.uteis;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -50,10 +53,11 @@ public class UtilDate {
      * @param data
      * @return String
      */
-    public static String data(java.util.Date data)  {
+    public static String data(java.util.Date data) {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         return df.format(data);
     }
+
     /**
      * Convertendo Data para String no Formato DD/MM/AAAA
      *
@@ -61,8 +65,8 @@ public class UtilDate {
      * @return String
      */
     public static String dataLocal(java.time.LocalDate data) {
-       DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-       return data.format(formatador);
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return data.format(formatador);
     }
 
     /**
@@ -104,6 +108,7 @@ public class UtilDate {
         }
         return null;
     }
+
     /**
      * Convertendo String para Data no Formato HH:mm:ss
      *
@@ -111,7 +116,7 @@ public class UtilDate {
      * @return Data
      */
     public static LocalTime hora(LocalTime dataStr) {
-         return LocalTime.parse(dataStr.toString(), DateTimeFormatter.ofPattern("HH:mm:ss"));
+        return LocalTime.parse(dataStr.toString(), DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 
     /**
@@ -209,7 +214,13 @@ public class UtilDate {
         java.util.Date dataUtil = new java.util.Date();
         return formatador.format(dataUtil);
     }
-    
-    
+
+    public static LocalDate pegaLocalDate(Date date) {
+        return LocalDate.from(Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()));
+    }
+
+    public static Date toDate(LocalDate date) {
+        return java.sql.Timestamp.valueOf(date.atStartOfDay());
+    }
 
 }

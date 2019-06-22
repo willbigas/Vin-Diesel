@@ -216,7 +216,7 @@ public class TelaEntregaControl {
         tramites.add(tramiteDao.pesquisar(idTramiteInserido));
         entrega.setTramites(tramites);
 
-        Date dataVencimento = UtilDate.data(telaEntregaReceita.getTfDataVencimento().getText());
+        Date dataVencimento = telaEntregaReceita.getTfDataVencimento().getDate();
         receitaGerenciarControl = new TelaReceitaGerenciarControl();
         receitaGerenciarControl.criarReceita(entrega, dataVencimento, valorFrete);
 

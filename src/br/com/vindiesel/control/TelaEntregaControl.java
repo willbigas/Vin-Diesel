@@ -18,6 +18,7 @@ import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.model.Tramite;
 import br.com.vindiesel.model.tablemodel.DestinatarioTableModel;
 import br.com.vindiesel.model.tablemodel.EntregaTableModel;
+import br.com.vindiesel.model.tablemodel.RemetenteTableModel;
 import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
@@ -28,6 +29,7 @@ import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceita;
+import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,12 +45,14 @@ public class TelaEntregaControl {
     TelaEntrega telaEntrega;
     TelaEntregaReceita telaEntregaReceita;
     TelaDestinatarioPesquisaAvancada telaDestinatarioPesquisaAvancada;
+    TelaRemetentePesquisaAvancada telaRemetentePesquisaAvancada;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     TramiteControl tramiteControl;
     DistanciaCalculoControl calculoDeDistancia;
     TramiteTableModel tramiteTableModel;
     EntregaTableModel entregaTableModel;
     DestinatarioTableModel destinatarioTableModel;
+    RemetenteTableModel remetenteTableModel;
     DestinatarioDao destinatarioDao;
     EncomendaDao encomendaDao;
     RemetenteDao remetenteDao;
@@ -59,6 +63,7 @@ public class TelaEntregaControl {
     List<Remetente> listRemetentes;
     Entrega entrega;
     Destinatario destinatario;
+    Remetente remetente;
     Encomenda encomenda;
     Tramite tramite;
     Endereco endereco;
@@ -69,6 +74,7 @@ public class TelaEntregaControl {
         entregaTableModel = new EntregaTableModel();
         tramiteTableModel = new TramiteTableModel();
         destinatarioTableModel = new DestinatarioTableModel();
+        remetenteTableModel = new RemetenteTableModel();
         destinatarioDao = new DestinatarioDao();
         encomendaDao = new EncomendaDao();
         remetenteDao = new RemetenteDao();
@@ -222,6 +228,13 @@ public class TelaEntregaControl {
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
         telaDestinatarioPesquisaAvancada.setVisible(true);
     }
+    public void chamarDialogPesquisaAvancadaRemetenteAction() {
+        telaRemetentePesquisaAvancada = new TelaRemetentePesquisaAvancada(telaEntrega, true, this);
+        telaRemetentePesquisaAvancada.getTblRemetente().setModel(remetenteTableModel);
+        remetenteTableModel.limpar();
+        remetenteTableModel.adicionar(remetenteDao.pesquisar());
+        telaRemetentePesquisaAvancada.setVisible(true);
+    }
 
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
@@ -347,6 +360,21 @@ public class TelaEntregaControl {
         } else {
             destinatarioTableModel.limpar();
             destinatarioTableModel.adicionar(destinatariosPesquisados);
+        }
+    }
+    public void carregaDadosRemetenteDoDialogPesquisaAvancadaAction() {
+        remetente = remetenteTableModel.pegaObjeto(telaRemetentePesquisaAvancada.getTblRemetente().getSelectedRow());
+        telaEntrega.getCbRemetente().getModel().setSelectedItem(remetente);
+    }
+    
+    public void pesquisarRemetentesNoDialogPesquisaAvancadaAction() {
+        List<Remetente> remetentesPesquisados = remetenteDao.pesquisar(telaRemetentePesquisaAvancada.getTfCampoPesquisa().getText());
+        if (remetentesPesquisados == null) {
+            remetenteTableModel.limpar();
+            remetentesPesquisados = remetenteDao.pesquisar();
+        } else {
+            remetenteTableModel.limpar();
+            remetenteTableModel.adicionar(remetentesPesquisados);
         }
     }
 

@@ -18,6 +18,7 @@ import br.com.vindiesel.view.TelaPrincipal;
 import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -35,11 +36,14 @@ public class TelaDestinatarioGerenciarControl {
     private DestinatarioTableModel destinatarioTableModel;
     private EnderecoDao enderecoDao;
     private Integer linhaSelecionada;
+    MaskFormatter mascaraFormatadoraCPF;
+    MaskFormatter mascaraFormatadoraCNPJ;
 
     public TelaDestinatarioGerenciarControl() {
         destinatarioDao = new DestinatarioDao();
         enderecoDao = new EnderecoDao();
         destinatarioTableModel = new DestinatarioTableModel();
+        criaInstanciasDeMascarasFormatadas();
     }
 
     public void chamarTelaDestinatarioGerenciar() {
@@ -207,6 +211,12 @@ public class TelaDestinatarioGerenciarControl {
     public void carregarDestinatarioAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         telaDestinatarioGerenciar.getTfNome().setText(destinatario.getNome());
+        String codigoPessoa = destinatario.getCodigoPessoa();
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
         telaDestinatarioGerenciar.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
 
         telaDestinatarioGerenciar.getTfBairro().setText(destinatario.getEndereco().getBairro());
@@ -264,21 +274,23 @@ public class TelaDestinatarioGerenciarControl {
         return false;
     }
 
-    public void formataTfCodigoPessoaParaCNPJ() {
+    private void criaInstanciasDeMascarasFormatadas() {
         try {
-            DefaultFormatterFactory formatadorCNPJ = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##"));
-            telaDestinatarioGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCNPJ);
+            mascaraFormatadoraCPF = new javax.swing.text.MaskFormatter("###.###.###-##");
+            mascaraFormatadoraCNPJ = new javax.swing.text.MaskFormatter("##.###.###/####-##");
         } catch (ParseException parseException) {
             Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
         }
+
     }
+
+    public void formataTfCodigoPessoaParaCNPJ() {
+        mascaraFormatadoraCNPJ.install(telaDestinatarioGerenciar.getTfCodigoPessoa());
+    }
+
     public void formataTfCodigoPessoaParaCPF() {
-        try {
-            DefaultFormatterFactory formatadorCPF = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##"));
-            telaDestinatarioGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCPF);
-        } catch (ParseException parseException) {
-            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
-        }
+        mascaraFormatadoraCPF.install(telaDestinatarioGerenciar.getTfCodigoPessoa());
+
     }
 
     private void limparCampos() {

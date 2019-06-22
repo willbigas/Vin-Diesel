@@ -364,6 +364,8 @@
                                       <Component id="tfCodigoPessoa" min="-2" pref="179" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="checkCnpj" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkCpf" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="tfNome" min="-2" pref="370" max="-2" attributes="0"/>
                               </Group>
@@ -429,12 +431,11 @@
                           <Component id="tfNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfCodigoPessoa" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tfCodigoPessoa" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="checkCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -656,10 +657,18 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="tfCodigoPessoa">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="###.###.###-##" subtype="-1" type="5"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="14" style="0"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkCpf">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CPF"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkCpfActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

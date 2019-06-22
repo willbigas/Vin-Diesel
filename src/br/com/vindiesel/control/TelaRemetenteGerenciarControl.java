@@ -20,6 +20,7 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -34,11 +35,14 @@ public class TelaRemetenteGerenciarControl {
     RemetenteTableModel remetenteTableModel;
     EnderecoDao enderecoDao;
     Integer linhaSelecionada;
+    MaskFormatter mascaraFormatadoraCPF;
+    MaskFormatter mascaraFormatadoraCNPJ;
 
     public TelaRemetenteGerenciarControl() {
         remetenteDao = new RemetenteDao();
         enderecoDao = new EnderecoDao();
         remetenteTableModel = new RemetenteTableModel();
+        criaInstanciasDeMascarasFormatadas();
     }
 
     public void carregarEstadosNaComboBox() {
@@ -66,7 +70,7 @@ public class TelaRemetenteGerenciarControl {
         redimensionarTela();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
     }
-    
+
     private void redimensionarTela() {
         UtilTable.centralizarCabecalho(telaRemetenteGerenciar.getTblRemetente());
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 0, 120);
@@ -74,12 +78,8 @@ public class TelaRemetenteGerenciarControl {
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 2, 110);
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 3, 160);
     }
-    
-    
-    
-    
-    
-      public void novoRemetenteAction() {
+
+    public void novoRemetenteAction() {
         limparCampos();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, true);
         UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
@@ -254,6 +254,12 @@ public class TelaRemetenteGerenciarControl {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
+        String codigoPessoa = remetente.getCodigoPessoa();
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
         telaRemetenteGerenciar.getTfCodigoPessoa().setText(remetente.getCodigoPessoa());
 
         telaRemetenteGerenciar.getTfBairro().setText(remetente.getEndereco().getBairro());
@@ -269,22 +275,24 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfNome().requestFocus();
 
     }
-    
-    public void formataTfCodigoPessoaParaCNPJ() {
+
+    private void criaInstanciasDeMascarasFormatadas() {
         try {
-            DefaultFormatterFactory formatadorCNPJ = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##"));
-            telaRemetenteGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCNPJ);
+            mascaraFormatadoraCPF = new javax.swing.text.MaskFormatter("###.###.###-##");
+            mascaraFormatadoraCNPJ = new javax.swing.text.MaskFormatter("##.###.###/####-##");
         } catch (ParseException parseException) {
             Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
         }
+
     }
+
+    public void formataTfCodigoPessoaParaCNPJ() {
+        mascaraFormatadoraCNPJ.install(telaRemetenteGerenciar.getTfCodigoPessoa());
+    }
+
     public void formataTfCodigoPessoaParaCPF() {
-        try {
-            DefaultFormatterFactory formatadorCPF = new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##"));
-            telaRemetenteGerenciar.getTfCodigoPessoa().setFormatterFactory(formatadorCPF);
-        } catch (ParseException parseException) {
-            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
-        }
+        mascaraFormatadoraCPF.install(telaRemetenteGerenciar.getTfCodigoPessoa());
+
     }
 
     private void limparCampos() {

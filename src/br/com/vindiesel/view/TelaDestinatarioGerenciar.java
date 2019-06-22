@@ -3,6 +3,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTabbedPane;
@@ -30,6 +31,9 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         destinatarioGerenciarControl = control;
         InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/destinatario_32x32.png");
         InterfaceJanela.centralizarInternalFrame(this);
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(checkCnpj);
+        bg.add(checkCpf);
     }
 
     /**
@@ -79,6 +83,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfComplemento = new javax.swing.JTextArea();
         checkCnpj = new javax.swing.JCheckBox();
         tfCodigoPessoa = new javax.swing.JFormattedTextField();
+        checkCpf = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -330,11 +335,14 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        try {
-            tfCodigoPessoa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        tfCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        checkCpf.setText("CPF");
+        checkCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCpfActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -352,7 +360,9 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkCnpj))
+                                .addComponent(checkCnpj)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkCpf))
                             .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
@@ -400,11 +410,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(checkCnpj)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkCnpj)
+                    .addComponent(jLabel9)
+                    .addComponent(checkCpf))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -487,15 +497,15 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
         // TODO add your handling code here:
-        if (checkCnpj.isSelected()) {
-            tfCodigoPessoa.setText("");
-            destinatarioGerenciarControl.formataTfCodigoPessoaParaCNPJ();
-        }
-        if (!checkCnpj.isSelected()) {
-            tfCodigoPessoa.setText("");
-            destinatarioGerenciarControl.formataTfCodigoPessoaParaCPF();
-        }
+        tfCodigoPessoa.setText("");
+        destinatarioGerenciarControl.formataTfCodigoPessoaParaCNPJ();
     }//GEN-LAST:event_checkCnpjActionPerformed
+
+    private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
+        // TODO add your handling code here:
+        tfCodigoPessoa.setText("");
+        destinatarioGerenciarControl.formataTfCodigoPessoaParaCPF();
+    }//GEN-LAST:event_checkCpfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -505,6 +515,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JCheckBox checkCnpj;
+    private javax.swing.JCheckBox checkCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

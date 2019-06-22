@@ -8,6 +8,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaRemetenteGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTabbedPane;
@@ -34,6 +35,9 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         initComponents();
         remetenteGerenciarControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(checkCnpj);
+        bg.add(checkCpf);
     }
 
     /**
@@ -88,6 +92,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         checkCnpj = new javax.swing.JCheckBox();
         tfCodigoPessoa = new javax.swing.JFormattedTextField();
         tfTelefone = new javax.swing.JFormattedTextField();
+        checkCpf = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -464,6 +469,14 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         }
         tfTelefone.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
+        checkCpf.setBackground(new java.awt.Color(207, 207, 207));
+        checkCpf.setText("CPF");
+        checkCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCpfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -482,12 +495,14 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(checkCnpj)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(checkCpf)
+                                        .addGap(38, 38, 38)
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfTelefone))
@@ -515,7 +530,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(checkCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
-                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(checkCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -584,15 +600,15 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
         // TODO add your handling code here:
-        if (checkCnpj.isSelected()) {
-            tfCodigoPessoa.setText("");
-            remetenteGerenciarControl.formataTfCodigoPessoaParaCNPJ();
-        }
-        if (!checkCnpj.isSelected()) {
-            tfCodigoPessoa.setText("");
-            remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
-        }
+        tfCodigoPessoa.setText("");
+        remetenteGerenciarControl.formataTfCodigoPessoaParaCNPJ();
     }//GEN-LAST:event_checkCnpjActionPerformed
+
+    private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
+        // TODO add your handling code here:
+        tfCodigoPessoa.setText("");
+        remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
+    }//GEN-LAST:event_checkCpfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -602,6 +618,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JCheckBox checkCnpj;
+    private javax.swing.JCheckBox checkCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -664,7 +681,6 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     public void setTfTelefone(JFormattedTextField tfTelefone) {
         this.tfTelefone = tfTelefone;
     }
-
 
     public JTextField getTfBairro() {
         return tfBairro;

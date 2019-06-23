@@ -459,7 +459,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         tpDestinatario.addTab("Editar", jPanel3);
 
-        getContentPane().add(tpDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 720, 360));
+        getContentPane().add(tpDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 720, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

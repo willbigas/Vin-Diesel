@@ -107,6 +107,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         tpGerenciarUsuario.setBackground(new java.awt.Color(0, 0, 0));
         tpGerenciarUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
+        tpGerenciarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tpGerenciarUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(207, 207, 207));
@@ -142,6 +143,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -154,6 +156,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);

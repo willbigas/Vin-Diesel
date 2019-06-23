@@ -62,6 +62,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         btGerarDespesa.setText("Gerar");
         btGerarDespesa.setBorder(null);
         btGerarDespesa.setContentAreaFilled(false);
+        btGerarDespesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGerarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGerarDespesaActionPerformed(evt);

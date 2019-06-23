@@ -109,6 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btEntrar.setBorder(null);
         btEntrar.setBorderPainted(false);
         btEntrar.setContentAreaFilled(false);
+        btEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEntrarActionPerformed(evt);
@@ -118,6 +119,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblRecuperarSenha.setForeground(new java.awt.Color(0, 0, 0));
         lblRecuperarSenha.setText("Esqueceu sua senha?");
         lblRecuperarSenha.setToolTipText("Clique para ser direcionado ao email de contato para recuperação de senha");
+        lblRecuperarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRecuperarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblRecuperarSenhaMouseReleased(evt);

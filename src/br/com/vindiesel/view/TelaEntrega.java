@@ -132,6 +132,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        tpEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tpEntrega.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tpEntrega.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -178,9 +179,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         brBuscarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         brBuscarEntrega.setText("Buscar");
+        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btEditarEntrega.setText("Editar");
+        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarEntregaActionPerformed(evt);
@@ -203,6 +206,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel20.setText("[F5-Recarregar]");
 
         btLimparCamposTabEntrega.setText("Limpar");
+        btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLimparCamposTabEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntregaActionPerformed(evt);
@@ -662,7 +666,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addGap(4, 4, 4)
                         .addComponent(cbRemetente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btPesquisaAvancadaRemetente))
-                .addGap(18, 18, 18)
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
                         .addGap(11, 11, 11)

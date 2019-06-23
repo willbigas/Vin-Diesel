@@ -63,6 +63,7 @@ public class TelaSobre extends javax.swing.JFrame {
         jLabel7.setText("Projeto Open Source - 2019");
 
         githubProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/github_32x32.png"))); // NOI18N
+        githubProjeto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         githubProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 githubProjetoMouseClicked(evt);
@@ -70,8 +71,10 @@ public class TelaSobre extends javax.swing.JFrame {
         });
 
         linkedinAgostinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
+        linkedinAgostinho.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         linkedinWilliam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
+        linkedinWilliam.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         linkedinWilliam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 linkedinWilliamMouseClicked(evt);

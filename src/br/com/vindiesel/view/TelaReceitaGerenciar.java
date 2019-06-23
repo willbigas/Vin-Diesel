@@ -102,6 +102,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         brEditarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         brEditarReceita.setText("Editar");
+        brEditarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         brEditarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brEditarReceitaActionPerformed(evt);
@@ -110,6 +111,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setText("Buscar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         cbSituacaoReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbSituacaoReceita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "PENDENTE", "FINALIZADO" }));
@@ -170,6 +172,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         btGravarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravarReceita.setText("Gravar");
+        btGravarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGravarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarReceitaActionPerformed(evt);

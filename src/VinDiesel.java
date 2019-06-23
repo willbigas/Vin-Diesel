@@ -19,6 +19,5 @@ public class VinDiesel {
         }
         TelaLoginControl telaLogin = new TelaLoginControl();
         telaLogin.chamarTelaLoginAction();
-
     }
 }

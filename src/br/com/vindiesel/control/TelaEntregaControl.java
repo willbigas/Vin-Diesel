@@ -116,10 +116,24 @@ public class TelaEntregaControl {
         telaEntrega.getTblTramite().setModel(tramiteTableModel);
         entregaTableModel.limpar();
         entregaTableModel.adicionar(entregaDao.pesquisar());
+        redimensionarTabelaEntregas();
         telaEntrega.getTpEntrega().setEnabledAt(1, false); // disabilita o tabbed pane
         formataTfCodigoPessoaParaCPF();
         telaEntrega.getCheckCpf().setSelected(true);
     }
+    
+    
+    private void redimensionarTabelaEntregas() {
+        UtilTable.centralizarCabecalho(telaEntrega.getTblEntrega());
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 0, 100);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 1, 90);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 2, 90);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 3, 95);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 175);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 175);
+    }
+    
+    
 
     public void carregarEstadosNaComboBox() {
         telaEntrega.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
@@ -215,6 +229,7 @@ public class TelaEntregaControl {
 
         if (idEntregaInserida != 0) {
             entrega.setId(idEntregaInserida);
+            entregaTableModel.adicionar(entrega);
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);

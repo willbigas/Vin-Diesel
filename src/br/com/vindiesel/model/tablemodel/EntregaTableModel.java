@@ -2,7 +2,8 @@ package br.com.vindiesel.model.tablemodel;
 
 import br.com.vindiesel.interfaces.AcoesTableModel;
 import br.com.vindiesel.model.Entrega;
-import java.time.LocalDate;
+import br.com.vindiesel.uteis.UtilDate;
+import br.com.vindiesel.uteis.UtilDecimalFormat;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -22,10 +23,9 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
     private static final int VALOR_ENTREGA = 3;
     private static final int REMETENTE_NOME = 4;
     private static final int DESTINATARIO_NOME = 5;
-    private static final int ENTREGUE = 6;
 
     private List<Entrega> linhas;
-    private String[] COLUNAS = {"CÓDIGO RASTREIO", "CADASTRO", "ENTREGA", "FRETE", "REMETENTE", "DESTINATARIO", "ENTREGUE"};
+    private String[] COLUNAS = {"CÓD RASTREIO", "CADASTRO", "ENTREGA", "FRETE", "REMETENTE", "DESTINATARIO"};
 
     public EntregaTableModel() {
         linhas = new ArrayList<>();
@@ -56,16 +56,14 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
             case ENCOMENDA_CODIGO:
                 return String.class;
             case DATA_CADASTRO:
-                return LocalDate.class;
+                return String.class;
             case DATA_ENTREGA:
-                return LocalDate.class;
+                return String.class;
             case VALOR_ENTREGA:
-                return Double.class;
+                return String.class;
             case REMETENTE_NOME:
                 return String.class;
             case DESTINATARIO_NOME:
-                return String.class;
-            case ENTREGUE:
                 return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -79,21 +77,19 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
             case ENCOMENDA_CODIGO:
                 return entrega.getEncomenda().getCodigoRastreio();
             case DATA_CADASTRO:
-                return entrega.getDataCadastro().toLocalDate();
+                return UtilDate.dataLocal(entrega.getDataCadastro().toLocalDate());
             case DATA_ENTREGA:
                 if (entrega.getDataEntrega() == null) {
                     return "Nao informado";
                 } else {
-                    return entrega.getDataEntrega().toLocalDate();
+                    return UtilDate.dataLocal(entrega.getDataEntrega().toLocalDate());
                 }
             case VALOR_ENTREGA:
-                return entrega.getValorTotal();
+                return UtilDecimalFormat.decimalFormatR$(entrega.getValorTotal());
             case REMETENTE_NOME:
                 return entrega.getRemetente().getNome();
             case DESTINATARIO_NOME:
                 return entrega.getDestinatario().getNome();
-            case ENTREGUE:
-                return entrega.getEntregue();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -120,9 +116,6 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                 break;
             case DESTINATARIO_NOME:
                 entrega.getDestinatario().setNome((String) valor);
-                break;
-            case ENTREGUE:
-                entrega.setEntregue((Boolean) valor);
                 break;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");

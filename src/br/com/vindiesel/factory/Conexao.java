@@ -1,5 +1,6 @@
 package br.com.vindiesel.factory;
 
+import br.com.vindiesel.uteis.Mensagem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,6 +22,7 @@ public class Conexao {
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                 conexao = DriverManager.getConnection(URL, USER, PASS);
             } catch (SQLException ex) {
+                Mensagem.erro("Erro ao conectar no banco de dados, contate o administrador do sistema!");
                 System.out.println(ex.getMessage());
             }
             System.out.println("Conectou...");

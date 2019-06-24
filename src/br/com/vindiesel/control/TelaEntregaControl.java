@@ -32,11 +32,14 @@ import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceita;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.print.attribute.standard.JobImpressionsCompleted;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -71,6 +74,8 @@ public class TelaEntregaControl {
     Encomenda encomenda;
     Tramite tramite;
     Endereco endereco;
+    MaskFormatter mascaraFormatadoraCPF;
+    MaskFormatter mascaraFormatadoraCNPJ;
 
     public TelaEntregaControl() {
         calculoDeDistancia = new DistanciaCalculoControl();
@@ -87,6 +92,7 @@ public class TelaEntregaControl {
         tramiteDao = new TramiteDao();
         enderecoDao = new EnderecoDao();
         listEncomendas = new ArrayList<>();
+        criaInstanciasDeMascarasFormatadas();
 
     }
 
@@ -111,6 +117,8 @@ public class TelaEntregaControl {
         entregaTableModel.limpar();
         entregaTableModel.adicionar(entregaDao.pesquisar());
         telaEntrega.getTpEntrega().setEnabledAt(1, false); // disabilita o tabbed pane
+        formataTfCodigoPessoaParaCPF();
+        telaEntrega.getCheckCpf().setSelected(true);
     }
 
     public void carregarEstadosNaComboBox() {
@@ -224,6 +232,8 @@ public class TelaEntregaControl {
         entrega = null;
         endereco = null;
 
+        limparCamposTabEntrega();
+
     }
 
     public void chamarDialogPesquisaAvancadaDestinatarioAction() {
@@ -233,6 +243,7 @@ public class TelaEntregaControl {
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
         telaDestinatarioPesquisaAvancada.setVisible(true);
     }
+
     public void chamarDialogPesquisaAvancadaRemetenteAction() {
         telaRemetentePesquisaAvancada = new TelaRemetentePesquisaAvancada(telaEntrega, true, this);
         telaRemetentePesquisaAvancada.getTblRemetente().setModel(remetenteTableModel);
@@ -240,6 +251,7 @@ public class TelaEntregaControl {
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
         telaRemetentePesquisaAvancada.setVisible(true);
     }
+
     public void chamarDialogPesquisaAvancadaEncomendaAction() {
         telaEncomendaPesquisaAvancada = new TelaEncomendaPesquisaAvancada(telaEntrega, true, this);
         telaEncomendaPesquisaAvancada.getTblEncomenda().setModel(encomendaTableModel);
@@ -347,10 +359,41 @@ public class TelaEntregaControl {
 
     public void limparCamposTabEntrega() {
         telaEntrega.getCbPesquisarEntrega().setSelectedIndex(0);
+        telaEntrega.getCbRemetente().setSelectedIndex(0);
+        telaEntrega.getCbEncomenda().setSelectedIndex(0);
         telaEntrega.getTfPesquisarEntrega().setText("");
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfNome().setText("");
+        telaEntrega.getTfCep().setText("");
+        telaEntrega.getTfCidade().setText("");
+        telaEntrega.getTfBairro().setText("");
+        telaEntrega.getTfComplemento().setText("");
+        telaEntrega.getCbEstado().setSelectedIndex(0);
+        telaEntrega.getTfNumero().setText("");
+        telaEntrega.getTfRua().setText("");
+
         UtilTable.limparSelecaoDaTabela(telaEntrega.getTblEntrega());
     }
-    
+
+    private void criaInstanciasDeMascarasFormatadas() {
+        try {
+            mascaraFormatadoraCPF = new javax.swing.text.MaskFormatter("###.###.###-##");
+            mascaraFormatadoraCNPJ = new javax.swing.text.MaskFormatter("##.###.###/####-##");
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
+        }
+
+    }
+
+    public void formataTfCodigoPessoaParaCNPJ() {
+        mascaraFormatadoraCNPJ.install(telaEntrega.getTfCodigoPessoa());
+    }
+
+    public void formataTfCodigoPessoaParaCPF() {
+        mascaraFormatadoraCPF.install(telaEntrega.getTfCodigoPessoa());
+
+    }
+
     public void carregaDadosDestinatarioDoDialogPesquisaAvancadaAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioPesquisaAvancada.getTblDestinatario().getSelectedRow());
         telaEntrega.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
@@ -363,7 +406,7 @@ public class TelaEntregaControl {
         telaEntrega.getTfNumero().setText(destinatario.getEndereco().getNumero());
         telaEntrega.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
     }
-    
+
     public void pesquisarDestinatariosNoDialogPesquisaAvancadaAction() {
         List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioPesquisaAvancada.getTfCampoPesquisa().getText());
         if (destinatariosPesquisados == null) {
@@ -374,11 +417,12 @@ public class TelaEntregaControl {
             destinatarioTableModel.adicionar(destinatariosPesquisados);
         }
     }
+
     public void carregaDadosRemetenteDoDialogPesquisaAvancadaAction() {
         remetente = remetenteTableModel.pegaObjeto(telaRemetentePesquisaAvancada.getTblRemetente().getSelectedRow());
         telaEntrega.getCbRemetente().getModel().setSelectedItem(remetente);
     }
-    
+
     public void pesquisarRemetentesNoDialogPesquisaAvancadaAction() {
         List<Remetente> remetentesPesquisados = remetenteDao.pesquisar(telaRemetentePesquisaAvancada.getTfCampoPesquisa().getText());
         if (remetentesPesquisados == null) {
@@ -389,11 +433,12 @@ public class TelaEntregaControl {
             remetenteTableModel.adicionar(remetentesPesquisados);
         }
     }
+
     public void carregaDadosEncomendaDoDialogPesquisaAvancadaAction() {
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaPesquisaAvancada.getTblEncomenda().getSelectedRow());
         telaEntrega.getCbEncomenda().getModel().setSelectedItem(encomenda);
     }
-    
+
     public void pesquisarEncomendasNoDialogPesquisaAvancadaAction() {
         List<Encomenda> encomendasPesquisadas = encomendaDao.pesquisar(telaEncomendaPesquisaAvancada.getTfCampoPesquisa().getText());
         if (encomendasPesquisadas == null) {

@@ -76,15 +76,6 @@ public class InterfaceJanela {
         }
     }
 
-    /**
-     * Editar o Icone do JFrame - Necessário indicar a Janela e o Endereco de
-     * Arquivo
-     * <b>Atenção - Necessário ter uma imagem no projeto para chamar o
-     * enderecoArq</b>
-     *
-     * @param jframe -- Janela de Jframe a ser modificada
-     * @param enderecoArq - Ex : /prova/img/icon_product_16x16.png
-     */
     public static void alteraIconePrincipalDoFrame(JFrame jframe, String enderecoArq) {
         URL url;
         url = jframe.getClass().getResource(enderecoArq);

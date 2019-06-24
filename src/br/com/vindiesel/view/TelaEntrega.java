@@ -5,6 +5,8 @@ import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTabbedPane;
@@ -32,6 +34,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         entregaControl = control;
         InterfaceJanela.centralizarInternalFrame(this);
         InterfaceJanela.alteraIconePrincipaldoJInternalFrame(this, "br/com/vindiesel/img/delivery_truck_16x16.png");
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(checkCnpj);
+        bg.add(checkCpf);
     }
 
     /**
@@ -85,7 +90,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btPesquisaAvancadaRemetente = new javax.swing.JButton();
         tfNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        tfCodigoPessoa = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -105,6 +109,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tfComplemento = new javax.swing.JTextArea();
         btPesquisaAvancadaDestinatario = new javax.swing.JButton();
+        tfCodigoPessoa = new javax.swing.JFormattedTextField();
+        checkCnpj = new javax.swing.JCheckBox();
+        checkCpf = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -132,7 +139,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        tpEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tpEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tpEntrega.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tpEntrega.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -179,11 +186,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         brBuscarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         brBuscarEntrega.setText("Buscar");
-        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btEditarEntrega.setText("Editar");
-        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarEntregaActionPerformed(evt);
@@ -206,7 +213,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel20.setText("[F5-Recarregar]");
 
         btLimparCamposTabEntrega.setText("Limpar");
-        btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntregaActionPerformed(evt);
@@ -265,7 +272,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addComponent(jLabel19)
                     .addComponent(jLabel20)
                     .addComponent(btLimparCamposTabEntrega))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         tpEntrega.addTab("Listar Entregas", panelListarEntrega);
@@ -448,8 +455,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("NOME:");
 
-        tfCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("CPF / CNPJ:");
 
@@ -600,6 +605,25 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             }
         });
 
+        tfCodigoPessoa.setText("");
+        tfCodigoPessoa.setPreferredSize(new java.awt.Dimension(47, 30));
+
+        checkCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        checkCnpj.setText("CNPJ");
+        checkCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCnpjActionPerformed(evt);
+            }
+        });
+
+        checkCpf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        checkCpf.setText("CPF");
+        checkCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCpfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelEfetivarEntregaLayout = new javax.swing.GroupLayout(panelEfetivarEntrega);
         panelEfetivarEntrega.setLayout(panelEfetivarEntregaLayout);
         panelEfetivarEntregaLayout.setHorizontalGroup(
@@ -624,16 +648,21 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                                 .addComponent(btPesquisaAvancadaRemetente))
                             .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel5)
+                                .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
                                 .addGap(6, 6, 6)
-                                .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)
-                                .addComponent(btPesquisaAvancadaDestinatario)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 26, Short.MAX_VALUE))
+                                .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
+                                        .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(checkCnpj)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(checkCpf)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btPesquisaAvancadaDestinatario)))))
+                        .addGap(0, 161, Short.MAX_VALUE))
                     .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -671,14 +700,18 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel5))
                     .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btPesquisaAvancadaDestinatario)))
-                .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfCodigoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(checkCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(checkCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btPesquisaAvancadaDestinatario))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(22, 22, 22)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,6 +807,18 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btPesquisaAvancadaDestinatarioActionPerformed
 
+    private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
+        // TODO add your handling code here:
+        entregaControl.formataTfCodigoPessoaParaCNPJ();
+        tfCodigoPessoa.requestFocus();
+    }//GEN-LAST:event_checkCnpjActionPerformed
+
+    private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
+        // TODO add your handling code here:
+        entregaControl.formataTfCodigoPessoaParaCPF();
+        tfCodigoPessoa.requestFocus();
+    }//GEN-LAST:event_checkCpfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brBuscarEntrega;
@@ -794,6 +839,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbPesquisarEntrega;
     private javax.swing.JComboBox<Remetente> cbRemetente;
     private javax.swing.JComboBox<String> cbTipoTramite;
+    private javax.swing.JCheckBox checkCnpj;
+    private javax.swing.JCheckBox checkCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -829,7 +876,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
     private javax.swing.JTextField tfCidade;
-    private javax.swing.JTextField tfCodigoPessoa;
+    private javax.swing.JFormattedTextField tfCodigoPessoa;
     private javax.swing.JTextArea tfComplemento;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNomeTramite;
@@ -912,11 +959,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         this.cbRemetente = cbRemetente;
     }
 
-    public JTextField getTfCodigoPessoa() {
+    public JFormattedTextField getTfCodigoPessoa() {
         return tfCodigoPessoa;
     }
 
-    public void setTfCodigoPessoa(JTextField tfCodigoPessoa) {
+    public void setTfCodigoPessoa(JFormattedTextField tfCodigoPessoa) {
         this.tfCodigoPessoa = tfCodigoPessoa;
     }
 
@@ -992,4 +1039,21 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         this.tfObservacaoTramite = tfObservacaoTramite;
     }
 
+    public JCheckBox getCheckCnpj() {
+        return checkCnpj;
+    }
+
+    public void setCheckCnpj(JCheckBox checkCnpj) {
+        this.checkCnpj = checkCnpj;
+    }
+
+    public JCheckBox getCheckCpf() {
+        return checkCpf;
+    }
+
+    public void setCheckCpf(JCheckBox checkCpf) {
+        this.checkCpf = checkCpf;
+    }
+
+    
 }

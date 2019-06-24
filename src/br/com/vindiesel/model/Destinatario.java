@@ -16,7 +16,7 @@ public class Destinatario {
     @NotBlank
     private String nome;
     @NotBlank
-    @Size(min = 8, max = 21)
+    @Size(min = 8, max = 25)
     @Pattern(regexp = Texto.REGEX_CPF_AND_CNPJ, message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @Valid

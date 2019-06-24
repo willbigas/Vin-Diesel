@@ -47,7 +47,7 @@ public class Remetente {
     public void setCodigoPessoa(String codigoPessoa) {
         this.codigoPessoa = codigoPessoa;
     }
-    
+
     public String getTelefone() {
         return telefone;
     }

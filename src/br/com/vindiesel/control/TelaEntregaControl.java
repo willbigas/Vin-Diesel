@@ -150,7 +150,9 @@ public class TelaEntregaControl {
         entrega.setRemetente((Remetente) telaEntrega.getCbRemetente().getSelectedItem());
         entrega.setEncomenda((Encomenda) telaEntrega.getCbEncomenda().getSelectedItem());
 
-        destinatario = new Destinatario();
+        if (destinatario == null) {
+            destinatario = new Destinatario();
+        }
         destinatario.setCodigoPessoa(telaEntrega.getTfCodigoPessoa().getText());
         destinatario.setNome(telaEntrega.getTfNome().getText());
 

@@ -22,7 +22,7 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
     private static final int COMPRIMENTO = 5;
 
     private List<Encomenda> linhas;
-    private String[] COLUNAS = {"CÓDIGO RASTREIO", "VALOR_NF" , "PESO", "LARGURA", "ALTURA", "COMPRIMENTO"};
+    private String[] COLUNAS = {"CÓD.RASTREIO", "VALOR_NF" , "PESO", "LARGURA", "ALTURA", "COMPRIM."};
 
     public EncomendaTableModel() {
         linhas = new ArrayList<>();
@@ -74,9 +74,9 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
             case CODIGO_RASTREIO:
                 return encomenda.getCodigoRastreio();
             case VALOR_ENCOMENDA:
-                return UtilDecimalFormat.decimalFormat(encomenda.getValorNotaFiscal());
+                return UtilDecimalFormat.decimalFormatR$(encomenda.getValorNotaFiscal());
             case PESO:
-                return UtilDecimalFormat.decimalFormatR$(encomenda.getPeso());
+                return UtilDecimalFormat.decimalFormat(encomenda.getPeso());
             case LARGURA:
                 return UtilDecimalFormat.decimalFormat(encomenda.getPeso());
             case ALTURA:

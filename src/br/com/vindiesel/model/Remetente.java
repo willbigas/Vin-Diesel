@@ -15,8 +15,6 @@ public class Remetente {
     private Integer id;
     @NotBlank
     private String nome;
-    @NotBlank
-    @Size(min = 8, max = 21)
     @Pattern(regexp = Texto.REGEX_CPF_AND_CNPJ, message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
     @NotBlank

@@ -4,6 +4,7 @@ import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
 import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTabbedPane;
@@ -55,11 +56,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfPesquisa = new javax.swing.JTextField();
         btVisualizar = new javax.swing.JButton();
         btDesativar = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         btNovo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         tfCep = new javax.swing.JTextField();
@@ -179,21 +175,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel14.setText("[F1-Visualizar]");
-
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel15.setText("[F2-Editar]");
-
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel16.setText("[F3-Imprimir]");
-
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel17.setText("[F4-Sair]");
-
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel18.setText("[F5-Recarregar]");
-
         btNovo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
         btNovo.setText("Novo");
@@ -215,17 +196,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,14 +220,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(btDesativar)
                     .addComponent(btNovo))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -539,11 +502,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -671,6 +629,22 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setTpDestinatario(JTabbedPane tpDestinatario) {
         this.tpDestinatario = tpDestinatario;
+    }
+
+    public JCheckBox getCheckCnpj() {
+        return checkCnpj;
+    }
+
+    public void setCheckCnpj(JCheckBox checkCnpj) {
+        this.checkCnpj = checkCnpj;
+    }
+
+    public JCheckBox getCheckCpf() {
+        return checkCpf;
+    }
+
+    public void setCheckCpf(JCheckBox checkCpf) {
+        this.checkCpf = checkCpf;
     }
 
 }

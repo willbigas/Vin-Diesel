@@ -69,13 +69,15 @@ public class TelaRemetenteGerenciarControl {
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
         redimensionarTela();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
+        formataTfCodigoPessoaParaCPF();
+        telaRemetenteGerenciar.getCheckCpf().setSelected(true);
     }
 
     private void redimensionarTela() {
         UtilTable.centralizarCabecalho(telaRemetenteGerenciar.getTblRemetente());
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 0, 120);
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 1, 470);
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 2, 110);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 0, 150);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 1, 420);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 2, 130);
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 3, 160);
     }
 

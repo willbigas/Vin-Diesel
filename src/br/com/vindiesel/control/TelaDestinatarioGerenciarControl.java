@@ -18,9 +18,7 @@ import br.com.vindiesel.view.TelaPrincipal;
 import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -65,6 +63,8 @@ public class TelaDestinatarioGerenciarControl {
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
         redimensionarTela();
         telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, false);
+        formataTfCodigoPessoaParaCPF();
+        telaDestinatarioGerenciar.getCheckCpf().setSelected(true);
     }
 
     private void redimensionarTela() {

@@ -7,6 +7,7 @@ import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEncomendaGerenciar;
@@ -52,7 +53,19 @@ public class TelaEncomendaGerenciarControl {
         encomendaTableModel.limpar();
         encomendaTableModel.adicionar(encomendaDao.pesquisar());
         telaEncomendaGerenciar.getTfCodigoRastreio().setEditable(false);
+        redimensionarTela();
     }
+    
+    private void redimensionarTela() {
+        UtilTable.centralizarCabecalho(telaEncomendaGerenciar.getTblProduto());
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 0, 130);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 1, 130);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 2, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 3, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 4, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 5, 82);
+    }
+    
 
     private void cadastrarEncomenda() {
         encomenda = new Encomenda();

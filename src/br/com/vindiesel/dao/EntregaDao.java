@@ -149,12 +149,12 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
 
     @Override
     public List<Entrega> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE (valorTotal = ?, dataCadastro  ?, dataEntrega ?)";
+        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE (valorTotal like ? or dataCadastro like ? or dataEntrega like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-            stmt.setString(1, termo);
-            stmt.setString(2, termo);
-            stmt.setString(3, termo);
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
+            stmt.setString(3, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Entrega> lista = new ArrayList<>();
             while (result.next()) {
@@ -167,7 +167,6 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
                 } else {
                     entrega.setDataEntrega(result.getTimestamp("dataEntrega").toLocalDateTime());
                 }
-                entrega.setDataEntrega((result.getTimestamp("dataEntrega").toLocalDateTime()));
                 entrega.setEntregue(result.getBoolean("entregue"));
                 entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
                 entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));

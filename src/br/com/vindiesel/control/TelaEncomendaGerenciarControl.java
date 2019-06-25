@@ -223,7 +223,7 @@ public class TelaEncomendaGerenciarControl {
     
     private String gerarCodigoRandomico() {
         Random rand = new Random();
-        String prefixo = "VIN";
+        String prefixo = "VD-";
         String randomico = Integer.toHexString(rand.nextInt()).toUpperCase();
         String codigoMontado = prefixo + randomico;
         return codigoMontado;

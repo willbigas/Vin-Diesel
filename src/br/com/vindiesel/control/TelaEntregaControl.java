@@ -23,7 +23,7 @@ import br.com.vindiesel.model.tablemodel.RemetenteTableModel;
 import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilDate;
+import br.com.vindiesel.uteis.UtilDecimalFormat;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
@@ -37,7 +37,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.print.attribute.standard.JobImpressionsCompleted;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.MaskFormatter;
 
@@ -116,6 +115,7 @@ public class TelaEntregaControl {
         telaEntrega.getTblTramite().setModel(tramiteTableModel);
         entregaTableModel.limpar();
         entregaTableModel.adicionar(entregaDao.pesquisar());
+        atualizaTotaisDeFrete(entregaDao.pesquisar());
         redimensionarTabelaEntregas();
         telaEntrega.getTpEntrega().setEnabledAt(1, false); // disabilita o tabbed pane
         formataTfCodigoPessoaParaCPF();
@@ -230,6 +230,7 @@ public class TelaEntregaControl {
         if (idEntregaInserida != 0) {
             entrega.setId(idEntregaInserida);
             entregaTableModel.adicionar(entrega);
+            atualizaTotaisDeFrete(entregaDao.pesquisar());
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
@@ -423,6 +424,19 @@ public class TelaEntregaControl {
         telaEntrega.getTfNumero().setText(destinatario.getEndereco().getNumero());
         telaEntrega.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
     }
+    
+    public void pesquisarEntregasAction() {
+        List<Entrega> entregasPesquisadas = entregaDao.pesquisar(telaEntrega.getTfPesquisarEntrega().getText());
+        if (entregaTableModel == null) {
+            entregaTableModel.limpar();
+            atualizaTotaisDeFrete(entregasPesquisadas);
+            entregasPesquisadas = entregaDao.pesquisar();
+        } else {
+            entregaTableModel.limpar();
+            entregaTableModel.adicionar(entregasPesquisadas);
+            atualizaTotaisDeFrete(entregasPesquisadas);
+        }
+    }
 
     public void pesquisarDestinatariosNoDialogPesquisaAvancadaAction() {
         List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioPesquisaAvancada.getTfCampoPesquisa().getText());
@@ -466,5 +480,23 @@ public class TelaEntregaControl {
             encomendaTableModel.adicionar(encomendasPesquisadas);
         }
     }
+    
+    public void atualizaTotaisDeFrete(List<Entrega> entregas) {
+        Double totalFreteBanco = 0.0;
+        Double totalFreteFiltrado = 0.0;
+        List<Entrega> entregasDoBanco = entregaDao.pesquisar();
+        for (Entrega entregaDoBanco : entregasDoBanco) {
+            totalFreteBanco += entregaDoBanco.getValorTotal();
+        }
+        for (Entrega entrega : entregas) {
+            totalFreteFiltrado += entrega.getValorTotal();
+        }
+        telaEntrega.getLblFreteTotal().setText(UtilDecimalFormat.decimalFormatR$(totalFreteBanco));
+        telaEntrega.getLblFreteFiltrado().setText(UtilDecimalFormat.decimalFormatR$(totalFreteFiltrado));
+    }
+    
+    
+    
+    
 
 }

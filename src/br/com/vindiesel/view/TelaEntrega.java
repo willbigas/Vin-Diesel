@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -55,12 +56,16 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblEntrega = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        lblFreteFiltrado = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblFreteTotal = new javax.swing.JLabel();
+        btLimparCamposTabEntrega = new javax.swing.JButton();
+        btLimparCamposTabEntrega1 = new javax.swing.JButton();
         cbPesquisarEntrega = new javax.swing.JComboBox<>();
         tfPesquisarEntrega = new javax.swing.JTextField();
         brBuscarEntrega = new javax.swing.JButton();
         btEditarEntrega = new javax.swing.JButton();
-        btLimparCamposTabEntrega = new javax.swing.JButton();
-        btLimparCamposTabEntrega1 = new javax.swing.JButton();
         panelEditarEntrega = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         cbTipoTramite = new javax.swing.JComboBox<>();
@@ -70,11 +75,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTramite = new javax.swing.JTable();
         tfNomeTramite = new javax.swing.JTextField();
-        btGravarListTramite = new javax.swing.JButton();
         btLimparCamposTramite = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tfObservacaoTramite = new javax.swing.JTextArea();
         jLabel26 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btLimparCamposTabEntrega2 = new javax.swing.JButton();
         panelEfetivarEntrega = new javax.swing.JPanel();
         cbEncomenda = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -129,7 +135,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(146, 146, 146))
+                .addGap(168, 168, 168))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,43 +165,24 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tblEntrega);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("Frete Filtrado:");
 
-        cbPesquisarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbPesquisarEntrega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ENTREGUE", "PENDENTE" }));
+        lblFreteFiltrado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblFreteFiltrado.setText("[FreteFiltrado]");
 
-        tfPesquisarEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Frete Total:");
 
-        brBuscarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        brBuscarEntrega.setText("BUSCAR");
-        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btEditarEntrega.setText("EDITAR");
-        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarEntregaActionPerformed(evt);
-            }
-        });
+        lblFreteTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblFreteTotal.setText("[FreteTotal]");
 
         btLimparCamposTabEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparCamposTabEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
         btLimparCamposTabEntrega.setText("LIMPAR");
+        btLimparCamposTabEntrega.setBorder(null);
+        btLimparCamposTabEntrega.setBorderPainted(false);
+        btLimparCamposTabEntrega.setContentAreaFilled(false);
         btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,11 +191,82 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         });
 
         btLimparCamposTabEntrega1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparCamposTabEntrega1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/atualizar_32x32.png"))); // NOI18N
         btLimparCamposTabEntrega1.setText("ATUALIZAR");
+        btLimparCamposTabEntrega1.setBorder(null);
+        btLimparCamposTabEntrega1.setBorderPainted(false);
+        btLimparCamposTabEntrega1.setContentAreaFilled(false);
         btLimparCamposTabEntrega1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntrega1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFreteFiltrado)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFreteTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btLimparCamposTabEntrega1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btLimparCamposTabEntrega)
+                .addGap(18, 18, 18))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lblFreteFiltrado)
+                    .addComponent(jLabel10)
+                    .addComponent(lblFreteTotal)
+                    .addComponent(btLimparCamposTabEntrega)
+                    .addComponent(btLimparCamposTabEntrega1))
+                .addContainerGap())
+        );
+
+        cbPesquisarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbPesquisarEntrega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ENTREGUE", "PENDENTE" }));
+
+        tfPesquisarEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfPesquisarEntrega.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisarEntregaKeyReleased(evt);
+            }
+        });
+
+        brBuscarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        brBuscarEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
+        brBuscarEntrega.setText("BUSCAR");
+        brBuscarEntrega.setBorder(null);
+        brBuscarEntrega.setBorderPainted(false);
+        brBuscarEntrega.setContentAreaFilled(false);
+        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btEditarEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
+        btEditarEntrega.setText("EDITAR");
+        btEditarEntrega.setBorder(null);
+        btEditarEntrega.setBorderPainted(false);
+        btEditarEntrega.setContentAreaFilled(false);
+        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarEntregaActionPerformed(evt);
             }
         });
 
@@ -221,21 +279,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(brBuscarEntrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(btEditarEntrega)
-                .addContainerGap())
-            .addGroup(panelListarEntregaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelListarEntregaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btLimparCamposTabEntrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btLimparCamposTabEntrega1)
                 .addGap(17, 17, 17))
+            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelListarEntregaLayout.setVerticalGroup(
             panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,12 +296,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btLimparCamposTabEntrega)
-                    .addComponent(btLimparCamposTabEntrega1))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpEntrega.addTab("Listar Entregas", panelListarEntrega);
@@ -263,14 +307,20 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel25.setText("OBSERVAÇÃO:");
 
-        btAdicionarTramite.setText("ADICIONAR");
+        btAdicionarTramite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/add_32x32.png"))); // NOI18N
+        btAdicionarTramite.setBorder(null);
+        btAdicionarTramite.setBorderPainted(false);
+        btAdicionarTramite.setContentAreaFilled(false);
         btAdicionarTramite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarTramiteActionPerformed(evt);
             }
         });
 
-        btRemoverTramite.setText("REMOVER");
+        btRemoverTramite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remover_32x32.png"))); // NOI18N
+        btRemoverTramite.setBorder(null);
+        btRemoverTramite.setBorderPainted(false);
+        btRemoverTramite.setContentAreaFilled(false);
         btRemoverTramite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRemoverTramiteActionPerformed(evt);
@@ -292,9 +342,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         tfNomeTramite.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        btGravarListTramite.setText("GRAVAR");
-
+        btLimparCamposTramite.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparCamposTramite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
         btLimparCamposTramite.setText("LIMPAR");
+        btLimparCamposTramite.setBorder(null);
+        btLimparCamposTramite.setBorderPainted(false);
+        btLimparCamposTramite.setContentAreaFilled(false);
 
         tfObservacaoTramite.setColumns(20);
         tfObservacaoTramite.setRows(5);
@@ -303,22 +356,29 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setText("TRAMITE:");
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel9.setText("Tramites de Entrega");
+
+        btLimparCamposTabEntrega2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparCamposTabEntrega2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/atualizar_32x32.png"))); // NOI18N
+        btLimparCamposTabEntrega2.setText("ATUALIZAR");
+        btLimparCamposTabEntrega2.setBorder(null);
+        btLimparCamposTabEntrega2.setBorderPainted(false);
+        btLimparCamposTabEntrega2.setContentAreaFilled(false);
+        btLimparCamposTabEntrega2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btLimparCamposTabEntrega2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparCamposTabEntrega2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btLimparCamposTramite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btGravarListTramite)
-                        .addGap(11, 11, 11))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -329,49 +389,61 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfNomeTramite)
-                            .addComponent(jScrollPane4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btAdicionarTramite)
-                            .addComponent(btRemoverTramite))
-                        .addGap(34, 34, 34))))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(btAdicionarTramite)
+                        .addGap(27, 27, 27)
+                        .addComponent(btRemoverTramite)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btLimparCamposTabEntrega2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btLimparCamposTramite)
+                        .addContainerGap())))
+            .addComponent(jScrollPane1)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(244, 244, 244)
+                .addComponent(jLabel9)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfNomeTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(btAdicionarTramite))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel25))
+                    .addComponent(jLabel26))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btRemoverTramite)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAdicionarTramite)
+                            .addComponent(btRemoverTramite)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(jLabel25))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparCamposTramite)
-                    .addComponent(btGravarListTramite))
-                .addGap(9, 9, 9))
+                    .addComponent(btLimparCamposTabEntrega2))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelEditarEntregaLayout = new javax.swing.GroupLayout(panelEditarEntrega);
         panelEditarEntrega.setLayout(panelEditarEntregaLayout);
         panelEditarEntregaLayout.setHorizontalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEditarEntregaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelEditarEntregaLayout.setVerticalGroup(
             panelEditarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,14 +464,24 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         cbRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
+        btEfetivarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btEfetivarEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/finalizar_32x32.png"))); // NOI18N
         btEfetivarEntrega.setText("EFETIVAR");
+        btEfetivarEntrega.setBorder(null);
+        btEfetivarEntrega.setBorderPainted(false);
+        btEfetivarEntrega.setContentAreaFilled(false);
         btEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEfetivarEntregaActionPerformed(evt);
             }
         });
 
+        btLimparEfetivarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparEfetivarEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
         btLimparEfetivarEntrega.setText("LIMPAR");
+        btLimparEfetivarEntrega.setBorder(null);
+        btLimparEfetivarEntrega.setBorderPainted(false);
+        btLimparEfetivarEntrega.setContentAreaFilled(false);
         btLimparEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparEfetivarEntregaActionPerformed(evt);
@@ -528,7 +610,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addComponent(btPesquisarCep, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(170, 170, 170)
                         .addComponent(jLabel15)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,6 +664,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             }
         });
 
+        tfCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tfCodigoPessoa.setPreferredSize(new java.awt.Dimension(47, 30));
 
         checkCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -610,9 +693,9 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEfetivarEntregaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btLimparEfetivarEntrega)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btEfetivarEntrega)
-                .addGap(16, 16, 16))
+                .addContainerGap())
             .addGroup(panelEfetivarEntregaLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -646,16 +729,16 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addComponent(cbEncomenda, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btPesquisaAvancadaEncomenda)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 169, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEfetivarEntregaLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEfetivarEntregaLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(278, 278, 278))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEfetivarEntregaLayout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                        .addGap(56, 56, 56))))
         );
         panelEfetivarEntregaLayout.setVerticalGroup(
             panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,12 +770,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                         .addComponent(cbEncomenda)
                         .addComponent(jLabel2))
                     .addComponent(btPesquisaAvancadaEncomenda, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btLimparEfetivarEntrega)
-                    .addComponent(btEfetivarEntrega))
+                .addGroup(panelEfetivarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btEfetivarEntrega)
+                    .addComponent(btLimparEfetivarEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -710,7 +793,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(tpEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE))
+                .addComponent(tpEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
         );
 
         pack();
@@ -799,15 +882,25 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btLimparCamposTabEntrega1ActionPerformed
 
+    private void tfPesquisarEntregaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarEntregaKeyReleased
+        // TODO add your handling code here:
+        entregaControl.pesquisarEntregasAction();
+        
+    }//GEN-LAST:event_tfPesquisarEntregaKeyReleased
+
+    private void btLimparCamposTabEntrega2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntrega2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btLimparCamposTabEntrega2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brBuscarEntrega;
     private javax.swing.JButton btAdicionarTramite;
     private javax.swing.JButton btEditarEntrega;
     private javax.swing.JButton btEfetivarEntrega;
-    private javax.swing.JButton btGravarListTramite;
     private javax.swing.JButton btLimparCamposTabEntrega;
     private javax.swing.JButton btLimparCamposTabEntrega1;
+    private javax.swing.JButton btLimparCamposTabEntrega2;
     private javax.swing.JButton btLimparCamposTramite;
     private javax.swing.JButton btLimparEfetivarEntrega;
     private javax.swing.JButton btPesquisaAvancadaDestinatario;
@@ -823,6 +916,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox checkCnpj;
     private javax.swing.JCheckBox checkCpf;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -837,6 +931,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
@@ -845,6 +941,8 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblFreteFiltrado;
+    private javax.swing.JLabel lblFreteTotal;
     private javax.swing.JPanel panelEditarEntrega;
     private javax.swing.JPanel panelEfetivarEntrega;
     private javax.swing.JPanel panelListarEntrega;
@@ -1031,6 +1129,25 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     public void setCheckCpf(JCheckBox checkCpf) {
         this.checkCpf = checkCpf;
     }
+
+    public JLabel getLblFreteFiltrado() {
+        return lblFreteFiltrado;
+    }
+
+    public void setLblFreteFiltrado(JLabel lblFreteFiltrado) {
+        this.lblFreteFiltrado = lblFreteFiltrado;
+    }
+
+    public JLabel getLblFreteTotal() {
+        return lblFreteTotal;
+    }
+
+    public void setLblFreteTotal(JLabel lblFreteTotal) {
+        this.lblFreteTotal = lblFreteTotal;
+    }
+    
+    
+    
 
     
 }

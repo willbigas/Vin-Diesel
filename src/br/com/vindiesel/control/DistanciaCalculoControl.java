@@ -30,9 +30,10 @@ public class DistanciaCalculoControl {
             String segundaTentativaPrimeiroCep = "";
             String campos[] = primeiroCep.split("");
             for (int i = 0; i < campos.length; i++) {
-                while (campos[i] != campos[6]) {
-                    segundaTentativaPrimeiroCep += campos[i];
+                if (campos[i].equals(campos[6])) {
+                    break;
                 }
+                segundaTentativaPrimeiroCep += campos[i];
 
             }
             segundaTentativaPrimeiroCep += "00";

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receitas" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receitas" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mercado"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="vindiesel"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="264"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="725"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -59,47 +61,56 @@
 		</queryString>
 	</subDataset>
 	<queryString language="SQL">
-		<![CDATA[SELECT mercado.receitas.`dataCadastro`,
-	mercado.receitas.`dataPagamento`,
-	mercado.receitas.`dataVencimento`,
-	mercado.receitas.id,
-	mercado.receitas.`codVenda`,
-	mercado.receitas.`valorTotal`,
-	mercado.receitas.`valorRecebido`
-FROM mercado.receitas
-WHERE 
-	 mercado.receitas.`dataPagamento` IS NOT NULL]]>
+		<![CDATA[SELECT R.`id`,
+ R.`dataVencimento`,
+	R.`valorRecebido`,
+	R.`dataPagamento`,
+	R.`dataCadastro`,
+	R.`formaPagamento_id`,
+	R.`valorTotal`,
+	R.entrega_id
+FROM vindiesel.receita AS R
+	inner join vindiesel.formapagamento AS F ON 
+	 F.id = R.`formaPagamento_id` 
+	inner join vindiesel.entrega AS E ON 
+	 E.id = R.entrega_id 
+	inner join vindiesel.destinatario AS D ON 
+	 D.id = E.destinatario_id]]>
 	</queryString>
-	<field name="dataCadastro" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.label" value="dataCadastro"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
-	</field>
-	<field name="dataPagamento" class="java.sql.Timestamp">
-		<property name="com.jaspersoft.studio.field.label" value="dataPagamento"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
 	</field>
 	<field name="dataVencimento" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.label" value="dataVencimento"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
-	</field>
-	<field name="id" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
-	</field>
-	<field name="codVenda" class="java.lang.Integer">
-		<property name="com.jaspersoft.studio.field.label" value="codVenda"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
-	</field>
-	<field name="valorTotal" class="java.math.BigDecimal">
-		<property name="com.jaspersoft.studio.field.label" value="valorTotal"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
 	</field>
 	<field name="valorRecebido" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="valorRecebido"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="receitas"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
+	</field>
+	<field name="dataPagamento" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="dataPagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
+	</field>
+	<field name="dataCadastro" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="dataCadastro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
+	</field>
+	<field name="formaPagamento_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="formaPagamento_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
+	</field>
+	<field name="valorTotal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valorTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
+	</field>
+	<field name="entrega_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="entrega_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="receita"/>
 	</field>
 	<title>
-		<band height="160" splitType="Stretch">
+		<band height="161" splitType="Stretch">
 			<line>
 				<reportElement x="-1" y="100" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -113,14 +124,14 @@ WHERE
 				<text><![CDATA[Emitido em :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="235" y="0" width="85" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+				<reportElement x="235" y="0" width="95" height="25" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
 					<font size="19" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Mercado]]></text>
+				<text><![CDATA[Vindiesel]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="75" width="205" height="30" uuid="b8cc42fd-b569-497d-834d-7e854040ad18"/>
@@ -134,11 +145,11 @@ Celular:   (48) 99999-9999]]></text>
 Rua Zezinho do Zé, 222, Palhoça]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="185" y="110" width="170" height="30" uuid="73783b12-8ca7-4268-a9cd-388e262a6610"/>
+				<reportElement x="237" y="105" width="80" height="30" uuid="73783b12-8ca7-4268-a9cd-388e262a6610"/>
 				<textElement>
 					<font size="19"/>
 				</textElement>
-				<text><![CDATA[Receitas efetivadas]]></text>
+				<text><![CDATA[Receitas]]></text>
 			</staticText>
 			<textField pattern="d / M / yyyy">
 				<reportElement x="430" y="10" width="75" height="20" uuid="ab5a3241-5b74-4ea0-a236-2bce90edf091"/>
@@ -184,15 +195,6 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<text><![CDATA[VENCIMENTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="270" y="0" width="110" height="20" forecolor="#000000" uuid="67ed9649-0fb3-4c73-923d-22dc0417ffcd">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f378bd3-f413-42e8-afe8-fc40a93306e3"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[VALOR RECEBIDO]]></text>
-			</staticText>
-			<staticText>
 				<reportElement style="Column header" positionType="Float" x="380" y="0" width="100" height="20" forecolor="#000000" uuid="c36af10b-e73a-4c81-9f30-777402ca21e3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4f378bd3-f413-42e8-afe8-fc40a93306e3"/>
 				</reportElement>
@@ -208,7 +210,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[COD VENDA]]></text>
+				<text><![CDATA[ENTREGA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="95" y="0" width="85" height="20" forecolor="#000000" uuid="9a946451-169c-4349-8319-0e15ae0fcb4f">
@@ -219,72 +221,67 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				</textElement>
 				<text><![CDATA[PAGAMENTO]]></text>
 			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="280" y="0" width="100" height="20" forecolor="#000000" uuid="2954e5e6-aced-41f1-b4ae-fbd2b6cb8953">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff6c3c3c-254b-433e-bd5c-910149008ad4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMA PAGTO]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25">
+		<band height="30">
 			<textField>
-				<reportElement x="1" y="0" width="39" height="20" uuid="ed0eafde-1d20-4b6b-8331-3dddbe37c067">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2363939a-c54a-4544-beb3-ef807e0d5f52"/>
+				<reportElement x="0" y="0" width="40" height="30" uuid="7ef2851c-d794-4b00-be97-8e58fa2c6469">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="10a2ea47-3a29-4270-be0d-b137091e2283"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="40" y="0" width="55" height="20" uuid="6cae41ee-4433-4099-82c0-1370e518c25c">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff01a7f3-a72e-4286-9ed0-aaf0f5e53e09"/>
+				<reportElement x="186" y="0" width="79" height="30" uuid="fcf7eda6-13cf-4811-b904-4ba9ff127e09">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="029d30c9-3141-4542-a351-1369893c1af6"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{dataCadastro}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="180" y="0" width="90" height="20" uuid="6d799a11-ddfe-4972-a68e-fdf147c3677e">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="610be043-a239-4867-93bb-e2dfbc637c67"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="270" y="0" width="110" height="20" uuid="70cf3f4d-57be-4614-acf4-6c70f91faed9">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2fd95a7e-d29c-4980-adeb-27b114ec37df"/>
+				<reportElement x="40" y="0" width="55" height="30" uuid="24a38f33-5152-4bb6-bb18-f4f52e3acfe2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd110e7f-acac-4ca3-bbcf-f2e170bd3f93"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{valorRecebido}]]></textFieldExpression>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dataCadastro}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="380" y="0" width="100" height="20" uuid="6c6fc778-e706-4911-bb3a-d20cc41c6406">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="798d35e3-d88f-41e5-b3d6-f62c07aa7fc9"/>
+				<reportElement x="380" y="0" width="96" height="30" uuid="46c25cbe-09ce-420c-b410-2c9a636ae6c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f72cba4c-96f0-4cb9-a89b-2909e4eec93f"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="-1" width="75" height="21" uuid="56d136a4-3e70-4bf0-a3ff-50ed2ee53387">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7107dc00-3ab0-4641-a10b-fb4bed31121f"/>
+				<reportElement x="476" y="0" width="79" height="30" uuid="243da2b2-ba68-4f37-8528-3ceafe446592">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e53a9528-0c28-442e-98a5-e2377caec285"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{codVenda}]]></textFieldExpression>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{entrega_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="95" y="0" width="85" height="20" uuid="85d0f4c3-8667-4b55-a701-ab5a3a01cb5d">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1d456d26-d87b-49a1-ab4b-c33cb1b37dc9"/>
+				<reportElement x="95" y="0" width="85" height="30" uuid="8b50f442-1fbb-438e-aa0f-c304b03c8699">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df28cb46-68f7-4fac-8dc9-ea041b0523b8"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{dataPagamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="6f80dca2-de2b-4c38-9a55-9dcc69f4a79d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de27d7ed-5abc-48d1-ad96-d293d91eb1b0"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{formaPagamento_id}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

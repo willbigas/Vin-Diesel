@@ -13,7 +13,7 @@ Criar um sistema Escavável, Performatico e de facil manutenção para fins educ
 
 ### Público-alvo:
 Sistema inicialmente para fins educativos.
-Destinado a todo cliente de transporado que deseja automatizar seu processo de entrega de encomendas.
+Destinado a todo cliente de transportadora que deseja automatizar seu processo de entrega de encomendas.
 
 
 ### Requisitos Funcionais

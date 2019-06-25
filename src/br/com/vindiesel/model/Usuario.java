@@ -41,7 +41,7 @@ public class Usuario {
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
     private Double salario;
-    @Digits(integer = 10, fraction = 0)
+    @Digits(integer = 15, fraction = 0)
     private Integer pis;
     @NotNull
     private Boolean ativo;

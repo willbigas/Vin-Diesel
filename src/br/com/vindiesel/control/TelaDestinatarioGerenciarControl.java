@@ -169,11 +169,8 @@ public class TelaDestinatarioGerenciarControl {
     public void gravarDestinatarioAction() {
         if (destinatario == null) {
             cadastrarDestinatario();
-            telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(0); // seleciona o tabbed pane
         } else {
             alterarDestinatario();
-            telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(0, true); // disabilita o tabbed pane
-            telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(0); // seleciona o tabbed pane
         }
     }
 
@@ -305,6 +302,7 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfPesquisa().setText("");
         telaDestinatarioGerenciar.getTfRua().setText("");
         telaDestinatarioGerenciar.getTfNome().requestFocus();
+        UtilTable.limparSelecaoDaTabela(telaDestinatarioGerenciar.getTblDestinatario());
     }
 
 }

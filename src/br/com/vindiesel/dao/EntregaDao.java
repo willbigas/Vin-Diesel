@@ -149,9 +149,13 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
 
     @Override
     public List<Entrega> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE (valorTotal like ? or dataCadastro like ? or dataEntrega like ?)";
+//        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE (valorTotal like ? or dataCadastro like ? or dataEntrega like ?)";
+        String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
+                + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
+                + " INNER JOIN DESTINATARIO AS D ON E.DESTINATARIO_ID = D.ID "
+                + " WHERE(EC.CODIGORASTREIO like ? or  R.NOME like ? or  D.NOME like ? )";
         try {
-            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            PreparedStatement stmt = conexao.prepareStatement(queryAvancada);
             stmt.setString(1, "%" + termo + "%");
             stmt.setString(2, "%" + termo + "%");
             stmt.setString(3, "%" + termo + "%");

@@ -127,10 +127,10 @@ public class TelaEntregaControl {
         UtilTable.centralizarCabecalho(telaEntrega.getTblEntrega());
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 0, 100);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 1, 90);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 2, 90);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 2, 100);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 3, 95);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 175);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 175);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 295);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 295);
     }
     
     

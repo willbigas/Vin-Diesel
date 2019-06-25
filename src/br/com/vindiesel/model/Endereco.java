@@ -25,7 +25,6 @@ public class Endereco {
     private String bairro;
     @NotBlank
     private String rua;
-    @NotBlank
     private String complemento;
     @NotBlank
     private String numero;

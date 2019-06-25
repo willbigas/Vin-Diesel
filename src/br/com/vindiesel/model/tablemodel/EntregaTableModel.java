@@ -78,7 +78,7 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                 if (entrega.getEncomenda() == null) {
                     return "Não Informado";
                 } else {
-                    entrega.getEncomenda().getCodigoRastreio();
+                 return entrega.getEncomenda().getCodigoRastreio();
                 }
             case DATA_CADASTRO:
                 return UtilDate.dataLocal(entrega.getDataCadastro().toLocalDate());

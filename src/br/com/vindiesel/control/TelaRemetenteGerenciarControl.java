@@ -19,7 +19,6 @@ import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -129,7 +128,6 @@ public class TelaRemetenteGerenciarControl {
             remetente.setId(idInserido);
             remetenteTableModel.adicionar(remetente);
             limparCampos();
-            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
@@ -173,10 +171,9 @@ public class TelaRemetenteGerenciarControl {
         linhaSelecionada = telaRemetenteGerenciar.getTblRemetente().getSelectedRow();
         if (alterado) {
             remetenteTableModel.atualizar(linhaSelecionada, remetente);
-            telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(0); // seleciona o tabbed pane
-            UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
-            Mensagem.info(Texto.SUCESSO_EDITAR);
             limparCampos();
+            Mensagem.info(Texto.SUCESSO_EDITAR);
+
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);
         }
@@ -310,5 +307,6 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfPesquisar().setText("");
         telaRemetenteGerenciar.getTfRua().setText("");
         telaRemetenteGerenciar.getTfNome().requestFocus();
+        UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
     }
 }

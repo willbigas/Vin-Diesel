@@ -513,6 +513,7 @@ public class TelaEntregaControl {
         telaFreteNaoEncontrado.getLblCidadeRemetente().setText(entrega.getRemetente().getEndereco().getCidade());
         telaFreteNaoEncontrado.getLblCidadeDestinatario().setText(entrega.getDestinatario().getEndereco().getCidade());
         telaFreteNaoEncontrado.getLblPesoEncomenda().setText(DecimalFormat.paraVirgula(String.valueOf(entrega.getEncomenda().getPeso())));
+        telaFreteNaoEncontrado.getLblValorEncomenda().setText(DecimalFormat.paraVirgula(String.valueOf(entrega.getEncomenda().getValorNotaFiscal())));
         telaFreteNaoEncontrado.setVisible(true);
     }
 

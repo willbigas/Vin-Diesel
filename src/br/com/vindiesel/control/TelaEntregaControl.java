@@ -116,12 +116,16 @@ public class TelaEntregaControl {
         carregarRemetentesNaCombo();
         telaEntrega.getTblEntrega().setModel(entregaTableModel);
         telaEntrega.getTblTramite().setModel(tramiteTableModel);
-        entregaTableModel.limpar();
-        entregaTableModel.adicionar(entregaDao.pesquisar());
+        atualizarTabelaEntregaAction();
         atualizaTotaisDeFrete(entregaDao.pesquisar());
         redimensionarTabelaEntregas();
         telaEntrega.getTpEntrega().setEnabledAt(1, false);
         criaInstanciasDeMascarasFormatadas();
+    }
+
+    public void atualizarTabelaEntregaAction() {
+        entregaTableModel.limpar();
+        entregaTableModel.adicionar(entregaDao.pesquisar());
     }
 
     private void redimensionarTabelaEntregas() {
@@ -239,7 +243,8 @@ public class TelaEntregaControl {
             entrega.setId(idEntregaInserida);
             entregaTableModel.adicionar(entrega);
             atualizaTotaisDeFrete(entregaDao.pesquisar());
-            Mensagem.info(Texto.SUCESSO_CADASTRAR);
+            Mensagem.info(Texto.SUCESSO_CADASTRAR_ENTREGA);
+            
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
@@ -519,6 +524,27 @@ public class TelaEntregaControl {
 
     public void atualizaValorFreteManualAction() {
         valorFreteManual = Double.valueOf(DecimalFormat.paraPonto(telaFreteNaoEncontrado.getTfValorFreteManual().getText()));
+    }
+    
+    
+    private void limparTabListarEntregaAction() {
+        telaEntrega.getTfPesquisarEntrega().setText("");
+    }
+    private void limparTabEditarTramitesAction() {
+        telaEntrega.getTfNomeTramite().setText("");
+        telaEntrega.getTfObservacaoTramite().setText("");
+        telaEntrega.getCbTipoTramite().setSelectedIndex(0);
+    }
+    private void limparTabEfetivarEntregaAction() {
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfObservacaoTramite().setText("");
+        telaEntrega.getCbEncomenda().setSelectedIndex(0);
+        telaEntrega.getCbRemetente().setSelectedIndex(0);
+        
     }
 
 }

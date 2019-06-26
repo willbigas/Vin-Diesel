@@ -797,6 +797,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             entregaControl.buscarCepAction();
         }
+        
     }//GEN-LAST:event_tfCepKeyPressed
 
     private void btPesquisarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarCepActionPerformed

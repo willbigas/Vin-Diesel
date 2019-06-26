@@ -311,6 +311,7 @@ public class TelaEntregaControl {
             telaEntrega.getCbEstado().getModel().setSelectedItem(endereco.getEstado());
             telaEntrega.getTfRua().setText(endereco.getRua());
             telaEntrega.getTfCep().setText(telaEntrega.getTfCep().getText());
+            telaEntrega.getTfNumero().requestFocus();
         } catch (BuscaCepException buscaCepException) {
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();

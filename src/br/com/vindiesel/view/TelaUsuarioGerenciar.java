@@ -107,7 +107,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         tpGerenciarUsuario.setBackground(new java.awt.Color(0, 0, 0));
         tpGerenciarUsuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(192, 192, 192), 2, true));
-        tpGerenciarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tpGerenciarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tpGerenciarUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(207, 207, 207));
@@ -135,6 +135,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUsuarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblUsuario);
 
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -143,7 +148,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
-        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -156,7 +161,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
-        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -691,6 +696,13 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         usuarioGerenciarControl.limparCamposAction();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            usuarioGerenciarControl.carregarUsuarioAction();
+        }
+    }//GEN-LAST:event_tblUsuarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

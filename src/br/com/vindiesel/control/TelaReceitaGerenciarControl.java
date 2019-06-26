@@ -14,7 +14,7 @@ import br.com.vindiesel.model.tablemodel.ReceitaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
+import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciar;
@@ -95,9 +95,9 @@ public class TelaReceitaGerenciarControl {
     public void carregarCamposReceitaAction() {
         indexSelecionada = telaReceitaGerenciar.getTblReceita().getSelectedRow();
         receita = receitaTableModel.pegaObjeto(telaReceitaGerenciar.getTblReceita().getSelectedRow());
-        telaReceitaGerenciar.getLblValorTotalReceita().setText(UtilDecimalFormat.decimalFormat(receita.getValorTotal()));
+        telaReceitaGerenciar.getLblValorTotalReceita().setText(DecimalFormat.decimalFormat(receita.getValorTotal()));
         Double valorRestante = receita.getValorTotal() - receita.getValorRecebido();
-        telaReceitaGerenciar.getLblValorReceitaRestante().setText(UtilDecimalFormat.decimalFormat(valorRestante));
+        telaReceitaGerenciar.getLblValorReceitaRestante().setText(DecimalFormat.decimalFormat(valorRestante));
         telaReceitaGerenciar.getCbFormaPagamento().getModel().setSelectedItem(receita.getFormaPagamento());
         telaReceitaGerenciar.getTfDataVencimento().setText(UtilDate.data(receita.getDataVencimento()));
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, true);

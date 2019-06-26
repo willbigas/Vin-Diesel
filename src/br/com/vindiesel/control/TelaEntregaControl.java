@@ -23,7 +23,7 @@ import br.com.vindiesel.model.tablemodel.RemetenteTableModel;
 import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
+import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
@@ -91,7 +91,6 @@ public class TelaEntregaControl {
         tramiteDao = new TramiteDao();
         enderecoDao = new EnderecoDao();
         listEncomendas = new ArrayList<>();
-        criaInstanciasDeMascarasFormatadas();
 
     }
 
@@ -117,12 +116,10 @@ public class TelaEntregaControl {
         entregaTableModel.adicionar(entregaDao.pesquisar());
         atualizaTotaisDeFrete(entregaDao.pesquisar());
         redimensionarTabelaEntregas();
-        telaEntrega.getTpEntrega().setEnabledAt(1, false); // disabilita o tabbed pane
-        formataTfCodigoPessoaParaCPF();
-        telaEntrega.getCheckCpf().setSelected(true);
+        telaEntrega.getTpEntrega().setEnabledAt(1, false);
+        criaInstanciasDeMascarasFormatadas();
     }
-    
-    
+
     private void redimensionarTabelaEntregas() {
         UtilTable.centralizarCabecalho(telaEntrega.getTblEntrega());
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 0, 100);
@@ -132,8 +129,6 @@ public class TelaEntregaControl {
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 295);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 295);
     }
-    
-    
 
     public void carregarEstadosNaComboBox() {
         telaEntrega.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
@@ -424,7 +419,7 @@ public class TelaEntregaControl {
         telaEntrega.getTfNumero().setText(destinatario.getEndereco().getNumero());
         telaEntrega.getTfCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
     }
-    
+
     public void pesquisarEntregasAction() {
         List<Entrega> entregasPesquisadas = entregaDao.pesquisar(telaEntrega.getTfPesquisarEntrega().getText());
         if (entregaTableModel == null) {
@@ -480,7 +475,7 @@ public class TelaEntregaControl {
             encomendaTableModel.adicionar(encomendasPesquisadas);
         }
     }
-    
+
     public void atualizaTotaisDeFrete(List<Entrega> entregas) {
         Double totalFreteBanco = 0.0;
         Double totalFreteFiltrado = 0.0;
@@ -491,12 +486,8 @@ public class TelaEntregaControl {
         for (Entrega entrega : entregas) {
             totalFreteFiltrado += entrega.getValorTotal();
         }
-        telaEntrega.getLblFreteTotal().setText(UtilDecimalFormat.decimalFormatR$(totalFreteBanco));
-        telaEntrega.getLblFreteFiltrado().setText(UtilDecimalFormat.decimalFormatR$(totalFreteFiltrado));
+        telaEntrega.getLblFreteTotal().setText(DecimalFormat.decimalFormatR$(totalFreteBanco));
+        telaEntrega.getLblFreteFiltrado().setText(DecimalFormat.decimalFormatR$(totalFreteFiltrado));
     }
-    
-    
-    
-    
 
 }

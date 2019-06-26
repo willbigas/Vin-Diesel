@@ -13,7 +13,7 @@ import java.util.Locale;
  *
  * @author william.mauro
  */
-public class UtilDecimalFormat {
+public class DecimalFormat {
 
     /**
      * Formatando um Double em Moeda - "R$ 1,110.00"
@@ -74,8 +74,26 @@ public class UtilDecimalFormat {
         }
         return d;
     }
-    
-      public static String trocarParaPonto(String valorDecimal) {
-         return valorDecimal.replace(",",".");
+
+    /**
+     * Recebe uma String com campos decimais em , Ex : [1000,00] e converte para
+     * campos com ponto Ex : [1000.00]
+     *
+     * @param valorDecimal
+     * @return
+     */
+    public static String paraPonto(String valorDecimal) {
+        return valorDecimal.replace(",", ".");
+    }
+
+    /**
+     * Recebe uma String com campos decimais em . Ex : [1000.00] e converte para
+     * campos com virgula Ex : [1000,00]
+     *
+     * @param valorDecimal
+     * @return
+     */
+    public static String paraVirgula(String valorDecimal) {
+        return valorDecimal.replace(".", ",");
     }
 }

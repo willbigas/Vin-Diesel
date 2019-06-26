@@ -11,6 +11,7 @@ import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.model.TipoUsuario;
 import br.com.vindiesel.model.tablemodel.UsuarioTableModel;
 import br.com.vindiesel.model.EnderecoSigla;
+import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
@@ -19,7 +20,6 @@ import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -99,7 +99,7 @@ public class TelaUsuarioGerenciarControl {
         try {
 
             usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-            usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+            usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
             usuario = null;
@@ -158,7 +158,7 @@ public class TelaUsuarioGerenciarControl {
         try {
 
             usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-            usuario.setSalario(Double.valueOf(telaUsuarioGerenciar.getTfSalario().getText()));
+            usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
             return;
@@ -270,12 +270,11 @@ public class TelaUsuarioGerenciarControl {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
         telaUsuarioGerenciar.getTfDataNascimento().setDate(UtilDate.toDate(usuario.getDataNascimento()));
-        System.out.println("Cpf do Usuário :" + usuario.getCpf());
         telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
         telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
         telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
         telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
-        telaUsuarioGerenciar.getTfSalario().setText(String.valueOf(usuario.getSalario()));
+        telaUsuarioGerenciar.getTfSalario().setText(DecimalFormat.paraVirgula(String.valueOf(usuario.getSalario())));
         telaUsuarioGerenciar.getTfSenha().setText(usuario.getSenha());
 
         telaUsuarioGerenciar.getTfBairro().setText(usuario.getEndereco().getBairro());

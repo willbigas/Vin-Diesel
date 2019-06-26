@@ -5,7 +5,7 @@ import br.com.vindiesel.interfaces.AcoesTableModel;
 import br.com.vindiesel.model.Receita;
 import br.com.vindiesel.model.Tramite;
 import br.com.vindiesel.uteis.UtilDate;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
+import br.com.vindiesel.uteis.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -74,7 +74,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
             case DATA_VENCIMENTO:
                return UtilDate.data(receita.getDataVencimento());
             case VALOR_TOTAL:
-                return UtilDecimalFormat.decimalFormat(receita.getValorTotal());
+                return DecimalFormat.decimalFormat(receita.getValorTotal());
             case FORMA_PAGAMENTO:
                 if (receita.getFormaPagamento() == null) {
                    return "Não informado";

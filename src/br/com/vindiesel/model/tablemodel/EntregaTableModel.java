@@ -3,7 +3,7 @@ package br.com.vindiesel.model.tablemodel;
 import br.com.vindiesel.interfaces.AcoesTableModel;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.uteis.UtilDate;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
+import br.com.vindiesel.uteis.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -89,7 +89,7 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                     return UtilDate.dataLocal(entrega.getDataEntrega().toLocalDate());
                 }
             case VALOR_ENTREGA:
-                return UtilDecimalFormat.decimalFormatR$(entrega.getValorTotal());
+                return DecimalFormat.decimalFormatR$(entrega.getValorTotal());
             case REMETENTE_NOME:
                 return entrega.getRemetente().getNome();
             case DESTINATARIO_NOME:

@@ -3,7 +3,7 @@ package br.com.vindiesel.model.tablemodel;
 
 import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.interfaces.AcoesTableModel;
-import br.com.vindiesel.uteis.UtilDecimalFormat;
+import br.com.vindiesel.uteis.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -74,15 +74,15 @@ public class EncomendaTableModel extends AbstractTableModel implements AcoesTabl
             case CODIGO_RASTREIO:
                 return encomenda.getCodigoRastreio();
             case VALOR_ENCOMENDA:
-                return UtilDecimalFormat.decimalFormatR$(encomenda.getValorNotaFiscal());
+                return DecimalFormat.decimalFormatR$(encomenda.getValorNotaFiscal());
             case PESO:
-                return UtilDecimalFormat.decimalFormat(encomenda.getPeso());
+                return DecimalFormat.decimalFormat(encomenda.getPeso());
             case LARGURA:
-                return UtilDecimalFormat.decimalFormat(encomenda.getPeso());
+                return DecimalFormat.decimalFormat(encomenda.getPeso());
             case ALTURA:
-                return UtilDecimalFormat.decimalFormat(encomenda.getDimensao().getAltura());
+                return DecimalFormat.decimalFormat(encomenda.getDimensao().getAltura());
             case COMPRIMENTO:
-                return UtilDecimalFormat.decimalFormat(encomenda.getDimensao().getComprimento());
+                return DecimalFormat.decimalFormat(encomenda.getDimensao().getComprimento());
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }

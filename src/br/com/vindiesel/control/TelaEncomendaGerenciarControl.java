@@ -7,6 +7,7 @@ import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.tablemodel.EncomendaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
+import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
@@ -71,13 +72,13 @@ public class TelaEncomendaGerenciarControl {
         encomenda = new Encomenda();
         try {
             encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
-            encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
-            encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
+            encomenda.setPeso(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfPeso().getText())));
+            encomenda.setValorNotaFiscal(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfValorNf().getText())));
 
             dimensao = new Dimensao();
-            dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
-            dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
-            dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+            dimensao.setComprimento(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfComprimento().getText())));
+            dimensao.setAltura(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfAltura().getText())));
+            dimensao.setLargura(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfLargura().getText())));
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_DECIMAL);
             dimensao = null;
@@ -121,13 +122,13 @@ public class TelaEncomendaGerenciarControl {
         try {
 
             encomenda.setCodigoRastreio(telaEncomendaGerenciar.getTfCodigoRastreio().getText());
-            encomenda.setPeso(Double.valueOf(telaEncomendaGerenciar.getTfPeso().getText()));
-            encomenda.setValorNotaFiscal(Double.valueOf(telaEncomendaGerenciar.getTfValorNf().getText()));
+            encomenda.setPeso(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfPeso().getText())));
+            encomenda.setValorNotaFiscal(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfValorNf().getText())));
 
             dimensao = encomenda.getDimensao();
-            dimensao.setComprimento(Double.valueOf(telaEncomendaGerenciar.getTfComprimento().getText()));
-            dimensao.setAltura(Double.valueOf(telaEncomendaGerenciar.getTfAltura().getText()));
-            dimensao.setLargura(Double.valueOf(telaEncomendaGerenciar.getTfLargura().getText()));
+            dimensao.setComprimento(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfComprimento().getText())));
+            dimensao.setAltura(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfAltura().getText())));
+            dimensao.setLargura(Double.valueOf(DecimalFormat.paraPonto(telaEncomendaGerenciar.getTfLargura().getText())));
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_DECIMAL);
             return;

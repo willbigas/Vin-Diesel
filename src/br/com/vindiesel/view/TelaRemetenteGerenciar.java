@@ -324,6 +324,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         tfComplemento.setColumns(20);
         tfComplemento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfComplemento.setRows(5);
+        tfComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfComplementoKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(tfComplemento);
 
         tfCidade.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -424,6 +429,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
+        tfCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tfCodigoPessoa.setPreferredSize(new java.awt.Dimension(47, 30));
 
         try {
@@ -574,6 +580,13 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
         tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCpfActionPerformed
+
+    private void tfComplementoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfComplementoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btGravar.doClick();
+        }
+    }//GEN-LAST:event_tfComplementoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -41,7 +41,7 @@ public class TelaDestinatarioGerenciarControl {
         destinatarioDao = new DestinatarioDao();
         enderecoDao = new EnderecoDao();
         destinatarioTableModel = new DestinatarioTableModel();
-        criaInstanciasDeMascarasFormatadas();
+
     }
 
     public void chamarTelaDestinatarioGerenciar() {
@@ -63,8 +63,7 @@ public class TelaDestinatarioGerenciarControl {
         destinatarioTableModel.adicionar(destinatarioDao.pesquisar());
         redimensionarTela();
         telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, false);
-        formataTfCodigoPessoaParaCPF();
-        telaDestinatarioGerenciar.getCheckCpf().setSelected(true);
+        criaInstanciasDeMascarasFormatadas();
     }
 
     private void redimensionarTela() {

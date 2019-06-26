@@ -41,7 +41,6 @@ public class TelaRemetenteGerenciarControl {
         remetenteDao = new RemetenteDao();
         enderecoDao = new EnderecoDao();
         remetenteTableModel = new RemetenteTableModel();
-        criaInstanciasDeMascarasFormatadas();
     }
 
     public void carregarEstadosNaComboBox() {
@@ -68,8 +67,8 @@ public class TelaRemetenteGerenciarControl {
         remetenteTableModel.adicionar(remetenteDao.pesquisar());
         redimensionarTela();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
-        formataTfCodigoPessoaParaCPF();
-        telaRemetenteGerenciar.getCheckCpf().setSelected(true);
+        criaInstanciasDeMascarasFormatadas();
+
     }
 
     private void redimensionarTela() {
@@ -254,10 +253,13 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
         String codigoPessoa = remetente.getCodigoPessoa();
-        if (codigoPessoa.length() > 15) {
+        if (codigoPessoa.length() > 16) {
             formataTfCodigoPessoaParaCNPJ();
+            telaRemetenteGerenciar.getCheckCnpj().setSelected(true);
         } else {
             formataTfCodigoPessoaParaCPF();
+            telaRemetenteGerenciar.getCheckCpf().setSelected(true);
+
         }
         telaRemetenteGerenciar.getTfCodigoPessoa().setText(remetente.getCodigoPessoa());
 

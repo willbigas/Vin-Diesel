@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -64,7 +65,9 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         btNovoRemetente = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        lblTotalRemetentes = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblTotalFiltrados = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -203,8 +206,14 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Total de Remetentes :");
 
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("[TotalRemetentes]");
+        lblTotalRemetentes.setForeground(new java.awt.Color(0, 0, 0));
+        lblTotalRemetentes.setText("[TotalRemetentes]");
+
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Remetentes Filtrados:");
+
+        lblTotalFiltrados.setForeground(new java.awt.Color(0, 0, 0));
+        lblTotalFiltrados.setText("[TotalFiltrados]");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -228,13 +237,16 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel12)
-                        .addGap(347, 347, 347))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(347, 347, 347))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotalFiltrados)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotalRemetentes)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,11 +262,13 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(btNovoRemetente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addContainerGap())
+                    .addComponent(lblTotalRemetentes)
+                    .addComponent(jLabel14)
+                    .addComponent(lblTotalFiltrados))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         tpRemetente.addTab("Listar", jPanel2);
@@ -602,10 +616,10 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -619,6 +633,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblTotalFiltrados;
+    private javax.swing.JLabel lblTotalRemetentes;
     private javax.swing.JTable tblRemetente;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
@@ -751,6 +767,22 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     public void setCheckCpf(JCheckBox checkCpf) {
         this.checkCpf = checkCpf;
+    }
+
+    public JLabel getLblTotalFiltrados() {
+        return lblTotalFiltrados;
+    }
+
+    public void setLblTotalFiltrados(JLabel lblTotalFiltrados) {
+        this.lblTotalFiltrados = lblTotalFiltrados;
+    }
+
+    public JLabel getLblTotalRemetentes() {
+        return lblTotalRemetentes;
+    }
+
+    public void setLblTotalRemetentes(JLabel lblTotalRemetentes) {
+        this.lblTotalRemetentes = lblTotalRemetentes;
     }
     
     

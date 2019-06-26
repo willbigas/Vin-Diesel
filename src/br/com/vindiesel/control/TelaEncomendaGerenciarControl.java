@@ -51,6 +51,8 @@ public class TelaEncomendaGerenciarControl {
         }
 
         telaEncomendaGerenciar.getTblProduto().setModel(encomendaTableModel);
+        atualizaTotalDeValorNf(encomendaDao.pesquisar());
+        atualizaTotalDosEncomendas(encomendaDao.pesquisar());
         encomendaTableModel.limpar();
         encomendaTableModel.adicionar(encomendaDao.pesquisar());
         telaEncomendaGerenciar.getTfCodigoRastreio().setEditable(false);
@@ -106,6 +108,8 @@ public class TelaEncomendaGerenciarControl {
         if (idInserido != 0) {
             encomenda.setId(idInserido);
             encomendaTableModel.adicionar(encomenda);
+            atualizaTotalDeValorNf(encomendaDao.pesquisar());
+            atualizaTotalDeValorNf(encomendaDao.pesquisar());
             limparCampos();
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
@@ -151,6 +155,8 @@ public class TelaEncomendaGerenciarControl {
         if (alterado) {
             encomendaTableModel.atualizar(linhaSelecionada, encomenda);
             Mensagem.info(Texto.SUCESSO_EDITAR);
+            atualizaTotalDeValorNf(encomendaDao.pesquisar());
+            atualizaTotalDeValorNf(encomendaDao.pesquisar());
             limparCampos();
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);
@@ -198,14 +204,18 @@ public class TelaEncomendaGerenciarControl {
         encomenda = null;
     }
 
-    public void pesquisarProdutoAction() {
+    public void pesquisarEncomendaAction() {
         List<Encomenda> encomendasPesquisadas = encomendaDao.pesquisar(telaEncomendaGerenciar.getTfPesquisar().getText());
         if (encomendasPesquisadas == null) {
             encomendaTableModel.limpar();
             encomendasPesquisadas = encomendaDao.pesquisar();
+            atualizaTotalDeValorNf(encomendasPesquisadas);
+            atualizaTotalDosEncomendas(encomendasPesquisadas);
         } else {
             encomendaTableModel.limpar();
             encomendaTableModel.adicionar(encomendasPesquisadas);
+            atualizaTotalDeValorNf(encomendasPesquisadas);
+            atualizaTotalDosEncomendas(encomendasPesquisadas);
         }
 
     }
@@ -238,5 +248,31 @@ public class TelaEncomendaGerenciarControl {
             codigoFinal = codigoGeradoRancomicamente;
         }
         telaEncomendaGerenciar.getTfCodigoRastreio().setText(codigoFinal);
+    }
+
+    public void atualizaTotalDeValorNf(List<Encomenda> encomendas) {
+        Double totalValorNfBanco = 0.0;
+        Double totalValorNfFiltrado = 0.0;
+        List<Encomenda> encomendasDobanco = encomendaDao.pesquisar();
+        for (Encomenda encomenda : encomendasDobanco) {
+            totalValorNfBanco += encomenda.getValorNotaFiscal();
+        }
+        for (Encomenda encomenda : encomendas) {
+            totalValorNfFiltrado += encomenda.getValorNotaFiscal();
+        }
+        telaEncomendaGerenciar.getLblTotalValorNf().setText(DecimalFormat.decimalFormatR$(totalValorNfBanco));
+        telaEncomendaGerenciar.getLblTotalValorNfFiltrados().setText(DecimalFormat.decimalFormatR$(totalValorNfFiltrado));
+    }
+
+    public void atualizaTotalDosEncomendas(List<Encomenda> remetentes) {
+        Integer totalEncomendasBanco = 0;
+        Integer totalEncomendasFiltradas = 0;
+        List<Encomenda> remetentesDoBanco = encomendaDao.pesquisar();
+
+        totalEncomendasBanco = remetentesDoBanco.size();
+        totalEncomendasFiltradas = remetentes.size();
+
+        telaEncomendaGerenciar.getLblTotalEncomendas().setText(String.valueOf(totalEncomendasBanco));
+        telaEncomendaGerenciar.getLblTotalEncomendasFiltradas().setText(String.valueOf(totalEncomendasFiltradas));
     }
 }

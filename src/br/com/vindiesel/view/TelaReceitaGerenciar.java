@@ -55,6 +55,14 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         cbSituacaoReceita = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblValorTotalFiltrado = new javax.swing.JLabel();
+        lblValorReceberFiltrado = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblValorTotal = new javax.swing.JLabel();
+        lblValorReceberTotal = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cbFormaPagamento = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -102,7 +110,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         brEditarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         brEditarReceita.setText("Editar");
-        brEditarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        brEditarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         brEditarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brEditarReceitaActionPerformed(evt);
@@ -111,7 +119,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setText("Buscar");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         cbSituacaoReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbSituacaoReceita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "PENDENTE", "FINALIZADO" }));
@@ -120,40 +128,102 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Listagem de Receitas");
 
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Valor Total Filtrado:");
+
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Valor receber Filtrado:");
+
+        lblValorTotalFiltrado.setForeground(new java.awt.Color(0, 0, 0));
+        lblValorTotalFiltrado.setText("[ValorTotalFiltrado]");
+
+        lblValorReceberFiltrado.setForeground(new java.awt.Color(0, 0, 0));
+        lblValorReceberFiltrado.setText("[ValorReceberFiltrado]");
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Valor Total:");
+
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Valor Receber:");
+
+        lblValorTotal.setForeground(new java.awt.Color(0, 0, 0));
+        lblValorTotal.setText("[ValorTotal]");
+
+        lblValorReceberTotal.setForeground(new java.awt.Color(0, 0, 0));
+        lblValorReceberTotal.setText("[ValorReceberTotal]");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(cbSituacaoReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(brEditarReceita)
-                .addGap(15, 15, 15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(brEditarReceita)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblValorTotalFiltrado))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblValorReceberFiltrado)))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblValorReceberTotal))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblValorTotal)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfPesquisarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1)
-                        .addComponent(cbSituacaoReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(brEditarReceita, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbSituacaoReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPesquisarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(brEditarReceita))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lblValorTotalFiltrado)
+                    .addComponent(jLabel13)
+                    .addComponent(lblValorTotal))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lblValorReceberFiltrado)
+                    .addComponent(jLabel14)
+                    .addComponent(lblValorReceberTotal))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         tpReceita.addTab("RECEITAS", jPanel1);
@@ -172,7 +242,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
         btGravarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravarReceita.setText("Gravar");
-        btGravarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGravarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarReceitaActionPerformed(evt);
@@ -241,7 +311,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblValorTotalReceita)
@@ -336,18 +406,26 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox checkFinalizarReceita;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblValorReceberFiltrado;
+    private javax.swing.JLabel lblValorReceberTotal;
     private javax.swing.JLabel lblValorReceitaRestante;
+    private javax.swing.JLabel lblValorTotal;
+    private javax.swing.JLabel lblValorTotalFiltrado;
     private javax.swing.JLabel lblValorTotalReceita;
     private javax.swing.JTable tblReceita;
     private javax.swing.JTextField tfDataVencimento;
@@ -434,6 +512,38 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
 
     public void setTfDataVencimento(JTextField tfDataVencimento) {
         this.tfDataVencimento = tfDataVencimento;
+    }
+
+    public JLabel getLblValorReceberFiltrado() {
+        return lblValorReceberFiltrado;
+    }
+
+    public void setLblValorReceberFiltrado(JLabel lblValorReceberFiltrado) {
+        this.lblValorReceberFiltrado = lblValorReceberFiltrado;
+    }
+
+    public JLabel getLblValorReceberTotal() {
+        return lblValorReceberTotal;
+    }
+
+    public void setLblValorReceberTotal(JLabel lblValorReceberTotal) {
+        this.lblValorReceberTotal = lblValorReceberTotal;
+    }
+
+    public JLabel getLblValorTotal() {
+        return lblValorTotal;
+    }
+
+    public void setLblValorTotal(JLabel lblValorTotal) {
+        this.lblValorTotal = lblValorTotal;
+    }
+
+    public JLabel getLblValorTotalFiltrado() {
+        return lblValorTotalFiltrado;
+    }
+
+    public void setLblValorTotalFiltrado(JLabel lblValorTotalFiltrado) {
+        this.lblValorTotalFiltrado = lblValorTotalFiltrado;
     }
 
 }

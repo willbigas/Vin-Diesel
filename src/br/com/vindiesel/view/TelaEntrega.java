@@ -797,6 +797,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             entregaControl.buscarCepAction();
         }
+        
     }//GEN-LAST:event_tfCepKeyPressed
 
     private void btPesquisarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarCepActionPerformed
@@ -874,6 +875,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     private void btLimparCamposTabEntrega1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntrega1ActionPerformed
         // TODO add your handling code here:
+        entregaControl.atualizarTabelaEntregaAction();
     }//GEN-LAST:event_btLimparCamposTabEntrega1ActionPerformed
 
     private void tfPesquisarEntregaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarEntregaKeyReleased

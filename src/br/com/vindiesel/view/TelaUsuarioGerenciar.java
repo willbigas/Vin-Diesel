@@ -306,6 +306,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         tfComplemento.setColumns(20);
         tfComplemento.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tfComplemento.setRows(5);
+        tfComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfComplementoKeyPressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(tfComplemento);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -682,6 +687,13 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             usuarioGerenciarControl.carregarUsuarioAction();
         }
     }//GEN-LAST:event_tblUsuarioMouseClicked
+
+    private void tfComplementoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfComplementoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btGravar.doClick();
+        }
+    }//GEN-LAST:event_tfComplementoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

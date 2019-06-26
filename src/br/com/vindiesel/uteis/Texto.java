@@ -13,6 +13,11 @@ public class Texto {
 
     // Mensagens de Sucesso Padrões
     public static final String SUCESSO_CADASTRAR = "Cadastrado com Sucesso!";
+    
+    
+    public static final String SUCESSO_CADASTRAR_ENTREGA = "Entrega efetuada com sucesso!";
+    
+    
 
     public static final String SUCESSO_EDITAR = "Editado com Sucesso!";
 
@@ -21,6 +26,9 @@ public class Texto {
     public static final String SUCESSO_DESATIVAR = "Desativado com Sucesso!";
     
     public static final String SUCESSO_REMOVER = "Sucesso ao remover!";
+    
+    
+    
 
     // Mensagens de Erro Padrões
     public static final String ERRO_DELETAR = "Erro ao excluir";

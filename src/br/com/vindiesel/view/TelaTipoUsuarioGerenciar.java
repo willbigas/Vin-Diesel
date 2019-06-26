@@ -3,6 +3,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaTipoUsuarioGerenciarControl;
 import br.com.vindiesel.model.TipoPermissao;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -77,7 +78,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
         btCarregar.setContentAreaFilled(false);
-        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCarregarActionPerformed(evt);
@@ -85,6 +86,11 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         tfNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfNomeKeyReleased(evt);
+            }
+        });
 
         checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkAtivo.setText("ATIVO");
@@ -95,7 +101,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -132,7 +138,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -251,6 +257,13 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tipoUsuarioGerenciarControl.pesquisarTipoUsuarioAction();
     }//GEN-LAST:event_tfPesquisarKeyReleased
+
+    private void tfNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyReleased
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btGravar.doClick();
+        }
+    }//GEN-LAST:event_tfNomeKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

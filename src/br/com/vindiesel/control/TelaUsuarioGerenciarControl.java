@@ -75,11 +75,11 @@ public class TelaUsuarioGerenciarControl {
 
     private void redimensionarTela() {
         UtilTable.centralizarCabecalho(telaUsuarioGerenciar.getTblUsuario());
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 110);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 350);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 2, 185);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 3, 102);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 102);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 135);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 340);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 2, 215);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 3, 118);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 93);
     }
 
     private void carregarTiposUsuariosNaCombo() {

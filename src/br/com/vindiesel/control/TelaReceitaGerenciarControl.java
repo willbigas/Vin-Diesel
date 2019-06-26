@@ -68,7 +68,7 @@ public class TelaReceitaGerenciarControl {
         telaReceitaGerenciar.getCbFormaPagamento().setModel(model);
     }
 
-    public void criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
+    public boolean criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
         receita = new Receita();
         receita.setDataCadastro(LocalDateTime.now());
         receita.setDataPagamento(null);
@@ -81,15 +81,16 @@ public class TelaReceitaGerenciarControl {
         if (Validacao.validaEntidade(receita) != null) {
             Mensagem.info(Validacao.validaEntidade(receita));
             receita = null;
-            return;
+            return false;
         }
 
         int inserido = receitaDao.inserir(receita);
         if (inserido != 0) {
+            return true;
         } else {
             Mensagem.erro(Texto.ERRO_CADASTRAR);
+            return false;
         }
-        receita = null;
     }
 
     public void carregarCamposReceitaAction() {

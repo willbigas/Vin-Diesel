@@ -30,15 +30,17 @@ public class DistanciaCalculoControl {
             String segundaTentativaPrimeiroCep = "";
             String campos[] = primeiroCep.split("");
             for (int i = 0; i < campos.length; i++) {
-                if (campos[i].equals(campos[6])) {
+                if (i == 6) {
                     break;
                 }
                 segundaTentativaPrimeiroCep += campos[i];
 
             }
             segundaTentativaPrimeiroCep += "00";
-            System.out.println("Tentativa de Segundo cep Genérico no primeiro CEP com o Cep :" + segundaTentativaPrimeiroCep);
+            System.out.println("Tentativa de Genérico inciada no primeiro CEP com o Cep :" + segundaTentativaPrimeiroCep);
             primeiraLocalizacao = DaoGeocodingAPI.getLocalizacao(segundaTentativaPrimeiroCep);
+           // se null não encontrou  o cep na segunda tentativa
+
         }
 
         segundaLocalizacao = DaoGeocodingAPI.getLocalizacao(segundoCep);
@@ -46,7 +48,7 @@ public class DistanciaCalculoControl {
             String segundaTentativaSegundoCep = "";
             String campos[] = segundoCep.split("");
             for (int i = 0; i < campos.length; i++) {
-                if (campos[i].equals(campos[6])) {
+                if (i == 6) {
                     break;
                 }
                 segundaTentativaSegundoCep += campos[i];
@@ -55,10 +57,14 @@ public class DistanciaCalculoControl {
             segundaTentativaSegundoCep += "00";
             System.out.println("Tentativa de Cep Generico Iniciada no segundo CEP com o Cep :" + segundaTentativaSegundoCep);
             segundaLocalizacao = DaoGeocodingAPI.getLocalizacao(segundaTentativaSegundoCep);
+            // se null não encontrou o cep na segunda tentativa;
         }
 
         distancia = DaoDirectionsAPI.getDistancia(primeiraLocalizacao, segundaLocalizacao);
-
+        
+        if (distancia == null) {
+            return null;
+        }
         String distanciaEncontrada = distancia.getRoutes().get(0).getLegs().get(0).getDistance().getText();
         String[] campos = distanciaEncontrada.split(" ");
 

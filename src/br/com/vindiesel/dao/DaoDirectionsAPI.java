@@ -28,8 +28,14 @@ public class DaoDirectionsAPI {
     private static String URL_FULL = "https://maps.googleapis.com/maps/api/directions/json?origin=-27.6259902,-48.66934&destination=-27.6344743,-48.64885959999999&key=AIzaSyASECb7nFXRCzaTET55r_Nwe3pY-C6y7xM";
 
     public static Distancia getDistancia(Location primeiroLocal, Location segundoLocal) {
-
+        if (primeiroLocal == null) {
+            return null;
+        }
+        if (segundoLocal == null) {
+            return null;
+        }
         String primeiraDirecao = primeiroLocal.getLat().toString() + "," + primeiroLocal.getLng();
+
         String segundaDirecao = segundoLocal.getLat().toString() + "," + segundoLocal.getLng();
 
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();

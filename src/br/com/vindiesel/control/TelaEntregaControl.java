@@ -31,6 +31,7 @@ import br.com.vindiesel.view.TelaEncomendaPesquisaAvancada;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceita;
+import br.com.vindiesel.view.TelaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
 import java.text.ParseException;
 import java.time.LocalDateTime;
@@ -51,6 +52,7 @@ public class TelaEntregaControl {
     TelaDestinatarioPesquisaAvancada telaDestinatarioPesquisaAvancada;
     TelaRemetentePesquisaAvancada telaRemetentePesquisaAvancada;
     TelaEncomendaPesquisaAvancada telaEncomendaPesquisaAvancada;
+    TelaFreteNaoEncontrado telaFreteNaoEncontrado;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     TramiteControl tramiteControl;
     DistanciaCalculoControl calculoDeDistancia;
@@ -67,8 +69,10 @@ public class TelaEntregaControl {
     EnderecoDao enderecoDao;
     List<Encomenda> listEncomendas;
     List<Remetente> listRemetentes;
+    Double valorFreteManual = 0.0;
     Entrega entrega;
     Destinatario destinatario;
+    Boolean novoDestinatario = false;
     Remetente remetente;
     Encomenda encomenda;
     Tramite tramite;
@@ -160,12 +164,16 @@ public class TelaEntregaControl {
         entrega.setEncomenda((Encomenda) telaEntrega.getCbEncomenda().getSelectedItem());
 
         if (destinatario == null) {
+            novoDestinatario = true;
             destinatario = new Destinatario();
+            endereco = new Endereco();
+        } else {
+            endereco = destinatario.getEndereco();
         }
+
         destinatario.setCodigoPessoa(telaEntrega.getTfCodigoPessoa().getText());
         destinatario.setNome(telaEntrega.getTfNome().getText());
 
-        endereco = new Endereco();
         endereco.setBairro(telaEntrega.getTfBairro().getText());
 
         try {
@@ -184,39 +192,44 @@ public class TelaEntregaControl {
 
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
-            destinatario = null;
-            endereco = null;
             return;
         }
 
-        Integer idEndereco = enderecoDao.inserir(endereco);
-        endereco.setId(idEndereco);
-
-        destinatario.setEndereco(endereco);
-
-        Integer idInserido = destinatarioDao.inserir(destinatario);
-        if (idInserido != 0) {
-            destinatario.setId(idInserido);
+        if (novoDestinatario) {
+            Integer idEndereco = enderecoDao.inserir(endereco);
+            endereco.setId(idEndereco);
+            destinatario.setEndereco(endereco);
+            Integer idInserido = destinatarioDao.inserir(destinatario);
+            if (idInserido != 0) {
+                destinatario.setId(idInserido);
+            } else {
+                Mensagem.info(Texto.ERRO_CADASTRAR);
+                return;
+            }
         } else {
-            Mensagem.info(Texto.ERRO_CADASTRAR);
-            entrega = null;
-            endereco = null;
-            destinatario = null;
-            return;
+            enderecoDao.alterar(endereco);
+            destinatario.setEndereco(endereco);
+            Boolean destinatarioAlterado = destinatarioDao.alterar(destinatario);
+            if (!destinatarioAlterado) {
+                Mensagem.info(Texto.ERRO_CADASTRAR);
+                return;
+            }
         }
 
         entrega.setDestinatario(destinatario);
 
         Double valorFrete = calcularFrete(entrega.getRemetente(), entrega.getDestinatario(), entrega);
 
+        if (valorFrete == null) {
+            chamarDialogFreteNaoEncontrado(entrega);
+            valorFrete = valorFreteManual;
+        }
+
         entrega.setValorTotal(valorFrete);
 
         // atributos de entrega 
         if (Validacao.validaEntidade(entrega) != null) {
             Mensagem.info(Validacao.validaEntidade(entrega));
-            entrega = null;
-            endereco = null;
-            destinatario = null;
             return;
         }
 
@@ -239,13 +252,13 @@ public class TelaEntregaControl {
 
         Date dataVencimento = telaEntregaReceita.getTfDataVencimento().getDate();
         receitaGerenciarControl = new TelaReceitaGerenciarControl();
-        receitaGerenciarControl.criarReceita(entrega, dataVencimento, valorFrete);
-
-        destinatario = null;
-        entrega = null;
-        endereco = null;
-
-        limparCamposTabEntrega();
+        boolean receitaInserida = receitaGerenciarControl.criarReceita(entrega, dataVencimento, valorFrete);
+        if (receitaInserida) {
+            destinatario = null;
+            entrega = null;
+            endereco = null;
+            limparCamposTabEntrega();
+        }
 
     }
 
@@ -307,6 +320,11 @@ public class TelaEntregaControl {
         System.out.println("Cep do Destinatario :" + destinatario.getEndereco().getCep());
 
         String distanciaEmKm = calculoDeDistancia.calculaDistanciaEmKm(String.valueOf(remetente.getEndereco().getCep()), String.valueOf(destinatario.getEndereco().getCep()));
+
+        if (distanciaEmKm == null) {
+            return null;
+        }
+
         Double valorTotalFrete;
         Double valorDimensao;
         Double valorEntrega;
@@ -488,6 +506,18 @@ public class TelaEntregaControl {
         }
         telaEntrega.getLblFreteTotal().setText(DecimalFormat.decimalFormatR$(totalFreteBanco));
         telaEntrega.getLblFreteFiltrado().setText(DecimalFormat.decimalFormatR$(totalFreteFiltrado));
+    }
+
+    public void chamarDialogFreteNaoEncontrado(Entrega entrega) {
+        telaFreteNaoEncontrado = new TelaFreteNaoEncontrado(telaEntrega, true, this);
+        telaFreteNaoEncontrado.getLblCidadeRemetente().setText(entrega.getRemetente().getEndereco().getCidade());
+        telaFreteNaoEncontrado.getLblCidadeDestinatario().setText(entrega.getDestinatario().getEndereco().getCidade());
+        telaFreteNaoEncontrado.getLblPesoEncomenda().setText(DecimalFormat.paraVirgula(String.valueOf(entrega.getEncomenda().getPeso())));
+        telaFreteNaoEncontrado.setVisible(true);
+    }
+
+    public void atualizaValorFreteManualAction() {
+        valorFreteManual = Double.valueOf(DecimalFormat.paraPonto(telaFreteNaoEncontrado.getTfValorFreteManual().getText()));
     }
 
 }

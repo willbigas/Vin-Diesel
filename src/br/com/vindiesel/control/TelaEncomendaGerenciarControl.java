@@ -56,7 +56,7 @@ public class TelaEncomendaGerenciarControl {
         telaEncomendaGerenciar.getTfCodigoRastreio().setEditable(false);
         redimensionarTela();
     }
-    
+
     private void redimensionarTela() {
         UtilTable.centralizarCabecalho(telaEncomendaGerenciar.getTblProduto());
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 0, 130);
@@ -66,7 +66,6 @@ public class TelaEncomendaGerenciarControl {
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 4, 82);
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 5, 82);
     }
-    
 
     private void cadastrarEncomenda() {
         encomenda = new Encomenda();
@@ -171,11 +170,11 @@ public class TelaEncomendaGerenciarControl {
     public void carregarEncomendaAction() {
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
         telaEncomendaGerenciar.getTfCodigoRastreio().setText(encomenda.getCodigoRastreio());
-        telaEncomendaGerenciar.getTfPeso().setText(String.valueOf(encomenda.getPeso()));
-        telaEncomendaGerenciar.getTfValorNf().setText(String.valueOf(encomenda.getValorNotaFiscal()));
-        telaEncomendaGerenciar.getTfComprimento().setText(String.valueOf(encomenda.getDimensao().getComprimento()));
-        telaEncomendaGerenciar.getTfAltura().setText(String.valueOf(encomenda.getDimensao().getAltura()));
-        telaEncomendaGerenciar.getTfLargura().setText(String.valueOf(encomenda.getDimensao().getLargura()));
+        telaEncomendaGerenciar.getTfPeso().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getPeso())));
+        telaEncomendaGerenciar.getTfValorNf().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getValorNotaFiscal())));
+        telaEncomendaGerenciar.getTfComprimento().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getDimensao().getComprimento())));
+        telaEncomendaGerenciar.getTfAltura().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getDimensao().getAltura())));
+        telaEncomendaGerenciar.getTfLargura().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getDimensao().getLargura())));
         telaEncomendaGerenciar.getTpProduto().setSelectedIndex(1);
         // Atributos de encomenda
     }
@@ -221,7 +220,7 @@ public class TelaEncomendaGerenciarControl {
         telaEncomendaGerenciar.getTfPesquisar().setText("");
         telaEncomendaGerenciar.getTblProduto().clearSelection();
     }
-    
+
     private String gerarCodigoRandomico() {
         Random rand = new Random();
         String prefixo = "VD-";
@@ -229,15 +228,15 @@ public class TelaEncomendaGerenciarControl {
         String codigoMontado = prefixo + randomico;
         return codigoMontado;
     }
-    
+
     public void geraCodigoRastreamentoRandomicoAction() {
-      String codigoFinal = "";  
-      String codigoGeradoRancomicamente =  gerarCodigoRandomico();
-      if (encomendaDao.pesquisar(codigoGeradoRancomicamente) != null) {
-        codigoFinal =  gerarCodigoRandomico();
-      } else {
-          codigoFinal = codigoGeradoRancomicamente;
-      }
-      telaEncomendaGerenciar.getTfCodigoRastreio().setText(codigoFinal);
+        String codigoFinal = "";
+        String codigoGeradoRancomicamente = gerarCodigoRandomico();
+        if (encomendaDao.pesquisar(codigoGeradoRancomicamente) != null) {
+            codigoFinal = gerarCodigoRandomico();
+        } else {
+            codigoFinal = codigoGeradoRancomicamente;
+        }
+        telaEncomendaGerenciar.getTfCodigoRastreio().setText(codigoFinal);
     }
 }

@@ -19,7 +19,7 @@ import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciar;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,7 +83,7 @@ public class TelaReceitaGerenciarControl {
 
     public boolean criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
         receita = new Receita();
-        receita.setDataCadastro(LocalDateTime.now());
+        receita.setDataCadastro(new Timestamp(System.currentTimeMillis()));
         receita.setDataPagamento(null);
         receita.setDataVencimento(dataVencimento);
         receita.setFormaPagamento(null);
@@ -124,7 +124,7 @@ public class TelaReceitaGerenciarControl {
         receita.setValorRecebido(valorRecebido);
         receita.setDataVencimento(UtilDate.data(telaReceitaGerenciar.getTfDataVencimento().getText()));
         if (telaReceitaGerenciar.getCheckFinalizarReceita().isSelected()) {
-            receita.setDataPagamento(LocalDateTime.now());
+            receita.setDataPagamento(new Timestamp(System.currentTimeMillis()));
         }
         boolean alterado = receitaDao.alterar(receita);
         if (!alterado) {

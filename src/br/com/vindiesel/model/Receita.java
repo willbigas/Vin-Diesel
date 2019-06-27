@@ -16,8 +16,8 @@ public class Receita {
 
     private Integer id;
     @NotNull
-    private LocalDateTime dataCadastro;
-    private LocalDateTime dataPagamento;
+    private Date dataCadastro;
+    private Date dataPagamento;
     @NotNull
     @Future
     private Date dataVencimento;
@@ -40,22 +40,22 @@ public class Receita {
         this.id = id;
     }
 
-    public LocalDateTime getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(LocalDateTime dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalDateTime getDataPagamento() {
+    public Date getDataPagamento() {
         return dataPagamento;
     }
 
-    public void setDataPagamento(LocalDateTime dataPagamento) {
+    public void setDataPagamento(Date dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
-
+    
     public Date getDataVencimento() {
         return dataVencimento;
     }

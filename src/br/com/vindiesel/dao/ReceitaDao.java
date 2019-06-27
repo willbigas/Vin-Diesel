@@ -37,11 +37,11 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
-            stmt.setTimestamp(1, Timestamp.valueOf(receita.getDataCadastro()));
+            stmt.setTimestamp(1, new Timestamp(receita.getDataCadastro().getTime()));
             if (receita.getDataPagamento() == null) {
                 stmt.setNull(2, Types.TIMESTAMP);
             } else {
-                stmt.setTimestamp(2, Timestamp.valueOf(receita.getDataPagamento()));
+                stmt.setTimestamp(2, new Timestamp(receita.getDataPagamento().getTime()));
             }
             stmt.setDate(3, new Date(receita.getDataVencimento().getTime()));
             stmt.setDouble(4, receita.getValorTotal());
@@ -76,8 +76,8 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
                 + " valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ?, FORMAPAGAMENTO_ID = ? WHERE ID = ? ";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
-            stmt.setTimestamp(1, Timestamp.valueOf(receita.getDataCadastro()));
-            stmt.setTimestamp(2, Timestamp.valueOf(receita.getDataPagamento()));
+            stmt.setTimestamp(1, new Timestamp(receita.getDataCadastro().getTime()));
+            stmt.setTimestamp(2, new Timestamp(receita.getDataPagamento().getTime()));
             stmt.setDate(3, new Date(receita.getDataVencimento().getTime()));
             stmt.setDouble(4, receita.getValorRecebido());
             stmt.setDouble(5, receita.getValorTotal());
@@ -155,8 +155,8 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
             while (result.next()) {
                 Receita receita = new Receita();
                 receita.setId(result.getInt("id"));
-                receita.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                receita.setDataPagamento((result.getTimestamp("dataCadastro").toLocalDateTime()));
+                receita.setDataCadastro((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataCadastro")));
                 receita.setDataVencimento(result.getDate("dataVencimento"));
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));
@@ -184,8 +184,8 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
             while (result.next()) {
                 Receita receita = new Receita();
                 receita.setId(result.getInt("id"));
-                receita.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                receita.setDataPagamento((result.getTimestamp("dataCadastro").toLocalDateTime()));
+                receita.setDataCadastro((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataCadastro")));
                 receita.setDataVencimento(result.getDate("dataVencimento"));
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));

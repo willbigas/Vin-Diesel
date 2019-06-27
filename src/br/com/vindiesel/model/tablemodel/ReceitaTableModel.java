@@ -70,7 +70,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
         Receita receita = linhas.get(linha);
         switch (coluna) {
             case DATA_CADASTRO:
-                return UtilDate.dataLocal(receita.getDataCadastro().toLocalDate()) + " as " + UtilDate.hora(receita.getDataCadastro().toLocalTime());
+                return UtilDate.data(receita.getDataCadastro()) + " as " + UtilDate.dataHora(receita.getDataCadastro());
             case DATA_VENCIMENTO:
                return UtilDate.data(receita.getDataVencimento());
             case VALOR_TOTAL:
@@ -90,7 +90,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
         Receita receita = linhas.get(linha);
         switch (coluna) {
             case DATA_CADASTRO:
-                receita.setDataCadastro((LocalDateTime) valor);
+                receita.setDataCadastro((Date) valor);
                 break;
             case DATA_VENCIMENTO:
                 receita.setDataVencimento((Date) valor);

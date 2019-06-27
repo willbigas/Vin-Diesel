@@ -2,18 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfa8d67e-e664-4036-8ac6-c059cc245f4b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="96"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<field name="class" class="java.lang.Class">
 		<fieldDescription><![CDATA[class]]></fieldDescription>
-	</field>
-	<field name="dataCadastro" class="java.time.LocalDateTime">
-		<fieldDescription><![CDATA[dataCadastro]]></fieldDescription>
-	</field>
-	<field name="dataPagamento" class="java.time.LocalDateTime">
-		<fieldDescription><![CDATA[dataPagamento]]></fieldDescription>
 	</field>
 	<field name="dataVencimento" class="java.util.Date">
 		<fieldDescription><![CDATA[dataVencimento]]></fieldDescription>
@@ -32,6 +26,12 @@
 	</field>
 	<field name="valorTotal" class="java.lang.Double">
 		<fieldDescription><![CDATA[valorTotal]]></fieldDescription>
+	</field>
+	<field name="dataCadastro" class="java.util.Date">
+		<fieldDescription><![CDATA[dataCadastro]]></fieldDescription>
+	</field>
+	<field name="dataPagamento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataPagamento]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -175,6 +175,20 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{entrega}.getId()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="125" y="0" width="57" height="20" uuid="1e5bbee9-b5a4-4363-8f55-b1a468888079"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataPagamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="67" y="0" width="57" height="20" uuid="da194b24-06ba-41fd-8c40-5ded20cd916a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastro}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

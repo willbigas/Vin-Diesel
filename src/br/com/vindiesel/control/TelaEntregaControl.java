@@ -30,8 +30,8 @@ import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
 import br.com.vindiesel.view.TelaEncomendaPesquisaAvancada;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
-import br.com.vindiesel.view.TelaEntregaReceita;
-import br.com.vindiesel.view.TelaFreteNaoEncontrado;
+import br.com.vindiesel.view.TelaEntregaReceitaDialog;
+import br.com.vindiesel.view.TelaEntregaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
 import java.text.ParseException;
 import java.time.LocalDateTime;
@@ -48,11 +48,11 @@ import javax.swing.text.MaskFormatter;
 public class TelaEntregaControl {
 
     TelaEntrega telaEntrega;
-    TelaEntregaReceita telaEntregaReceita;
+    TelaEntregaReceitaDialog telaEntregaReceita;
     TelaDestinatarioPesquisaAvancada telaDestinatarioPesquisaAvancada;
     TelaRemetentePesquisaAvancada telaRemetentePesquisaAvancada;
     TelaEncomendaPesquisaAvancada telaEncomendaPesquisaAvancada;
-    TelaFreteNaoEncontrado telaFreteNaoEncontrado;
+    TelaEntregaFreteNaoEncontrado telaFreteNaoEncontrado;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     TramiteControl tramiteControl;
     DistanciaCalculoControl calculoDeDistancia;
@@ -156,7 +156,7 @@ public class TelaEntregaControl {
     }
 
     public void chamarDialogEntregaReceitaAction() {
-        telaEntregaReceita = new TelaEntregaReceita(telaEntrega, true, this);
+        telaEntregaReceita = new TelaEntregaReceitaDialog(telaEntrega, true, this);
         telaEntregaReceita.setVisible(true);
     }
 
@@ -521,7 +521,7 @@ public class TelaEntregaControl {
     }
 
     public void chamarDialogFreteNaoEncontrado(Entrega entrega) {
-        telaFreteNaoEncontrado = new TelaFreteNaoEncontrado(telaEntrega, true, this);
+        telaFreteNaoEncontrado = new TelaEntregaFreteNaoEncontrado(telaEntrega, true, this);
         telaFreteNaoEncontrado.getLblCidadeRemetente().setText(entrega.getRemetente().getEndereco().getCidade());
         telaFreteNaoEncontrado.getLblCidadeDestinatario().setText(entrega.getDestinatario().getEndereco().getCidade());
         telaFreteNaoEncontrado.getLblPesoEncomenda().setText(DecimalFormat.paraVirgula(String.valueOf(entrega.getEncomenda().getPeso())));

@@ -1,8 +1,9 @@
 package br.com.vindiesel.control;
 
 import br.com.vindiesel.report.DestinatarioGerenciarRelatorioControl;
+import br.com.vindiesel.report.EncomendaGerenciarRelatorioControl;
+import br.com.vindiesel.report.EntregaGerenciarRelatorioControl;
 import br.com.vindiesel.report.RemetenteGerenciarRelatorioControl;
-import br.com.vindiesel.view.TelaDestinatarioGerenciarRelatorio;
 import br.com.vindiesel.view.TelaPrincipal;
 import javax.swing.JFrame;
 
@@ -16,7 +17,9 @@ public class TelaPrincipalControl {
     TelaLoginControl telaLoginControl;
 
     private TelaUsuarioGerenciarControl telaUsuarioGerenciarControl = null;
+
     private TelaEncomendaGerenciarControl telaEncomendaGerenciarControl = null;
+    private EncomendaGerenciarRelatorioControl encomendaGerenciarRelatorioControl = null;
 
     private TelaDestinatarioGerenciarControl telaDestinatarioGerenciarControl = null;
     private DestinatarioGerenciarRelatorioControl destinatarioGerenciarRelatorioControl = null;
@@ -26,7 +29,10 @@ public class TelaPrincipalControl {
 
     private TelaTipoUsuarioGerenciarControl telaTipoUsuarioGerenciarControl = null;
     private TelaReceitaGerenciarControl telaReceitaGerenciarControl = null;
+
     private TelaEntregaControl telaEntregaControl = null;
+    private EntregaGerenciarRelatorioControl entregaGerenciarRelatorioControl = null;
+
     private TelaSobreControl telaSobreControl = null;
 
     public TelaPrincipalControl() {
@@ -58,6 +64,15 @@ public class TelaPrincipalControl {
         }
     }
 
+    public void chamarTelaEncomendaGerenciarRelatorioAction() {
+        if (encomendaGerenciarRelatorioControl != null) {
+            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+        } else {
+            encomendaGerenciarRelatorioControl = new EncomendaGerenciarRelatorioControl();
+            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+        }
+    }
+
     public void chamarTelaDestinatarioGerenciarAction() {
         if (telaDestinatarioGerenciarControl != null) {
             telaDestinatarioGerenciarControl.chamarTelaDestinatarioGerenciar();
@@ -84,8 +99,8 @@ public class TelaPrincipalControl {
             telaRemetenteGerenciarControl.chamarTelaRemetenteGerenciar();
         }
     }
-    
-      public void chamarTelaRemetenteGerenciarRelatorioAction() {
+
+    public void chamarTelaRemetenteGerenciarRelatorioAction() {
         if (remetenteGerenciarRelatorioControl != null) {
             remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
         } else {
@@ -93,7 +108,6 @@ public class TelaPrincipalControl {
             remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
         }
     }
-
 
     public void chamarTelaTipoUsuarioGerenciarAction() {
         if (telaTipoUsuarioGerenciarControl != null) {
@@ -119,6 +133,15 @@ public class TelaPrincipalControl {
         } else {
             telaEntregaControl = new TelaEntregaControl();
             telaEntregaControl.chamarTelaEntrega();
+        }
+    }
+
+    public void chamarTelaEntregaGerenciarRelatorioAction() {
+        if (entregaGerenciarRelatorioControl != null) {
+            entregaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+        } else {
+            entregaGerenciarRelatorioControl = new EntregaGerenciarRelatorioControl();
+            entregaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
         }
     }
 

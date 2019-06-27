@@ -16,19 +16,19 @@ import javax.swing.JTextField;
  *
  * @author Will
  */
-public class TelaEntregaReceita extends javax.swing.JDialog {
+public class TelaEntregaReceitaDialog extends javax.swing.JDialog {
 
     TelaEntregaControl telaEntregaControl;
 
     /**
      * Creates new form TelaEntradaDespesa
      */
-    public TelaEntregaReceita(java.awt.Frame parent, boolean modal) {
+    public TelaEntregaReceitaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-    public TelaEntregaReceita(JInternalFrame parent, boolean modal, TelaEntregaControl control) {
+    public TelaEntregaReceitaDialog(JInternalFrame parent, boolean modal, TelaEntregaControl control) {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
@@ -62,7 +62,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         btGerarDespesa.setText("Gerar");
         btGerarDespesa.setBorder(null);
         btGerarDespesa.setContentAreaFilled(false);
-        btGerarDespesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGerarDespesa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGerarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGerarDespesaActionPerformed(evt);
@@ -128,14 +128,18 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEntregaReceita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEntregaReceitaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEntregaReceita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEntregaReceitaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEntregaReceita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEntregaReceitaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEntregaReceita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEntregaReceitaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -144,7 +148,7 @@ public class TelaEntregaReceita extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaEntregaReceita dialog = new TelaEntregaReceita(new javax.swing.JFrame(), true);
+                TelaEntregaReceitaDialog dialog = new TelaEntregaReceitaDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

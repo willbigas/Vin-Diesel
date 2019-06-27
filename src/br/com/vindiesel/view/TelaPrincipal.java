@@ -359,8 +359,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEntregaActionPerformed
         // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/entregas.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+       telaPrincipalControl.chamarTelaEntregaGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioEntregaActionPerformed
 
     private void menuItemRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioUsuarioActionPerformed
@@ -400,8 +399,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioEncomendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEncomendaActionPerformed
         // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/encomendas.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+        telaPrincipalControl.chamarTelaEncomendaGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioEncomendaActionPerformed
 
     /**

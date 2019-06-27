@@ -15,6 +15,7 @@ import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.DecimalFormat;
+import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciar;
@@ -58,10 +59,19 @@ public class TelaReceitaGerenciarControl {
             }
         }
         telaReceitaGerenciar.getTblReceita().setModel(receitaTableModel);
-        atualizaValorTotal(receitaDao.pesquisar());
+        atualizaTotalDeValor(receitaDao.pesquisar());
         receitaTableModel.adicionar(receitaDao.pesquisar());
         carregarFormaPagamentoNaCombo();
+        redimensionarTabelaReceita();
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, false); // disabilita o tabbed pane
+    }
+
+    private void redimensionarTabelaReceita() {
+        UtilTable.centralizarCabecalho(telaReceitaGerenciar.getTblReceita());
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 0, 170);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 1, 100);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 2, 120);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 200);
     }
 
     private void carregarFormaPagamentoNaCombo() {
@@ -131,11 +141,11 @@ public class TelaReceitaGerenciarControl {
         if (receitasPesquisadas == null) {
             receitaTableModel.limpar();
             receitasPesquisadas = receitaDao.pesquisar();
-            atualizaValorTotal(receitasPesquisadas);
+            atualizaTotalDeValor(receitasPesquisadas);
         } else {
             receitaTableModel.limpar();
             receitaTableModel.adicionar(receitasPesquisadas);
-            atualizaValorTotal(receitasPesquisadas);
+            atualizaTotalDeValor(receitasPesquisadas);
         }
 
     }
@@ -150,7 +160,7 @@ public class TelaReceitaGerenciarControl {
 
     }
 
-    public void atualizaValorTotal(List<Receita> receitas) {
+    public void atualizaTotalDeValor(List<Receita> receitas) {
         Double totalValorBanco = 0.0;
         Double totalValorFiltrado = 0.0;
         List<Receita> receitasDoBanco = receitaDao.pesquisar();

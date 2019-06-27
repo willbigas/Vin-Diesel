@@ -7,7 +7,7 @@ import javax.swing.JFrame;
  *
  * @author William
  */
-public class TelaPrincipalControl{
+public class TelaPrincipalControl {
 
     TelaPrincipal telaPrincipal;
     TelaLoginControl telaLoginControl;
@@ -50,7 +50,6 @@ public class TelaPrincipalControl{
         }
     }
 
-
     public void chamarTelaDestinatarioGerenciarAction() {
         if (telaDestinatarioGerenciarControl != null) {
             telaDestinatarioGerenciarControl.chamarTelaDestinatarioGerenciar();
@@ -77,6 +76,7 @@ public class TelaPrincipalControl{
             telaTipoUsuarioGerenciarControl.chamarTelaTipoUsuarioGerenciar();
         }
     }
+
     public void chamarTelaReceitaGerenciarAction() {
         if (telaReceitaGerenciarControl != null) {
             telaReceitaGerenciarControl.chamarTelaReceitaGerenciar();
@@ -94,7 +94,7 @@ public class TelaPrincipalControl{
             telaEntregaControl.chamarTelaEntrega();
         }
     }
-    
+
     public void chamarTelaSobreAction() {
         if (telaSobreControl != null) {
             telaSobreControl.chamarTelaSobre();
@@ -103,13 +103,13 @@ public class TelaPrincipalControl{
             telaSobreControl.chamarTelaSobre();
         }
     }
-    
+
     public void verificarPermissaoPorTipoUsuario() {
         if (TelaLoginControl.tipoUsuarioLogado == 2) {
             telaPrincipal.getMenuFinanceiro().setVisible(false);
             telaPrincipal.getMenuRelatorio().setVisible(false);
             telaPrincipal.getMenuUsuario().setVisible(false);
         }
-    } 
+    }
 
 }

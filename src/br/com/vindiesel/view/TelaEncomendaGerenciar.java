@@ -153,27 +153,35 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel15.setText("Listagem de  Encomendas");
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Encomendas Filtradas:");
 
+        lblTotalEncomendasFiltradas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalEncomendasFiltradas.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalEncomendasFiltradas.setText("[TotalFiltrado]");
 
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Encomendas Totais:");
+        jLabel12.setText("de");
 
+        lblTotalEncomendas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalEncomendas.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalEncomendas.setText("[totalEncomendas]");
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Total Valor NF Filtrados:");
+        jLabel14.setText("Valor Encomendas Filtradas:");
 
+        lblTotalValorNfFiltrados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalValorNfFiltrados.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalValorNfFiltrados.setText("[TotalFiltrados]");
 
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Total valor NF:");
+        jLabel22.setText("de");
 
+        lblTotalValorNf.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalValorNf.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalValorNf.setText("[TotalNf]");
 
@@ -182,10 +190,6 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(237, 237, 237))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,19 +208,23 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalValorNfFiltrados)
-                                .addGap(67, 67, 67)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalValorNf))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalEncomendasFiltradas)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalEncomendas)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(172, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(159, 159, 159))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,19 +239,19 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblTotalEncomendasFiltradas)
                     .addComponent(jLabel12)
                     .addComponent(lblTotalEncomendas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(lblTotalValorNfFiltrados)
                     .addComponent(jLabel22)
                     .addComponent(lblTotalValorNf))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpProduto.addTab("LISTAR", jPanel1);
@@ -469,7 +477,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btGravar)
                     .addComponent(btLimpar))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         tpProduto.addTab("EDITAR", jPanel2);

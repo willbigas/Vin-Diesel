@@ -25,7 +25,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="149" splitType="Stretch">
+		<band height="163" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="80" width="205" height="30" uuid="9a5af221-282d-4f72-ad69-1d9d40b35b9d"/>
 				<text><![CDATA[Telefone: (48) 3033-3333
@@ -43,7 +43,7 @@ Celular:   (48) 99999-9999]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="35" width="205" height="45" uuid="4d7bd83c-1c7d-425f-b6a9-9ef8ebba32e5"/>
-				<text><![CDATA[RAZAO SOCIAL AQUI LTDA
+				<text><![CDATA[VINDIESEL TRANSPORTADORA LTDA
 00.000.000/0001-00
 Rua Zezinho do Zé, 222, Palhoça]]></text>
 			</staticText>
@@ -78,35 +78,35 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="42" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="12" width="109" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[CODIGO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="269" y="12" width="119" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="287" y="12" width="119" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[TELEFONE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="389" y="12" width="107" height="20" uuid="a5f0600e-55de-466c-a35b-53119da7706c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="406" y="12" width="96" height="20" uuid="a5f0600e-55de-466c-a35b-53119da7706c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[CIDADE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="496" y="12" width="58" height="20" uuid="862d2362-4b91-4642-862d-9aa9e63c3896"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="502" y="12" width="52" height="20" uuid="862d2362-4b91-4642-862d-9aa9e63c3896"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ESTADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="12" width="160" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="109" y="12" width="178" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[NOME]]></text>
@@ -117,35 +117,35 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="23" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="109" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoPessoa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="109" y="0" width="160" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="109" y="0" width="178" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="269" y="0" width="119" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="287" y="0" width="119" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="389" y="0" width="107" height="20" uuid="d362859b-3612-47f5-be48-cc79a4624528"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="406" y="0" width="96" height="20" uuid="d362859b-3612-47f5-be48-cc79a4624528"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{endereco}.getCidade()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="496" y="0" width="59" height="20" uuid="8975ca7f-9c10-418e-9e92-d42719a40a20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="502" y="0" width="53" height="20" uuid="8975ca7f-9c10-418e-9e92-d42719a40a20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{endereco}.getEstado()]]></textFieldExpression>

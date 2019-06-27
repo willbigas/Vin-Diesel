@@ -90,49 +90,49 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="37" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="12" width="67" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="474" y="12" width="81" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ENTREGA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="67" y="12" width="58" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[DATA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="125" y="12" width="57" height="20" uuid="4adbfb8a-9223-4424-b1a8-ad6cb263c371"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[PAGTO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="182" y="12" width="64" height="20" uuid="3f8d7e4f-6a5c-449b-9efc-ff539cca17c6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[VENC]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="246" y="12" width="130" height="20" uuid="4c697ec7-6afa-4578-b6a3-9593ff0e388b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[FORMA PAGTO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="376" y="12" width="98" height="20" uuid="149373ef-772e-43d8-9368-efaad282dfaa"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[VL_TOTAL]]></text>
@@ -143,35 +143,35 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="23" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="67" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="182" y="0" width="64" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0.00">
 				<reportElement x="376" y="0" width="98" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="246" y="0" width="130" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{formaPagamento}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="474" y="0" width="80" height="20" uuid="9fc17fc7-01f6-48a5-a911-8610f02f960a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{entrega}.getId()]]></textFieldExpression>

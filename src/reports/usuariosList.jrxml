@@ -101,7 +101,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 	<columnHeader>
 		<band height="37" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="12" width="112" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
+				<reportElement x="0" y="12" width="124" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -115,7 +115,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<text><![CDATA[TIPO_USUARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="112" y="12" width="103" height="20" uuid="3f8d7e4f-6a5c-449b-9efc-ff539cca17c6"/>
+				<reportElement x="124" y="12" width="91" height="20" uuid="3f8d7e4f-6a5c-449b-9efc-ff539cca17c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
@@ -147,20 +147,20 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="112" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
+				<reportElement x="0" y="0" width="124" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0.00">
+			<textField pattern="###0">
 				<reportElement x="372" y="0" width="85" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pis}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="###0.00">
 				<reportElement x="297" y="0" width="75" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
@@ -175,7 +175,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<textFieldExpression><![CDATA[$F{tipoUsuario}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="112" y="0" width="103" height="20" uuid="a2d96afb-43c6-4f48-bd48-d4d88c63659f"/>
+				<reportElement x="124" y="0" width="91" height="20" uuid="a2d96afb-43c6-4f48-bd48-d4d88c63659f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>

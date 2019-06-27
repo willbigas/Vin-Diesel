@@ -90,28 +90,28 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="37" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="12" width="109" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[ENCOMENDA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="376" y="12" width="179" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[DESTINATARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="12" width="119" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="109" y="12" width="96" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[VALOR_TOTAL]]></text>
+				<text><![CDATA[VL_TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="12" width="148" height="20" uuid="286fd1ef-6f18-492e-a406-2b32d90cfb61"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="205" y="12" width="171" height="20" uuid="286fd1ef-6f18-492e-a406-2b32d90cfb61"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[REMETENTE]]></text>
@@ -122,28 +122,28 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 		<band height="23" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="109" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{encomenda}.getCodigoRastreio()]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="109" y="0" width="119" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="109" y="0" width="96" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="376" y="0" width="178" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{destinatario}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="228" y="0" width="148" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="205" y="0" width="171" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{remetente}.getNome()]]></textFieldExpression>

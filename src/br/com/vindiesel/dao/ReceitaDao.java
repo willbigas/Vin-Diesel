@@ -157,7 +157,31 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
 
     @Override
     public List<Receita> pesquisar(String termo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String querySelectComTermo = "SELECT * FROM receita WHERE (dataVencimento LIKE ? or valorRecebido LIKE ? or valorTotal like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
+            stmt.setString(3, "%" + termo + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Receita> lista = new ArrayList<>();
+            while (result.next()) {
+                Receita receita = new Receita();
+                receita.setId(result.getInt("id"));
+                receita.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
+                receita.setDataPagamento((result.getTimestamp("dataCadastro").toLocalDateTime()));
+                receita.setDataVencimento(result.getDate("dataVencimento"));
+                receita.setValorRecebido(result.getDouble("valorRecebido"));
+                receita.setValorTotal(result.getDouble("valorTotal"));
+                receita.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                receita.setFormaPagamento(formaPagamentoDao.pesquisar(result.getInt("formaPagamento_id")));
+                lista.add(receita);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
     }
 
     @Override

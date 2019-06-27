@@ -217,4 +217,46 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
             return null;
         }
     }
+
+    /**
+     *
+     * Se for true so pesquisar os usuarios ativos Se for false so pesquisar os
+     * usuarios inativos Se for nulo pesquisa todos os usuarios
+     *
+     * @param ativo
+     * @return
+     */
+    public List<Usuario> pesquisar(Boolean ativo) {
+
+        String querySelect = "SELECT * FROM USUARIO WHERE =" + ativo;
+        if (ativo == null) {
+            querySelect = "SELECT * FROM USUARIO";
+        }
+        try {
+            PreparedStatement stmt;
+            stmt = conexao.prepareStatement(querySelect);
+            ResultSet result = stmt.executeQuery();
+            List<Usuario> lista = new ArrayList<>();
+            while (result.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId(result.getInt("id"));
+                usuario.setNome(result.getString("nome"));
+                usuario.setDataNascimento(result.getDate("dataNascimento").toLocalDate());
+                usuario.setTelefone(result.getString("telefone"));
+                usuario.setEmail(result.getString("email"));
+                usuario.setCpf(result.getString("cpf"));
+                usuario.setSenha(result.getString("senha"));
+                usuario.setSalario(result.getDouble("salario"));
+                usuario.setPis(result.getInt("numeroPis"));
+                usuario.setAtivo(result.getBoolean("ativo"));
+                usuario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                usuario.setTipoUsuario(tipoUsuarioDao.pesquisar(result.getInt("tipoUsuario_id")));
+                lista.add(usuario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 }

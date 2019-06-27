@@ -7,7 +7,6 @@ package br.com.vindiesel.control;
 
 import br.com.vindiesel.dao.FormaPagamentoDao;
 import br.com.vindiesel.dao.ReceitaDao;
-import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.model.FormaPagamento;
 import br.com.vindiesel.model.Receita;
@@ -20,6 +19,7 @@ import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciar;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -29,7 +29,7 @@ import javax.swing.DefaultComboBoxModel;
  * @author William
  */
 public class TelaReceitaGerenciarControl {
-    
+
     TelaReceitaGerenciar telaReceitaGerenciar;
     ReceitaTableModel receitaTableModel;
     ReceitaDao receitaDao;
@@ -37,13 +37,13 @@ public class TelaReceitaGerenciarControl {
     FormaPagamentoDao formaPagamentoDao;
     Receita receita;
     Integer indexSelecionada;
-    
+
     public TelaReceitaGerenciarControl() {
         receitaDao = new ReceitaDao();
         receitaTableModel = new ReceitaTableModel();
         formaPagamentoDao = new FormaPagamentoDao();
     }
-    
+
     public void chamarTelaReceitaGerenciar() {
         if (telaReceitaGerenciar == null) { // se tiver nulo chama janela normalmente
             telaReceitaGerenciar = new TelaReceitaGerenciar(this);
@@ -58,18 +58,18 @@ public class TelaReceitaGerenciarControl {
             }
         }
         telaReceitaGerenciar.getTblReceita().setModel(receitaTableModel);
-        atualizaTotalDeValor(receitaDao.pesquisar());
+        atualizaValorTotal(receitaDao.pesquisar());
         receitaTableModel.adicionar(receitaDao.pesquisar());
         carregarFormaPagamentoNaCombo();
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, false); // disabilita o tabbed pane
     }
-    
+
     private void carregarFormaPagamentoNaCombo() {
         listFormaPagamentos = formaPagamentoDao.pesquisar();
         DefaultComboBoxModel<FormaPagamento> model = new DefaultComboBoxModel(listFormaPagamentos.toArray());
         telaReceitaGerenciar.getCbFormaPagamento().setModel(model);
     }
-    
+
     public boolean criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
         receita = new Receita();
         receita.setDataCadastro(LocalDateTime.now());
@@ -79,13 +79,13 @@ public class TelaReceitaGerenciarControl {
         receita.setValorRecebido(null);
         receita.setValorTotal(valorFrete);
         receita.setEntrega(entrega);
-        
+
         if (Validacao.validaEntidade(receita) != null) {
             Mensagem.info(Validacao.validaEntidade(receita));
             receita = null;
             return false;
         }
-        
+
         int inserido = receitaDao.inserir(receita);
         if (inserido != 0) {
             return true;
@@ -94,7 +94,7 @@ public class TelaReceitaGerenciarControl {
             return false;
         }
     }
-    
+
     public void carregarCamposReceitaAction() {
         indexSelecionada = telaReceitaGerenciar.getTblReceita().getSelectedRow();
         receita = receitaTableModel.pegaObjeto(telaReceitaGerenciar.getTblReceita().getSelectedRow());
@@ -106,7 +106,7 @@ public class TelaReceitaGerenciarControl {
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, true);
         telaReceitaGerenciar.getTpReceita().setSelectedIndex(1);
     }
-    
+
     public void editarReceitaAction() {
         receita.setFormaPagamento((FormaPagamento) telaReceitaGerenciar.getCbFormaPagamento().getSelectedItem());
         Double valorRecebido = receita.getValorRecebido() + Double.valueOf(telaReceitaGerenciar.getTfValorRecebido().getText());
@@ -123,20 +123,34 @@ public class TelaReceitaGerenciarControl {
         receitaTableModel.atualizar(indexSelecionada, receita);
         Mensagem.info(Texto.SUCESSO_EDITAR);
         resetarReceitaAction();
-        
+
     }
-    
+
+    public void pesquisarReceitaAction() {
+        List<Receita> receitasPesquisadas = receitaDao.pesquisar(telaReceitaGerenciar.getTfPesquisarReceita().getText());
+        if (receitasPesquisadas == null) {
+            receitaTableModel.limpar();
+            receitasPesquisadas = receitaDao.pesquisar();
+            atualizaValorTotal(receitasPesquisadas);
+        } else {
+            receitaTableModel.limpar();
+            receitaTableModel.adicionar(receitasPesquisadas);
+            atualizaValorTotal(receitasPesquisadas);
+        }
+
+    }
+
     public void resetarReceitaAction() {
         receita = null;
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, false);
         telaReceitaGerenciar.getTpReceita().setSelectedIndex(0);
     }
-    
+
     public void limparCamposTabReceberPagamento() {
-        
+
     }
-    
-    public void atualizaTotalDeValor(List<Receita> receitas) {
+
+    public void atualizaValorTotal(List<Receita> receitas) {
         Double totalValorBanco = 0.0;
         Double totalValorFiltrado = 0.0;
         List<Receita> receitasDoBanco = receitaDao.pesquisar();
@@ -148,5 +162,29 @@ public class TelaReceitaGerenciarControl {
         }
         telaReceitaGerenciar.getLblValorTotal().setText(DecimalFormat.decimalFormatR$(totalValorBanco));
         telaReceitaGerenciar.getLblValorTotalFiltrado().setText(DecimalFormat.decimalFormatR$(totalValorFiltrado));
+    }
+
+    public void atualizaTotalReceber(List<Receita> receitas) {
+        Double totalReceitaBanco = 0.0;
+        Double totalReceitaFiltrado = 0.0;
+        List<Receita> receitasDoBanco = receitaDao.pesquisar();
+        List<Receita> receitasEmAberto = new ArrayList<>();
+        List<Receita> receitasEmAbertoFiltradas = new ArrayList<>();
+
+        for (Receita umaReceita : receitasDoBanco) {
+            if (umaReceita.getEntrega().equals(false)) {
+                receitasEmAberto.add(umaReceita);
+                
+            }
+        }
+
+        for (Receita umaReceitaFiltrada : receitas) {
+            if (umaReceitaFiltrada.getEntrega().equals(false)) {
+                receitasEmAbertoFiltradas.add(umaReceitaFiltrada);
+
+            }
+        }
+        telaReceitaGerenciar.getLblValorReceberTotal().setText(DecimalFormat.decimalFormatR$(totalReceitaBanco));
+        telaReceitaGerenciar.getLblValorReceberFiltrado().setText(DecimalFormat.decimalFormatR$(totalReceitaFiltrado));
     }
 }

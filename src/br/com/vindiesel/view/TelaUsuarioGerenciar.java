@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -55,6 +56,10 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        lblUsuarioFiltrado = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        lblUsuarioTotal = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         tfCpf = new javax.swing.JFormattedTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -171,6 +176,18 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         jButton2.setText("Limpar");
 
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Usuarios filtrados:");
+
+        lblUsuarioFiltrado.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuarioFiltrado.setText("[UsuarioFiltrado]");
+
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("de");
+
+        lblUsuarioTotal.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuarioTotal.setText("[TotalUsuarios]");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,15 +205,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(359, 359, 359))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(40, 40, 40))))
+                .addComponent(jLabel6)
+                .addGap(359, 359, 359))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsuarioFiltrado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsuarioTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +237,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jLabel19)
+                    .addComponent(lblUsuarioFiltrado)
+                    .addComponent(jLabel21)
+                    .addComponent(lblUsuarioTotal))
                 .addGap(11, 11, 11))
         );
 
@@ -717,7 +744,9 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -732,6 +761,8 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblUsuarioFiltrado;
+    private javax.swing.JLabel lblUsuarioTotal;
     private javax.swing.JTable tblUsuario;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
@@ -909,6 +940,22 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setTpGerenciarUsuario(JTabbedPane tpGerenciarUsuario) {
         this.tpGerenciarUsuario = tpGerenciarUsuario;
+    }
+
+    public JLabel getLblUsuarioFiltrado() {
+        return lblUsuarioFiltrado;
+    }
+
+    public void setLblUsuarioFiltrado(JLabel lblUsuarioFiltrado) {
+        this.lblUsuarioFiltrado = lblUsuarioFiltrado;
+    }
+
+    public JLabel getLblUsuarioTotal() {
+        return lblUsuarioTotal;
+    }
+
+    public void setLblUsuarioTotal(JLabel lblUsuarioTotal) {
+        this.lblUsuarioTotal = lblUsuarioTotal;
     }
 
 }

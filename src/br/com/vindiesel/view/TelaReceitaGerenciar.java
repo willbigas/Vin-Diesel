@@ -93,6 +93,11 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         });
 
         tfPesquisarReceita.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfPesquisarReceita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPesquisarReceitaKeyReleased(evt);
+            }
+        });
 
         tblReceita.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tblReceita.setModel(new javax.swing.table.DefaultTableModel(
@@ -396,6 +401,10 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         receitaGerenciarControl.editarReceitaAction();
     }//GEN-LAST:event_btGravarReceitaActionPerformed
+
+    private void tfPesquisarReceitaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarReceitaKeyReleased
+        receitaGerenciarControl.pesquisarReceitaAction();
+    }//GEN-LAST:event_tfPesquisarReceitaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

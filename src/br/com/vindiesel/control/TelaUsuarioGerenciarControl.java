@@ -65,6 +65,7 @@ public class TelaUsuarioGerenciarControl {
                 telaUsuarioGerenciar.setVisible(true);
             }
         }
+        atualizaTotalUsuarios(usuarioDao.pesquisar());
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
@@ -298,11 +299,25 @@ public class TelaUsuarioGerenciarControl {
         if (encomendasPesquisadas == null) {
             usuarioTableModel.limpar();
             encomendasPesquisadas = usuarioDao.pesquisar();
+            atualizaTotalUsuarios(encomendasPesquisadas);
         } else {
             usuarioTableModel.limpar();
             usuarioTableModel.adicionar(encomendasPesquisadas);
+            atualizaTotalUsuarios(encomendasPesquisadas);
         }
 
+    }
+
+    public void atualizaTotalUsuarios(List<Usuario> usuarios) {
+        Integer totalUsuarios = 0;
+        Integer totaoUsuariosFiltrados = 0;
+        List<Usuario> usuariosDobanco = usuarioDao.pesquisar();
+
+        totalUsuarios = usuariosDobanco.size();
+        totaoUsuariosFiltrados = usuarios.size();
+
+        telaUsuarioGerenciar.getLblUsuarioTotal().setText(String.valueOf(totalUsuarios));
+        telaUsuarioGerenciar.getLblUsuarioFiltrado().setText(String.valueOf(totaoUsuariosFiltrados));
     }
 
     public void limparCamposAction() {

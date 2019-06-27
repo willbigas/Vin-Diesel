@@ -64,6 +64,7 @@ public class TelaReceitaGerenciarControl {
         carregarFormaPagamentoNaCombo();
         redimensionarTabelaReceita();
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, false); // disabilita o tabbed pane
+        telaReceitaGerenciar.getTfPesquisarReceita().requestFocus();
     }
 
     private void redimensionarTabelaReceita() {
@@ -184,7 +185,7 @@ public class TelaReceitaGerenciarControl {
         for (Receita umaReceita : receitasDoBanco) {
             if (umaReceita.getEntrega().equals(false)) {
                 receitasEmAberto.add(umaReceita);
-                
+
             }
         }
 

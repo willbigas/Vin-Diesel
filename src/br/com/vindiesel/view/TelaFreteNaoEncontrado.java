@@ -7,6 +7,7 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import java.awt.event.KeyEvent;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
  * @author William
  */
 public class TelaFreteNaoEncontrado extends javax.swing.JDialog {
+
     TelaEntregaControl telaEntregaControl;
 
     /**
@@ -25,9 +27,10 @@ public class TelaFreteNaoEncontrado extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
     public TelaFreteNaoEncontrado(JInternalFrame parent, boolean modal, TelaEntregaControl control) {
         initComponents();
-         this.setLocationRelativeTo(parent);
+        this.setLocationRelativeTo(parent);
         this.setModal(modal);
         telaEntregaControl = control;
         InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
@@ -83,6 +86,12 @@ public class TelaFreteNaoEncontrado extends javax.swing.JDialog {
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("VALOR DO FRETE");
+
+        tfValorFreteManual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfValorFreteManualKeyPressed(evt);
+            }
+        });
 
         btContinuaFreteManual.setText("Continuar");
         btContinuaFreteManual.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +266,13 @@ public class TelaFreteNaoEncontrado extends javax.swing.JDialog {
         telaEntregaControl.atualizaValorFreteManualAction();
         this.dispose();
     }//GEN-LAST:event_btContinuaFreteManualActionPerformed
+
+    private void tfValorFreteManualKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValorFreteManualKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btContinuaFreteManual.doClick();
+        }
+    }//GEN-LAST:event_tfValorFreteManualKeyPressed
 
     /**
      * @param args the command line arguments

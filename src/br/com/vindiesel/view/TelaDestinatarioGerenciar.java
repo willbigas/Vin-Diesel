@@ -7,6 +7,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -80,11 +81,14 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfCodigoPessoa = new javax.swing.JFormattedTextField();
         checkCnpj = new javax.swing.JCheckBox();
         checkCpf = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        lblDestinatariosFiltrados = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblTotalDestinatarios = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setTitle("Gerenciamento de destinátarios");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
@@ -108,8 +112,6 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, -1));
 
         tpDestinatario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tpDestinatario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,6 +145,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblDestinatario);
 
         tfPesquisa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tfPesquisa.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tfPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfPesquisaKeyReleased(evt);
@@ -155,7 +158,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
-        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -168,7 +171,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
-        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -181,7 +184,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btNovo.setBorder(null);
         btNovo.setBorderPainted(false);
         btNovo.setContentAreaFilled(false);
-        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
@@ -292,7 +295,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -434,7 +437,44 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         tpDestinatario.addTab("Editar", jPanel3);
 
-        getContentPane().add(tpDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 67, 720, 370));
+        jLabel8.setText("Destinatarios filtrados:");
+
+        lblDestinatariosFiltrados.setText("[DestinatariosFiltrados]");
+
+        jLabel14.setText("de:");
+
+        lblTotalDestinatarios.setText("[TotalDestinatarios]");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(tpDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDestinatariosFiltrados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addGap(3, 3, 3)
+                .addComponent(lblTotalDestinatarios))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(tpDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(lblDestinatariosFiltrados))
+                    .addComponent(lblTotalDestinatarios)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -513,18 +553,22 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblDestinatariosFiltrados;
+    private javax.swing.JLabel lblTotalDestinatarios;
     private javax.swing.JTable tblDestinatario;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCep;
@@ -656,6 +700,22 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setCheckCpf(JCheckBox checkCpf) {
         this.checkCpf = checkCpf;
+    }
+
+    public JLabel getLblDestinatariosFiltrados() {
+        return lblDestinatariosFiltrados;
+    }
+
+    public void setLblDestinatariosFiltrados(JLabel lblDestinatariosFiltrados) {
+        this.lblDestinatariosFiltrados = lblDestinatariosFiltrados;
+    }
+
+    public JLabel getLblTotalDestinatarios() {
+        return lblTotalDestinatarios;
+    }
+
+    public void setLblTotalDestinatarios(JLabel lblTotalDestinatarios) {
+        this.lblTotalDestinatarios = lblTotalDestinatarios;
     }
 
 }

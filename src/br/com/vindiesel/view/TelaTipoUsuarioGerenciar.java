@@ -6,6 +6,7 @@ import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -55,6 +56,10 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblTotalTipoUsuarioFiltrado = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblTotalTipoUsuario = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -78,7 +83,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
         btCarregar.setContentAreaFilled(false);
-        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCarregarActionPerformed(evt);
@@ -94,6 +99,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkAtivo.setText("ATIVO");
+        checkAtivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
@@ -101,7 +107,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -138,7 +144,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -167,24 +173,24 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("Tipo usuarios filltrados:");
+
+        lblTotalTipoUsuarioFiltrado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTotalTipoUsuarioFiltrado.setText("[TipoFiltrado]");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("de:");
+
+        lblTotalTipoUsuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTotalTipoUsuario.setText("[TotalTipoUsuarios]");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfNome)
-                    .addComponent(cbPermissao, 0, 217, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(checkAtivo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -201,6 +207,29 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jButton1)))
                 .addGap(17, 17, 17))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfNome)
+                            .addComponent(cbPermissao, 0, 217, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(checkAtivo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotalTipoUsuarioFiltrado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotalTipoUsuario)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +256,14 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblTotalTipoUsuarioFiltrado)
+                    .addComponent(jLabel7)
+                    .addComponent(lblTotalTipoUsuario))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,13 +308,17 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<TipoPermissao> cbPermissao;
     private javax.swing.JCheckBox checkAtivo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblTotalTipoUsuario;
+    private javax.swing.JLabel lblTotalTipoUsuarioFiltrado;
     private javax.swing.JTable tblTipoUsuario;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfPesquisar;
@@ -322,6 +362,22 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setTfPesquisar(JTextField tfPesquisar) {
         this.tfPesquisar = tfPesquisar;
+    }
+
+    public JLabel getLblTotalTipoUsuario() {
+        return lblTotalTipoUsuario;
+    }
+
+    public void setLblTotalTipoUsuario(JLabel lblTotalTipoUsuario) {
+        this.lblTotalTipoUsuario = lblTotalTipoUsuario;
+    }
+
+    public JLabel getLblTotalTipoUsuarioFiltrado() {
+        return lblTotalTipoUsuarioFiltrado;
+    }
+
+    public void setLblTotalTipoUsuarioFiltrado(JLabel lblTotalTipoUsuarioFiltrado) {
+        this.lblTotalTipoUsuarioFiltrado = lblTotalTipoUsuarioFiltrado;
     }
 
 }

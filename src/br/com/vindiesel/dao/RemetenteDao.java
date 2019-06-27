@@ -89,13 +89,29 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
     }
 
     @Override
-    public boolean desativar(Remetente fornecedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean desativar(Remetente remetente) {
+        String sql = "UPDATE REMETENTE SET ativo = false WHERE id = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, remetente.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean desativar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE REMETENTE SET ativo = false WHERE id = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -124,7 +140,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     @Override
     public List<Remetente> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM remetente WHERE (nome LIKE ? or telefone LIKE ? or codigoPessoa like ?)";
+        String querySelectComTermo = "SELECT * FROM remetente WHERE (nome LIKE ? or telefone LIKE ? or codigoPessoa like ? )";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");

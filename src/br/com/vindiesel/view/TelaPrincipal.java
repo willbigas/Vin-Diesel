@@ -92,12 +92,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuPessoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/people_32x32.png"))); // NOI18N
         menuPessoa.setText("Pessoas");
+        menuPessoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuPessoa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemGerenciarRemetente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarRemetente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
         menuItemGerenciarRemetente.setText("Gerenciar Remetentes");
         menuItemGerenciarRemetente.setBorder(null);
+        menuItemGerenciarRemetente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemGerenciarRemetente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemGerenciarRemetenteActionPerformed(evt);
@@ -108,6 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemGerenciarDestinatario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
         menuItemGerenciarDestinatario.setText("Gerenciar Destinatários");
+        menuItemGerenciarDestinatario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemGerenciarDestinatario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemGerenciarDestinatarioActionPerformed(evt);
@@ -120,12 +123,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
         menuEntrega.setText("Entrega");
         menuEntrega.setContentAreaFilled(false);
+        menuEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuEntrega.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jMenuItem4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem4.setText("Gerenciar Entregas");
         jMenuItem4.setBorder(null);
+        jMenuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -137,11 +142,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
         jMenu1.setText("Encomenda");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jMenuItem1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         jMenuItem1.setText("Gerenciar Encomendas");
+        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -153,12 +160,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuUsuario.setText("Usuários");
+        menuUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemGerenciarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         menuItemGerenciarUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerenciar_32x32.png"))); // NOI18N
         menuItemGerenciarUsuario.setText("Gerenciar Usuários");
+        menuItemGerenciarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemGerenciarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemGerenciarUsuarioActionPerformed(evt);
@@ -170,6 +179,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemGerenciarTipoUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemGerenciarTipoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/cardUser_32x32.png"))); // NOI18N
         menuItemGerenciarTipoUsuario.setText("Tipo de Usuário");
+        menuItemGerenciarTipoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemGerenciarTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemGerenciarTipoUsuarioActionPerformed(evt);
@@ -181,12 +191,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/money_32x32.png"))); // NOI18N
         menuFinanceiro.setText("Financeiro");
+        menuFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuFinanceiro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemReceita.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         menuItemReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
         menuItemReceita.setText("Receitas");
+        menuItemReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemReceitaActionPerformed(evt);
@@ -198,11 +210,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/relatorio_32x32.png"))); // NOI18N
         menuRelatorio.setText("Relatórios");
+        menuRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuRelatorio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemRelatorioEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/entrega_32x32.png"))); // NOI18N
         menuItemRelatorioEntrega.setText("Entregas");
+        menuItemRelatorioEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioEntregaActionPerformed(evt);
@@ -213,6 +227,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemRelatorioRementente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioRementente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/remetente_32x32.png"))); // NOI18N
         menuItemRelatorioRementente.setText("Remetentes");
+        menuItemRelatorioRementente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioRementente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioRemententeActionPerformed(evt);
@@ -223,6 +238,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemRelatorioDestinatario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioDestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/destinatario_32x32.png"))); // NOI18N
         menuItemRelatorioDestinatario.setText("Destinatarios");
+        menuItemRelatorioDestinatario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioDestinatario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioDestinatarioActionPerformed(evt);
@@ -233,6 +249,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemRelatorioEncomenda.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioEncomenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/encomenda_32x32.png"))); // NOI18N
         menuItemRelatorioEncomenda.setText("Encomendas");
+        menuItemRelatorioEncomenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioEncomenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioEncomendaActionPerformed(evt);
@@ -243,6 +260,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemRelatorioReceitas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioReceitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/receita_32x32.png"))); // NOI18N
         menuItemRelatorioReceitas.setText("Receitas");
+        menuItemRelatorioReceitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioReceitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioReceitasActionPerformed(evt);
@@ -253,6 +271,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemRelatorioUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemRelatorioUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/user_32x32.png"))); // NOI18N
         menuItemRelatorioUsuario.setText("Usuarios");
+        menuItemRelatorioUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemRelatorioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemRelatorioUsuarioActionPerformed(evt);
@@ -265,18 +284,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuSobre.setBorder(null);
         menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/info_32x32.png"))); // NOI18N
         menuSobre.setText("Sobre");
+        menuSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuSobre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         menuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuItemAjuda.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/ajuda_32x32.png"))); // NOI18N
         menuItemAjuda.setText("Ajuda");
+        menuItemAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuSobre.add(menuItemAjuda);
 
         menuItemSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         menuItemSobre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         menuItemSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/developer_32x32.png"))); // NOI18N
         menuItemSobre.setText("Sobre");
+        menuItemSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemSobreActionPerformed(evt);

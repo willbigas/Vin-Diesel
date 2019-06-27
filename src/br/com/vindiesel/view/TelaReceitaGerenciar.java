@@ -114,8 +114,13 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblReceita);
 
         brEditarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        brEditarReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         brEditarReceita.setText("Editar");
+        brEditarReceita.setBorder(null);
+        brEditarReceita.setBorderPainted(false);
+        brEditarReceita.setContentAreaFilled(false);
         brEditarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        brEditarReceita.setFocusPainted(false);
         brEditarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brEditarReceitaActionPerformed(evt);
@@ -123,8 +128,13 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
         jButton1.setText("Buscar");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setFocusPainted(false);
 
         cbSituacaoReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbSituacaoReceita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "PENDENTE", "FINALIZADO" }));
@@ -133,27 +143,35 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Listagem de Receitas");
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Valor Total Filtrado:");
+        jLabel8.setText("Valor Total:");
 
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Valor receber Filtrado:");
+        jLabel10.setText("Valor receber:");
 
+        lblValorTotalFiltrado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorTotalFiltrado.setForeground(new java.awt.Color(0, 0, 0));
         lblValorTotalFiltrado.setText("[ValorTotalFiltrado]");
 
+        lblValorReceberFiltrado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorReceberFiltrado.setForeground(new java.awt.Color(0, 0, 0));
         lblValorReceberFiltrado.setText("[ValorReceberFiltrado]");
 
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Valor Total:");
+        jLabel13.setText("de");
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Valor Receber:");
+        jLabel14.setText("de");
 
+        lblValorTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorTotal.setForeground(new java.awt.Color(0, 0, 0));
         lblValorTotal.setText("[ValorTotal]");
 
+        lblValorReceberTotal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorReceberTotal.setForeground(new java.awt.Color(0, 0, 0));
         lblValorReceberTotal.setText("[ValorReceberTotal]");
 
@@ -165,42 +183,40 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(222, 222, 222)
-                        .addComponent(jLabel9))
+                        .addComponent(jLabel9)
+                        .addGap(0, 167, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblValorTotalFiltrado)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblValorTotal))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblValorReceberFiltrado)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblValorReceberTotal)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cbSituacaoReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(brEditarReceita)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblValorTotalFiltrado))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblValorReceberFiltrado)))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblValorReceberTotal))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblValorTotal)))
-                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -228,7 +244,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(lblValorReceberFiltrado)
                     .addComponent(jLabel14)
                     .addComponent(lblValorReceberTotal))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         tpReceita.addTab("RECEITAS", jPanel1);

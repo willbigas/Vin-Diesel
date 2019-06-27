@@ -163,13 +163,29 @@ public class DestinatarioDao extends DaoBD implements DaoI<Destinatario> {
     }
 
     @Override
-    public boolean desativar(Destinatario cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean desativar(Destinatario destinatario) {
+        String sql = "UPDATE DESTINATARIO SET ativo = false WHERE id = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, destinatario.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean desativar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE DESTINATARIO SET ativo = false WHERE id = ?";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 
 }

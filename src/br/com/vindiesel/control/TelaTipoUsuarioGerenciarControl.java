@@ -54,6 +54,8 @@ public class TelaTipoUsuarioGerenciarControl {
         carregarComboBoxDeTipoPermissao();
         telaTipoUsuarioGerenciar.getTblTipoUsuario().setModel(tipoUsuarioTableModel);
         atualizarTabelaTipoUsuario();
+        telaTipoUsuarioGerenciar.getTfNome().requestFocus();
+        atualizaTotalUsuarios(tipoUsuarioDao.pesquisar());
         redimensionarTela();
     }
 
@@ -112,6 +114,7 @@ public class TelaTipoUsuarioGerenciarControl {
             tipoUsuario.setId(idInserido);
             tipoUsuarioTableModel.adicionar(tipoUsuario);
             limparCamposTipoUsuario();
+            atualizaTotalUsuarios(tipoUsuarioDao.pesquisar());
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         }
         tipoUsuario = null;
@@ -142,6 +145,7 @@ public class TelaTipoUsuarioGerenciarControl {
         if (alterado == true) {
             tipoUsuarioTableModel.atualizar(linhaSelecionada, tipoUsuario);
             limparCamposTipoUsuario();
+            atualizaTotalUsuarios(tipoUsuarioDao.pesquisar());
             Mensagem.info(Texto.SUCESSO_EDITAR);
         }
         tipoUsuario = null;
@@ -159,6 +163,7 @@ public class TelaTipoUsuarioGerenciarControl {
             if (deletado) {
                 tipoUsuarioTableModel.remover(telaTipoUsuarioGerenciar.getTblTipoUsuario().getSelectedRow());
                 telaTipoUsuarioGerenciar.getTblTipoUsuario().clearSelection();
+                atualizaTotalUsuarios(tipoUsuarioDao.pesquisar());
                 Mensagem.info(Texto.SUCESSO_DESATIVAR);
             } else {
                 Mensagem.erro(Texto.ERRO_DESATIVAR);
@@ -200,17 +205,31 @@ public class TelaTipoUsuarioGerenciarControl {
         telaTipoUsuarioGerenciar.getTfNome().requestFocus();
 
     }
-    
+
     public void pesquisarTipoUsuarioAction() {
         List<TipoUsuario> tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(telaTipoUsuarioGerenciar.getTfPesquisar().getText());
         if (tipoUsuarioPesquisados == null) {
             tipoUsuarioTableModel.limpar();
             tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar();
+            atualizaTotalUsuarios(tipoUsuarioPesquisados);
         } else {
             tipoUsuarioTableModel.limpar();
             tipoUsuarioTableModel.adicionar(tipoUsuarioPesquisados);
+            atualizaTotalUsuarios(tipoUsuarioPesquisados);
         }
 
+    }
+
+    public void atualizaTotalUsuarios(List<TipoUsuario> tipoUsuarios) {
+        Integer totalTipoUsuario = 0;
+        Integer totalTipoUsuarioFiltrado = 0;
+        List<TipoUsuario> usuariosDobanco = tipoUsuarioDao.pesquisar();
+
+        totalTipoUsuario = usuariosDobanco.size();
+        totalTipoUsuarioFiltrado = tipoUsuarios.size();
+
+        telaTipoUsuarioGerenciar.getLblTotalTipoUsuario().setText(String.valueOf(totalTipoUsuario));
+        telaTipoUsuarioGerenciar.getLblTotalTipoUsuarioFiltrado().setText(String.valueOf(totalTipoUsuarioFiltrado));
     }
 
     public void pesquisarItensNaComboTipoUsuario() {

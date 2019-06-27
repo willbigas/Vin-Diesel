@@ -56,10 +56,12 @@ public class TelaEncomendaGerenciarControl {
         encomendaTableModel.limpar();
         encomendaTableModel.adicionar(encomendaDao.pesquisar());
         telaEncomendaGerenciar.getTfCodigoRastreio().setEditable(false);
-        redimensionarTela();
+        telaEncomendaGerenciar.getTpProduto().setEnabledAt(1, false);
+        telaEncomendaGerenciar.getTfPesquisar().requestFocus();
+        redimensionarTabela();
     }
 
-    private void redimensionarTela() {
+    private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaEncomendaGerenciar.getTblProduto());
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 0, 130);
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 1, 130);
@@ -67,6 +69,15 @@ public class TelaEncomendaGerenciarControl {
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 3, 82);
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 4, 82);
         UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 5, 82);
+    }
+
+    public void novaEncomendaAction() {
+        limparCampos();
+        telaEncomendaGerenciar.getTpProduto().setEnabledAt(1, true);
+        UtilTable.limparSelecaoDaTabela(telaEncomendaGerenciar.getTblProduto());
+        encomenda = null;
+        telaEncomendaGerenciar.getTpProduto().setSelectedIndex(1);
+        telaEncomendaGerenciar.getTfValorNf().requestFocus();
     }
 
     private void cadastrarEncomenda() {

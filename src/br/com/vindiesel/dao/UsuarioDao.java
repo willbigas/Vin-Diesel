@@ -220,15 +220,12 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
 
     /**
      *
-     * Se for true so pesquisar os usuarios ativos Se for false so pesquisar os
-     * usuarios inativos Se for nulo pesquisa todos os usuarios
-     *
      * @param ativo
      * @return
      */
     public List<Usuario> pesquisar(Boolean ativo) {
 
-        String querySelect = "SELECT * FROM USUARIO WHERE =" + ativo;
+        String querySelect = "SELECT * FROM USUARIO WHERE = " + ativo;
         if (ativo == null) {
             querySelect = "SELECT * FROM USUARIO";
         }

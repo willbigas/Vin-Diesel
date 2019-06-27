@@ -120,6 +120,7 @@ public class TelaEntregaControl {
         atualizaTotaisDeFrete(entregaDao.pesquisar());
         redimensionarTabelaEntregas();
         telaEntrega.getTpEntrega().setEnabledAt(1, false);
+        telaEntrega.getTfPesquisarEntrega().requestFocus();
         criaInstanciasDeMascarasFormatadas();
     }
 
@@ -244,7 +245,7 @@ public class TelaEntregaControl {
             entregaTableModel.adicionar(entrega);
             atualizaTotaisDeFrete(entregaDao.pesquisar());
             Mensagem.info(Texto.SUCESSO_CADASTRAR_ENTREGA);
-            
+
         } else {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
@@ -526,16 +527,17 @@ public class TelaEntregaControl {
     public void atualizaValorFreteManualAction() {
         valorFreteManual = Double.valueOf(DecimalFormat.paraPonto(telaFreteNaoEncontrado.getTfValorFreteManual().getText()));
     }
-    
-    
+
     private void limparTabListarEntregaAction() {
         telaEntrega.getTfPesquisarEntrega().setText("");
     }
+
     private void limparTabEditarTramitesAction() {
         telaEntrega.getTfNomeTramite().setText("");
         telaEntrega.getTfObservacaoTramite().setText("");
         telaEntrega.getCbTipoTramite().setSelectedIndex(0);
     }
+
     private void limparTabEfetivarEntregaAction() {
         telaEntrega.getTfCodigoPessoa().setText("");
         telaEntrega.getTfCodigoPessoa().setText("");
@@ -545,7 +547,7 @@ public class TelaEntregaControl {
         telaEntrega.getTfObservacaoTramite().setText("");
         telaEntrega.getCbEncomenda().setSelectedIndex(0);
         telaEntrega.getCbRemetente().setSelectedIndex(0);
-        
+
     }
 
 }

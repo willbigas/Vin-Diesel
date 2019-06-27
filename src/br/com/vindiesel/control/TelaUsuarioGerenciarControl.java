@@ -65,16 +65,18 @@ public class TelaUsuarioGerenciarControl {
                 telaUsuarioGerenciar.setVisible(true);
             }
         }
-        atualizaTotalUsuarios(usuarioDao.pesquisar());
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
         usuarioTableModel.limpar();
         usuarioTableModel.adicionar(usuarioDao.pesquisar());
-        redimensionarTela();
+        atualizaTotalUsuarios(usuarioDao.pesquisar());
+        telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, false);
+        telaUsuarioGerenciar.getTfPesquisar().requestFocus();
+        redimensionarTabela();
     }
 
-    private void redimensionarTela() {
+    private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaUsuarioGerenciar.getTblUsuario());
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 135);
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 321);
@@ -87,6 +89,15 @@ public class TelaUsuarioGerenciarControl {
         listTipoUsuarios = tipoUsuarioDao.pesquisar();
         DefaultComboBoxModel<TipoUsuario> model = new DefaultComboBoxModel(listTipoUsuarios.toArray());
         telaUsuarioGerenciar.getCbTipoUsuario().setModel(model);
+    }
+
+    public void novoUsuarioAction() {
+        limparCamposAction();
+        telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, true);
+        UtilTable.limparSelecaoDaTabela(telaUsuarioGerenciar.getTblUsuario());
+        usuario = null;
+        telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
+
     }
 
     private void inserirUsuario() {
@@ -139,6 +150,7 @@ public class TelaUsuarioGerenciarControl {
         if (idInserido != 0) {
             usuario.setId(idInserido);
             usuarioTableModel.adicionar(usuario);
+            atualizaTotalUsuarios(usuarioDao.pesquisar());
             limparCamposAction();
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
@@ -200,6 +212,7 @@ public class TelaUsuarioGerenciarControl {
         if (alterado) {
             usuarioTableModel.atualizar(linhaSelecionada, usuario);
             Mensagem.info(Texto.SUCESSO_EDITAR);
+            atualizaTotalUsuarios(usuarioDao.pesquisar());
             limparCamposAction();
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);
@@ -259,6 +272,7 @@ public class TelaUsuarioGerenciarControl {
             if (deletado) {
                 usuarioTableModel.remover(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
                 telaUsuarioGerenciar.getTblUsuario().clearSelection();
+                atualizaTotalUsuarios(usuarioDao.pesquisar());
                 Mensagem.info(Texto.SUCESSO_DESATIVAR);
             } else {
                 Mensagem.erro(Texto.ERRO_DESATIVAR);
@@ -291,33 +305,35 @@ public class TelaUsuarioGerenciarControl {
         } else {
             telaUsuarioGerenciar.getCheckAtivo().setSelected(false);
         }
+        telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, true); // habilita o tabbed pane
         telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
+        telaUsuarioGerenciar.getTfNome().requestFocus();
     }
 
     public void pesquisarUsuarioAction() {
-        List<Usuario> encomendasPesquisadas = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
-        if (encomendasPesquisadas == null) {
+        List<Usuario> usuariosPesquisados = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
+        if (usuariosPesquisados == null) {
             usuarioTableModel.limpar();
-            encomendasPesquisadas = usuarioDao.pesquisar();
-            atualizaTotalUsuarios(encomendasPesquisadas);
+            usuariosPesquisados = usuarioDao.pesquisar();
+            atualizaTotalUsuarios(usuariosPesquisados);
         } else {
             usuarioTableModel.limpar();
-            usuarioTableModel.adicionar(encomendasPesquisadas);
-            atualizaTotalUsuarios(encomendasPesquisadas);
+            usuarioTableModel.adicionar(usuariosPesquisados);
+            atualizaTotalUsuarios(usuariosPesquisados);
         }
 
     }
 
     public void atualizaTotalUsuarios(List<Usuario> usuarios) {
-        Integer totalUsuarios = 0;
-        Integer totaoUsuariosFiltrados = 0;
+        Integer totalUsuario = 0;
+        Integer totalUsuarioFiltrado = 0;
         List<Usuario> usuariosDobanco = usuarioDao.pesquisar();
 
-        totalUsuarios = usuariosDobanco.size();
-        totaoUsuariosFiltrados = usuarios.size();
+        totalUsuario = usuariosDobanco.size();
+        totalUsuarioFiltrado = usuarios.size();
 
-        telaUsuarioGerenciar.getLblUsuarioTotal().setText(String.valueOf(totalUsuarios));
-        telaUsuarioGerenciar.getLblUsuarioFiltrado().setText(String.valueOf(totaoUsuariosFiltrados));
+        telaUsuarioGerenciar.getLblUsuarioTotal().setText(String.valueOf(totalUsuario));
+        telaUsuarioGerenciar.getLblUsuarioFiltrado().setText(String.valueOf(totalUsuarioFiltrado));
     }
 
     public void limparCamposAction() {

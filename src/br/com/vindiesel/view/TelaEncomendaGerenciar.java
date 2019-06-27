@@ -61,6 +61,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         lblTotalValorNfFiltrados = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         lblTotalValorNf = new javax.swing.JLabel();
+        btNovaEncomenda = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btGravar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
@@ -93,6 +94,11 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         setTitle("Gerenciamento de encomendas");
 
         tpProduto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tpProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tpProdutoMousePressed(evt);
+            }
+        });
 
         tblProduto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblProduto.setModel(new javax.swing.table.DefaultTableModel(
@@ -119,7 +125,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
-        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -132,7 +138,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
-        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -185,6 +191,19 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         lblTotalValorNf.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalValorNf.setText("[TotalNf]");
 
+        btNovaEncomenda.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btNovaEncomenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
+        btNovaEncomenda.setText("Novo");
+        btNovaEncomenda.setBorder(null);
+        btNovaEncomenda.setBorderPainted(false);
+        btNovaEncomenda.setContentAreaFilled(false);
+        btNovaEncomenda.setFocusPainted(false);
+        btNovaEncomenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovaEncomendaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -195,13 +214,14 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addComponent(btVisualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btNovaEncomenda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btDesativar)
-                        .addGap(20, 20, 20))
+                        .addComponent(btVisualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btDesativar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -220,7 +240,8 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalEncomendas)))
-                        .addContainerGap(172, Short.MAX_VALUE))))
+                        .addGap(0, 166, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15)
@@ -236,7 +257,8 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(btVisualizar)
                     .addComponent(btDesativar)
                     .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(btNovaEncomenda))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -262,7 +284,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -275,7 +297,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         btLimpar.setBorder(null);
         btLimpar.setBorderPainted(false);
         btLimpar.setContentAreaFilled(false);
-        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparActionPerformed(evt);
@@ -307,7 +329,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -477,7 +499,7 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btGravar)
                     .addComponent(btLimpar))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         tpProduto.addTab("EDITAR", jPanel2);
@@ -564,11 +586,22 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tfComprimentoKeyPressed
 
+    private void btNovaEncomendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovaEncomendaActionPerformed
+        // TODO add your handling code here:
+        telaProdutoGerenciarControl.novaEncomendaAction();
+    }//GEN-LAST:event_btNovaEncomendaActionPerformed
+
+    private void tpProdutoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tpProdutoMousePressed
+        // TODO add your handling code here:
+        tpProduto.setEnabledAt(1, false);
+    }//GEN-LAST:event_tpProdutoMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btNovaEncomenda;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

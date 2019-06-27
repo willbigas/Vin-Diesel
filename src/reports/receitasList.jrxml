@@ -6,29 +6,29 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
 	<field name="dataCadastro" class="java.time.LocalDateTime">
 		<fieldDescription><![CDATA[dataCadastro]]></fieldDescription>
 	</field>
-	<field name="dataEntrega" class="java.time.LocalDateTime">
-		<fieldDescription><![CDATA[dataEntrega]]></fieldDescription>
+	<field name="dataPagamento" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[dataPagamento]]></fieldDescription>
 	</field>
-	<field name="destinatario" class="br.com.vindiesel.model.Destinatario">
-		<fieldDescription><![CDATA[destinatario]]></fieldDescription>
+	<field name="dataVencimento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataVencimento]]></fieldDescription>
 	</field>
-	<field name="encomenda" class="br.com.vindiesel.model.Encomenda">
-		<fieldDescription><![CDATA[encomenda]]></fieldDescription>
+	<field name="entrega" class="br.com.vindiesel.model.Entrega">
+		<fieldDescription><![CDATA[entrega]]></fieldDescription>
 	</field>
-	<field name="entregue" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[entregue]]></fieldDescription>
+	<field name="formaPagamento" class="br.com.vindiesel.model.FormaPagamento">
+		<fieldDescription><![CDATA[formaPagamento]]></fieldDescription>
 	</field>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
-	<field name="remetente" class="br.com.vindiesel.model.Remetente">
-		<fieldDescription><![CDATA[remetente]]></fieldDescription>
-	</field>
-	<field name="tramites" class="java.util.List">
-		<fieldDescription><![CDATA[tramites]]></fieldDescription>
+	<field name="valorRecebido" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorRecebido]]></fieldDescription>
 	</field>
 	<field name="valorTotal" class="java.lang.Double">
 		<fieldDescription><![CDATA[valorTotal]]></fieldDescription>
@@ -74,7 +74,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="19"/>
 				</textElement>
-				<text><![CDATA[Relatório de Entregas]]></text>
+				<text><![CDATA[Relatório de Receitas]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="400" y="35" width="75" height="20" uuid="9c5380f3-a51b-4d33-ba88-4bf27b25f399"/>
@@ -89,64 +89,92 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 	<columnHeader>
 		<band height="37" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="12" width="109" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
+				<reportElement x="0" y="12" width="67" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[ENCOMENDA]]></text>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="376" y="12" width="179" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
+				<reportElement x="474" y="12" width="81" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[DESTINATARIO]]></text>
+				<text><![CDATA[ENTREGA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="12" width="119" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
+				<reportElement x="67" y="12" width="58" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[VALOR_TOTAL]]></text>
+				<text><![CDATA[DATA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="12" width="148" height="20" uuid="286fd1ef-6f18-492e-a406-2b32d90cfb61"/>
+				<reportElement x="125" y="12" width="57" height="20" uuid="4adbfb8a-9223-4424-b1a8-ad6cb263c371"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[REMETENTE]]></text>
+				<text><![CDATA[PAGTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="182" y="12" width="64" height="20" uuid="3f8d7e4f-6a5c-449b-9efc-ff539cca17c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[VENC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="12" width="130" height="20" uuid="4c697ec7-6afa-4578-b6a3-9593ff0e388b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[FORMA PAGTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="12" width="98" height="20" uuid="149373ef-772e-43d8-9368-efaad282dfaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[VL_TOTAL]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="109" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
+				<reportElement x="0" y="0" width="67" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{encomenda}.getCodigoRastreio()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="109" y="0" width="119" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="182" y="0" width="64" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="376" y="0" width="98" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="376" y="0" width="178" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
+				<reportElement x="246" y="0" width="130" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{destinatario}.getNome()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{formaPagamento}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="228" y="0" width="148" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
+				<reportElement x="474" y="0" width="80" height="20" uuid="9fc17fc7-01f6-48a5-a911-8610f02f960a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{remetente}.getNome()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{entrega}.getId()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

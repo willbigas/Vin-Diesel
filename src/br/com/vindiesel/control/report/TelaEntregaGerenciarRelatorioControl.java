@@ -1,4 +1,4 @@
-package br.com.vindiesel.report;
+package br.com.vindiesel.control.report;
 
 import br.com.vindiesel.dao.EntregaDao;
 import br.com.vindiesel.model.Encomenda;
@@ -13,14 +13,14 @@ import java.util.List;
  *
  * @author William
  */
-public class EntregaGerenciarRelatorioControl {
+public class TelaEntregaGerenciarRelatorioControl {
 
     TelaEntregaGerenciarRelatorio telaEntregaGerenciarRelatorio;
     EntregaDao entregaDao;
     Entrega entrega;
     List<Entrega> listEntregas;
 
-    public EntregaGerenciarRelatorioControl() {
+    public TelaEntregaGerenciarRelatorioControl() {
         entregaDao = new EntregaDao();
     }
 

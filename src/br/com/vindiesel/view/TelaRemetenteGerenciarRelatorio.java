@@ -5,8 +5,8 @@
  */
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.report.DestinatarioGerenciarRelatorioControl;
-import br.com.vindiesel.report.RemetenteGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaDestinatarioGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaRemetenteGerenciarRelatorioControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 
 /**
@@ -15,7 +15,7 @@ import br.com.vindiesel.uteis.InterfaceJanela;
  */
 public class TelaRemetenteGerenciarRelatorio extends javax.swing.JInternalFrame {
 
-    RemetenteGerenciarRelatorioControl remetenteGerenciarRelatorioControl;
+    TelaRemetenteGerenciarRelatorioControl remetenteGerenciarRelatorioControl;
 
     /**
      * Creates new form TelaDestinatarioGerenciarRelatorio
@@ -24,7 +24,7 @@ public class TelaRemetenteGerenciarRelatorio extends javax.swing.JInternalFrame 
         initComponents();
     }
 
-    public TelaRemetenteGerenciarRelatorio(RemetenteGerenciarRelatorioControl control) {
+    public TelaRemetenteGerenciarRelatorio(TelaRemetenteGerenciarRelatorioControl control) {
         initComponents();
         initComponents();
         remetenteGerenciarRelatorioControl = control;
@@ -47,8 +47,11 @@ public class TelaRemetenteGerenciarRelatorio extends javax.swing.JInternalFrame 
         jComboBox1 = new javax.swing.JComboBox<>();
         btGerarRelatorio = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Relatório de destinátario");
+        jLabel1.setText("Relatório de Remetentes");
 
         jLabel2.setText("Pesquisar por :");
 
@@ -65,25 +68,23 @@ public class TelaRemetenteGerenciarRelatorio extends javax.swing.JInternalFrame 
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(134, 134, 134))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(73, 73, 73))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btGerarRelatorio)
-                        .addGap(27, 27, 27))))
+                .addContainerGap(305, Short.MAX_VALUE)
+                .addComponent(btGerarRelatorio)
+                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

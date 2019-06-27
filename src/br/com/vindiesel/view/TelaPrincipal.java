@@ -333,7 +333,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemGerenciarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarUsuarioActionPerformed
-        telaPrincipalControl.chamarTelaGerenciarFuncionarioAction();
+        telaPrincipalControl.chamarTelaGerenciarUsuarioAction();
     }//GEN-LAST:event_menuItemGerenciarUsuarioActionPerformed
 
     private void menuItemGerenciarTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarTipoUsuarioActionPerformed
@@ -353,8 +353,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioReceitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioReceitasActionPerformed
         // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/receitas.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+        telaPrincipalControl.chamarTelaReceitaGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioReceitasActionPerformed
 
     private void menuItemRelatorioEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEntregaActionPerformed
@@ -364,8 +363,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioUsuarioActionPerformed
         // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/usuarios.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+       telaPrincipalControl.chamarTelaUsuarioGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioUsuarioActionPerformed
 
     private void menuItemGerenciarRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarRemetenteActionPerformed

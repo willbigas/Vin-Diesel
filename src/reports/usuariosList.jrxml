@@ -6,32 +6,44 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="dataCadastro" class="java.time.LocalDateTime">
-		<fieldDescription><![CDATA[dataCadastro]]></fieldDescription>
+	<field name="endereco" class="br.com.vindiesel.model.Endereco">
+		<fieldDescription><![CDATA[endereco]]></fieldDescription>
 	</field>
-	<field name="dataEntrega" class="java.time.LocalDateTime">
-		<fieldDescription><![CDATA[dataEntrega]]></fieldDescription>
+	<field name="tipoUsuario" class="br.com.vindiesel.model.TipoUsuario">
+		<fieldDescription><![CDATA[tipoUsuario]]></fieldDescription>
 	</field>
-	<field name="destinatario" class="br.com.vindiesel.model.Destinatario">
-		<fieldDescription><![CDATA[destinatario]]></fieldDescription>
+	<field name="ativo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[ativo]]></fieldDescription>
 	</field>
-	<field name="encomenda" class="br.com.vindiesel.model.Encomenda">
-		<fieldDescription><![CDATA[encomenda]]></fieldDescription>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
 	</field>
-	<field name="entregue" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[entregue]]></fieldDescription>
+	<field name="salario" class="java.lang.Double">
+		<fieldDescription><![CDATA[salario]]></fieldDescription>
 	</field>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
-	<field name="remetente" class="br.com.vindiesel.model.Remetente">
-		<fieldDescription><![CDATA[remetente]]></fieldDescription>
+	<field name="pis" class="java.lang.Integer">
+		<fieldDescription><![CDATA[pis]]></fieldDescription>
 	</field>
-	<field name="tramites" class="java.util.List">
-		<fieldDescription><![CDATA[tramites]]></fieldDescription>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
 	</field>
-	<field name="valorTotal" class="java.lang.Double">
-		<fieldDescription><![CDATA[valorTotal]]></fieldDescription>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<fieldDescription><![CDATA[senha]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
+	</field>
+	<field name="dataNascimento" class="java.time.LocalDate">
+		<fieldDescription><![CDATA[dataNascimento]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -74,7 +86,7 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="19"/>
 				</textElement>
-				<text><![CDATA[Relatório de Entregas]]></text>
+				<text><![CDATA[Relatório de Usuários]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="400" y="35" width="75" height="20" uuid="9c5380f3-a51b-4d33-ba88-4bf27b25f399"/>
@@ -89,64 +101,92 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 	<columnHeader>
 		<band height="37" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="12" width="109" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
+				<reportElement x="0" y="12" width="112" height="20" uuid="a93864eb-f4f0-49b5-a967-73cafb9b8254"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[ENCOMENDA]]></text>
+				<text><![CDATA[NOME]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="376" y="12" width="179" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
+				<reportElement x="457" y="12" width="97" height="20" uuid="af3a5e4d-1bee-4831-b6b2-7c0ff8e3f399"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[DESTINATARIO]]></text>
+				<text><![CDATA[TIPO_USUARIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="109" y="12" width="119" height="20" uuid="65585d85-d3fa-454c-9b33-778bdff6e6c8"/>
+				<reportElement x="112" y="12" width="103" height="20" uuid="3f8d7e4f-6a5c-449b-9efc-ff539cca17c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[VALOR_TOTAL]]></text>
+				<text><![CDATA[CPF]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="12" width="148" height="20" uuid="286fd1ef-6f18-492e-a406-2b32d90cfb61"/>
+				<reportElement x="297" y="12" width="75" height="20" uuid="4c697ec7-6afa-4578-b6a3-9593ff0e388b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[REMETENTE]]></text>
+				<text><![CDATA[SALÁRIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="12" width="85" height="20" uuid="149373ef-772e-43d8-9368-efaad282dfaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NUM_PIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="12" width="82" height="20" uuid="b38e4184-5b79-4e6a-aa8d-6795e6362795"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="109" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
+				<reportElement x="0" y="0" width="112" height="20" uuid="0faf621b-6930-48b1-bc54-a8bbaa8f706a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{encomenda}.getCodigoRastreio()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="372" y="0" width="85" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pis}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="109" y="0" width="119" height="20" uuid="b0ae7d4f-cc3a-4ebb-8032-6d952a2fa328"/>
+				<reportElement x="297" y="0" width="75" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="376" y="0" width="178" height="20" uuid="4da18337-b35c-4271-bfc5-cef15706e0bb"/>
+				<reportElement x="457" y="0" width="97" height="20" uuid="9fc17fc7-01f6-48a5-a911-8610f02f960a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{destinatario}.getNome()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tipoUsuario}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="228" y="0" width="148" height="20" uuid="5ca56c1e-6c45-4d22-880b-1c2bb2ba63f7"/>
+				<reportElement x="112" y="0" width="103" height="20" uuid="a2d96afb-43c6-4f48-bd48-d4d88c63659f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{remetente}.getNome()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="0" width="82" height="20" uuid="6b34df8e-d26c-44ea-8964-6ab01d4d9682"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

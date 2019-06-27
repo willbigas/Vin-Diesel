@@ -1,4 +1,4 @@
-package br.com.vindiesel.report;
+package br.com.vindiesel.control.report;
 
 import br.com.vindiesel.dao.DestinatarioDao;
 import br.com.vindiesel.dao.RemetenteDao;
@@ -15,14 +15,14 @@ import java.util.List;
  *
  * @author William
  */
-public class RemetenteGerenciarRelatorioControl {
+public class TelaRemetenteGerenciarRelatorioControl {
 
     TelaRemetenteGerenciarRelatorio telaRemetenteGerenciarRelatorio;
     RemetenteDao remetenteDao;
     Remetente remetente;
     List<Remetente> listRemetentes;
 
-    public RemetenteGerenciarRelatorioControl() {
+    public TelaRemetenteGerenciarRelatorioControl() {
         remetenteDao = new RemetenteDao();
     }
 

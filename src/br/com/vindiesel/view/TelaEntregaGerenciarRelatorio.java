@@ -5,8 +5,8 @@
  */
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.report.EncomendaGerenciarRelatorioControl;
-import br.com.vindiesel.report.EntregaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaEncomendaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaEntregaGerenciarRelatorioControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 
 /**
@@ -15,7 +15,7 @@ import br.com.vindiesel.uteis.InterfaceJanela;
  */
 public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
 
-    EntregaGerenciarRelatorioControl entregaGerenciarRelatorioControl;
+    TelaEntregaGerenciarRelatorioControl entregaGerenciarRelatorioControl;
 
     /**
      * Creates new form TelaDestinatarioGerenciarRelatorio
@@ -24,7 +24,7 @@ public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public TelaEntregaGerenciarRelatorio(EntregaGerenciarRelatorioControl control) {
+    public TelaEntregaGerenciarRelatorio(TelaEntregaGerenciarRelatorioControl control) {
         initComponents();
         initComponents();
         entregaGerenciarRelatorioControl = control;
@@ -47,8 +47,11 @@ public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         btGerarRelatorio = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Relatório de Encomendas");
+        jLabel1.setText("Relatório de Entregas");
 
         jLabel2.setText("Pesquisar por :");
 
@@ -65,16 +68,16 @@ public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(134, 134, 134))
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(134, 134, 134))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +86,7 @@ public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(78, 78, 78))))
+                        .addGap(100, 100, 100))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

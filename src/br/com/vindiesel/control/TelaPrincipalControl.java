@@ -1,9 +1,11 @@
 package br.com.vindiesel.control;
 
-import br.com.vindiesel.report.DestinatarioGerenciarRelatorioControl;
-import br.com.vindiesel.report.EncomendaGerenciarRelatorioControl;
-import br.com.vindiesel.report.EntregaGerenciarRelatorioControl;
-import br.com.vindiesel.report.RemetenteGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaDestinatarioGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaEncomendaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaEntregaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaReceitaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaRemetenteGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaUsuarioGerenciarRelatorioControl;
 import br.com.vindiesel.view.TelaPrincipal;
 import javax.swing.JFrame;
 
@@ -17,21 +19,24 @@ public class TelaPrincipalControl {
     TelaLoginControl telaLoginControl;
 
     private TelaUsuarioGerenciarControl telaUsuarioGerenciarControl = null;
+    private TelaUsuarioGerenciarRelatorioControl usuarioGerenciarRelatorioControl = null;
 
     private TelaEncomendaGerenciarControl telaEncomendaGerenciarControl = null;
-    private EncomendaGerenciarRelatorioControl encomendaGerenciarRelatorioControl = null;
+    private TelaEncomendaGerenciarRelatorioControl encomendaGerenciarRelatorioControl = null;
 
     private TelaDestinatarioGerenciarControl telaDestinatarioGerenciarControl = null;
-    private DestinatarioGerenciarRelatorioControl destinatarioGerenciarRelatorioControl = null;
+    private TelaDestinatarioGerenciarRelatorioControl destinatarioGerenciarRelatorioControl = null;
 
     private TelaRemetenteGerenciarControl telaRemetenteGerenciarControl = null;
-    private RemetenteGerenciarRelatorioControl remetenteGerenciarRelatorioControl = null;
+    private TelaRemetenteGerenciarRelatorioControl remetenteGerenciarRelatorioControl = null;
 
     private TelaTipoUsuarioGerenciarControl telaTipoUsuarioGerenciarControl = null;
+
     private TelaReceitaGerenciarControl telaReceitaGerenciarControl = null;
+    private TelaReceitaGerenciarRelatorioControl receitaGerenciarRelatorioControl = null;
 
     private TelaEntregaControl telaEntregaControl = null;
-    private EntregaGerenciarRelatorioControl entregaGerenciarRelatorioControl = null;
+    private TelaEntregaGerenciarRelatorioControl entregaGerenciarRelatorioControl = null;
 
     private TelaSobreControl telaSobreControl = null;
 
@@ -46,12 +51,21 @@ public class TelaPrincipalControl {
         telaPrincipal.setVisible(true);
     }
 
-    public void chamarTelaGerenciarFuncionarioAction() {
+    public void chamarTelaGerenciarUsuarioAction() {
         if (telaUsuarioGerenciarControl != null) {
             telaUsuarioGerenciarControl.chamarTelaUsuarioGerenciar();
         } else {
             telaUsuarioGerenciarControl = new TelaUsuarioGerenciarControl();
             telaUsuarioGerenciarControl.chamarTelaUsuarioGerenciar();
+        }
+    }
+
+    public void chamarTelaEncomendaGerenciarRelatorioAction() {
+        if (encomendaGerenciarRelatorioControl != null) {
+            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+        } else {
+            encomendaGerenciarRelatorioControl = new TelaEncomendaGerenciarRelatorioControl();
+            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
         }
     }
 
@@ -64,12 +78,12 @@ public class TelaPrincipalControl {
         }
     }
 
-    public void chamarTelaEncomendaGerenciarRelatorioAction() {
-        if (encomendaGerenciarRelatorioControl != null) {
-            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+    public void chamarTelaUsuarioGerenciarRelatorioAction() {
+        if (usuarioGerenciarRelatorioControl != null) {
+            usuarioGerenciarRelatorioControl.chamarTelaUsuarioGerenciarRelatorio();
         } else {
-            encomendaGerenciarRelatorioControl = new EncomendaGerenciarRelatorioControl();
-            encomendaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
+            usuarioGerenciarRelatorioControl = new TelaUsuarioGerenciarRelatorioControl();
+            usuarioGerenciarRelatorioControl.chamarTelaUsuarioGerenciarRelatorio();
         }
     }
 
@@ -86,7 +100,7 @@ public class TelaPrincipalControl {
         if (destinatarioGerenciarRelatorioControl != null) {
             destinatarioGerenciarRelatorioControl.chamarTelaDestinatarioGerenciarRelatorio();
         } else {
-            destinatarioGerenciarRelatorioControl = new DestinatarioGerenciarRelatorioControl();
+            destinatarioGerenciarRelatorioControl = new TelaDestinatarioGerenciarRelatorioControl();
             destinatarioGerenciarRelatorioControl.chamarTelaDestinatarioGerenciarRelatorio();
         }
     }
@@ -104,7 +118,7 @@ public class TelaPrincipalControl {
         if (remetenteGerenciarRelatorioControl != null) {
             remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
         } else {
-            remetenteGerenciarRelatorioControl = new RemetenteGerenciarRelatorioControl();
+            remetenteGerenciarRelatorioControl = new TelaRemetenteGerenciarRelatorioControl();
             remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
         }
     }
@@ -127,6 +141,15 @@ public class TelaPrincipalControl {
         }
     }
 
+    public void chamarTelaReceitaGerenciarRelatorioAction() {
+        if (receitaGerenciarRelatorioControl != null) {
+            receitaGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
+        } else {
+            receitaGerenciarRelatorioControl = new TelaReceitaGerenciarRelatorioControl();
+            receitaGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
+        }
+    }
+
     public void chamarTelaEntregaAction() {
         if (telaEntregaControl != null) {
             telaEntregaControl.chamarTelaEntrega();
@@ -140,7 +163,7 @@ public class TelaPrincipalControl {
         if (entregaGerenciarRelatorioControl != null) {
             entregaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
         } else {
-            entregaGerenciarRelatorioControl = new EntregaGerenciarRelatorioControl();
+            entregaGerenciarRelatorioControl = new TelaEntregaGerenciarRelatorioControl();
             entregaGerenciarRelatorioControl.chamarTelaEncomendaGerenciarRelatorio();
         }
     }

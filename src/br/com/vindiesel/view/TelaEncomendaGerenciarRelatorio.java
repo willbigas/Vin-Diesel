@@ -5,7 +5,7 @@
  */
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.report.EncomendaGerenciarRelatorioControl;
+import br.com.vindiesel.control.report.TelaEncomendaGerenciarRelatorioControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 
 /**
@@ -14,7 +14,7 @@ import br.com.vindiesel.uteis.InterfaceJanela;
  */
 public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame {
 
-    EncomendaGerenciarRelatorioControl encomendaGerenciarRelatorioControl;
+    TelaEncomendaGerenciarRelatorioControl encomendaGerenciarRelatorioControl;
 
     /**
      * Creates new form TelaDestinatarioGerenciarRelatorio
@@ -23,7 +23,7 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
         initComponents();
     }
 
-    public TelaEncomendaGerenciarRelatorio(EncomendaGerenciarRelatorioControl control) {
+    public TelaEncomendaGerenciarRelatorio(TelaEncomendaGerenciarRelatorioControl control) {
         initComponents();
         initComponents();
         encomendaGerenciarRelatorioControl = control;
@@ -45,6 +45,9 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
         jTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         btGerarRelatorio = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Relatório de Encomendas");

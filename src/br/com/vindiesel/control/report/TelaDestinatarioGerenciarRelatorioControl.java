@@ -1,4 +1,4 @@
-package br.com.vindiesel.report;
+package br.com.vindiesel.control.report;
 
 import br.com.vindiesel.dao.DestinatarioDao;
 import br.com.vindiesel.model.Destinatario;
@@ -12,14 +12,14 @@ import java.util.List;
  *
  * @author William
  */
-public class DestinatarioGerenciarRelatorioControl {
+public class TelaDestinatarioGerenciarRelatorioControl {
 
     TelaDestinatarioGerenciarRelatorio telaDestinatarioGerenciarRelatorio;
     DestinatarioDao destinatarioDao;
     Destinatario destinatario;
     List<Destinatario> listDestinatarios;
 
-    public DestinatarioGerenciarRelatorioControl() {
+    public TelaDestinatarioGerenciarRelatorioControl() {
         destinatarioDao = new DestinatarioDao();
     }
 

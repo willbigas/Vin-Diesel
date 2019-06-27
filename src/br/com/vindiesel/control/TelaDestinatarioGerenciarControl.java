@@ -72,7 +72,7 @@ public class TelaDestinatarioGerenciarControl {
         UtilTable.centralizarCabecalho(telaDestinatarioGerenciar.getTblDestinatario());
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 0, 80);
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 1, 350);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 133);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 155);
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
     }
     

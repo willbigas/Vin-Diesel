@@ -351,6 +351,11 @@ public class TelaEntregaControl {
     }
 
     public void listarTramitesDeUmaEntregaAction() {
+        if (telaEntrega.getTblEntrega().getSelectedRow() == -1) {
+            Mensagem.info(Texto.SELECIONADA_LINHA);
+            return;
+        }
+
         entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
         tramiteTableModel.limpar();
         tramiteTableModel.adicionar(tramiteDao.pesquisarTramitesPorEntrega(entrega));

@@ -152,9 +152,9 @@ public class TelaUsuarioGerenciarControl {
             usuarioTableModel.adicionar(usuario);
             atualizaTotalUsuarios(usuarioDao.pesquisar());
             limparCamposAction();
-            Mensagem.info(Texto.SUCESSO_CADASTRAR);
+            Mensagem.info(Texto.SUCESSO_CADASTRAR_USUARIO);
         } else {
-            Mensagem.info(Texto.ERRO_CADASTRAR);
+            Mensagem.info(Texto.ERRO_CADASTRAR_USUARIO);
         }
         usuario = null;
         endereco = null;
@@ -261,22 +261,24 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void desativarUsuarioAction() {
-        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
-
-        if (retorno == JOptionPane.NO_OPTION) {
+        if (telaUsuarioGerenciar.getTblUsuario().getSelectedRow() == -1) {
+            Mensagem.info(Texto.SELECIONADA_LINHA);
             return;
         }
-        if (retorno == JOptionPane.YES_OPTION) {
-            usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
-            boolean deletado = usuarioDao.desativar(usuario.getId());
-            if (deletado) {
-                usuarioTableModel.remover(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
-                telaUsuarioGerenciar.getTblUsuario().clearSelection();
-                atualizaTotalUsuarios(usuarioDao.pesquisar());
-                Mensagem.info(Texto.SUCESSO_DESATIVAR);
-            } else {
-                Mensagem.erro(Texto.ERRO_DESATIVAR);
-            }
+        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR + usuario.getNome() + " ?");
+
+        if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
+            return;
+        }
+
+        if (usuarioDao.desativar(usuario.getId())) {
+            usuarioTableModel.remover(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+            telaUsuarioGerenciar.getTblUsuario().clearSelection();
+            atualizaTotalUsuarios(usuarioDao.pesquisar());
+            Mensagem.info(usuario.getNome() + " " + Texto.SUCESSO_DESATIVAR);
+        } else {
+            Mensagem.erro(Texto.ERRO_DESATIVAR + " " + usuario.getNome());
         }
         usuario = null;
     }

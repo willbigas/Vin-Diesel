@@ -197,20 +197,23 @@ public class TelaEncomendaGerenciarControl {
     }
 
     public void excluirEncomendaAction() {
-        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR);
-        if (retorno == JOptionPane.NO_OPTION) {
+        if (telaEncomendaGerenciar.getTblProduto().getSelectedRow() == -1) {
+            Mensagem.info(Texto.SELECIONADA_LINHA);
+            return;
+        }
+        encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + encomenda.getCodigoRastreio() + " ?");
+        
+        if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }
 
-        if (retorno == JOptionPane.YES_OPTION) {
-            encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
-            if (encomendaDao.deletar(encomenda.getId())) {
-                encomendaTableModel.remover(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
-                telaEncomendaGerenciar.getTblProduto().clearSelection();
-                Mensagem.info(Texto.SUCESSO_REMOVER);
-            } else {
-                Mensagem.erro(Texto.ERRO_DELETAR);
-            }
+        if (encomendaDao.deletar(encomenda.getId())) {
+            encomendaTableModel.remover(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+            telaEncomendaGerenciar.getTblProduto().clearSelection();
+            Mensagem.info(Texto.SUCESSO_REMOVER);
+        } else {
+            Mensagem.erro(Texto.ERRO_DELETAR);
         }
         encomenda = null;
     }

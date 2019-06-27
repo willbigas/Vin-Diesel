@@ -103,7 +103,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(jLabel1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +158,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setBorder(null);
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
-        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -167,11 +167,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/excluir_32x32.png"))); // NOI18N
-        btDesativar.setText("Desativar");
+        btDesativar.setText("Excluir");
         btDesativar.setBorder(null);
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
-        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -184,7 +184,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btNovo.setBorder(null);
         btNovo.setBorderPainted(false);
         btNovo.setContentAreaFilled(false);
-        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
@@ -203,27 +203,27 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                         .addComponent(btNovo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btVisualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btDesativar)
-                        .addGap(12, 12, 12)))
+                        .addGap(18, 18, 18)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btNovo)
                     .addComponent(btVisualizar)
-                    .addComponent(btDesativar)
-                    .addComponent(btNovo))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btDesativar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -295,7 +295,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -388,7 +388,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btGravar)
                                 .addGap(18, 18, 18)))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,29 +437,34 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
         tpDestinatario.addTab("Editar", jPanel3);
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Destinatarios filtrados:");
 
+        lblDestinatariosFiltrados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblDestinatariosFiltrados.setText("[DestinatariosFiltrados]");
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("de:");
 
+        lblTotalDestinatarios.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalDestinatarios.setText("[TotalDestinatarios]");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(tpDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDestinatariosFiltrados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel14)
-                .addGap(3, 3, 3)
-                .addComponent(lblTotalDestinatarios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTotalDestinatarios)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(tpDestinatario)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,13 +472,13 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(tpDestinatario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(lblDestinatariosFiltrados))
-                    .addComponent(lblTotalDestinatarios)))
+                    .addComponent(lblDestinatariosFiltrados)
+                    .addComponent(lblTotalDestinatarios)
+                    .addComponent(jLabel14))
+                .addGap(17, 17, 17))
         );
 
         pack();

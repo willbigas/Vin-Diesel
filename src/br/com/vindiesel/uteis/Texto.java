@@ -14,6 +14,7 @@ public class Texto {
     // Mensagens de Sucesso Padrões
     public static final String SUCESSO_CADASTRAR = "Cadastrado com Sucesso!";
     
+    public static final String SUCESSO_CADASTRAR_USUARIO = "Usuário cadastrado com sucesso";
     
     public static final String SUCESSO_CADASTRAR_ENTREGA = "Entrega efetuada com sucesso!";
     
@@ -34,10 +35,12 @@ public class Texto {
     public static final String ERRO_DELETAR = "Erro ao excluir";
 
     public static final String ERRO_CADASTRAR = "Erro ao Cadastrar!";
+    
+    public static final String ERRO_CADASTRAR_USUARIO = "Erro ao cadastrar um usuário";
 
     public static final String ERRO_EDITAR = "Erro ao Editar!";
 
-    public static final String ERRO_DESATIVAR = "Erro ao desativar!";
+    public static final String ERRO_DESATIVAR = "Erro ao desativar";
 
     // Mensagens de Campos Vazios Padrões
     public static final String VAZIO_CAMPO = "O Campo está vazio!";

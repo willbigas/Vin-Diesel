@@ -16,9 +16,9 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Will
  */
 public class Relatorio {
-
+    
     private static Connection con = Conexao.getConexao();
-
+    
     public static void chamarRelatorio(String enderecoArq) {
         JasperPrint jasperPrint = null;
         try {

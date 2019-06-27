@@ -1,5 +1,8 @@
 package br.com.vindiesel.control;
 
+import br.com.vindiesel.report.DestinatarioGerenciarRelatorioControl;
+import br.com.vindiesel.report.RemetenteGerenciarRelatorioControl;
+import br.com.vindiesel.view.TelaDestinatarioGerenciarRelatorio;
 import br.com.vindiesel.view.TelaPrincipal;
 import javax.swing.JFrame;
 
@@ -14,8 +17,13 @@ public class TelaPrincipalControl {
 
     private TelaUsuarioGerenciarControl telaUsuarioGerenciarControl = null;
     private TelaEncomendaGerenciarControl telaEncomendaGerenciarControl = null;
+
     private TelaDestinatarioGerenciarControl telaDestinatarioGerenciarControl = null;
+    private DestinatarioGerenciarRelatorioControl destinatarioGerenciarRelatorioControl = null;
+
     private TelaRemetenteGerenciarControl telaRemetenteGerenciarControl = null;
+    private RemetenteGerenciarRelatorioControl remetenteGerenciarRelatorioControl = null;
+
     private TelaTipoUsuarioGerenciarControl telaTipoUsuarioGerenciarControl = null;
     private TelaReceitaGerenciarControl telaReceitaGerenciarControl = null;
     private TelaEntregaControl telaEntregaControl = null;
@@ -59,6 +67,15 @@ public class TelaPrincipalControl {
         }
     }
 
+    public void chamarTelaDestinatarioGerenciarRelatorioAction() {
+        if (destinatarioGerenciarRelatorioControl != null) {
+            destinatarioGerenciarRelatorioControl.chamarTelaDestinatarioGerenciarRelatorio();
+        } else {
+            destinatarioGerenciarRelatorioControl = new DestinatarioGerenciarRelatorioControl();
+            destinatarioGerenciarRelatorioControl.chamarTelaDestinatarioGerenciarRelatorio();
+        }
+    }
+
     public void chamarTelaRemetenteGerenciarAction() {
         if (telaRemetenteGerenciarControl != null) {
             telaRemetenteGerenciarControl.chamarTelaRemetenteGerenciar();
@@ -67,6 +84,16 @@ public class TelaPrincipalControl {
             telaRemetenteGerenciarControl.chamarTelaRemetenteGerenciar();
         }
     }
+    
+      public void chamarTelaRemetenteGerenciarRelatorioAction() {
+        if (remetenteGerenciarRelatorioControl != null) {
+            remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
+        } else {
+            remetenteGerenciarRelatorioControl = new RemetenteGerenciarRelatorioControl();
+            remetenteGerenciarRelatorioControl.chamarTelaRemetenteGerenciarRelatorio();
+        }
+    }
+
 
     public void chamarTelaTipoUsuarioGerenciarAction() {
         if (telaTipoUsuarioGerenciarControl != null) {

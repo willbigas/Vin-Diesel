@@ -1,9 +1,12 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaPrincipalControl;
+import br.com.vindiesel.dao.DestinatarioDao;
+import br.com.vindiesel.model.Destinatario;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import br.com.vindiesel.uteis.Relatorio;
 import java.io.InputStream;
+import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -388,14 +391,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioRemententeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioRemententeActionPerformed
         // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/remetentes.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+        telaPrincipalControl.chamarTelaRemetenteGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioRemententeActionPerformed
 
     private void menuItemRelatorioDestinatarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioDestinatarioActionPerformed
-        // TODO add your handling code here:
-        InputStream jasperFile = getClass().getResourceAsStream("/reports/destinatarios.jasper");
-        Relatorio.chamarRelatorio(jasperFile, null);
+        telaPrincipalControl.chamarTelaDestinatarioGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioDestinatarioActionPerformed
 
     private void menuItemRelatorioEncomendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEncomendaActionPerformed

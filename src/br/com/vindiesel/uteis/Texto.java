@@ -109,5 +109,8 @@ public class Texto {
     public static final String ERRO_CONVERTER_CAMPO_MASCARA_CNPJ = "Atencao , Erro ao converter campo de mascara de CNPJ , contate o administrador do sistema.";
     
     
+    public static final String ERRO_USUARIO_DUPLICADO = "Atenção ja existe um usuário com esse email vinculado no sistema.";
+    
+    
 
 }

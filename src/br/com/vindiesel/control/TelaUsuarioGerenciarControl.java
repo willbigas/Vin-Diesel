@@ -107,6 +107,13 @@ public class TelaUsuarioGerenciarControl {
         usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
+
+        if (verificaSeTemEmailNoBanco(usuario.getEmail())) {
+            usuario = null;
+            Mensagem.atencao(Texto.ERRO_USUARIO_DUPLICADO);
+            return;
+        }
+
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
         try {
 
@@ -166,6 +173,7 @@ public class TelaUsuarioGerenciarControl {
         usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
         usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
         usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
+        
         usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
 
         try {
@@ -310,6 +318,7 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, true); // habilita o tabbed pane
         telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
         telaUsuarioGerenciar.getTfNome().requestFocus();
+        telaUsuarioGerenciar.getTfEmail().setEnabled(false);
     }
 
     public void pesquisarUsuarioAction() {
@@ -338,6 +347,13 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getLblUsuarioFiltrado().setText(String.valueOf(totalUsuarioFiltrado));
     }
 
+    public Boolean verificaSeTemEmailNoBanco(String email) {
+        if (usuarioDao.pesquisarPorLogin(email) != null) {
+            return true;
+        }
+        return false;
+    }
+
     public void limparCamposAction() {
         telaUsuarioGerenciar.getTfNome().setText("");
         telaUsuarioGerenciar.getTfCpf().setText("");
@@ -358,5 +374,6 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getCbTipoUsuario().getModel().setSelectedItem(tipoUsuarioDao.pesquisar(1));
         telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem("AC");
         telaUsuarioGerenciar.getTfNome().requestFocus();
+        telaUsuarioGerenciar.getTfEmail().setEnabled(true);
     }
 }

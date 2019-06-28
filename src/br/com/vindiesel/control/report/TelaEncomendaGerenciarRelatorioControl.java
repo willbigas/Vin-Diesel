@@ -40,7 +40,7 @@ public class TelaEncomendaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listEncomendas = encomendaDao.pesquisar("");
+        listEncomendas = encomendaDao.pesquisar(telaEncomendaGerenciarRelatorio.getTfCodigoRastreio().getText());
         chamarRelatorioEncomendas(listEncomendas);
 
     }

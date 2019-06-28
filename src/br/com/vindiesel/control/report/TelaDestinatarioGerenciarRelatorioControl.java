@@ -6,6 +6,7 @@ import br.com.vindiesel.uteis.Relatorio;
 import br.com.vindiesel.view.TelaDestinatarioGerenciarRelatorio;
 import br.com.vindiesel.view.TelaPrincipal;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,10 @@ public class TelaDestinatarioGerenciarRelatorioControl {
     DestinatarioDao destinatarioDao;
     Destinatario destinatario;
     List<Destinatario> listDestinatarios;
+
+    private static final int CB_OPCAO_CODIGO_PESSOA = 0;
+    private static final int CB_OPCAO_NOME = 1;
+    private static final int CB_OPCAO_CIDADE = 2;
 
     public TelaDestinatarioGerenciarRelatorioControl() {
         destinatarioDao = new DestinatarioDao();
@@ -40,7 +45,22 @@ public class TelaDestinatarioGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listDestinatarios = destinatarioDao.pesquisar("cec");
+        if (telaDestinatarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_PESSOA) {
+            listDestinatarios = destinatarioDao.pesquisarPorCodigoPessoa(telaDestinatarioGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaDestinatarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NOME) {
+            listDestinatarios = destinatarioDao.pesquisarPorNome(telaDestinatarioGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaDestinatarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CIDADE) {
+            String campoParaPesquisar = telaDestinatarioGerenciarRelatorio.getTfCampoPesquisa().getText();
+           List<Destinatario> tudoDoBanco = destinatarioDao.pesquisar();
+           listDestinatarios = new ArrayList<>();
+            for (Destinatario destinatario : tudoDoBanco) {
+                if (destinatario.getEndereco().getCidade().toUpperCase().contains(campoParaPesquisar.toUpperCase())) {
+                    listDestinatarios.add(destinatario);
+                }
+            }
+        }
         chamarRelatorioDestinatario(listDestinatarios);
 
     }

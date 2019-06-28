@@ -137,6 +137,48 @@ public class DestinatarioDao extends DaoBD implements DaoI<Destinatario> {
             return null;
         }
     }
+    public List<Destinatario> pesquisarPorCodigoPessoa(String codigoPessoa) {
+        String querySelectComTermo = "SELECT * FROM destinatario WHERE (codigoPessoa like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + codigoPessoa + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Destinatario> lista = new ArrayList<>();
+            while (result.next()) {
+                Destinatario destinatario = new Destinatario();
+                destinatario.setId(result.getInt("id"));
+                destinatario.setNome(result.getString("nome"));
+                destinatario.setCodigoPessoa(result.getString("codigoPessoa"));
+                destinatario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                lista.add(destinatario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    public List<Destinatario> pesquisarPorNome(String nome) {
+        String querySelectComTermo = "SELECT * FROM destinatario WHERE (nome like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + nome + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Destinatario> lista = new ArrayList<>();
+            while (result.next()) {
+                Destinatario destinatario = new Destinatario();
+                destinatario.setId(result.getInt("id"));
+                destinatario.setNome(result.getString("nome"));
+                destinatario.setCodigoPessoa(result.getString("codigoPessoa"));
+                destinatario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                lista.add(destinatario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 
     @Override
     public Destinatario pesquisar(int id) {

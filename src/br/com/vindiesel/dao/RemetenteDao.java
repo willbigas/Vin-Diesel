@@ -187,4 +187,49 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
             return null;
         }
     }
+    
+     public List<Remetente> pesquisarPorCodigoPessoa(String codigoPessoa) {
+        String querySelectComTermo = "SELECT * FROM remetente WHERE (codigoPessoa like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + codigoPessoa + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Remetente> lista = new ArrayList<>();
+            while (result.next()) {
+                Remetente remetente = new Remetente();
+                remetente.setId(result.getInt("id"));
+                remetente.setNome(result.getString("nome"));
+                remetente.setCodigoPessoa(result.getString("codigoPessoa"));
+                remetente.setTelefone(result.getString("telefone"));
+                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                lista.add(remetente);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+     public List<Remetente> pesquisarPorNome(String nome) {
+        String querySelectComTermo = "SELECT * FROM remetente WHERE (nome like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + nome + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Remetente> lista = new ArrayList<>();
+            while (result.next()) {
+                Remetente remetente = new Remetente();
+                remetente.setId(result.getInt("id"));
+                remetente.setNome(result.getString("nome"));
+                remetente.setCodigoPessoa(result.getString("codigoPessoa"));
+                remetente.setTelefone(result.getString("telefone"));
+                remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                lista.add(remetente);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 }

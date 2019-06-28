@@ -19,6 +19,9 @@ public class TelaUsuarioGerenciarRelatorioControl {
     Usuario usuario;
     List<Usuario> listUsuarios;
 
+    private static final int CB_OPCAO_CPF = 0;
+    private static final int CB_OPCAO_NOME = 1;
+
     public TelaUsuarioGerenciarRelatorioControl() {
         usuarioDao = new UsuarioDao();
     }
@@ -40,9 +43,13 @@ public class TelaUsuarioGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listUsuarios = usuarioDao.pesquisar("");
+        if (telaUsuarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CPF) {
+            listUsuarios = usuarioDao.pesquisarPorCpf(telaUsuarioGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaUsuarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NOME) {
+            listUsuarios = usuarioDao.pesquisarPorNome(telaUsuarioGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
         chamarRelatorioDestinatario(listUsuarios);
-
     }
 
     private void chamarRelatorioDestinatario(List<Usuario> usuarios) {

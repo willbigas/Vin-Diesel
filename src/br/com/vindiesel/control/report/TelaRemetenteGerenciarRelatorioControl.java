@@ -1,14 +1,12 @@
 package br.com.vindiesel.control.report;
 
-import br.com.vindiesel.dao.DestinatarioDao;
 import br.com.vindiesel.dao.RemetenteDao;
-import br.com.vindiesel.model.Destinatario;
 import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.uteis.Relatorio;
-import br.com.vindiesel.view.TelaDestinatarioGerenciarRelatorio;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaRemetenteGerenciarRelatorio;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +19,10 @@ public class TelaRemetenteGerenciarRelatorioControl {
     RemetenteDao remetenteDao;
     Remetente remetente;
     List<Remetente> listRemetentes;
+
+    private static final int CB_OPCAO_CODIGO_PESSOA = 0;
+    private static final int CB_OPCAO_NOME = 1;
+    private static final int CB_OPCAO_CIDADE = 2;
 
     public TelaRemetenteGerenciarRelatorioControl() {
         remetenteDao = new RemetenteDao();
@@ -43,7 +45,22 @@ public class TelaRemetenteGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listRemetentes = remetenteDao.pesquisar("Ltda");
+        if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_PESSOA) {
+            listRemetentes = remetenteDao.pesquisarPorCodigoPessoa(telaRemetenteGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NOME) {
+            listRemetentes = remetenteDao.pesquisarPorNome(telaRemetenteGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CIDADE) {
+            String campoParaPesquisar = telaRemetenteGerenciarRelatorio.getTfCampoPesquisa().getText();
+           List<Remetente> tudoDoBanco = remetenteDao.pesquisar();
+           listRemetentes = new ArrayList<>();
+            for (Remetente remetente : tudoDoBanco) {
+                if (remetente.getEndereco().getCidade().toUpperCase().contains(campoParaPesquisar.toUpperCase())) {
+                    listRemetentes.add(remetente);
+                }
+            }
+        }
         chamarRelatorioDestinatario(listRemetentes);
 
     }

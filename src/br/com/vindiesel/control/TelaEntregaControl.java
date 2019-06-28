@@ -33,6 +33,7 @@ import br.com.vindiesel.view.TelaEntrega;
 import br.com.vindiesel.view.TelaEntregaReceitaDialog;
 import br.com.vindiesel.view.TelaEntregaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -162,7 +163,7 @@ public class TelaEntregaControl {
 
     public void adicionarEntregaAction() {
         entrega = new Entrega();
-        entrega.setDataCadastro(LocalDateTime.now());
+        entrega.setDataCadastro(new Timestamp(System.currentTimeMillis()));
         entrega.setDataEntrega(null);
         entrega.setEntregue(false);
         entrega.setRemetente((Remetente) telaEntrega.getCbRemetente().getSelectedItem());

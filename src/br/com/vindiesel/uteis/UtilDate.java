@@ -223,4 +223,18 @@ public class UtilDate {
         return java.sql.Timestamp.valueOf(date.atStartOfDay());
     }
 
+    public static String deStringParaStringBanco(String data) {
+        String s = null;
+        try {
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            df.setLenient(false);
+            Date d = df.parse(data);
+            df = new SimpleDateFormat("yyyy-MM-dd");
+            s = df.format(d);
+        } catch (ParseException parseException) {
+            Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_DATA);
+        }
+        return s;
+    }
+
 }

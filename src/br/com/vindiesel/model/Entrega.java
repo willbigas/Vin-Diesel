@@ -1,6 +1,7 @@
 package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
@@ -18,8 +19,8 @@ public class Entrega {
     @DecimalMax("999999999.00")
     private Double valorTotal;
     @NotNull
-    private LocalDateTime dataCadastro;
-    private LocalDateTime dataEntrega;
+    private Date dataCadastro;
+    private Date dataEntrega;
     @NotNull
     private Boolean entregue;
     @Valid
@@ -47,19 +48,19 @@ public class Entrega {
         this.valorTotal = valorTotal;
     }
 
-    public LocalDateTime getDataCadastro() {
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(LocalDateTime dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalDateTime getDataEntrega() {
+    public Date getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(LocalDateTime dataEntrega) {
+    public void setDataEntrega(Date dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
 

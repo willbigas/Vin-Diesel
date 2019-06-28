@@ -35,11 +35,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
             stmt.setDouble(1, entrega.getValorTotal());
-            stmt.setTimestamp(2, Timestamp.valueOf(entrega.getDataCadastro()));
+            stmt.setTimestamp(2, new Timestamp(entrega.getDataCadastro().getTime()));
             if (entrega.getDataEntrega() == null) {
                 stmt.setNull(3, Types.TIMESTAMP);
             } else {
-                stmt.setTimestamp(3, Timestamp.valueOf(entrega.getDataEntrega()));
+                stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
             }
             stmt.setBoolean(4, entrega.getEntregue());
             stmt.setInt(5, entrega.getRemetente().getId());
@@ -66,8 +66,8 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setDouble(1, entrega.getValorTotal());
-            stmt.setTimestamp(2, Timestamp.valueOf(entrega.getDataCadastro()));
-            stmt.setTimestamp(3, Timestamp.valueOf(entrega.getDataEntrega()));
+            stmt.setTimestamp(2, new Timestamp(entrega.getDataCadastro().getTime()));
+            stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
             stmt.setBoolean(4, entrega.getEntregue());
             stmt.setInt(5, entrega.getRemetente().getId());
             stmt.setInt(6, entrega.getDestinatario().getId());
@@ -144,11 +144,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
                 Entrega entrega = new Entrega();
                 entrega.setId(result.getInt("id"));
                 entrega.setValorTotal(result.getDouble("valorTotal"));
-                entrega.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                if ((result.getTimestamp("dataEntrega")) == null) {
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
                     entrega.setDataEntrega(null);
                 } else {
-                    entrega.setDataEntrega(result.getTimestamp("dataEntrega").toLocalDateTime());
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
                 }
                 entrega.setEntregue(result.getBoolean("entregue"));
                 entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
@@ -165,7 +165,6 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
 
     @Override
     public List<Entrega> pesquisar(String termo) {
-//        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE (valorTotal like ? or dataCadastro like ? or dataEntrega like ?)";
         String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
                 + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
                 + " INNER JOIN DESTINATARIO AS D ON E.DESTINATARIO_ID = D.ID "
@@ -181,11 +180,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
                 Entrega entrega = new Entrega();
                 entrega.setId(result.getInt("id"));
                 entrega.setValorTotal(result.getDouble("valorTotal"));
-                entrega.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                if ((result.getTimestamp("dataEntrega")) == null) {
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
                     entrega.setDataEntrega(null);
                 } else {
-                    entrega.setDataEntrega(result.getTimestamp("dataEntrega").toLocalDateTime());
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
                 }
                 entrega.setEntregue(result.getBoolean("entregue"));
                 entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
@@ -211,11 +210,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
                 Entrega entrega = new Entrega();
                 entrega.setId(result.getInt("id"));
                 entrega.setValorTotal(result.getDouble("valorTotal"));
-                entrega.setDataCadastro((result.getTimestamp("dataCadastro").toLocalDateTime()));
-                if ((result.getTimestamp("dataEntrega")) == null) {
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
                     entrega.setDataEntrega(null);
                 } else {
-                    entrega.setDataEntrega(result.getTimestamp("dataEntrega").toLocalDateTime());
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
                 }
                 entrega.setEntregue(result.getBoolean("entregue"));
                 entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
@@ -225,6 +224,66 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             } else {
                 return null;
             }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Entrega> pesquisarPorDataEntrega(String dataEntrega) {
+        String query = "SELECT * FROM ENTREGA WHERE(dataEntrega = ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(query);
+            stmt.setString(1, "%" + dataEntrega + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Entrega> lista = new ArrayList<>();
+            while (result.next()) {
+                Entrega entrega = new Entrega();
+                entrega.setId(result.getInt("id"));
+                entrega.setValorTotal(result.getDouble("valorTotal"));
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
+                }
+                entrega.setEntregue(result.getBoolean("entregue"));
+                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
+                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
+                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
+                lista.add(entrega);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Entrega> pesquisarPorDataCadastro(String dataCadastro) {
+        String query = "SELECT * FROM ENTREGA WHERE(dataCadastro like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(query);
+            stmt.setString(1, "%" + dataCadastro + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Entrega> lista = new ArrayList<>();
+            while (result.next()) {
+                Entrega entrega = new Entrega();
+                entrega.setId(result.getInt("id"));
+                entrega.setValorTotal(result.getDouble("valorTotal"));
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
+                }
+                entrega.setEntregue(result.getBoolean("entregue"));
+                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
+                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
+                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
+                lista.add(entrega);
+            }
+            return lista;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return null;

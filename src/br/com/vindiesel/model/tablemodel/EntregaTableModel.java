@@ -81,12 +81,12 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                  return entrega.getEncomenda().getCodigoRastreio();
                 }
             case DATA_CADASTRO:
-                return UtilDate.dataLocal(entrega.getDataCadastro().toLocalDate());
+                return UtilDate.data(entrega.getDataCadastro());
             case DATA_ENTREGA:
                 if (entrega.getDataEntrega() == null) {
                     return "Nao informado";
                 } else {
-                    return UtilDate.dataLocal(entrega.getDataEntrega().toLocalDate());
+                    return UtilDate.data(entrega.getDataEntrega());
                 }
             case VALOR_ENTREGA:
                 return DecimalFormat.decimalFormatR$(entrega.getValorTotal());
@@ -107,10 +107,10 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                 entrega.getEncomenda().setCodigoRastreio((String) valor);
                 break;
             case DATA_CADASTRO:
-                entrega.setDataCadastro((LocalDateTime) valor);
+                entrega.setDataCadastro((Date) valor);
                 break;
             case DATA_ENTREGA:
-                entrega.setDataEntrega((LocalDateTime) valor);
+                entrega.setDataEntrega((Date) valor);
                 break;
             case VALOR_ENTREGA:
                 entrega.setValorTotal((Double) valor);

@@ -1,9 +1,9 @@
 package br.com.vindiesel.control.report;
 
 import br.com.vindiesel.dao.EntregaDao;
-import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.Entrega;
 import br.com.vindiesel.uteis.Relatorio;
+import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.view.TelaEntregaGerenciarRelatorio;
 import br.com.vindiesel.view.TelaPrincipal;
 import java.io.InputStream;
@@ -19,6 +19,9 @@ public class TelaEntregaGerenciarRelatorioControl {
     EntregaDao entregaDao;
     Entrega entrega;
     List<Entrega> listEntregas;
+
+    private static final int CB_OPCAO_DATA_ENTREGA = 0;
+    private static final int CB_OPCAO_DATA_CADASTRO = 1;
 
     public TelaEntregaGerenciarRelatorioControl() {
         entregaDao = new EntregaDao();
@@ -41,7 +44,17 @@ public class TelaEntregaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listEntregas = entregaDao.pesquisar("");
+
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_ENTREGA) {
+            listEntregas = entregaDao.pesquisarPorDataEntrega(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
+        }
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_CADASTRO) {
+          String teste =  UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText());
+            System.out.println("String pesquisad" + teste);
+            List<Entrega> entregasPesquisadas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
+            System.out.println(entregasPesquisadas);
+            listEntregas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
+        }
         chamarRelatorioEncomendas(listEntregas);
 
     }

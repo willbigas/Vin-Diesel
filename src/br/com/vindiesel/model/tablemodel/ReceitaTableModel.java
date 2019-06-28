@@ -1,4 +1,3 @@
-
 package br.com.vindiesel.model.tablemodel;
 
 import br.com.vindiesel.interfaces.AcoesTableModel;
@@ -70,16 +69,18 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
         Receita receita = linhas.get(linha);
         switch (coluna) {
             case DATA_CADASTRO:
-                return UtilDate.data(receita.getDataCadastro()) + " as " + UtilDate.dataHora(receita.getDataCadastro());
+                return UtilDate.data(receita.getDataCadastro());
             case DATA_VENCIMENTO:
-               return UtilDate.data(receita.getDataVencimento());
+                return UtilDate.data(receita.getDataVencimento());
             case VALOR_TOTAL:
                 return DecimalFormat.decimalFormat(receita.getValorTotal());
             case FORMA_PAGAMENTO:
                 if (receita.getFormaPagamento() == null) {
-                   return "Não informado";
+                    return "Não informado";
+                } else {
+                    return receita.getFormaPagamento().getNome();
                 }
-                return receita.getFormaPagamento().getNome();
+
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }

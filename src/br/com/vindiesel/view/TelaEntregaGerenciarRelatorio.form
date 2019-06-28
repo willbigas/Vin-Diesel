@@ -30,7 +30,7 @@
                       <Component id="cbOpcaoPesquisa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="tfCampoPesquisa" min="-2" pref="132" max="-2" attributes="0"/>
-                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -89,9 +89,12 @@
     <Component class="javax.swing.JComboBox" name="cbOpcaoPesquisa">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="5">
             <StringItem index="0" value="Data de Entrega"/>
             <StringItem index="1" value="Data de Cadastro"/>
+            <StringItem index="2" value="C&#xf3;digo Encomenda"/>
+            <StringItem index="3" value="C&#xf3;digo Remetente"/>
+            <StringItem index="4" value="C&#xf3;digo Destinatario"/>
           </StringArray>
         </Property>
       </Properties>

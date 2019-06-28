@@ -22,6 +22,9 @@ public class TelaEntregaGerenciarRelatorioControl {
 
     private static final int CB_OPCAO_DATA_ENTREGA = 0;
     private static final int CB_OPCAO_DATA_CADASTRO = 1;
+    private static final int CB_OPCAO_CODIGO_ENCOMENDA = 2;
+    private static final int CB_OPCAO_CODIGO_REMETENTE = 3;
+    private static final int CB_OPCAO_CODIGO_DESTINATARIO = 4;
 
     public TelaEntregaGerenciarRelatorioControl() {
         entregaDao = new EntregaDao();
@@ -49,11 +52,18 @@ public class TelaEntregaGerenciarRelatorioControl {
             listEntregas = entregaDao.pesquisarPorDataEntrega(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
         }
         if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_CADASTRO) {
-          String teste =  UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText());
-            System.out.println("String pesquisad" + teste);
             List<Entrega> entregasPesquisadas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
             System.out.println(entregasPesquisadas);
             listEntregas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
+        }
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_ENCOMENDA) {
+            listEntregas = entregaDao.pesquisarPorEncomenda(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_REMETENTE) {
+            listEntregas = entregaDao.pesquisarPorCodigoRemetente(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_DESTINATARIO) {
+            listEntregas = entregaDao.pesquisarPorCodigoDestinatario(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText());
         }
         chamarRelatorioEncomendas(listEntregas);
 

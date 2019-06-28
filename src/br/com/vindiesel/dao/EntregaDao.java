@@ -289,5 +289,103 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             return null;
         }
     }
+    
+    public List<Entrega> pesquisarPorEncomenda(String codigoEncomenda) {
+        String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
+                + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
+                + " INNER JOIN DESTINATARIO AS D ON E.DESTINATARIO_ID = D.ID "
+                + " WHERE(EC.CODIGORASTREIO like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryAvancada);
+            stmt.setString(1, "%" + codigoEncomenda + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Entrega> lista = new ArrayList<>();
+            while (result.next()) {
+                Entrega entrega = new Entrega();
+                entrega.setId(result.getInt("id"));
+                entrega.setValorTotal(result.getDouble("valorTotal"));
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
+                }
+                entrega.setEntregue(result.getBoolean("entregue"));
+                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
+                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
+                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
+                lista.add(entrega);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    public List<Entrega> pesquisarPorCodigoRemetente(String codigoRemetente) {
+        String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
+                + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
+                + " INNER JOIN DESTINATARIO AS D ON E.DESTINATARIO_ID = D.ID "
+                + " WHERE(R.CODIGOPESSOA like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryAvancada);
+            stmt.setString(1, "%" + codigoRemetente + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Entrega> lista = new ArrayList<>();
+            while (result.next()) {
+                Entrega entrega = new Entrega();
+                entrega.setId(result.getInt("id"));
+                entrega.setValorTotal(result.getDouble("valorTotal"));
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
+                }
+                entrega.setEntregue(result.getBoolean("entregue"));
+                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
+                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
+                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
+                lista.add(entrega);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    public List<Entrega> pesquisarPorCodigoDestinatario(String codigoDestinatario) {
+        String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
+                + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
+                + " INNER JOIN DESTINATARIO AS D ON E.DESTINATARIO_ID = D.ID "
+                + " WHERE(D.CODIGOPESSOA like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(queryAvancada);
+            stmt.setString(1, "%" + codigoDestinatario + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Entrega> lista = new ArrayList<>();
+            while (result.next()) {
+                Entrega entrega = new Entrega();
+                entrega.setId(result.getInt("id"));
+                entrega.setValorTotal(result.getDouble("valorTotal"));
+                entrega.setDataCadastro((result.getDate("dataCadastro")));
+                if ((result.getDate("dataEntrega")) == null) {
+                    entrega.setDataEntrega(null);
+                } else {
+                    entrega.setDataEntrega(result.getDate("dataEntrega"));
+                }
+                entrega.setEntregue(result.getBoolean("entregue"));
+                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
+                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
+                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
+                lista.add(entrega);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
 
 }

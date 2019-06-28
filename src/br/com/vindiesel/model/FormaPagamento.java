@@ -5,8 +5,6 @@
  */
 package br.com.vindiesel.model;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 /**
  *
  * @author ADJ-PC
@@ -14,7 +12,6 @@ import org.hibernate.validator.constraints.NotBlank;
 public class FormaPagamento {
 
     private Integer id;
-    @NotBlank
     private String nome;
 
     public Integer getId() {

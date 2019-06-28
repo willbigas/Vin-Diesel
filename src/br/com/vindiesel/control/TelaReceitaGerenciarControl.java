@@ -60,6 +60,7 @@ public class TelaReceitaGerenciarControl {
         }
         telaReceitaGerenciar.getTblReceita().setModel(receitaTableModel);
         atualizaTotalDeValor(receitaDao.pesquisar());
+        receitaTableModel.limpar();
         receitaTableModel.adicionar(receitaDao.pesquisar());
         carregarFormaPagamentoNaCombo();
         redimensionarTabelaReceita();
@@ -120,7 +121,7 @@ public class TelaReceitaGerenciarControl {
 
     public void editarReceitaAction() {
         receita.setFormaPagamento((FormaPagamento) telaReceitaGerenciar.getCbFormaPagamento().getSelectedItem());
-        Double valorRecebido = receita.getValorRecebido() + Double.valueOf(telaReceitaGerenciar.getTfValorRecebido().getText());
+        Double valorRecebido = receita.getValorRecebido() + Double.valueOf(DecimalFormat.paraPonto(telaReceitaGerenciar.getTfValorRecebido().getText()));
         receita.setValorRecebido(valorRecebido);
         receita.setDataVencimento(UtilDate.data(telaReceitaGerenciar.getTfDataVencimento().getText()));
         if (telaReceitaGerenciar.getCheckFinalizarReceita().isSelected()) {

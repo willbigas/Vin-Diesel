@@ -1,14 +1,13 @@
 package br.com.vindiesel.control.report;
 
 import br.com.vindiesel.dao.ReceitaDao;
-import br.com.vindiesel.dao.RemetenteDao;
 import br.com.vindiesel.model.Receita;
-import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.uteis.Relatorio;
+import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciarRelatorio;
-import br.com.vindiesel.view.TelaRemetenteGerenciarRelatorio;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +20,10 @@ public class TelaReceitaGerenciarRelatorioControl {
     ReceitaDao receitaDao;
     Receita receita;
     List<Receita> listReceitas;
+
+    private static final int CB_OPCAO_CODIGO_ENTREGA = 0;
+    private static final int CB_OPCAO_FORMA_PAGAMENTO = 1;
+    private static final int CB_OPCAO_DATA_EFETIVACAO = 2;
 
     public TelaReceitaGerenciarRelatorioControl() {
         receitaDao = new ReceitaDao();
@@ -43,7 +46,26 @@ public class TelaReceitaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listReceitas = receitaDao.pesquisar("");
+        if (telaReceitaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_ENTREGA) {
+            listReceitas = receitaDao.pesquisarPorCodigoEntrega(telaReceitaGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
+        if (telaReceitaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_FORMA_PAGAMENTO) {
+            String campoParaPesquisar = telaReceitaGerenciarRelatorio.getTfCampoPesquisa().getText();
+            List<Receita> tudoDoBanco = receitaDao.pesquisar();
+            listReceitas = new ArrayList<>();
+            for (Receita receita : tudoDoBanco) {
+                if (receita.getFormaPagamento() == null) {
+                    continue;
+                }
+                if (receita.getFormaPagamento().getNome().toUpperCase().contains(campoParaPesquisar.toUpperCase())) {
+                    listReceitas.add(receita);
+                }
+            }
+        }
+        if (telaReceitaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_EFETIVACAO) {
+            listReceitas = receitaDao.pesquisarPorDataEfetivacao(UtilDate.deStringParaStringBanco(telaReceitaGerenciarRelatorio.getTfCampoPesquisa().getText()));
+        }
+
         chamarRelatorioDestinatario(listReceitas);
 
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.vindiesel.dao;
 
 import br.com.vindiesel.interfaces.DaoI;
@@ -156,7 +151,7 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
                 Receita receita = new Receita();
                 receita.setId(result.getInt("id"));
                 receita.setDataCadastro((result.getDate("dataCadastro")));
-                receita.setDataPagamento((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataPagamento")));
                 receita.setDataVencimento(result.getDate("dataVencimento"));
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));
@@ -185,7 +180,59 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
                 Receita receita = new Receita();
                 receita.setId(result.getInt("id"));
                 receita.setDataCadastro((result.getDate("dataCadastro")));
-                receita.setDataPagamento((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataPagamento")));
+                receita.setDataVencimento(result.getDate("dataVencimento"));
+                receita.setValorRecebido(result.getDouble("valorRecebido"));
+                receita.setValorTotal(result.getDouble("valorTotal"));
+                receita.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                receita.setFormaPagamento(formaPagamentoDao.pesquisar(result.getInt("formaPagamento_id")));
+                lista.add(receita);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Receita> pesquisarPorCodigoEntrega(String codigoEntrega) {
+        String querySelectComTermo = "SELECT * FROM receita WHERE (entrega_id = ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, codigoEntrega);
+            ResultSet result = stmt.executeQuery();
+            List<Receita> lista = new ArrayList<>();
+            while (result.next()) {
+                Receita receita = new Receita();
+                receita.setId(result.getInt("id"));
+                receita.setDataCadastro((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataPagamento")));
+                receita.setDataVencimento(result.getDate("dataVencimento"));
+                receita.setValorRecebido(result.getDouble("valorRecebido"));
+                receita.setValorTotal(result.getDouble("valorTotal"));
+                receita.setEntrega(entregaDao.pesquisar(result.getInt("entrega_id")));
+                receita.setFormaPagamento(formaPagamentoDao.pesquisar(result.getInt("formaPagamento_id")));
+                lista.add(receita);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Receita> pesquisarPorDataEfetivacao(String dataEfeitvacao) {
+        String querySelectComTermo = "SELECT * FROM receita WHERE (dataCadastro like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + dataEfeitvacao + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Receita> lista = new ArrayList<>();
+            while (result.next()) {
+                Receita receita = new Receita();
+                receita.setId(result.getInt("id"));
+                receita.setDataCadastro((result.getDate("dataCadastro")));
+                receita.setDataPagamento((result.getDate("dataPagamento")));
                 receita.setDataVencimento(result.getDate("dataVencimento"));
                 receita.setValorRecebido(result.getDouble("valorRecebido"));
                 receita.setValorTotal(result.getDouble("valorTotal"));

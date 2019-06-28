@@ -181,7 +181,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btLimparCamposTabEntrega.setBorder(null);
         btLimparCamposTabEntrega.setBorderPainted(false);
         btLimparCamposTabEntrega.setContentAreaFilled(false);
-        btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimparCamposTabEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntregaActionPerformed(evt);
@@ -194,7 +194,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btLimparCamposTabEntrega1.setBorder(null);
         btLimparCamposTabEntrega1.setBorderPainted(false);
         btLimparCamposTabEntrega1.setContentAreaFilled(false);
-        btLimparCamposTabEntrega1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimparCamposTabEntrega1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntrega1ActionPerformed(evt);
@@ -215,7 +215,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFreteTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                 .addComponent(btLimparCamposTabEntrega1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btLimparCamposTabEntrega)
@@ -225,7 +225,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -254,7 +254,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         brBuscarEntrega.setBorder(null);
         brBuscarEntrega.setBorderPainted(false);
         brBuscarEntrega.setContentAreaFilled(false);
-        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        brBuscarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btEditarEntrega.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btEditarEntrega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
@@ -262,7 +262,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btEditarEntrega.setBorder(null);
         btEditarEntrega.setBorderPainted(false);
         btEditarEntrega.setContentAreaFilled(false);
-        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEditarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarEntregaActionPerformed(evt);
@@ -277,10 +277,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(brBuscarEntrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btEditarEntrega)
                 .addGap(30, 30, 30))
             .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -291,7 +291,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addGroup(panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(brBuscarEntrega)
-                    .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -364,7 +364,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btLimparCamposTabEntrega2.setBorder(null);
         btLimparCamposTabEntrega2.setBorderPainted(false);
         btLimparCamposTabEntrega2.setContentAreaFilled(false);
-        btLimparCamposTabEntrega2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimparCamposTabEntrega2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparCamposTabEntrega2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparCamposTabEntrega2ActionPerformed(evt);
@@ -469,7 +469,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btEfetivarEntrega.setBorder(null);
         btEfetivarEntrega.setBorderPainted(false);
         btEfetivarEntrega.setContentAreaFilled(false);
-        btEfetivarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEfetivarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEfetivarEntregaActionPerformed(evt);
@@ -482,7 +482,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btLimparEfetivarEntrega.setBorder(null);
         btLimparEfetivarEntrega.setBorderPainted(false);
         btLimparEfetivarEntrega.setContentAreaFilled(false);
-        btLimparEfetivarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimparEfetivarEntrega.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btLimparEfetivarEntrega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparEfetivarEntregaActionPerformed(evt);
@@ -494,7 +494,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btPesquisaAvancadaEncomenda.setBorder(null);
         btPesquisaAvancadaEncomenda.setBorderPainted(false);
         btPesquisaAvancadaEncomenda.setContentAreaFilled(false);
-        btPesquisaAvancadaEncomenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisaAvancadaEncomenda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btPesquisaAvancadaEncomenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisaAvancadaEncomendaActionPerformed(evt);
@@ -506,7 +506,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btPesquisaAvancadaRemetente.setBorder(null);
         btPesquisaAvancadaRemetente.setBorderPainted(false);
         btPesquisaAvancadaRemetente.setContentAreaFilled(false);
-        btPesquisaAvancadaRemetente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisaAvancadaRemetente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btPesquisaAvancadaRemetente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisaAvancadaRemetenteActionPerformed(evt);
@@ -538,7 +538,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btPesquisarCep.setBorder(null);
         btPesquisarCep.setBorderPainted(false);
         btPesquisarCep.setContentAreaFilled(false);
-        btPesquisarCep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisarCep.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btPesquisarCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarCepActionPerformed(evt);
@@ -662,7 +662,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         btPesquisaAvancadaDestinatario.setBorder(null);
         btPesquisaAvancadaDestinatario.setBorderPainted(false);
         btPesquisaAvancadaDestinatario.setContentAreaFilled(false);
-        btPesquisaAvancadaDestinatario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisaAvancadaDestinatario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btPesquisaAvancadaDestinatario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisaAvancadaDestinatarioActionPerformed(evt);
@@ -674,7 +674,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         checkCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCnpj.setText("CNPJ");
-        checkCnpj.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkCnpj.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         checkCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCnpjActionPerformed(evt);
@@ -683,7 +683,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
         checkCpf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCpf.setText("CPF");
-        checkCpf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkCpf.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         checkCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCpfActionPerformed(evt);
@@ -816,6 +816,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     private void btLimparEfetivarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparEfetivarEntregaActionPerformed
         // TODO add your handling code here:
+        entregaControl.limparCamposTabEfetivarEntregaAction();
     }//GEN-LAST:event_btLimparEfetivarEntregaActionPerformed
 
     private void btEfetivarEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEfetivarEntregaActionPerformed

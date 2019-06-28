@@ -439,6 +439,13 @@ public class TelaEntregaControl {
 
     public void carregaDadosDestinatarioDoDialogPesquisaAvancadaAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioPesquisaAvancada.getTblDestinatario().getSelectedRow());
+         if (destinatario.getCodigoPessoa().length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+            telaEntrega.getCheckCnpj().setSelected(true);
+        } else {
+            formataTfCodigoPessoaParaCPF();
+            telaEntrega.getCheckCpf().setSelected(true);
+        }
         telaEntrega.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
         telaEntrega.getTfNome().setText(destinatario.getNome());
         telaEntrega.getTfBairro().setText(destinatario.getEndereco().getBairro());
@@ -543,15 +550,20 @@ public class TelaEntregaControl {
         telaEntrega.getCbTipoTramite().setSelectedIndex(0);
     }
 
-    private void limparTabEfetivarEntregaAction() {
+    public void limparCamposTabEfetivarEntregaAction() {
         telaEntrega.getTfCodigoPessoa().setText("");
+        telaEntrega.getTfNome().setText("");
+        telaEntrega.getTfCep().setText("");
+        telaEntrega.getCbEstado().setSelectedIndex(0);
+        telaEntrega.getTfCidade().setText("");
+        telaEntrega.getTfBairro().setText("");
+        telaEntrega.getTfNumero().setText("");
+        telaEntrega.getTfRua().setText("");
+        telaEntrega.getTfComplemento().setText("");
         telaEntrega.getTfCodigoPessoa().setText("");
-        telaEntrega.getTfCodigoPessoa().setText("");
-        telaEntrega.getTfCodigoPessoa().setText("");
-        telaEntrega.getTfCodigoPessoa().setText("");
-        telaEntrega.getTfObservacaoTramite().setText("");
         telaEntrega.getCbEncomenda().setSelectedIndex(0);
         telaEntrega.getCbRemetente().setSelectedIndex(0);
+        destinatario = null;
 
     }
 

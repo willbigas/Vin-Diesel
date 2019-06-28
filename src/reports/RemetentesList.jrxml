@@ -25,37 +25,27 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="163" splitType="Stretch">
+		<band height="172" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="80" width="205" height="30" uuid="9a5af221-282d-4f72-ad69-1d9d40b35b9d"/>
+				<reportElement x="0" y="45" width="205" height="30" uuid="9a5af221-282d-4f72-ad69-1d9d40b35b9d"/>
 				<text><![CDATA[Telefone: (48) 3033-3333
 Celular:   (48) 99999-9999]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="218" y="10" width="107" height="25" uuid="3c4123b9-4cd4-4c66-88fe-616d68d1406a">
+				<reportElement x="0" y="80" width="555" height="25" uuid="3c4123b9-4cd4-4c66-88fe-616d68d1406a">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="19" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VIN DIESEL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="35" width="205" height="45" uuid="4d7bd83c-1c7d-425f-b6a9-9ef8ebba32e5"/>
+				<reportElement x="0" y="0" width="205" height="45" uuid="4d7bd83c-1c7d-425f-b6a9-9ef8ebba32e5"/>
 				<text><![CDATA[VINDIESEL TRANSPORTADORA LTDA
 00.000.000/0001-00
-Rua Zezinho do Zé, 222, Palhoça]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="325" y="35" width="75" height="20" uuid="0de07d87-e2b4-4fdb-923b-dfed561c28cf"/>
-				<box rightPadding="4"/>
-				<textElement textAlignment="Right"/>
-				<text><![CDATA[Emitido em :]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="475" y="35" width="27" height="20" uuid="a2a1d64f-d1d7-45e7-b3f2-46eb10236c63"/>
-				<text><![CDATA[as]]></text>
+Rua Zezinho do Zé, 222, Palhoça , SC]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="119" width="555" height="30" uuid="851c7fce-eb77-4160-9356-c5f7b407f9f1"/>
@@ -64,12 +54,22 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				</textElement>
 				<text><![CDATA[Relatório de Remetentes]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="400" y="35" width="75" height="20" uuid="9c5380f3-a51b-4d33-ba88-4bf27b25f399"/>
+			<staticText>
+				<reportElement x="425" y="0" width="75" height="20" uuid="103df0fc-adb3-4a33-b324-8ea4d4898dda"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Emitido em:]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement x="500" y="20" width="41" height="20" uuid="aa2842e0-1832-4de1-8382-bbd4245dc35a"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<textField pattern="h.mm a">
-				<reportElement x="502" y="35" width="52" height="20" uuid="75b59687-b2e6-488a-af2e-1c4d40676d9a"/>
+			<staticText>
+				<reportElement x="473" y="20" width="27" height="20" uuid="3824bc17-5ce9-4bf6-abf9-45d04da85cff"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="0" width="54" height="20" uuid="4150cc7f-a155-4027-bd36-ffee77cbb80d"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
@@ -157,11 +157,6 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="0" width="339" height="30" uuid="dc96b183-4439-4a1c-a3b3-70a2042ff445"/>
-				<textElement verticalAlignment="Top"/>
-				<text><![CDATA[Atenção : Este relatório esta sugeito a alterações ao longo do tempo.]]></text>
-			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="454" y="0" width="100" height="30" uuid="85b9c7a5-74ab-4ec3-9ae7-519e23002d53"/>
 				<textElement textAlignment="Left"/>
@@ -172,6 +167,16 @@ Rua Zezinho do Zé, 222, Palhoça]]></text>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="339" height="16" uuid="d98223f1-be94-4d07-af1b-925c1db67440"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Atenção : Este relatório esta sugeito a alterações]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="339" height="16" uuid="5cced9ab-76fa-4480-befc-d49908ca0818"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Em caso de divergências contate o administrador do sistema]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>

@@ -69,7 +69,7 @@ public class TelaUsuarioGerenciarControl {
         carregarEstadosNaComboBox();
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
         usuarioTableModel.limpar();
-        usuarioTableModel.adicionar(usuarioDao.pesquisar());
+        usuarioTableModel.adicionar(usuarioDao.pesquisar(true));
         atualizaTotalUsuarios(usuarioDao.pesquisar());
         telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, false);
         telaUsuarioGerenciar.getTfPesquisar().requestFocus();
@@ -150,7 +150,7 @@ public class TelaUsuarioGerenciarControl {
         if (idInserido != 0) {
             usuario.setId(idInserido);
             usuarioTableModel.adicionar(usuario);
-            atualizaTotalUsuarios(usuarioDao.pesquisar());
+            atualizaTotalUsuarios(usuarioDao.pesquisar(true));
             limparCamposAction();
             Mensagem.info(Texto.SUCESSO_CADASTRAR_USUARIO);
         } else {
@@ -316,7 +316,7 @@ public class TelaUsuarioGerenciarControl {
         List<Usuario> usuariosPesquisados = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
         if (usuariosPesquisados == null) {
             usuarioTableModel.limpar();
-            usuariosPesquisados = usuarioDao.pesquisar();
+            usuariosPesquisados = usuarioDao.pesquisar(true);
             atualizaTotalUsuarios(usuariosPesquisados);
         } else {
             usuarioTableModel.limpar();

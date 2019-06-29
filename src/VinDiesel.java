@@ -1,5 +1,7 @@
 
 import br.com.vindiesel.control.TelaLoginControl;
+import br.com.vindiesel.uteis.Mensagem;
+import br.com.vindiesel.uteis.Texto;
 import de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel;
 import javax.swing.UIManager;
 
@@ -15,7 +17,7 @@ public class VinDiesel {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
             UIManager.setLookAndFeel(new SyntheticaPlainLookAndFeel());
         } catch (Exception erro) {
-            erro.printStackTrace();
+            Mensagem.erro(Texto.ERRO_INTERFACE_SYNTHETICA);
         }
         TelaLoginControl telaLogin = new TelaLoginControl();
         telaLogin.chamarTelaLoginAction();

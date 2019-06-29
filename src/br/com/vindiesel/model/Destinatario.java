@@ -10,33 +10,13 @@ import org.hibernate.validator.constraints.NotBlank;
  *
  * @author William
  */
-public class Destinatario {
+public class Destinatario extends Pessoa {
 
-    private Integer id;
-    @NotBlank
-    private String nome;
     @NotBlank
     @Size(min = 8, max = 25)
     @Pattern(regexp = Texto.REGEX_CPF_AND_CNPJ, message = Texto.CAMPO_CPF_CNPJ)
     private String codigoPessoa;
-    @Valid
-    private Endereco endereco;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public String getCodigoPessoa() {
         return codigoPessoa;
@@ -46,13 +26,6 @@ public class Destinatario {
         this.codigoPessoa = codigoPessoa;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
 
     @Override
     public String toString() {

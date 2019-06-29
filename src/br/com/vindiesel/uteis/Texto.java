@@ -112,5 +112,9 @@ public class Texto {
     public static final String ERRO_USUARIO_DUPLICADO = "Atenção ja existe um usuário com esse email vinculado no sistema.";
     
     
+    
+    public static final String ERRO_INTERFACE_SYNTHETICA = "Erro ao converter a Interface para a Synsthetica Look and Feel, Entre em contato com o desenvolvimento";
+    
+    
 
 }

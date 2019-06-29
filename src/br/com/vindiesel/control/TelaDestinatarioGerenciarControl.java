@@ -26,7 +26,7 @@ import javax.swing.text.MaskFormatter;
  * @author Will
  */
 public class TelaDestinatarioGerenciarControl {
-    
+
     private TelaDestinatarioGerenciar telaDestinatarioGerenciar;
     private Destinatario destinatario;
     private Endereco endereco;
@@ -36,14 +36,14 @@ public class TelaDestinatarioGerenciarControl {
     private Integer linhaSelecionada;
     MaskFormatter mascaraFormatadoraCPF;
     MaskFormatter mascaraFormatadoraCNPJ;
-    
+
     public TelaDestinatarioGerenciarControl() {
         destinatarioDao = new DestinatarioDao();
         enderecoDao = new EnderecoDao();
         destinatarioTableModel = new DestinatarioTableModel();
-        
+
     }
-    
+
     public void chamarTelaDestinatarioGerenciar() {
         if (telaDestinatarioGerenciar == null) {
             telaDestinatarioGerenciar = new TelaDestinatarioGerenciar(this);
@@ -67,7 +67,7 @@ public class TelaDestinatarioGerenciarControl {
         atualizaTotalDestinatarios(destinatarioDao.pesquisar());
         criaInstanciasDeMascarasFormatadas();
     }
-    
+
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaDestinatarioGerenciar.getTblDestinatario());
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 0, 80);
@@ -75,11 +75,11 @@ public class TelaDestinatarioGerenciarControl {
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 155);
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
     }
-    
+
     private void carregarEstadosNaComboBox() {
         telaDestinatarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
-    
+
     public void novoDestinatarioAction() {
         limparCampos();
         telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, true);
@@ -87,18 +87,18 @@ public class TelaDestinatarioGerenciarControl {
         destinatario = null;
         telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1);
     }
-    
+
     private void cadastrarDestinatario() {
         destinatario = new Destinatario();
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
-        
+
         endereco = new Endereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        
+
         try {
             endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
-            
+
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
         }
@@ -107,16 +107,16 @@ public class TelaDestinatarioGerenciarControl {
         endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
         endereco.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
         endereco.setRua(telaDestinatarioGerenciar.getTfRua().getText());
-        
+
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
             destinatario = null;
             endereco = null;
             return;
         }
-        
+
         Integer idEndereco = enderecoDao.inserir(endereco);
-        
+
         endereco.setId(idEndereco);
         destinatario.setEndereco(endereco);
         Integer idInserido = destinatarioDao.inserir(destinatario);
@@ -130,14 +130,14 @@ public class TelaDestinatarioGerenciarControl {
             Mensagem.info(Texto.ERRO_CADASTRAR);
         }
         destinatario = null;
-        
+
     }
-    
+
     private void alterarDestinatario() {
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
-        
+
         endereco = destinatario.getEndereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
         endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
@@ -146,14 +146,14 @@ public class TelaDestinatarioGerenciarControl {
         endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
         endereco.setNumero(telaDestinatarioGerenciar.getTfNumero().getText());
         endereco.setRua(telaDestinatarioGerenciar.getTfRua().getText());
-        
+
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
             return;
         }
-        
+
         Boolean enderecoAlterado = enderecoDao.alterar(endereco);
-        
+
         destinatario.setEndereco(endereco);
         boolean alterado = destinatarioDao.alterar(destinatario);
         linhaSelecionada = telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow();
@@ -167,7 +167,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         destinatario = null;
     }
-    
+
     public void gravarDestinatarioAction() {
         if (destinatario == null) {
             cadastrarDestinatario();
@@ -175,7 +175,7 @@ public class TelaDestinatarioGerenciarControl {
             alterarDestinatario();
         }
     }
-    
+
     public void desativarDestinatarioAction() {
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
         if (retorno == JOptionPane.NO_OPTION) {
@@ -195,7 +195,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         destinatario = null;
     }
-    
+
     public void pesquisarDestinatarioAction() {
         List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioGerenciar.getTfPesquisa().getText());
         if (destinatariosPesquisados == null) {
@@ -208,7 +208,7 @@ public class TelaDestinatarioGerenciarControl {
             atualizaTotalDestinatarios(destinatariosPesquisados);
         }
     }
-    
+
     public void carregarDestinatarioAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         telaDestinatarioGerenciar.getTfNome().setText(destinatario.getNome());
@@ -219,7 +219,7 @@ public class TelaDestinatarioGerenciarControl {
             formataTfCodigoPessoaParaCPF();
         }
         telaDestinatarioGerenciar.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
-        
+
         telaDestinatarioGerenciar.getTfBairro().setText(destinatario.getEndereco().getBairro());
         telaDestinatarioGerenciar.getTfCidade().setText(destinatario.getEndereco().getCidade());
         telaDestinatarioGerenciar.getTfComplemento().setText(destinatario.getEndereco().getComplemento());
@@ -231,7 +231,7 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1); // seleciona o tabbed pane
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
-    
+
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
         BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
@@ -252,15 +252,25 @@ public class TelaDestinatarioGerenciarControl {
             telaDestinatarioGerenciar.getTfRua().setText(endereco.getRua());
             telaDestinatarioGerenciar.getTfCep().setText(telaDestinatarioGerenciar.getTfCep().getText());
             telaDestinatarioGerenciar.getTfNumero().requestFocus();
-        } catch (BuscaCepException buscaCepException) {
-            System.out.println(buscaCepException.getMessage());
-            buscaCepException.printStackTrace();
+            
         } catch (NumberFormatException numberFormatException) {
+            Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_CEP);
             System.out.println(numberFormatException.getMessage());
             numberFormatException.printStackTrace();
+            return;
+        } catch (BuscaCepException buscaCepException) {
+            Mensagem.erro(Texto.ERRO_CEP_NAO_ENCONTRADO);
+            System.out.println(buscaCepException.getMessage());
+            buscaCepException.printStackTrace();
+            return;
+        } catch (Exception exception) {
+            Mensagem.erro(Texto.ERRO_CEP_GENERICO);
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+            return;
         }
     }
-    
+
     private boolean validarCampos() {
         if (telaDestinatarioGerenciar.getTfNome().getText().isEmpty()
                 || telaDestinatarioGerenciar.getTfBairro().getText().isEmpty()
@@ -274,7 +284,7 @@ public class TelaDestinatarioGerenciarControl {
         }
         return false;
     }
-    
+
     private void criaInstanciasDeMascarasFormatadas() {
         try {
             mascaraFormatadoraCPF = new javax.swing.text.MaskFormatter("###.###.###-##");
@@ -282,30 +292,30 @@ public class TelaDestinatarioGerenciarControl {
         } catch (ParseException parseException) {
             Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
         }
-        
+
     }
-    
+
     public void formataTfCodigoPessoaParaCNPJ() {
         mascaraFormatadoraCNPJ.install(telaDestinatarioGerenciar.getTfCodigoPessoa());
     }
-    
+
     public void formataTfCodigoPessoaParaCPF() {
         mascaraFormatadoraCPF.install(telaDestinatarioGerenciar.getTfCodigoPessoa());
-        
+
     }
-    
+
     public void atualizaTotalDestinatarios(List<Destinatario> destinatarios) {
         Integer totalDestinatario = 0;
         Integer totalDestinatarioFiltrado = 0;
         List<Destinatario> destinatariosDobanco = destinatarioDao.pesquisar();
-        
+
         totalDestinatario = destinatariosDobanco.size();
         totalDestinatarioFiltrado = destinatarios.size();
-        
+
         telaDestinatarioGerenciar.getLblTotalDestinatarios().setText(String.valueOf(totalDestinatario));
         telaDestinatarioGerenciar.getLblDestinatariosFiltrados().setText(String.valueOf(totalDestinatarioFiltrado));
     }
-    
+
     private void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");
@@ -320,5 +330,5 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfNome().requestFocus();
         UtilTable.limparSelecaoDaTabela(telaDestinatarioGerenciar.getTblDestinatario());
     }
-    
+
 }

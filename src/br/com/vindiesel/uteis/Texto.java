@@ -79,6 +79,12 @@ public class Texto {
     
      public static final String ERRO_COVERTER_CAMPO_CEP = "Atenção, o campo de [CEP] deve conter 8 digitos Ex:[00000000]";
      
+     public static final String ERRO_CEP_NAO_ENCONTRADO = "Atenção, Cep não encontrado na nossa base de dados , Verifique , caso seja um cep válido digite manualmente";
+     
+     
+     public static final String ERRO_CEP_GENERICO = "Atenção, Aconteceu alguma coisa não prevista ao tentar digitar o cep, por favor entre em contato imediatamente com o administrador do sistema";
+     
+     
      public static final String ERRO_COVERTER_CAMPO_DECIMAL = "Atenção, os campos devem ser em formato decimal Ex: 00.00";
      
      public static final String ERRO_COVERTER_CAMPO_PIS_SALARIO = "Atenção, "

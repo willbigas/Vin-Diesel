@@ -83,7 +83,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
         btCarregar.setContentAreaFilled(false);
-        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCarregarActionPerformed(evt);
@@ -99,7 +99,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         checkAtivo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkAtivo.setText("ATIVO");
-        checkAtivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkAtivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
@@ -107,7 +107,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -129,11 +129,6 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblTipoUsuario);
 
         cbPermissao.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cbPermissao.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                cbPermissaoKeyReleased(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO PERMISSAO:");
@@ -144,7 +139,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -283,11 +278,6 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tipoUsuarioGerenciarControl.desativarTipoUsuarioAction();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void cbPermissaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbPermissaoKeyReleased
-        // TODO add your handling code here:
-        tipoUsuarioGerenciarControl.pesquisarItensNaComboTipoUsuario();
-    }//GEN-LAST:event_cbPermissaoKeyReleased
 
     private void tfPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarKeyReleased
         // TODO add your handling code here:

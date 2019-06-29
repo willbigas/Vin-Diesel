@@ -204,12 +204,21 @@ public class TelaRemetenteGerenciarControl {
             telaRemetenteGerenciar.getTfRua().setText(endereco.getRua());
             telaRemetenteGerenciar.getTfCep().setText(telaRemetenteGerenciar.getTfCep().getText());
             telaRemetenteGerenciar.getTfNumero().requestFocus();
-        } catch (BuscaCepException buscaCepException) {
-            System.out.println(buscaCepException.getMessage());
-            buscaCepException.printStackTrace();
         } catch (NumberFormatException numberFormatException) {
+            Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_CEP);
             System.out.println(numberFormatException.getMessage());
             numberFormatException.printStackTrace();
+            return;
+        } catch (BuscaCepException buscaCepException) {
+            Mensagem.erro(Texto.ERRO_CEP_NAO_ENCONTRADO);
+            System.out.println(buscaCepException.getMessage());
+            buscaCepException.printStackTrace();
+            return;
+        } catch (Exception exception) {
+            Mensagem.erro(Texto.ERRO_CEP_GENERICO);
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+            return;
         }
     }
 

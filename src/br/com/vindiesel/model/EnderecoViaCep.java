@@ -137,7 +137,6 @@ public abstract class EnderecoViaCep {
      *
      * @param urlToRead endereço
      * @return conteúdo remoto
-     * @throws exceptions.BuscaCepException caso ocorra algum erro
      */
     public final String getHttpGET(String urlToRead) throws BuscaCepException {
         StringBuilder result = new StringBuilder();

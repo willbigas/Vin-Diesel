@@ -84,13 +84,7 @@ public class TelaReceitaGerenciarControl {
 
     public boolean criarReceita(Entrega entrega, Date dataVencimento, Double valorFrete) {
         receita = new Receita();
-        receita.setDataCadastro(new Timestamp(System.currentTimeMillis()));
-        receita.setDataPagamento(null);
-        receita.setDataVencimento(dataVencimento);
-        receita.setFormaPagamento(null);
-        receita.setValorRecebido(null);
-        receita.setValorTotal(valorFrete);
-        receita.setEntrega(entrega);
+        setarDadosDeReceita(dataVencimento, valorFrete, entrega);
 
         if (Validacao.validaEntidade(receita) != null) {
             Mensagem.info(Validacao.validaEntidade(receita));
@@ -105,6 +99,16 @@ public class TelaReceitaGerenciarControl {
             Mensagem.erro(Texto.ERRO_CADASTRAR);
             return false;
         }
+    }
+
+    private void setarDadosDeReceita(Date dataVencimento, Double valorFrete, Entrega entrega) {
+        receita.setDataCadastro(new Timestamp(System.currentTimeMillis()));
+        receita.setDataPagamento(null);
+        receita.setDataVencimento(dataVencimento);
+        receita.setFormaPagamento(null);
+        receita.setValorRecebido(null);
+        receita.setValorTotal(valorFrete);
+        receita.setEntrega(entrega);
     }
 
     public void carregarCamposReceitaAction() {

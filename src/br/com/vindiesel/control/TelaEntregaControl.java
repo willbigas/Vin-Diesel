@@ -162,38 +162,16 @@ public class TelaEntregaControl {
 
     public void adicionarEntregaAction() {
         entrega = new Entrega();
-        entrega.setDataCadastro(new Timestamp(System.currentTimeMillis()));
-        entrega.setDataEntrega(null);
-        entrega.setEntregue(false);
-        entrega.setRemetente((Remetente) telaEntrega.getCbRemetente().getSelectedItem());
-        entrega.setEncomenda((Encomenda) telaEntrega.getCbEncomenda().getSelectedItem());
-
-        if (destinatario == null) {
-            novoDestinatario = true;
-            destinatario = new Destinatario();
-            endereco = new Endereco();
-        } else {
-            endereco = destinatario.getEndereco();
-        }
-
-        destinatario.setCodigoPessoa(telaEntrega.getTfCodigoPessoa().getText());
-        destinatario.setNome(telaEntrega.getTfNome().getText());
-
-        endereco.setBairro(telaEntrega.getTfBairro().getText());
+        setarAtributosDeEntrega();
+        verificarSeEhUmNovoDestinatario();
+        setarAtributosDeDestinatario();
 
         try {
-
-            endereco.setCep(Integer.valueOf(telaEntrega.getTfCep().getText()));
+            setarAtributosDeEndereco();
 
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
         }
-
-        endereco.setCidade(telaEntrega.getTfCidade().getText());
-        endereco.setComplemento(telaEntrega.getTfComplemento().getText());
-        endereco.setEstado((String) telaEntrega.getCbEstado().getSelectedItem());
-        endereco.setNumero(telaEntrega.getTfNumero().getText());
-        endereco.setRua(telaEntrega.getTfRua().getText());
 
         if (Validacao.validaEntidade(destinatario) != null) {
             Mensagem.info(Validacao.validaEntidade(destinatario));
@@ -201,26 +179,11 @@ public class TelaEntregaControl {
         }
 
         if (novoDestinatario) {
-            Integer idEndereco = enderecoDao.inserir(endereco);
-            endereco.setId(idEndereco);
-            destinatario.setEndereco(endereco);
-            Integer idInserido = destinatarioDao.inserir(destinatario);
-            if (idInserido != 0) {
-                destinatario.setId(idInserido);
-            } else {
-                Mensagem.info(Texto.ERRO_CADASTRAR);
-                return;
-            }
+            if (inserirDestinatarioNoBanco()) return;
         } else {
-            enderecoDao.alterar(endereco);
-            destinatario.setEndereco(endereco);
-            Boolean destinatarioAlterado = destinatarioDao.alterar(destinatario);
-            if (!destinatarioAlterado) {
-                Mensagem.info(Texto.ERRO_CADASTRAR);
-                return;
-            }
+            if (alterarDestinatarioNoBanco()) return;
         }
-
+        
         entrega.setDestinatario(destinatario);
 
         Double valorFrete = calcularFrete(entrega.getRemetente(), entrega.getDestinatario(), entrega);
@@ -268,6 +231,64 @@ public class TelaEntregaControl {
 
     }
 
+    private boolean alterarDestinatarioNoBanco() {
+        enderecoDao.alterar(endereco);
+        destinatario.setEndereco(endereco);
+        Boolean destinatarioAlterado = destinatarioDao.alterar(destinatario);
+        if (!destinatarioAlterado) {
+            Mensagem.info(Texto.ERRO_CADASTRAR);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean inserirDestinatarioNoBanco() {
+        Integer idEndereco = enderecoDao.inserir(endereco);
+        endereco.setId(idEndereco);
+        destinatario.setEndereco(endereco);
+        Integer idInserido = destinatarioDao.inserir(destinatario);
+        if (idInserido != 0) {
+            destinatario.setId(idInserido);
+        } else {
+            Mensagem.info(Texto.ERRO_CADASTRAR);
+            return true;
+        }
+        return false;
+    }
+
+    private void setarAtributosDeDestinatario() {
+        destinatario.setCodigoPessoa(telaEntrega.getTfCodigoPessoa().getText());
+        destinatario.setNome(telaEntrega.getTfNome().getText());
+    }
+
+    private void verificarSeEhUmNovoDestinatario() {
+        if (destinatario == null) {
+            novoDestinatario = true;
+            destinatario = new Destinatario();
+            endereco = new Endereco();
+        } else {
+            endereco = destinatario.getEndereco();
+        }
+    }
+
+    private void setarAtributosDeEntrega() {
+        entrega.setDataCadastro(new Timestamp(System.currentTimeMillis()));
+        entrega.setDataEntrega(null);
+        entrega.setEntregue(false);
+        entrega.setRemetente((Remetente) telaEntrega.getCbRemetente().getSelectedItem());
+        entrega.setEncomenda((Encomenda) telaEntrega.getCbEncomenda().getSelectedItem());
+    }
+
+    private void setarAtributosDeEndereco() throws NumberFormatException {
+        endereco.setBairro(telaEntrega.getTfBairro().getText());
+        endereco.setCep(Integer.valueOf(telaEntrega.getTfCep().getText()));
+        endereco.setCidade(telaEntrega.getTfCidade().getText());
+        endereco.setComplemento(telaEntrega.getTfComplemento().getText());
+        endereco.setEstado((String) telaEntrega.getCbEstado().getSelectedItem());
+        endereco.setNumero(telaEntrega.getTfNumero().getText());
+        endereco.setRua(telaEntrega.getTfRua().getText());
+    }
+
     public void chamarDialogPesquisaAvancadaDestinatarioAction() {
         telaDestinatarioPesquisaAvancada = new TelaDestinatarioPesquisaAvancada(telaEntrega, true, this);
         telaDestinatarioPesquisaAvancada.getTblDestinatario().setModel(destinatarioTableModel);
@@ -313,11 +334,21 @@ public class TelaEntregaControl {
             telaEntrega.getTfRua().setText(endereco.getRua());
             telaEntrega.getTfCep().setText(telaEntrega.getTfCep().getText());
             telaEntrega.getTfNumero().requestFocus();
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_CEP);
+            System.out.println(numberFormatException.getMessage());
+            numberFormatException.printStackTrace();
+            return;
         } catch (BuscaCepException buscaCepException) {
+            Mensagem.erro(Texto.ERRO_CEP_NAO_ENCONTRADO);
             System.out.println(buscaCepException.getMessage());
             buscaCepException.printStackTrace();
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
+            return;
+        } catch (Exception exception) {
+            Mensagem.erro(Texto.ERRO_CEP_GENERICO);
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+            return;
         }
     }
 
@@ -439,13 +470,17 @@ public class TelaEntregaControl {
 
     public void carregaDadosDestinatarioDoDialogPesquisaAvancadaAction() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioPesquisaAvancada.getTblDestinatario().getSelectedRow());
-         if (destinatario.getCodigoPessoa().length() > 15) {
+        if (destinatario.getCodigoPessoa().length() > 15) {
             formataTfCodigoPessoaParaCNPJ();
             telaEntrega.getCheckCnpj().setSelected(true);
         } else {
             formataTfCodigoPessoaParaCPF();
             telaEntrega.getCheckCpf().setSelected(true);
         }
+        popularDadosDeDestinatario();
+    }
+
+    private void popularDadosDeDestinatario() {
         telaEntrega.getTfCodigoPessoa().setText(destinatario.getCodigoPessoa());
         telaEntrega.getTfNome().setText(destinatario.getNome());
         telaEntrega.getTfBairro().setText(destinatario.getEndereco().getBairro());

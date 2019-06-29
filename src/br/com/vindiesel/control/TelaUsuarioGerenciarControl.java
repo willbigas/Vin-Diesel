@@ -101,51 +101,30 @@ public class TelaUsuarioGerenciarControl {
     }
 
     private void inserirUsuario() {
-        usuario = new Usuario();
-
-        usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
-        usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
-        usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
-
-        if (verificaSeTemEmailNoBanco(usuario.getEmail())) {
-            usuario = null;
-            Mensagem.atencao(Texto.ERRO_USUARIO_DUPLICADO);
-            return;
-        }
-
-        usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
         try {
+            usuario = new Usuario();
 
-            usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-            usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
+            setandoAtributosDeUsuario();
+
+            if (verificaSeTemEmailNoBanco(usuario.getEmail())) {
+                usuario = null;
+                Mensagem.atencao(Texto.ERRO_USUARIO_DUPLICADO);
+                return;
+            }
+
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
             usuario = null;
             return;
         }
-        usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
-        usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
 
         // modifica os atributos baseado no que o usuario modificar.
         endereco = new Endereco();
-        endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
-        endereco.setCidade(telaUsuarioGerenciar.getTfCidade().getText());
-        endereco.setComplemento(telaUsuarioGerenciar.getTfComplemento().getText());
-        endereco.setEstado((String) telaUsuarioGerenciar.getCbEstado().getSelectedItem());
-        endereco.setNumero(telaUsuarioGerenciar.getTfNumero().getText());
-        endereco.setRua(telaUsuarioGerenciar.getTfRua().getText());
+        setandoAtributosDeEndereco();
 
         Integer idEndereco = enderecoDao.inserir(endereco);
         endereco.setId(idEndereco);
         usuario.setEndereco(endereco);
-
-        if (telaUsuarioGerenciar.getCheckAtivo().isSelected()) {
-            usuario.setAtivo(true);
-        } else {
-            usuario.setAtivo(false);
-        }
 
         if (Validacao.validaEntidade(usuario) != null) {
             Mensagem.info(Validacao.validaEntidade(usuario));
@@ -167,28 +146,7 @@ public class TelaUsuarioGerenciarControl {
         endereco = null;
     }
 
-    private void alterarUsuario() {
-        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
-        usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
-        usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
-        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
-        usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
-        
-        usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
-
-        try {
-
-            usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
-            usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
-            return;
-        }
-
-        usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
-        usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
-
-        endereco = usuario.getEndereco();
+    private void setandoAtributosDeEndereco() throws NumberFormatException {
         endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
         endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
         endereco.setCidade(telaUsuarioGerenciar.getTfCidade().getText());
@@ -196,18 +154,27 @@ public class TelaUsuarioGerenciarControl {
         endereco.setEstado((String) telaUsuarioGerenciar.getCbEstado().getSelectedItem());
         endereco.setNumero(telaUsuarioGerenciar.getTfNumero().getText());
         endereco.setRua(telaUsuarioGerenciar.getTfRua().getText());
+    }
+
+    private void alterarUsuario() {
+        try {
+            usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+
+            setandoAtributosDeUsuario();
+
+        } catch (NumberFormatException numberFormatException) {
+            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_PIS_SALARIO);
+            return;
+        }
+        endereco = usuario.getEndereco();
+
+        setandoAtributosDeEndereco();
 
         boolean enderecoAlterado = enderecoDao.alterar(endereco);
 
         if (!enderecoAlterado) {
             Mensagem.erro(Texto.ERRO_EDITAR);
             return;
-        }
-
-        if (telaUsuarioGerenciar.getCheckAtivo().isSelected()) {
-            usuario.setAtivo(true);
-        } else {
-            usuario.setAtivo(false);
         }
 
         if (Validacao.validaEntidade(usuario) != null) {
@@ -227,6 +194,24 @@ public class TelaUsuarioGerenciarControl {
         }
         usuario = null;
         endereco = null;
+    }
+
+    private void setandoAtributosDeUsuario() throws NumberFormatException {
+        usuario.setNome(telaUsuarioGerenciar.getTfNome().getText());
+        usuario.setDataNascimento(UtilDate.pegaLocalDate(telaUsuarioGerenciar.getTfDataNascimento().getDate()));
+        usuario.setTelefone(telaUsuarioGerenciar.getTfTelefone().getText());
+        usuario.setEmail(telaUsuarioGerenciar.getTfEmail().getText());
+        usuario.setCpf(telaUsuarioGerenciar.getTfCpf().getText());
+        usuario.setPis(Integer.valueOf(telaUsuarioGerenciar.getTfPis().getText()));
+        usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
+        usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
+        usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
+        
+        if (telaUsuarioGerenciar.getCheckAtivo().isSelected()) {
+            usuario.setAtivo(true);
+        } else {
+            usuario.setAtivo(false);
+        }
     }
 
     public void buscarCepAction() {
@@ -251,12 +236,21 @@ public class TelaUsuarioGerenciarControl {
             telaUsuarioGerenciar.getTfCep().setText(telaUsuarioGerenciar.getTfCep().getText());
             telaUsuarioGerenciar.getTfNumero().requestFocus();
 
-        } catch (BuscaCepException buscaCepException) {
-            System.out.println(buscaCepException.getMessage());
-            buscaCepException.printStackTrace();
         } catch (NumberFormatException numberFormatException) {
+            Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_CEP);
             System.out.println(numberFormatException.getMessage());
             numberFormatException.printStackTrace();
+            return;
+        } catch (BuscaCepException buscaCepException) {
+            Mensagem.erro(Texto.ERRO_CEP_NAO_ENCONTRADO);
+            System.out.println(buscaCepException.getMessage());
+            buscaCepException.printStackTrace();
+            return;
+        } catch (Exception exception) {
+            Mensagem.erro(Texto.ERRO_CEP_GENERICO);
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+            return;
         }
     }
 
@@ -293,22 +287,8 @@ public class TelaUsuarioGerenciarControl {
 
     public void carregarUsuarioAction() {
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
-        telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
-        telaUsuarioGerenciar.getTfDataNascimento().setDate(UtilDate.toDate(usuario.getDataNascimento()));
-        telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
-        telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
-        telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
-        telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
-        telaUsuarioGerenciar.getTfSalario().setText(DecimalFormat.paraVirgula(String.valueOf(usuario.getSalario())));
-        telaUsuarioGerenciar.getTfSenha().setText(usuario.getSenha());
-
-        telaUsuarioGerenciar.getTfBairro().setText(usuario.getEndereco().getBairro());
-        telaUsuarioGerenciar.getTfCidade().setText(usuario.getEndereco().getCidade());
-        telaUsuarioGerenciar.getTfComplemento().setText(usuario.getEndereco().getComplemento());
-        telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem(usuario.getEndereco().getEstado());
-        telaUsuarioGerenciar.getTfNumero().setText(usuario.getEndereco().getNumero());
-        telaUsuarioGerenciar.getTfRua().setText(usuario.getEndereco().getRua());
-        telaUsuarioGerenciar.getTfCep().setText(String.valueOf(usuario.getEndereco().getCep()));
+        popularCamposDeUsuario();
+        popularCamposDeEndereco();
 
         if (usuario.getAtivo() == true) {
             telaUsuarioGerenciar.getCheckAtivo().setSelected(true);
@@ -319,6 +299,27 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
         telaUsuarioGerenciar.getTfNome().requestFocus();
         telaUsuarioGerenciar.getTfEmail().setEnabled(false);
+    }
+
+    private void popularCamposDeEndereco() {
+        telaUsuarioGerenciar.getTfBairro().setText(usuario.getEndereco().getBairro());
+        telaUsuarioGerenciar.getTfCidade().setText(usuario.getEndereco().getCidade());
+        telaUsuarioGerenciar.getTfComplemento().setText(usuario.getEndereco().getComplemento());
+        telaUsuarioGerenciar.getCbEstado().getModel().setSelectedItem(usuario.getEndereco().getEstado());
+        telaUsuarioGerenciar.getTfNumero().setText(usuario.getEndereco().getNumero());
+        telaUsuarioGerenciar.getTfRua().setText(usuario.getEndereco().getRua());
+        telaUsuarioGerenciar.getTfCep().setText(String.valueOf(usuario.getEndereco().getCep()));
+    }
+
+    private void popularCamposDeUsuario() {
+        telaUsuarioGerenciar.getTfNome().setText(usuario.getNome());
+        telaUsuarioGerenciar.getTfDataNascimento().setDate(UtilDate.toDate(usuario.getDataNascimento()));
+        telaUsuarioGerenciar.getTfCpf().setText(usuario.getCpf());
+        telaUsuarioGerenciar.getTfTelefone().setText(usuario.getTelefone());
+        telaUsuarioGerenciar.getTfEmail().setText(usuario.getEmail());
+        telaUsuarioGerenciar.getTfPis().setText(String.valueOf(usuario.getPis()));
+        telaUsuarioGerenciar.getTfSalario().setText(DecimalFormat.paraVirgula(String.valueOf(usuario.getSalario())));
+        telaUsuarioGerenciar.getTfSenha().setText(usuario.getSenha());
     }
 
     public void pesquisarUsuarioAction() {

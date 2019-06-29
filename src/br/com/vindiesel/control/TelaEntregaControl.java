@@ -135,8 +135,8 @@ public class TelaEntregaControl {
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 1, 90);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 2, 100);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 3, 95);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 295);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 295);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 290);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 290);
     }
 
     public void carregarEstadosNaComboBox() {
@@ -432,7 +432,6 @@ public class TelaEntregaControl {
     }
 
     public void limparCamposTabEntrega() {
-        telaEntrega.getCbPesquisarEntrega().setSelectedIndex(0);
         telaEntrega.getCbRemetente().setSelectedIndex(0);
         telaEntrega.getCbEncomenda().setSelectedIndex(0);
         telaEntrega.getTfPesquisarEntrega().setText("");

@@ -21,9 +21,10 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
     private static final int DATA_VENCIMENTO = 1;
     private static final int VALOR_TOTAL = 2;
     private static final int FORMA_PAGAMENTO = 3;
+    private static final int ENTREGUE = 4;
 
     private List<Receita> linhas;
-    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL", "FORMA PAGAMENTO"};
+    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL", "FORMA PAGAMENTO", "STATUS"};
 
     public ReceitaTableModel() {
         linhas = new ArrayList<>();
@@ -59,6 +60,8 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 return String.class;
             case FORMA_PAGAMENTO:
                 return String.class;
+            case ENTREGUE:
+                return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -80,7 +83,12 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 } else {
                     return receita.getFormaPagamento().getNome();
                 }
-
+            case ENTREGUE:
+                if (receita.getEntrega().getEntregue()== true) {
+                    return "Entregue";
+                } else {
+                    return "Pendente";
+                }
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -101,6 +109,9 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 break;
             case FORMA_PAGAMENTO:
                 receita.getFormaPagamento().setNome((String) valor);
+                break;
+            case ENTREGUE:
+                receita.getEntrega().setEntregue((Boolean) valor);
                 break;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");

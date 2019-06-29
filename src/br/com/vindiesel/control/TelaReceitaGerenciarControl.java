@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.vindiesel.control;
 
 import br.com.vindiesel.dao.FormaPagamentoDao;
@@ -20,7 +15,6 @@ import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaReceitaGerenciar;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -70,10 +64,11 @@ public class TelaReceitaGerenciarControl {
 
     private void redimensionarTabelaReceita() {
         UtilTable.centralizarCabecalho(telaReceitaGerenciar.getTblReceita());
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 0, 170);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 0, 100);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 1, 100);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 2, 120);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 200);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 220);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 4, 110);
     }
 
     private void carregarFormaPagamentoNaCombo() {
@@ -180,27 +175,4 @@ public class TelaReceitaGerenciarControl {
         telaReceitaGerenciar.getLblValorTotalFiltrado().setText(DecimalFormat.decimalFormatR$(totalValorFiltrado));
     }
 
-    public void atualizaTotalReceber(List<Receita> receitas) {
-        Double totalReceitaBanco = 0.0;
-        Double totalReceitaFiltrado = 0.0;
-        List<Receita> receitasDoBanco = receitaDao.pesquisar();
-        List<Receita> receitasEmAberto = new ArrayList<>();
-        List<Receita> receitasEmAbertoFiltradas = new ArrayList<>();
-
-        for (Receita umaReceita : receitasDoBanco) {
-            if (umaReceita.getEntrega().equals(false)) {
-                receitasEmAberto.add(umaReceita);
-
-            }
-        }
-
-        for (Receita umaReceitaFiltrada : receitas) {
-            if (umaReceitaFiltrada.getEntrega().equals(false)) {
-                receitasEmAbertoFiltradas.add(umaReceitaFiltrada);
-
-            }
-        }
-        telaReceitaGerenciar.getLblValorReceberTotal().setText(DecimalFormat.decimalFormatR$(totalReceitaBanco));
-        telaReceitaGerenciar.getLblValorReceberFiltrado().setText(DecimalFormat.decimalFormatR$(totalReceitaFiltrado));
-    }
 }

@@ -107,6 +107,11 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblReceita.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblReceitaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblReceita);
 
         brEditarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -164,7 +169,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(222, 222, 222)
                         .addComponent(jLabel9)
-                        .addGap(0, 251, Short.MAX_VALUE))
+                        .addGap(0, 341, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +182,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblValorTotal)
-                                .addGap(0, 348, Short.MAX_VALUE))))
+                                .addGap(0, 438, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cbSituacaoReceita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,7 +285,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,7 +355,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tpReceita, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tpReceita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -358,7 +363,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tpReceita, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+                .addComponent(tpReceita))
         );
 
         pack();
@@ -385,6 +390,11 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     private void tfPesquisarReceitaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarReceitaKeyReleased
         receitaGerenciarControl.pesquisarReceitaAction();
     }//GEN-LAST:event_tfPesquisarReceitaKeyReleased
+
+    private void tblReceitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblReceitaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblReceitaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

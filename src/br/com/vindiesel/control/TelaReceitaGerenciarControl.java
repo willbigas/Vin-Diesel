@@ -67,8 +67,9 @@ public class TelaReceitaGerenciarControl {
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 0, 100);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 1, 100);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 2, 120);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 220);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 4, 110);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 120);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 4, 170);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 5, 110);
     }
 
     private void carregarFormaPagamentoNaCombo() {

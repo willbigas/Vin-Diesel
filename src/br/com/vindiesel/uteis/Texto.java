@@ -122,5 +122,8 @@ public class Texto {
     public static final String ERRO_INTERFACE_SYNTHETICA = "Erro ao converter a Interface para a Synsthetica Look and Feel, Entre em contato com o desenvolvimento";
     
     
+    public static final String ATENCAO_FINALIZAR_ENTREGA = "Atencao , Ao selecionar este tipo de tramite o sistema automaticamente finalizara a entrega , tem certeza dessa acao?";
+    
+    
 
 }

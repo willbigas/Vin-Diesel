@@ -67,7 +67,11 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setDouble(1, entrega.getValorTotal());
             stmt.setTimestamp(2, new Timestamp(entrega.getDataCadastro().getTime()));
-            stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
+            if (entrega.getDataEntrega() == null) {
+                stmt.setNull(3, Types.TIMESTAMP);
+            } else {
+                stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
+            }
             stmt.setBoolean(4, entrega.getEntregue());
             stmt.setInt(5, entrega.getRemetente().getId());
             stmt.setInt(6, entrega.getDestinatario().getId());
@@ -289,7 +293,7 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             return null;
         }
     }
-    
+
     public List<Entrega> pesquisarPorEncomenda(String codigoEncomenda) {
         String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
                 + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
@@ -322,6 +326,7 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             return null;
         }
     }
+
     public List<Entrega> pesquisarPorCodigoRemetente(String codigoRemetente) {
         String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
                 + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
@@ -354,6 +359,7 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             return null;
         }
     }
+
     public List<Entrega> pesquisarPorCodigoDestinatario(String codigoDestinatario) {
         String queryAvancada = "SELECT * FROM ENTREGA  AS E INNER JOIN ENCOMENDA AS EC ON E.ENCOMENDA_ID = EC.ID "
                 + " INNER JOIN REMETENTE AS R ON E.REMETENTE_ID = R.ID"
@@ -386,6 +392,5 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
             return null;
         }
     }
-    
 
 }

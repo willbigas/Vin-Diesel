@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -179,11 +180,15 @@ public class TelaEntregaControl {
         }
 
         if (novoDestinatario) {
-            if (inserirDestinatarioNoBanco()) return;
+            if (inserirDestinatarioNoBanco()) {
+                return;
+            }
         } else {
-            if (alterarDestinatarioNoBanco()) return;
+            if (alterarDestinatarioNoBanco()) {
+                return;
+            }
         }
-        
+
         entrega.setDestinatario(destinatario);
 
         Double valorFrete = calcularFrete(entrega.getRemetente(), entrega.getDestinatario(), entrega);
@@ -396,6 +401,22 @@ public class TelaEntregaControl {
 
     public void adicionarTramitesDeUmaEntregaAction() {
         int cbSelecionada = telaEntrega.getCbTipoTramite().getSelectedIndex();
+        
+         if (cbSelecionada == 2) {
+            int retorno = Mensagem.confirmacao(Texto.ATENCAO_FINALIZAR_ENTREGA);
+
+            if (retorno == JOptionPane.NO_OPTION) {
+                return;
+            }
+
+            if (retorno == JOptionPane.CLOSED_OPTION) {
+                return;
+            }
+
+            entrega.setEntregue(true);
+            entregaDao.alterar(entrega);
+        }
+        
         int idTramiteInserido = tramiteControl.adicionarTramite(entrega, telaEntrega.getTfNomeTramite().getText(),
                 telaEntrega.getTfObservacaoTramite().getText(), cbSelecionada + 1);
         if (idTramiteInserido == 0) {
@@ -403,6 +424,7 @@ public class TelaEntregaControl {
             tramite = null;
             return;
         }
+       
         tramite = tramiteDao.pesquisar(idTramiteInserido);
         tramiteTableModel.adicionar(tramite);
         Mensagem.info(Texto.SUCESSO_CADASTRAR);

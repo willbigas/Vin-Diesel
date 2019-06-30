@@ -684,5 +684,12 @@ public class TelaEntregaControl {
         telaEntregaFicha.getLblLarguraEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getLargura()));
         telaEntregaFicha.getLblAlturaEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getAltura()));
         telaEntregaFicha.getLblProfundidadeEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getComprimento()));
+        telaEntregaFicha.getLblDataCadastro().setText(String.valueOf(entrega.getDataCadastro()));
+        if (entrega.getDataEntrega() == null) {
+            telaEntregaFicha.getLblDataEntrega().setVisible(false);
+
+        } else {
+            telaEntregaFicha.getLblDataEntrega().setText(String.valueOf(entrega.getDataEntrega()));
+        }
     }
 }

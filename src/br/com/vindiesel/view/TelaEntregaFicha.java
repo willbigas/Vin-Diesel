@@ -98,6 +98,10 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
         lblAlturaEncomenda = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         lblProfundidadeEncomenda = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblDataCadastro = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblDataEntrega = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,13 +109,13 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("                               Ficha Entrega");
+        jLabel1.setText("                                  Ficha Entrega");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,6 +453,18 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
         lblProfundidadeEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblProfundidadeEncomenda.setText("[Profundidade]");
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("Data Cadastro:");
+
+        lblDataCadastro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblDataCadastro.setText("[DataCadastro]");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("Data Entrega:");
+
+        lblDataEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblDataEntrega.setText("[DataEntrega]");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -460,12 +476,16 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel52)
                             .addComponent(jLabel56)
-                            .addComponent(jLabel54))
+                            .addComponent(jLabel54)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLarguraEncomenda)
                             .addComponent(lblAlturaEncomenda)
-                            .addComponent(lblProfundidadeEncomenda)))
+                            .addComponent(lblProfundidadeEncomenda)
+                            .addComponent(lblDataCadastro)
+                            .addComponent(lblDataEntrega)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -477,7 +497,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                             .addComponent(lblValorEncomenda)
                             .addComponent(lblPesoEncomenda)
                             .addComponent(lblCodigoEncomenda))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,6 +526,14 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
                     .addComponent(lblProfundidadeEncomenda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblDataCadastro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lblDataEntrega))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -519,8 +547,8 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,6 +622,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
@@ -607,6 +636,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -624,6 +654,8 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     private javax.swing.JLabel lblCodigoPessoaRemetente;
     private javax.swing.JLabel lblComplementoDestinatario;
     private javax.swing.JLabel lblComplementoRemetente;
+    private javax.swing.JLabel lblDataCadastro;
+    private javax.swing.JLabel lblDataEntrega;
     private javax.swing.JLabel lblEstadoDestinatario;
     private javax.swing.JLabel lblEstadoRemetente;
     private javax.swing.JLabel lblLarguraEncomenda;
@@ -837,6 +869,22 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
 
     public void setLblTelefoneRemetente(JLabel lblTelefoneRemetente) {
         this.lblTelefoneRemetente = lblTelefoneRemetente;
+    }
+
+    public JLabel getLblDataCadastro() {
+        return lblDataCadastro;
+    }
+
+    public void setLblDataCadastro(JLabel lblDataCadastro) {
+        this.lblDataCadastro = lblDataCadastro;
+    }
+
+    public JLabel getLblDataEntrega() {
+        return lblDataEntrega;
+    }
+
+    public void setLblDataEntrega(JLabel lblDataEntrega) {
+        this.lblDataEntrega = lblDataEntrega;
     }
 
 }

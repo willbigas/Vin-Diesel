@@ -20,9 +20,10 @@ public class TelaRemetenteGerenciarRelatorioControl {
     Remetente remetente;
     List<Remetente> listRemetentes;
 
-    private static final int CB_OPCAO_CODIGO_PESSOA = 0;
-    private static final int CB_OPCAO_NOME = 1;
-    private static final int CB_OPCAO_CIDADE = 2;
+    private static final int CB_OPCAO_NENHUMA = 0;
+    private static final int CB_OPCAO_CODIGO_PESSOA = 1;
+    private static final int CB_OPCAO_NOME = 2;
+    private static final int CB_OPCAO_CIDADE = 3;
 
     public TelaRemetenteGerenciarRelatorioControl() {
         remetenteDao = new RemetenteDao();
@@ -45,6 +46,9 @@ public class TelaRemetenteGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
+        if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NENHUMA) {
+            listRemetentes = remetenteDao.pesquisar();
+        }
         if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_PESSOA) {
             listRemetentes = remetenteDao.pesquisarPorCodigoPessoa(telaRemetenteGerenciarRelatorio.getTfCampoPesquisa().getText());
         }
@@ -53,8 +57,8 @@ public class TelaRemetenteGerenciarRelatorioControl {
         }
         if (telaRemetenteGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CIDADE) {
             String campoParaPesquisar = telaRemetenteGerenciarRelatorio.getTfCampoPesquisa().getText();
-           List<Remetente> tudoDoBanco = remetenteDao.pesquisar();
-           listRemetentes = new ArrayList<>();
+            List<Remetente> tudoDoBanco = remetenteDao.pesquisar();
+            listRemetentes = new ArrayList<>();
             for (Remetente remetente : tudoDoBanco) {
                 if (remetente.getEndereco().getCidade().toUpperCase().contains(campoParaPesquisar.toUpperCase())) {
                     listRemetentes.add(remetente);

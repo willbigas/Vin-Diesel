@@ -7,6 +7,7 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.report.TelaEncomendaGerenciarRelatorioControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -42,17 +43,15 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        tfCodigoRastreio = new javax.swing.JTextField();
+        tfCampoPesquisa = new javax.swing.JTextField();
         btGerarRelatorio = new javax.swing.JButton();
+        cbOpcaoPesquisa = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Relatório de Encomendas");
-
-        jLabel2.setText("Codigo Rastreio:");
 
         btGerarRelatorio.setText("Gerar");
         btGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -61,16 +60,12 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
             }
         });
 
+        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um filtro", "Codigo encomenda" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfCodigoRastreio, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,17 +75,23 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(81, 81, 81))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(cbOpcaoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfCodigoRastreio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbOpcaoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btGerarRelatorio)
                 .addGap(16, 16, 16))
         );
@@ -107,17 +108,26 @@ public class TelaEncomendaGerenciarRelatorio extends javax.swing.JInternalFrame 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGerarRelatorio;
+    private javax.swing.JComboBox<String> cbOpcaoPesquisa;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tfCodigoRastreio;
+    private javax.swing.JTextField tfCampoPesquisa;
     // End of variables declaration//GEN-END:variables
 
-    public JTextField getTfCodigoRastreio() {
-        return tfCodigoRastreio;
+    public JComboBox<String> getCbOpcaoPesquisa() {
+        return cbOpcaoPesquisa;
     }
 
-    public void setTfCodigoRastreio(JTextField tfCodigoRastreio) {
-        this.tfCodigoRastreio = tfCodigoRastreio;
+    public void setCbOpcaoPesquisa(JComboBox<String> cbOpcaoPesquisa) {
+        this.cbOpcaoPesquisa = cbOpcaoPesquisa;
     }
+
+    public JTextField getTfCampoPesquisa() {
+        return tfCampoPesquisa;
+    }
+
+    public void setTfCampoPesquisa(JTextField tfCampoPesquisa) {
+        this.tfCampoPesquisa = tfCampoPesquisa;
+    }
+
 
 }

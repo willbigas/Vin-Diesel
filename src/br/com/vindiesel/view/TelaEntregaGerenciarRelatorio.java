@@ -51,7 +51,7 @@ public class TelaEntregaGerenciarRelatorio extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Pesquisar por :");
 
-        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data de Entrega", "Data de Cadastro", "Código Encomenda", "Código Remetente", "Código Destinatario" }));
+        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um filtro", "Data de Entrega", "Data de Cadastro", "Código Encomenda", "Código Remetente", "Código Destinatario" }));
 
         btGerarRelatorio.setText("Gerar");
         btGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {

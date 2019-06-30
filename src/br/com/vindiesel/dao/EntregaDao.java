@@ -235,7 +235,7 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
     }
 
     public List<Entrega> pesquisarPorDataEntrega(String dataEntrega) {
-        String query = "SELECT * FROM ENTREGA WHERE(dataEntrega = ?)";
+        String query = "SELECT * FROM ENTREGA WHERE(dataEntrega like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(query);
             stmt.setString(1, "%" + dataEntrega + "%");

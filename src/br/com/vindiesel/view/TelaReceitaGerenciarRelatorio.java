@@ -58,7 +58,7 @@ public class TelaReceitaGerenciarRelatorio extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Pesquisar por :");
 
-        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo da Entrega", "Forma de Pagamento", "Data de Efetivação" }));
+        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um filtro", "Codigo da Entrega", "Forma de Pagamento", "Data de Efetivação" }));
 
         btGerarRelatorio.setText("Gerar");
         btGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {

@@ -20,9 +20,10 @@ public class TelaDestinatarioGerenciarRelatorioControl {
     Destinatario destinatario;
     List<Destinatario> listDestinatarios;
 
-    private static final int CB_OPCAO_CODIGO_PESSOA = 0;
-    private static final int CB_OPCAO_NOME = 1;
-    private static final int CB_OPCAO_CIDADE = 2;
+    private static final int CB_OPCAO_NENHUMA = 0;
+    private static final int CB_OPCAO_CODIGO_PESSOA = 1;
+    private static final int CB_OPCAO_NOME = 2;
+    private static final int CB_OPCAO_CIDADE = 3;
 
     public TelaDestinatarioGerenciarRelatorioControl() {
         destinatarioDao = new DestinatarioDao();
@@ -45,6 +46,9 @@ public class TelaDestinatarioGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
+        if (telaDestinatarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NENHUMA) {
+            listDestinatarios = destinatarioDao.pesquisar();
+        }
         if (telaDestinatarioGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_PESSOA) {
             listDestinatarios = destinatarioDao.pesquisarPorCodigoPessoa(telaDestinatarioGerenciarRelatorio.getTfCampoPesquisa().getText());
         }

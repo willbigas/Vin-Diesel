@@ -5,7 +5,11 @@ import br.com.vindiesel.dao.DestinatarioDao;
 import br.com.vindiesel.model.Destinatario;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import br.com.vindiesel.uteis.Relatorio;
+import java.awt.Desktop;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -296,6 +300,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuItemAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/ajuda_32x32.png"))); // NOI18N
         menuItemAjuda.setText("Ajuda");
         menuItemAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        menuItemAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAjudaActionPerformed(evt);
+            }
+        });
         menuSobre.add(menuItemAjuda);
 
         menuItemSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -359,12 +368,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuItemRelatorioEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioEntregaActionPerformed
         // TODO add your handling code here:
-       telaPrincipalControl.chamarTelaEntregaGerenciarRelatorioAction();
+        telaPrincipalControl.chamarTelaEntregaGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioEntregaActionPerformed
 
     private void menuItemRelatorioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRelatorioUsuarioActionPerformed
         // TODO add your handling code here:
-       telaPrincipalControl.chamarTelaUsuarioGerenciarRelatorioAction();
+        telaPrincipalControl.chamarTelaUsuarioGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioUsuarioActionPerformed
 
     private void menuItemGerenciarRemetenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGerenciarRemetenteActionPerformed
@@ -400,6 +409,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         telaPrincipalControl.chamarTelaEncomendaGerenciarRelatorioAction();
     }//GEN-LAST:event_menuItemRelatorioEncomendaActionPerformed
+
+    private void menuItemAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAjudaActionPerformed
+        // TODO add your handling code here:
+        abrirLink("https://www.soundczech.cz/temp/lorem-ipsum.pdf");
+
+    }//GEN-LAST:event_menuItemAjudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -463,6 +478,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuSobre;
     private javax.swing.JMenu menuUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void abrirLink(String endereco) {
+        try {
+            Desktop desktop = null;
+            //Primeiro verificamos se é possível a integração com o desktop
+            if (!Desktop.isDesktopSupported()) {
+                throw new IllegalStateException("Erro ao acessar sua area de Trabalho , Contate o administrador do sistema.");
+            }
+            desktop = Desktop.getDesktop();
+            //Agora vemos se é possível disparar o browser default.
+            if (!desktop.isSupported(Desktop.Action.BROWSE)) {
+                throw new IllegalStateException("Navegador Padrão não encontrado!");
+            }
+            URI uri = new URI(endereco);
+            desktop.browse(uri);
+            //Dispara o browser default, que pode ser o Explorer, Firefox ou outro.
+        } catch (IllegalStateException illegalStateException) {
+        } catch (URISyntaxException uRISyntaxException) {
+        } catch (IOException iOException) {
+        }
+    }
 
     public JMenu getMenuEntrega() {
         return menuEntrega;

@@ -30,6 +30,7 @@ import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
 import br.com.vindiesel.view.TelaEncomendaPesquisaAvancada;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEntrega;
+import br.com.vindiesel.view.TelaEntregaFicha;
 import br.com.vindiesel.view.TelaEntregaReceitaDialog;
 import br.com.vindiesel.view.TelaEntregaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
@@ -49,6 +50,7 @@ import javax.swing.text.MaskFormatter;
 public class TelaEntregaControl {
 
     TelaEntrega telaEntrega;
+    TelaEntregaFicha telaEntregaFicha;
     TelaEntregaReceitaDialog telaEntregaReceita;
     TelaDestinatarioPesquisaAvancada telaDestinatarioPesquisaAvancada;
     TelaRemetentePesquisaAvancada telaRemetentePesquisaAvancada;
@@ -138,6 +140,14 @@ public class TelaEntregaControl {
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 3, 95);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 290);
         UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 290);
+    }
+
+    public void chamarDialogEntregaFichaAction() {
+        telaEntregaFicha = new TelaEntregaFicha(telaEntrega, true, this);
+        carregarDestinatarioJdialogFicha();
+        carregarRemetenteJdialogFicha();
+        carregarEncomendaJdialogFicha();
+        telaEntregaFicha.setVisible(true);
     }
 
     public void carregarEstadosNaComboBox() {
@@ -401,8 +411,8 @@ public class TelaEntregaControl {
 
     public void adicionarTramitesDeUmaEntregaAction() {
         int cbSelecionada = telaEntrega.getCbTipoTramite().getSelectedIndex();
-        
-         if (cbSelecionada == 2) {
+
+        if (cbSelecionada == 2) {
             int retorno = Mensagem.confirmacao(Texto.ATENCAO_FINALIZAR_ENTREGA);
 
             if (retorno == JOptionPane.NO_OPTION) {
@@ -416,7 +426,7 @@ public class TelaEntregaControl {
             entrega.setEntregue(true);
             entregaDao.alterar(entrega);
         }
-        
+
         int idTramiteInserido = tramiteControl.adicionarTramite(entrega, telaEntrega.getTfNomeTramite().getText(),
                 telaEntrega.getTfObservacaoTramite().getText(), cbSelecionada + 1);
         if (idTramiteInserido == 0) {
@@ -424,7 +434,7 @@ public class TelaEntregaControl {
             tramite = null;
             return;
         }
-       
+
         tramite = tramiteDao.pesquisar(idTramiteInserido);
         tramiteTableModel.adicionar(tramite);
         Mensagem.info(Texto.SUCESSO_CADASTRAR);
@@ -623,4 +633,56 @@ public class TelaEntregaControl {
 
     }
 
+    private void carregarDestinatarioJdialogFicha() {
+        entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
+        telaEntregaFicha.getLblNomeDestinatario().setText(entrega.getDestinatario().getNome());
+        String codigoPessoa = entrega.getDestinatario().getCodigoPessoa();
+
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
+        telaEntregaFicha.getLblCodigoPessoaDestinatario().setText(entrega.getDestinatario().getCodigoPessoa());
+
+        telaEntregaFicha.getLblBairroDestinatario().setText(entrega.getDestinatario().getEndereco().getBairro());
+        telaEntregaFicha.getLblCidadeDestinatario().setText(entrega.getDestinatario().getEndereco().getCidade());
+        telaEntregaFicha.getLblComplementoDestinatario().setText(entrega.getDestinatario().getEndereco().getComplemento());
+        telaEntregaFicha.getLblEstadoDestinatario().setText(entrega.getDestinatario().getEndereco().getEstado());
+        telaEntregaFicha.getLblNumeroDestinatario().setText(entrega.getDestinatario().getEndereco().getNumero());
+        telaEntregaFicha.getLblRuaDestinatario().setText(entrega.getDestinatario().getEndereco().getRua());
+        telaEntregaFicha.getLblCepDestinatario().setText(String.valueOf(entrega.getDestinatario().getEndereco().getCep()));
+    }
+
+    private void carregarRemetenteJdialogFicha() {
+        entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
+        telaEntregaFicha.getLblNomeRemetente().setText(entrega.getRemetente().getNome());
+        telaEntregaFicha.getLblTelefoneRemetente().setText(entrega.getRemetente().getTelefone());
+        String codigoPessoa = entrega.getRemetente().getCodigoPessoa();
+
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
+        telaEntregaFicha.getLblCodigoPessoaRemetente().setText(entrega.getRemetente().getCodigoPessoa());
+
+        telaEntregaFicha.getLblBairroRemetente().setText(entrega.getRemetente().getEndereco().getBairro());
+        telaEntregaFicha.getLblCidadeRemetente().setText(entrega.getRemetente().getEndereco().getCidade());
+        telaEntregaFicha.getLblComplementoRemetente().setText(entrega.getRemetente().getEndereco().getComplemento());
+        telaEntregaFicha.getLblEstadoRemetente().setText(entrega.getRemetente().getEndereco().getEstado());
+        telaEntregaFicha.getLblNumeroRemetente().setText(entrega.getRemetente().getEndereco().getNumero());
+        telaEntregaFicha.getLblRuaRemetente().setText(entrega.getRemetente().getEndereco().getRua());
+        telaEntregaFicha.getLblCepRemetente().setText(String.valueOf(entrega.getRemetente().getEndereco().getCep()));
+    }
+
+    private void carregarEncomendaJdialogFicha() {
+        entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
+        telaEntregaFicha.getLblCodigoEncomenda().setText(entrega.getEncomenda().getCodigoRastreio());
+        telaEntregaFicha.getLblValorEncomenda().setText(DecimalFormat.decimalFormatR$((entrega.getEncomenda().getValorNotaFiscal())));
+        telaEntregaFicha.getLblPesoEncomenda().setText(String.valueOf(entrega.getEncomenda().getPeso()));
+        telaEntregaFicha.getLblLarguraEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getLargura()));
+        telaEntregaFicha.getLblAlturaEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getAltura()));
+        telaEntregaFicha.getLblProfundidadeEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getComprimento()));
+    }
 }

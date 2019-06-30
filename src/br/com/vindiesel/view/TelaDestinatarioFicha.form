@@ -311,7 +311,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/vindiesel/img/editar_32x32.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Carregar"/>
+        <Property name="text" type="java.lang.String" value="Editar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

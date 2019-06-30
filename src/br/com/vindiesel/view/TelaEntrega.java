@@ -5,6 +5,7 @@ import br.com.vindiesel.model.Encomenda;
 import br.com.vindiesel.model.Remetente;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -161,6 +162,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblEntrega.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEntregaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblEntrega);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -806,7 +812,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             entregaControl.buscarCepAction();
         }
-        
+
     }//GEN-LAST:event_tfCepKeyPressed
 
     private void btPesquisarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarCepActionPerformed
@@ -891,12 +897,21 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private void tfPesquisarEntregaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarEntregaKeyReleased
         // TODO add your handling code here:
         entregaControl.pesquisarEntregasAction();
-        
+
     }//GEN-LAST:event_tfPesquisarEntregaKeyReleased
 
     private void btLimparCamposTabEntrega2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntrega2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btLimparCamposTabEntrega2ActionPerformed
+
+    private void tblEntregaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEntregaMouseClicked
+        if (evt.getClickCount() == 2) {
+            if (evt.getButton() == MouseEvent.BUTTON1) {
+                entregaControl.chamarDialogEntregaFichaAction();
+            } else if (evt.getButton() == MouseEvent.BUTTON3) {
+            }
+        }
+    }//GEN-LAST:event_tblEntregaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1143,9 +1158,5 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     public void setLblFreteTotal(JLabel lblFreteTotal) {
         this.lblFreteTotal = lblFreteTotal;
     }
-    
-    
-    
 
-    
 }

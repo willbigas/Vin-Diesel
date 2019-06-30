@@ -140,7 +140,7 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
 
         btCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/editar_32x32.png"))); // NOI18N
-        btCarregar.setText("Carregar");
+        btCarregar.setText("Editar");
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
         btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

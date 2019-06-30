@@ -78,6 +78,12 @@ public class TelaDestinatarioGerenciarControl {
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
     }
 
+    public void chamarDialogDestinatarioFichaAction() {
+        telaDestinatarioFicha = new TelaDestinatarioFicha(telaDestinatarioGerenciar, true, this);
+        carregarDestinatarioJdialogFicha();
+        telaDestinatarioFicha.setVisible(true);
+    }
+
     private void carregarEstadosNaComboBox() {
         telaDestinatarioGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
     }
@@ -234,16 +240,9 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
 
-    public void chamarDialogDestinatarioFichaAction() {
-        telaDestinatarioFicha = new TelaDestinatarioFicha(telaDestinatarioGerenciar, true, this);
-        carregarDestinatarioJdialogFicha();
-        telaDestinatarioFicha.setVisible(true);
-
-    }
-
     private void carregarDestinatarioJdialogFicha() {
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
-        telaDestinatarioFicha.getLblNomeDestinatario().setText(destinatario.getNome());
+        telaDestinatarioFicha.getLblNome().setText(destinatario.getNome());
         String codigoPessoa = destinatario.getCodigoPessoa();
 
         if (codigoPessoa.length() > 15) {
@@ -253,13 +252,13 @@ public class TelaDestinatarioGerenciarControl {
         }
         telaDestinatarioFicha.getLblCodigoPessoa().setText(destinatario.getCodigoPessoa());
 
-        telaDestinatarioFicha.getLblBairroDestinatario().setText(destinatario.getEndereco().getBairro());
-        telaDestinatarioFicha.getLblCidadeDestinatario().setText(destinatario.getEndereco().getCidade());
-        telaDestinatarioFicha.getLblComplementoDestinatario().setText(destinatario.getEndereco().getComplemento());
-        telaDestinatarioFicha.getLblEstadoDestinatario().setText(destinatario.getEndereco().getEstado());
-        telaDestinatarioFicha.getLblNumeroDestinatario().setText(destinatario.getEndereco().getNumero());
-        telaDestinatarioFicha.getLblRuaDestinatario().setText(destinatario.getEndereco().getRua());
-        telaDestinatarioFicha.getLblCepDestinatario().setText(String.valueOf(destinatario.getEndereco().getCep()));
+        telaDestinatarioFicha.getLblBairro().setText(destinatario.getEndereco().getBairro());
+        telaDestinatarioFicha.getLblCidade().setText(destinatario.getEndereco().getCidade());
+        telaDestinatarioFicha.getLblComplemento().setText(destinatario.getEndereco().getComplemento());
+        telaDestinatarioFicha.getLblEstado().setText(destinatario.getEndereco().getEstado());
+        telaDestinatarioFicha.getLblNumero().setText(destinatario.getEndereco().getNumero());
+        telaDestinatarioFicha.getLblRua().setText(destinatario.getEndereco().getRua());
+        telaDestinatarioFicha.getLblCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
     }
 
     public void buscarCepAction() {

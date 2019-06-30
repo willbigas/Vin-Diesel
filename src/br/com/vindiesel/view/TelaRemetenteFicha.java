@@ -5,7 +5,7 @@
  */
 package br.com.vindiesel.view;
 
-import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
+import br.com.vindiesel.control.TelaRemetenteGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -14,23 +14,23 @@ import javax.swing.JLabel;
  *
  * @author ADJ-PC
  */
-public class TelaDestinatarioFicha extends javax.swing.JDialog {
-
-    TelaDestinatarioGerenciarControl telaDestinatarioGerenciarControl;
+public class TelaRemetenteFicha extends javax.swing.JDialog {
+    
+    TelaRemetenteGerenciarControl telaRemetenteGerenciarControl;
 
     /**
-     * Creates new form TelaDestinatarioFicha
+     * Creates new form TelaRemetenteFicha
      */
-    public TelaDestinatarioFicha(java.awt.Frame parent, boolean modal) {
+    public TelaRemetenteFicha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
-    public TelaDestinatarioFicha(JInternalFrame parent, boolean modal, TelaDestinatarioGerenciarControl control) {
+    
+    public TelaRemetenteFicha(JInternalFrame parent, boolean modal, TelaRemetenteGerenciarControl control) {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
-        telaDestinatarioGerenciarControl = control;
+        telaRemetenteGerenciarControl = control;
         InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
@@ -43,100 +43,108 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblNome = new javax.swing.JLabel();
-        lblCodigoPessoa = new javax.swing.JLabel();
-        lblCep = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lblCidade = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        lblNumero = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        lblRua = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        lblComplemento = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lblBairro = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblCodigoPessoa = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lblTelefone = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblCep = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblRua = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblNumeroCasa = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lblCidade = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        lblBairro = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        lblComplemento = new javax.swing.JLabel();
         btCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Nome:");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("CPF/CNPJ:");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("CEP:");
-
-        lblNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNome.setText("[Nome]");
-
-        lblCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCodigoPessoa.setText("[CodigoPessoa]");
-
-        lblCep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCep.setText("[CEP]");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("Estado:");
-
-        lblEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblEstado.setText("[Estado]");
-
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setText("Cidade:");
-
-        lblCidade.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCidade.setText("[Cidade]");
-
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setText("Numero:");
-
-        lblNumero.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNumero.setText("[Numero]");
-
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel14.setText("Rua:");
-
-        lblRua.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblRua.setText("[Rua]");
-
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel16.setText("Complemento:");
-
-        lblComplemento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblComplemento.setText("[Complemento]");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Bairro:");
-
-        lblBairro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblBairro.setText("[Bairro]");
-
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("          FICHA DESTINATARIO");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("               Ficha Remetente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
         );
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Nome:");
+
+        lblNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNome.setText("[Nome]");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Codigo Pessoa:");
+
+        lblCodigoPessoa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCodigoPessoa.setText("[CodigoPessoa]");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Telefone:");
+
+        lblTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTelefone.setText("[Telefone]");
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("Cep:");
+
+        lblCep.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCep.setText("[Cep]");
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Rua:");
+
+        lblRua.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblRua.setText("[Rua]");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setText("Estado:");
+
+        lblEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEstado.setText("[Estado]");
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setText("Numero:");
+
+        lblNumeroCasa.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNumeroCasa.setText("[Numero]");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setText("Cidade:");
+
+        lblCidade.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCidade.setText("[Cidade]");
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setText("Bairro:");
+
+        lblBairro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblBairro.setText("[Bairro]");
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("Complemento:");
+
+        lblComplemento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblComplemento.setText("[Complemento]");
 
         btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
         btCarregar.setText("Carregar");
@@ -154,92 +162,92 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel18)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel8)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNome)
-                            .addComponent(lblCodigoPessoa)
+                            .addComponent(lblCidade)
+                            .addComponent(lblBairro)
                             .addComponent(lblComplemento))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCep)
-                            .addComponent(lblCidade)
-                            .addComponent(lblRua))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel8)))
+                            .addComponent(lblCodigoPessoa)
+                            .addComponent(lblRua)
+                            .addComponent(lblCep))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNumero)
-                            .addComponent(lblBairro)
-                            .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(102, 102, 102))))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCarregar)
-                .addGap(43, 43, 43))
+                            .addComponent(lblTelefone)
+                            .addComponent(lblEstado)
+                            .addComponent(lblNumeroCasa)
+                            .addComponent(btCarregar))
+                        .addGap(73, 73, 73))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblCodigoPessoa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblCep)
+                    .addComponent(lblCodigoPessoa)
+                    .addComponent(jLabel6)
+                    .addComponent(lblTelefone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
+                    .addComponent(lblCep)
+                    .addComponent(jLabel12)
                     .addComponent(lblEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(lblCidade)
-                    .addComponent(jLabel12)
-                    .addComponent(lblNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
                     .addComponent(lblRua)
-                    .addComponent(jLabel5)
-                    .addComponent(lblBairro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel14)
+                    .addComponent(lblNumeroCasa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(lblComplemento))
+                    .addComponent(lblCidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(lblBairro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(lblComplemento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btCarregar)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCarregarActionPerformed
-        telaDestinatarioGerenciarControl.carregarDestinatarioAction();
+        telaRemetenteGerenciarControl.carregarRemetenteAction();
         this.setVisible(false);
     }//GEN-LAST:event_btCarregarActionPerformed
 
@@ -260,20 +268,20 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDestinatarioFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRemetenteFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDestinatarioFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRemetenteFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDestinatarioFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRemetenteFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDestinatarioFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaRemetenteFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaDestinatarioFicha dialog = new TelaDestinatarioFicha(new javax.swing.JFrame(), true);
+                TelaRemetenteFicha dialog = new TelaRemetenteFicha(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -287,14 +295,15 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCarregar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -305,81 +314,89 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
     private javax.swing.JLabel lblComplemento;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblNumeroCasa;
     private javax.swing.JLabel lblRua;
+    private javax.swing.JLabel lblTelefone;
     // End of variables declaration//GEN-END:variables
 
     public JLabel getLblBairro() {
         return lblBairro;
     }
-
+    
     public void setLblBairro(JLabel lblBairro) {
         this.lblBairro = lblBairro;
     }
-
+    
     public JLabel getLblCep() {
         return lblCep;
     }
-
+    
     public void setLblCep(JLabel lblCep) {
         this.lblCep = lblCep;
     }
-
+    
     public JLabel getLblCidade() {
         return lblCidade;
     }
-
+    
     public void setLblCidade(JLabel lblCidade) {
         this.lblCidade = lblCidade;
     }
-
+    
     public JLabel getLblCodigoPessoa() {
         return lblCodigoPessoa;
     }
-
+    
     public void setLblCodigoPessoa(JLabel lblCodigoPessoa) {
         this.lblCodigoPessoa = lblCodigoPessoa;
     }
-
+    
     public JLabel getLblComplemento() {
         return lblComplemento;
     }
-
+    
     public void setLblComplemento(JLabel lblComplemento) {
         this.lblComplemento = lblComplemento;
     }
-
+    
     public JLabel getLblEstado() {
         return lblEstado;
     }
-
+    
     public void setLblEstado(JLabel lblEstado) {
         this.lblEstado = lblEstado;
     }
-
+    
     public JLabel getLblNome() {
         return lblNome;
     }
-
+    
     public void setLblNome(JLabel lblNome) {
         this.lblNome = lblNome;
     }
-
-    public JLabel getLblNumero() {
-        return lblNumero;
+    
+    public JLabel getLblNumeroCasa() {
+        return lblNumeroCasa;
     }
-
-    public void setLblNumero(JLabel lblNumero) {
-        this.lblNumero = lblNumero;
+    
+    public void setLblNumeroCasa(JLabel lblNumeroCasa) {
+        this.lblNumeroCasa = lblNumeroCasa;
     }
-
+    
     public JLabel getLblRua() {
         return lblRua;
     }
-
+    
     public void setLblRua(JLabel lblRua) {
         this.lblRua = lblRua;
     }
-
-
+    
+    public JLabel getLblTelefone() {
+        return lblTelefone;
+    }
+    
+    public void setLblTelefone(JLabel lblTelefone) {
+        this.lblTelefone = lblTelefone;
+    }
+    
 }

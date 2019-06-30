@@ -569,7 +569,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     private void tblRemetenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRemetenteMouseClicked
         if (evt.getClickCount() == 2) {
-            remetenteGerenciarControl.carregarRemetenteAction();
+            remetenteGerenciarControl.chamarDialogRemetenteFichaAction();
         }
     }//GEN-LAST:event_tblRemetenteMouseClicked
 
@@ -784,7 +784,5 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     public void setLblTotalRemetentes(JLabel lblTotalRemetentes) {
         this.lblTotalRemetentes = lblTotalRemetentes;
     }
-    
-    
 
 }

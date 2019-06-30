@@ -13,6 +13,7 @@ import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
+import br.com.vindiesel.view.TelaDestinatarioFicha;
 import br.com.vindiesel.view.TelaDestinatarioGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
 import java.text.ParseException;
@@ -28,6 +29,7 @@ import javax.swing.text.MaskFormatter;
 public class TelaDestinatarioGerenciarControl {
 
     private TelaDestinatarioGerenciar telaDestinatarioGerenciar;
+    private TelaDestinatarioFicha telaDestinatarioFicha;
     private Destinatario destinatario;
     private Endereco endereco;
     private DestinatarioDao destinatarioDao;
@@ -74,6 +76,12 @@ public class TelaDestinatarioGerenciarControl {
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 1, 350);
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 155);
         UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
+    }
+
+    public void chamarDialogDestinatarioFichaAction() {
+        telaDestinatarioFicha = new TelaDestinatarioFicha(telaDestinatarioGerenciar, true, this);
+        carregarDestinatarioJdialogFicha();
+        telaDestinatarioFicha.setVisible(true);
     }
 
     private void carregarEstadosNaComboBox() {
@@ -232,6 +240,27 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfNome().requestFocus();
     }
 
+    private void carregarDestinatarioJdialogFicha() {
+        destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
+        telaDestinatarioFicha.getLblNome().setText(destinatario.getNome());
+        String codigoPessoa = destinatario.getCodigoPessoa();
+
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
+        telaDestinatarioFicha.getLblCodigoPessoa().setText(destinatario.getCodigoPessoa());
+
+        telaDestinatarioFicha.getLblBairro().setText(destinatario.getEndereco().getBairro());
+        telaDestinatarioFicha.getLblCidade().setText(destinatario.getEndereco().getCidade());
+        telaDestinatarioFicha.getLblComplemento().setText(destinatario.getEndereco().getComplemento());
+        telaDestinatarioFicha.getLblEstado().setText(destinatario.getEndereco().getEstado());
+        telaDestinatarioFicha.getLblNumero().setText(destinatario.getEndereco().getNumero());
+        telaDestinatarioFicha.getLblRua().setText(destinatario.getEndereco().getRua());
+        telaDestinatarioFicha.getLblCep().setText(String.valueOf(destinatario.getEndereco().getCep()));
+    }
+
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
         BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
@@ -252,7 +281,7 @@ public class TelaDestinatarioGerenciarControl {
             telaDestinatarioGerenciar.getTfRua().setText(endereco.getRua());
             telaDestinatarioGerenciar.getTfCep().setText(telaDestinatarioGerenciar.getTfCep().getText());
             telaDestinatarioGerenciar.getTfNumero().requestFocus();
-            
+
         } catch (NumberFormatException numberFormatException) {
             Mensagem.erro(Texto.ERRO_COVERTER_CAMPO_CEP);
             System.out.println(numberFormatException.getMessage());

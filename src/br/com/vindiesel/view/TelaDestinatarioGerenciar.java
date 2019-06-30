@@ -512,7 +512,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     private void tblDestinatarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDestinatarioMouseClicked
         if (evt.getClickCount() == 2) {
-            destinatarioGerenciarControl.carregarDestinatarioAction();
+            destinatarioGerenciarControl.chamarDialogDestinatarioFichaAction();
         }
     }//GEN-LAST:event_tblDestinatarioMouseClicked
 

@@ -15,6 +15,7 @@ import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaRemetenteGerenciar;
 import br.com.vindiesel.view.TelaPrincipal;
+import br.com.vindiesel.view.TelaRemetenteFicha;
 import java.text.ParseException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -28,6 +29,7 @@ import javax.swing.text.MaskFormatter;
 public class TelaRemetenteGerenciarControl {
 
     TelaRemetenteGerenciar telaRemetenteGerenciar;
+    TelaRemetenteFicha telaRemetenteFicha;
     Remetente remetente;
     Endereco endereco;
     RemetenteDao remetenteDao;
@@ -71,6 +73,12 @@ public class TelaRemetenteGerenciarControl {
     public void carregarEstadosNaComboBox() {
         telaRemetenteGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
 
+    }
+
+    public void chamarDialogRemetenteFichaAction() {
+        telaRemetenteFicha = new TelaRemetenteFicha(telaRemetenteGerenciar, true, this);
+        carregarRemetenteJdialogFicha();
+        telaRemetenteFicha.setVisible(true);
     }
 
     private void redimensionarTabela() {
@@ -290,6 +298,28 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
         telaRemetenteGerenciar.getTfNome().requestFocus();
 
+    }
+
+    private void carregarRemetenteJdialogFicha() {
+        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
+        telaRemetenteFicha.getLblNome().setText(remetente.getNome());
+        telaRemetenteFicha.getLblTelefone().setText(remetente.getTelefone());
+        String codigoPessoa = remetente.getCodigoPessoa();
+
+        if (codigoPessoa.length() > 15) {
+            formataTfCodigoPessoaParaCNPJ();
+        } else {
+            formataTfCodigoPessoaParaCPF();
+        }
+        telaRemetenteFicha.getLblCodigoPessoa().setText(remetente.getCodigoPessoa());
+
+        telaRemetenteFicha.getLblBairro().setText(remetente.getEndereco().getBairro());
+        telaRemetenteFicha.getLblCidade().setText(remetente.getEndereco().getCidade());
+        telaRemetenteFicha.getLblComplemento().setText(remetente.getEndereco().getComplemento());
+        telaRemetenteFicha.getLblEstado().setText(remetente.getEndereco().getEstado());
+        telaRemetenteFicha.getLblNumeroCasa().setText(remetente.getEndereco().getNumero());
+        telaRemetenteFicha.getLblRua().setText(remetente.getEndereco().getRua());
+        telaRemetenteFicha.getLblCep().setText(String.valueOf(remetente.getEndereco().getCep()));
     }
 
     private void criaInstanciasDeMascarasFormatadas() {

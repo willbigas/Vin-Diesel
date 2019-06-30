@@ -19,6 +19,9 @@ public class TelaEncomendaGerenciarRelatorioControl {
     Encomenda encomenda;
     List<Encomenda> listEncomendas;
 
+    private static final int CB_OPCAO_NENHUMA = 0;
+    private static final int CB_OPCAO_CODIGO_ENCOMENDA = 1;
+
     public TelaEncomendaGerenciarRelatorioControl() {
         encomendaDao = new EncomendaDao();
     }
@@ -40,7 +43,12 @@ public class TelaEncomendaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-        listEncomendas = encomendaDao.pesquisar(telaEncomendaGerenciarRelatorio.getTfCodigoRastreio().getText());
+        if (telaEncomendaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NENHUMA) {
+            listEncomendas = encomendaDao.pesquisar();
+        }
+        if (telaEncomendaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_ENCOMENDA) {
+            listEncomendas = encomendaDao.pesquisar(telaEncomendaGerenciarRelatorio.getTfCampoPesquisa().getText());
+        }
         chamarRelatorioEncomendas(listEncomendas);
 
     }

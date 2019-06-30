@@ -424,6 +424,7 @@ public class TelaEntregaControl {
             }
 
             entrega.setEntregue(true);
+            entrega.setDataEntrega(new Date(System.currentTimeMillis()));
             entregaDao.alterar(entrega);
         }
 

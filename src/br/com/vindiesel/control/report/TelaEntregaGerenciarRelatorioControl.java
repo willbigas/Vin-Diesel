@@ -20,11 +20,12 @@ public class TelaEntregaGerenciarRelatorioControl {
     Entrega entrega;
     List<Entrega> listEntregas;
 
-    private static final int CB_OPCAO_DATA_ENTREGA = 0;
-    private static final int CB_OPCAO_DATA_CADASTRO = 1;
-    private static final int CB_OPCAO_CODIGO_ENCOMENDA = 2;
-    private static final int CB_OPCAO_CODIGO_REMETENTE = 3;
-    private static final int CB_OPCAO_CODIGO_DESTINATARIO = 4;
+    private static final int CB_OPCAO_NENHUMA = 0;
+    private static final int CB_OPCAO_DATA_ENTREGA = 1;
+    private static final int CB_OPCAO_DATA_CADASTRO = 2;
+    private static final int CB_OPCAO_CODIGO_ENCOMENDA = 3;
+    private static final int CB_OPCAO_CODIGO_REMETENTE = 4;
+    private static final int CB_OPCAO_CODIGO_DESTINATARIO = 5;
 
     public TelaEntregaGerenciarRelatorioControl() {
         entregaDao = new EntregaDao();
@@ -47,13 +48,13 @@ public class TelaEntregaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
-
+        if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NENHUMA) {
+            listEntregas = entregaDao.pesquisar();
+        }
         if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_ENTREGA) {
             listEntregas = entregaDao.pesquisarPorDataEntrega(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
         }
         if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_DATA_CADASTRO) {
-            List<Entrega> entregasPesquisadas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
-            System.out.println(entregasPesquisadas);
             listEntregas = entregaDao.pesquisarPorDataCadastro(UtilDate.deStringParaStringBanco(telaEntregaGerenciarRelatorio.getTfCampoPesquisa().getText()));
         }
         if (telaEntregaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_ENCOMENDA) {

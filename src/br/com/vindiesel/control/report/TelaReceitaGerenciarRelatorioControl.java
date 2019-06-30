@@ -21,9 +21,10 @@ public class TelaReceitaGerenciarRelatorioControl {
     Receita receita;
     List<Receita> listReceitas;
 
-    private static final int CB_OPCAO_CODIGO_ENTREGA = 0;
-    private static final int CB_OPCAO_FORMA_PAGAMENTO = 1;
-    private static final int CB_OPCAO_DATA_EFETIVACAO = 2;
+    private static final int CB_OPCAO_NENHUMA = 0;
+    private static final int CB_OPCAO_CODIGO_ENTREGA = 1;
+    private static final int CB_OPCAO_FORMA_PAGAMENTO = 2;
+    private static final int CB_OPCAO_DATA_EFETIVACAO = 3;
 
     public TelaReceitaGerenciarRelatorioControl() {
         receitaDao = new ReceitaDao();
@@ -46,6 +47,9 @@ public class TelaReceitaGerenciarRelatorioControl {
     }
 
     public void acionarRelatorioAction() {
+        if (telaReceitaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_NENHUMA) {
+            listReceitas = receitaDao.pesquisar();
+        }
         if (telaReceitaGerenciarRelatorio.getCbOpcaoPesquisa().getSelectedIndex() == CB_OPCAO_CODIGO_ENTREGA) {
             listReceitas = receitaDao.pesquisarPorCodigoEntrega(telaReceitaGerenciarRelatorio.getTfCampoPesquisa().getText());
         }

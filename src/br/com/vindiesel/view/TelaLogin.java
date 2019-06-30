@@ -63,7 +63,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(207, 207, 207));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(245, 180, 79));
+        kGradientPanel1.setkEndColor(new java.awt.Color(0, 102, 153));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
@@ -109,7 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btEntrar.setBorder(null);
         btEntrar.setBorderPainted(false);
         btEntrar.setContentAreaFilled(false);
-        btEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEntrarActionPerformed(evt);
@@ -119,7 +119,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblRecuperarSenha.setForeground(new java.awt.Color(0, 0, 0));
         lblRecuperarSenha.setText("Esqueceu sua senha?");
         lblRecuperarSenha.setToolTipText("Clique para ser direcionado ao email de contato para recuperação de senha");
-        lblRecuperarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRecuperarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblRecuperarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblRecuperarSenhaMouseReleased(evt);

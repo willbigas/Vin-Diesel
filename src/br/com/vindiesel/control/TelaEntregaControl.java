@@ -24,6 +24,7 @@ import br.com.vindiesel.model.tablemodel.TramiteTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.DecimalFormat;
+import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaDestinatarioPesquisaAvancada;
@@ -35,6 +36,7 @@ import br.com.vindiesel.view.TelaEntregaReceitaDialog;
 import br.com.vindiesel.view.TelaEntregaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -685,12 +687,12 @@ public class TelaEntregaControl {
         telaEntregaFicha.getLblLarguraEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getLargura()));
         telaEntregaFicha.getLblAlturaEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getAltura()));
         telaEntregaFicha.getLblProfundidadeEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getComprimento()));
-        telaEntregaFicha.getLblDataCadastro().setText(String.valueOf(entrega.getDataCadastro()));
+        telaEntregaFicha.getLblDataCadastro().setText(UtilDate.data(entrega.getDataCadastro()));
         if (entrega.getDataEntrega() == null) {
             telaEntregaFicha.getLblDataEntrega().setVisible(false);
 
         } else {
-            telaEntregaFicha.getLblDataEntrega().setText(String.valueOf(entrega.getDataEntrega()));
+            telaEntregaFicha.getLblDataEntrega().setText(UtilDate.data(entrega.getDataEntrega()));
         }
     }
 }

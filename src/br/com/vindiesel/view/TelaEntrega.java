@@ -906,10 +906,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     private void tblEntregaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEntregaMouseClicked
         if (evt.getClickCount() == 2) {
-            if (evt.getButton() == MouseEvent.BUTTON1) {
-                entregaControl.chamarDialogEntregaFichaAction();
-            } else if (evt.getButton() == MouseEvent.BUTTON3) {
-            }
+            entregaControl.chamarDialogEntregaFichaAction();
         }
     }//GEN-LAST:event_tblEntregaMouseClicked
 

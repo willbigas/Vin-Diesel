@@ -3,6 +3,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaEncomendaGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
@@ -113,6 +114,9 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
             }
         ));
         tblProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProdutoMouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tblProdutoMouseReleased(evt);
             }
@@ -507,8 +511,8 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(242, 112, 13));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Gerenciar Encomenda");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(" Gerenciar Encomenda");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -574,9 +578,6 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
 
     private void tblProdutoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoMouseReleased
         // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-            telaProdutoGerenciarControl.carregarEncomendaAction();
-        }
     }//GEN-LAST:event_tblProdutoMouseReleased
 
     private void tfComprimentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfComprimentoKeyPressed
@@ -595,6 +596,16 @@ public class TelaEncomendaGerenciar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         tpProduto.setEnabledAt(1, false);
     }//GEN-LAST:event_tpProdutoMousePressed
+
+    private void tblProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoMouseClicked
+        if (evt.getClickCount() == 2) {
+            if (evt.getButton() == MouseEvent.BUTTON1) {
+                telaProdutoGerenciarControl.chamarDialogEncomendaFichaAction();
+            } else if (evt.getButton() == MouseEvent.BUTTON3) {
+                telaProdutoGerenciarControl.carregarEncomendaAction();
+            }
+        }
+    }//GEN-LAST:event_tblProdutoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

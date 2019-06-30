@@ -10,6 +10,7 @@ import br.com.vindiesel.uteis.Texto;
 import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
+import br.com.vindiesel.view.TelaEncomendaFicha;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaEncomendaGerenciar;
 import java.util.List;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 public class TelaEncomendaGerenciarControl {
 
     TelaEncomendaGerenciar telaEncomendaGerenciar;
+    TelaEncomendaFicha telaEncomendaFicha;
     EncomendaTableModel encomendaTableModel;
     EncomendaDao encomendaDao;
     DimensaoDao dimensaoDao;
@@ -78,6 +80,12 @@ public class TelaEncomendaGerenciarControl {
         encomenda = null;
         telaEncomendaGerenciar.getTpProduto().setSelectedIndex(1);
         telaEncomendaGerenciar.getTfValorNf().requestFocus();
+    }
+
+    public void chamarDialogEncomendaFichaAction() {
+        telaEncomendaFicha = new TelaEncomendaFicha(telaEncomendaGerenciar, true, this);
+        
+        telaEncomendaFicha.setVisible(true);
     }
 
     private void cadastrarEncomenda() {
@@ -206,7 +214,7 @@ public class TelaEncomendaGerenciarControl {
         }
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + encomenda.getCodigoRastreio() + " ?");
-        
+
         if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }

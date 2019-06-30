@@ -7,6 +7,7 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaRemetenteGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import java.awt.event.KeyEvent;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 
@@ -15,7 +16,7 @@ import javax.swing.JLabel;
  * @author ADJ-PC
  */
 public class TelaRemetenteFicha extends javax.swing.JDialog {
-    
+
     TelaRemetenteGerenciarControl telaRemetenteGerenciarControl;
 
     /**
@@ -25,7 +26,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
+
     public TelaRemetenteFicha(JInternalFrame parent, boolean modal, TelaRemetenteGerenciarControl control) {
         initComponents();
         this.setLocationRelativeTo(parent);
@@ -68,12 +69,17 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         btCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("               Ficha Remetente");
+        jLabel1.setText("             Ficha De Remetente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,8 +255,14 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
 
     private void btCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCarregarActionPerformed
         telaRemetenteGerenciarControl.carregarRemetenteAction();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btCarregarActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments
@@ -323,81 +335,81 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
     public JLabel getLblBairro() {
         return lblBairro;
     }
-    
+
     public void setLblBairro(JLabel lblBairro) {
         this.lblBairro = lblBairro;
     }
-    
+
     public JLabel getLblCep() {
         return lblCep;
     }
-    
+
     public void setLblCep(JLabel lblCep) {
         this.lblCep = lblCep;
     }
-    
+
     public JLabel getLblCidade() {
         return lblCidade;
     }
-    
+
     public void setLblCidade(JLabel lblCidade) {
         this.lblCidade = lblCidade;
     }
-    
+
     public JLabel getLblCodigoPessoa() {
         return lblCodigoPessoa;
     }
-    
+
     public void setLblCodigoPessoa(JLabel lblCodigoPessoa) {
         this.lblCodigoPessoa = lblCodigoPessoa;
     }
-    
+
     public JLabel getLblComplemento() {
         return lblComplemento;
     }
-    
+
     public void setLblComplemento(JLabel lblComplemento) {
         this.lblComplemento = lblComplemento;
     }
-    
+
     public JLabel getLblEstado() {
         return lblEstado;
     }
-    
+
     public void setLblEstado(JLabel lblEstado) {
         this.lblEstado = lblEstado;
     }
-    
+
     public JLabel getLblNome() {
         return lblNome;
     }
-    
+
     public void setLblNome(JLabel lblNome) {
         this.lblNome = lblNome;
     }
-    
+
     public JLabel getLblNumeroCasa() {
         return lblNumeroCasa;
     }
-    
+
     public void setLblNumeroCasa(JLabel lblNumeroCasa) {
         this.lblNumeroCasa = lblNumeroCasa;
     }
-    
+
     public JLabel getLblRua() {
         return lblRua;
     }
-    
+
     public void setLblRua(JLabel lblRua) {
         this.lblRua = lblRua;
     }
-    
+
     public JLabel getLblTelefone() {
         return lblTelefone;
     }
-    
+
     public void setLblTelefone(JLabel lblTelefone) {
         this.lblTelefone = lblTelefone;
     }
-    
+
 }

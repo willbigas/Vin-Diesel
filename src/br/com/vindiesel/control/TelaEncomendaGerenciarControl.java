@@ -84,7 +84,7 @@ public class TelaEncomendaGerenciarControl {
 
     public void chamarDialogEncomendaFichaAction() {
         telaEncomendaFicha = new TelaEncomendaFicha(telaEncomendaGerenciar, true, this);
-        
+        carregarEncomendaJdialogFicha();
         telaEncomendaFicha.setVisible(true);
     }
 
@@ -299,5 +299,15 @@ public class TelaEncomendaGerenciarControl {
 
         telaEncomendaGerenciar.getLblTotalEncomendas().setText(String.valueOf(totalEncomendasBanco));
         telaEncomendaGerenciar.getLblTotalEncomendasFiltradas().setText(String.valueOf(totalEncomendasFiltradas));
+    }
+
+    private void carregarEncomendaJdialogFicha() {
+        encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
+        telaEncomendaFicha.getLblCodigo().setText(encomenda.getCodigoRastreio());
+        telaEncomendaFicha.getLblValor().setText(DecimalFormat.decimalFormatR$(encomenda.getValorNotaFiscal()));
+        telaEncomendaFicha.getLblPeso().setText(String.valueOf(encomenda.getPeso()));
+        telaEncomendaFicha.getLblLargura().setText(String.valueOf(encomenda.getDimensao().getLargura()));
+        telaEncomendaFicha.getLblAltura().setText(String.valueOf(encomenda.getDimensao().getAltura()));
+        telaEncomendaFicha.getLblProfundidade().setText(String.valueOf(encomenda.getDimensao().getComprimento()));
     }
 }

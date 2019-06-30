@@ -7,6 +7,7 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import java.awt.event.KeyEvent;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 
@@ -66,6 +67,11 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
         btCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Nome:");
@@ -125,7 +131,7 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("          FICHA DESTINATARIO");
+        jLabel6.setText("        FICHA DE DESTINATARIO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -241,8 +247,14 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
 
     private void btCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCarregarActionPerformed
         telaDestinatarioGerenciarControl.carregarDestinatarioAction();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btCarregarActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments

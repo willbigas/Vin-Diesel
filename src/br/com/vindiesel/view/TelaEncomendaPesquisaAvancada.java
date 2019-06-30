@@ -49,6 +49,7 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
         tfCampoPesquisa = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEncomenda = new javax.swing.JTable();
+        btAdicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pesquisa avancada de Encomendas");
@@ -81,6 +82,13 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblEncomenda);
 
+        btAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/add_32x32.png"))); // NOI18N
+        btAdicionar.setToolTipText("Adicionar nova encomenda");
+        btAdicionar.setBorder(null);
+        btAdicionar.setBorderPainted(false);
+        btAdicionar.setContentAreaFilled(false);
+        btAdicionar.setFocusPainted(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,6 +99,8 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfCampoPesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btAdicionar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -98,8 +108,9 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
+                    .addComponent(tfCampoPesquisa)
+                    .addComponent(jLabel1)
+                    .addComponent(btAdicionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -194,6 +205,7 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAdicionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblEncomenda;

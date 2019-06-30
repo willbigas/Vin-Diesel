@@ -8,6 +8,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaRemetenteGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -569,7 +570,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     private void tblRemetenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRemetenteMouseClicked
         if (evt.getClickCount() == 2) {
-            remetenteGerenciarControl.chamarDialogRemetenteFichaAction();
+            if (evt.getButton() == MouseEvent.BUTTON1) {
+                remetenteGerenciarControl.chamarDialogRemetenteFichaAction();
+            } else if (evt.getButton() == MouseEvent.BUTTON3) {
+                remetenteGerenciarControl.carregarRemetenteAction();
+            }
         }
     }//GEN-LAST:event_tblRemetenteMouseClicked
 

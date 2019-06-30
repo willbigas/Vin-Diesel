@@ -3,6 +3,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaDestinatarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -512,7 +513,11 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
 
     private void tblDestinatarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDestinatarioMouseClicked
         if (evt.getClickCount() == 2) {
-            destinatarioGerenciarControl.chamarDialogDestinatarioFichaAction();
+            if (evt.getButton() == MouseEvent.BUTTON1) {
+                destinatarioGerenciarControl.chamarDialogDestinatarioFichaAction();
+            } else if (evt.getButton() == MouseEvent.BUTTON3) {
+                destinatarioGerenciarControl.carregarDestinatarioAction();
+            }
         }
     }//GEN-LAST:event_tblDestinatarioMouseClicked
 

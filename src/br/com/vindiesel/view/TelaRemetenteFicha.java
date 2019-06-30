@@ -146,8 +146,9 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         lblComplemento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblComplemento.setText("[Complemento]");
 
-        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
-        btCarregar.setText("Carregar");
+        btCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/editar_32x32.png"))); // NOI18N
+        btCarregar.setText("Editar");
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
         btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -187,7 +188,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
                             .addComponent(lblCodigoPessoa)
                             .addComponent(lblRua)
                             .addComponent(lblCep))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel14)
                             .addComponent(jLabel12)

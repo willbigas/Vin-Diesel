@@ -138,7 +138,8 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
         );
 
-        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/gerar_32x32.png"))); // NOI18N
+        btCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/editar_32x32.png"))); // NOI18N
         btCarregar.setText("Carregar");
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
@@ -380,6 +381,5 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
     public void setLblRua(JLabel lblRua) {
         this.lblRua = lblRua;
     }
-
 
 }

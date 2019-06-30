@@ -51,6 +51,7 @@ public class TelaEntregaReceitaDialog extends javax.swing.JDialog {
         tfDataVencimento = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gerar Receita");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Gerar Receita");

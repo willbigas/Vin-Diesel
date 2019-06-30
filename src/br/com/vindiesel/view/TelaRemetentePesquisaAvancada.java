@@ -51,6 +51,7 @@ public class TelaRemetentePesquisaAvancada extends javax.swing.JDialog {
         tblRemetente = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa avancada de Remetentes");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("BUSCAR POR REMETENTES:");

@@ -46,6 +46,7 @@ public class TelaDestinatarioGerenciarRelatorio extends javax.swing.JInternalFra
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Gerenciar Relatorio - Destinatario");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

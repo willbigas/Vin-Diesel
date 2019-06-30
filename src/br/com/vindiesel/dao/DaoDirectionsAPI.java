@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.vindiesel.dao;
 
 import br.com.vindiesel.model.directions.Distancia;
@@ -17,7 +12,7 @@ import org.apache.http.util.EntityUtils;
 
 /**
  *
- * @author agostinho.junior
+ * @author william.mauro
  */
 public class DaoDirectionsAPI {
 
@@ -41,9 +36,7 @@ public class DaoDirectionsAPI {
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
 
         HttpGet requisicaoGet = new HttpGet(URL + primeiraDirecao + MIDDLE + segundaDirecao + SUFIX);
-//        HttpGet requisicaoGet = new HttpGet();
-//        requisicaoGet.addHeader("content-type", "application/json");
-//        requisicaoGet.addHeader("Accept", "application/json");
+        
         HttpResponse resposta;
         Distancia distanciaCalculada;
         Gson gson = new Gson();

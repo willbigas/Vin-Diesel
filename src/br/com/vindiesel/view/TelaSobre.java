@@ -43,15 +43,20 @@ public class TelaSobre extends javax.swing.JFrame {
         linkedinWilliam = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Sobre o sistema");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VIN DIESEL");
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/delivery-truck_64x64.png"))); // NOI18N
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Versão do Sofware : 1.0");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Autores");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -63,7 +68,7 @@ public class TelaSobre extends javax.swing.JFrame {
         jLabel7.setText("Projeto Open Source - 2019");
 
         githubProjeto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/github_32x32.png"))); // NOI18N
-        githubProjeto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        githubProjeto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         githubProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 githubProjetoMouseClicked(evt);
@@ -71,10 +76,10 @@ public class TelaSobre extends javax.swing.JFrame {
         });
 
         linkedinAgostinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
-        linkedinAgostinho.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        linkedinAgostinho.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         linkedinWilliam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/linkdin_24x24.png"))); // NOI18N
-        linkedinWilliam.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        linkedinWilliam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         linkedinWilliam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 linkedinWilliamMouseClicked(evt);
@@ -87,9 +92,6 @@ public class TelaSobre extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(jLabel7)
@@ -107,16 +109,10 @@ public class TelaSobre extends javax.swing.JFrame {
                         .addComponent(linkedinWilliam))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 4, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jLabel2)
-                .addContainerGap(154, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1))
-                .addGap(109, 109, 109))
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

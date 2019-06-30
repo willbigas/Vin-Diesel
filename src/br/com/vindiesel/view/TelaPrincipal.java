@@ -75,9 +75,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        desktopPane.setBackground(new java.awt.Color(207, 207, 207));
+        desktopPane.setBackground(new java.awt.Color(255, 255, 255));
         desktopPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        desktopPane.setForeground(new java.awt.Color(207, 207, 207));
+        desktopPane.setForeground(new java.awt.Color(131, 205, 243));
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -91,9 +91,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(242, 112, 13));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/truck_32x32.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/delivery-truck_64x64.png"))); // NOI18N
         jLabel1.setText("VIN DIESEL");
 
         jMenuBar1.setBorder(null);

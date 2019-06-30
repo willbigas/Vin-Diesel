@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.vindiesel.dao;
 
 import br.com.vindiesel.model.geocoding.Localizacao;
@@ -30,9 +25,7 @@ public class DaoGeocodingAPI {
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
 
         HttpGet requisicaoGet = new HttpGet(URL + cep + SUFIX);
-//        HttpGet requisicaoGet = new HttpGet();
-//        requisicaoGet.addHeader("content-type", "application/json");
-//        requisicaoGet.addHeader("Accept", "application/json");
+        
         HttpResponse resposta;
         Localizacao localizacao;
         Gson gson = new Gson();

@@ -63,6 +63,7 @@ public class TelaTipoUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("Gerenciamento de tipos de Usuario");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Pesquisar:");

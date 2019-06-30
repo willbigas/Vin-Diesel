@@ -69,6 +69,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         btCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Ficha de Remetente");
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -157,7 +158,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         btCarregar.setText("Editar");
         btCarregar.setBorder(null);
         btCarregar.setBorderPainted(false);
-        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btCarregar.setFocusPainted(false);
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

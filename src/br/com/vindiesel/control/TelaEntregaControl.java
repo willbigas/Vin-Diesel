@@ -36,7 +36,6 @@ import br.com.vindiesel.view.TelaEntregaReceitaDialog;
 import br.com.vindiesel.view.TelaEntregaFreteNaoEncontrado;
 import br.com.vindiesel.view.TelaRemetentePesquisaAvancada;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -683,10 +682,10 @@ public class TelaEntregaControl {
         entrega = entregaTableModel.pegaObjeto(telaEntrega.getTblEntrega().getSelectedRow());
         telaEntregaFicha.getLblCodigoEncomenda().setText(entrega.getEncomenda().getCodigoRastreio());
         telaEntregaFicha.getLblValorEncomenda().setText(DecimalFormat.decimalFormatR$((entrega.getEncomenda().getValorNotaFiscal())));
-        telaEntregaFicha.getLblPesoEncomenda().setText(String.valueOf(entrega.getEncomenda().getPeso()));
-        telaEntregaFicha.getLblLarguraEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getLargura()));
-        telaEntregaFicha.getLblAlturaEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getAltura()));
-        telaEntregaFicha.getLblProfundidadeEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getComprimento()));
+        telaEntregaFicha.getLblPesoEncomenda().setText(String.valueOf(entrega.getEncomenda().getPeso()) + " KG");
+        telaEntregaFicha.getLblLarguraEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getLargura()) + " CM");
+        telaEntregaFicha.getLblAlturaEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getAltura()) + " CM");
+        telaEntregaFicha.getLblProfundidadeEncomenda().setText(String.valueOf(entrega.getEncomenda().getDimensao().getComprimento()) + " CM");
         telaEntregaFicha.getLblDataCadastro().setText(UtilDate.data(entrega.getDataCadastro()));
         if (entrega.getDataEntrega() == null) {
             telaEntregaFicha.getLblDataEntrega().setVisible(false);

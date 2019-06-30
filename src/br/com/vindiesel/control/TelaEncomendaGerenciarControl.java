@@ -305,9 +305,9 @@ public class TelaEncomendaGerenciarControl {
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
         telaEncomendaFicha.getLblCodigo().setText(encomenda.getCodigoRastreio());
         telaEncomendaFicha.getLblValor().setText(DecimalFormat.decimalFormatR$(encomenda.getValorNotaFiscal()));
-        telaEncomendaFicha.getLblPeso().setText(String.valueOf(encomenda.getPeso()));
-        telaEncomendaFicha.getLblLargura().setText(String.valueOf(encomenda.getDimensao().getLargura()));
-        telaEncomendaFicha.getLblAltura().setText(String.valueOf(encomenda.getDimensao().getAltura()));
-        telaEncomendaFicha.getLblProfundidade().setText(String.valueOf(encomenda.getDimensao().getComprimento()));
+        telaEncomendaFicha.getLblPeso().setText(String.valueOf(encomenda.getPeso()) + " KG");
+        telaEncomendaFicha.getLblLargura().setText(String.valueOf(encomenda.getDimensao().getLargura()) + " CM");
+        telaEncomendaFicha.getLblAltura().setText(String.valueOf(encomenda.getDimensao().getAltura()) + " CM");
+        telaEncomendaFicha.getLblProfundidade().setText(String.valueOf(encomenda.getDimensao().getComprimento()) + " CM");
     }
 }

@@ -71,8 +71,12 @@ public class ReceitaDao extends DaoBD implements DaoI<Receita> {
                 + " valorRecebido = ?, valorTotal = ?, ENTREGA_ID = ?, FORMAPAGAMENTO_ID = ? WHERE ID = ? ";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
-            stmt.setTimestamp(1, new Timestamp(receita.getDataCadastro().getTime()));
-            stmt.setTimestamp(2, new Timestamp(receita.getDataPagamento().getTime()));
+            stmt.setDate(1, new Date(receita.getDataCadastro().getTime()));
+            if (receita.getDataPagamento() == null) {
+                stmt.setNull(2, Types.DATE);
+            } else {
+                stmt.setDate(2, new Date(receita.getDataPagamento().getTime()));
+            }
             stmt.setDate(3, new Date(receita.getDataVencimento().getTime()));
             stmt.setDouble(4, receita.getValorRecebido());
             stmt.setDouble(5, receita.getValorTotal());

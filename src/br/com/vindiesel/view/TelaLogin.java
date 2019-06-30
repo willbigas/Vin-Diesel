@@ -246,7 +246,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btEntrarActionPerformed
 
     private void lblRecuperarSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecuperarSenhaMouseReleased
-        loginControl.abrirLink("mailto:suporte@empresa.com.br");
+        loginControl.abrirLink("mailto:suporte@vindiesel.com.br");
     }//GEN-LAST:event_lblRecuperarSenhaMouseReleased
 
     private void tfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSenhaKeyPressed

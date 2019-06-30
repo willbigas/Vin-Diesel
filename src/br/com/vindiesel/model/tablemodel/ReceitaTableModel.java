@@ -20,11 +20,12 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
     private static final int DATA_CADASTRO = 0;
     private static final int DATA_VENCIMENTO = 1;
     private static final int VALOR_TOTAL = 2;
-    private static final int FORMA_PAGAMENTO = 3;
-    private static final int ENTREGUE = 4;
+    private static final int VALOR_RESTANTE = 3;
+    private static final int FORMA_PAGAMENTO = 4;
+    private static final int ENTREGUE = 5;
 
     private List<Receita> linhas;
-    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL", "FORMA PAGAMENTO", "STATUS"};
+    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL" , "VALOR RESTANTE", "FORMA PAGAMENTO", "STATUS"};
 
     public ReceitaTableModel() {
         linhas = new ArrayList<>();
@@ -58,6 +59,8 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 return String.class;
             case VALOR_TOTAL:
                 return String.class;
+            case VALOR_RESTANTE:
+                return String.class;
             case FORMA_PAGAMENTO:
                 return String.class;
             case ENTREGUE:
@@ -77,6 +80,8 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 return UtilDate.data(receita.getDataVencimento());
             case VALOR_TOTAL:
                 return DecimalFormat.decimalFormat(receita.getValorTotal());
+            case VALOR_RESTANTE:
+                return DecimalFormat.decimalFormat(receita.getValorRecebido());
             case FORMA_PAGAMENTO:
                 if (receita.getFormaPagamento() == null) {
                     return "Não informado";
@@ -106,6 +111,9 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 break;
             case VALOR_TOTAL:
                 receita.setValorTotal((Double) valor);
+                break;
+            case VALOR_RESTANTE:
+                receita.setValorRecebido((Double) valor);
                 break;
             case FORMA_PAGAMENTO:
                 receita.getFormaPagamento().setNome((String) valor);

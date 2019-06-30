@@ -5,6 +5,7 @@ import br.com.vindiesel.control.TelaUsuarioGerenciarControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -758,7 +759,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            usuarioGerenciarControl.carregarUsuarioAction();
+            if (evt.getButton() == MouseEvent.BUTTON1) {
+                usuarioGerenciarControl.chamarDialogUsuarioFichaAction();
+            } else if (evt.getButton() == MouseEvent.BUTTON3) {
+                usuarioGerenciarControl.carregarUsuarioAction();
+            }
         }
     }//GEN-LAST:event_tblUsuarioMouseClicked
 

@@ -81,6 +81,7 @@ public class TelaDestinatarioGerenciarControl {
     public void chamarDialogDestinatarioFichaAction() {
         telaDestinatarioFicha = new TelaDestinatarioFicha(telaDestinatarioGerenciar, true, this);
         carregarDestinatarioJdialogFicha();
+        carregarEnderecoDialogFicha();
         telaDestinatarioFicha.setVisible(true);
     }
 
@@ -252,6 +253,9 @@ public class TelaDestinatarioGerenciarControl {
         }
         telaDestinatarioFicha.getLblCodigoPessoa().setText(destinatario.getCodigoPessoa());
 
+    }
+
+    private void carregarEnderecoDialogFicha() {
         telaDestinatarioFicha.getLblBairro().setText(destinatario.getEndereco().getBairro());
         telaDestinatarioFicha.getLblCidade().setText(destinatario.getEndereco().getCidade());
         telaDestinatarioFicha.getLblComplemento().setText(destinatario.getEndereco().getComplemento());

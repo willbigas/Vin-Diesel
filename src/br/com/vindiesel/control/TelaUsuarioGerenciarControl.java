@@ -18,7 +18,9 @@ import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
+import br.com.vindiesel.view.TelaUsuarioFicha;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
+import java.text.DateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +34,7 @@ import javax.swing.JOptionPane;
 public class TelaUsuarioGerenciarControl {
 
     TelaUsuarioGerenciar telaUsuarioGerenciar;
+    TelaUsuarioFicha telaUsuarioFicha;
     List<TipoUsuario> listTipoUsuarios;
     TipoUsuarioDao tipoUsuarioDao;
     UsuarioDao usuarioDao;
@@ -74,6 +77,13 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, false);
         telaUsuarioGerenciar.getTfPesquisar().requestFocus();
         redimensionarTabela();
+    }
+
+    public void chamarDialogUsuarioFichaAction() {
+        telaUsuarioFicha = new TelaUsuarioFicha(telaUsuarioGerenciar, true, this);
+        carregarUsuarioDialogFicha();
+        carregarEnderecoDialogFicha();
+        telaUsuarioFicha.setVisible(true);
     }
 
     private void redimensionarTabela() {
@@ -206,7 +216,7 @@ public class TelaUsuarioGerenciarControl {
         usuario.setSalario(Double.valueOf(DecimalFormat.paraPonto(telaUsuarioGerenciar.getTfSalario().getText())));
         usuario.setSenha(telaUsuarioGerenciar.getTfSenha().getText());
         usuario.setTipoUsuario((TipoUsuario) telaUsuarioGerenciar.getCbTipoUsuario().getSelectedItem());
-        
+
         if (telaUsuarioGerenciar.getCheckAtivo().isSelected()) {
             usuario.setAtivo(true);
         } else {
@@ -322,6 +332,29 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfSenha().setText(usuario.getSenha());
     }
 
+    private void carregarUsuarioDialogFicha() {
+        usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
+        telaUsuarioFicha.getLblNome().setText(usuario.getNome());
+        telaUsuarioFicha.getLblNascimento().setText(UtilDate.dataLocal(usuario.getDataNascimento()));
+        telaUsuarioFicha.getLblCpf().setText(usuario.getCpf());
+        telaUsuarioFicha.getLblTelefone().setText(usuario.getTelefone());
+        telaUsuarioFicha.getLblEmail().setText(usuario.getEmail());
+        telaUsuarioFicha.getLblPis().setText(String.valueOf(usuario.getPis()));
+        telaUsuarioFicha.getLblSalario().setText(DecimalFormat.decimalFormatR$((usuario.getSalario())));
+        telaUsuarioFicha.getLblSenha().setText(usuario.getSenha());
+        telaUsuarioFicha.getLblTipoUsuario().setText(String.valueOf(usuario.getTipoUsuario()));
+    }
+
+    private void carregarEnderecoDialogFicha() {
+        telaUsuarioFicha.getLblBairro().setText(usuario.getEndereco().getBairro());
+        telaUsuarioFicha.getLblCidade().setText(usuario.getEndereco().getCidade());
+        telaUsuarioFicha.getLblComplemento().setText(usuario.getEndereco().getComplemento());
+        telaUsuarioFicha.getLblUf().setText(usuario.getEndereco().getEstado());
+        telaUsuarioFicha.getLblNumero().setText(usuario.getEndereco().getNumero());
+        telaUsuarioFicha.getLblRua().setText(usuario.getEndereco().getRua());
+        telaUsuarioFicha.getLblCep().setText(String.valueOf(usuario.getEndereco().getCep()));
+    }
+
     public void pesquisarUsuarioAction() {
         List<Usuario> usuariosPesquisados = usuarioDao.pesquisar(telaUsuarioGerenciar.getTfPesquisar().getText());
         if (usuariosPesquisados == null) {
@@ -377,4 +410,5 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTfNome().requestFocus();
         telaUsuarioGerenciar.getTfEmail().setEnabled(true);
     }
+
 }

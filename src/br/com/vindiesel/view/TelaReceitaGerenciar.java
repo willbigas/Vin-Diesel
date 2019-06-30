@@ -8,6 +8,7 @@ package br.com.vindiesel.view;
 import br.com.vindiesel.control.TelaReceitaGerenciarControl;
 import br.com.vindiesel.model.FormaPagamento;
 import br.com.vindiesel.uteis.InterfaceJanela;
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -72,7 +73,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         lblValorTotalReceita = new javax.swing.JLabel();
         lblValorReceitaRestante = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tfDataVencimento = new javax.swing.JTextField();
+        tfDataVencimento = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -218,7 +219,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         cbFormaPagamento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Forma de Pagamento:");
+        jLabel2.setText("FORMA DE PAGAMENTO:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -226,10 +227,14 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jLabel3.setText("Recebimento de Pagamento");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Valor Recebido:");
+        jLabel4.setText("VALOR RECEBIDO:");
 
         btGravarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btGravarReceita.setText("Gravar");
+        btGravarReceita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
+        btGravarReceita.setText("GRAVAR");
+        btGravarReceita.setBorder(null);
+        btGravarReceita.setBorderPainted(false);
+        btGravarReceita.setContentAreaFilled(false);
         btGravarReceita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGravarReceita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,15 +243,15 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Valor Restante :");
+        jLabel5.setText("VALOR RESTANTE:");
 
         tfValorRecebido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         checkFinalizarReceita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        checkFinalizarReceita.setText("Finalizar Receita");
+        checkFinalizarReceita.setText("FINALIZAR RECEITA");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Valor do Contrato :");
+        jLabel6.setText("VALOR DO CONTRATO:");
 
         lblValorTotalReceita.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorTotalReceita.setText("[ValorTotal]");
@@ -255,7 +260,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         lblValorReceitaRestante.setText("[ValorRestante]");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setText("Data Vencimento:");
+        jLabel7.setText("DATA DE VENCIMENTO:");
 
         tfDataVencimento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
@@ -263,44 +268,43 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(159, 159, 159)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkFinalizarReceita)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblValorTotalReceita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblValorReceitaRestante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblValorTotalReceita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblValorReceitaRestante, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(cbFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(658, Short.MAX_VALUE)
-                .addComponent(btGravarReceita)
-                .addGap(22, 22, 22))
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btGravarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfDataVencimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblValorTotalReceita)
-                    .addComponent(jLabel7)
-                    .addComponent(tfDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblValorTotalReceita))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -313,11 +317,11 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tfValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(checkFinalizarReceita)
-                .addGap(48, 48, 48)
-                .addComponent(btGravarReceita)
-                .addGap(18, 18, 18))
+                .addGap(45, 45, 45)
+                .addComponent(btGravarReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         tpReceita.addTab("RECEBER PAGAMENTO", jPanel2);
@@ -415,7 +419,7 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblValorTotalFiltrado;
     private javax.swing.JLabel lblValorTotalReceita;
     private javax.swing.JTable tblReceita;
-    private javax.swing.JTextField tfDataVencimento;
+    private com.toedter.calendar.JDateChooser tfDataVencimento;
     private javax.swing.JTextField tfPesquisarReceita;
     private javax.swing.JTextField tfValorRecebido;
     private javax.swing.JTabbedPane tpReceita;
@@ -485,15 +489,14 @@ public class TelaReceitaGerenciar extends javax.swing.JInternalFrame {
         this.tpReceita = tpReceita;
     }
 
-    public JTextField getTfDataVencimento() {
+    public JDateChooser getTfDataVencimento() {
         return tfDataVencimento;
     }
 
-    public void setTfDataVencimento(JTextField tfDataVencimento) {
+    public void setTfDataVencimento(JDateChooser tfDataVencimento) {
         this.tfDataVencimento = tfDataVencimento;
     }
 
-    
     public JLabel getLblValorTotal() {
         return lblValorTotal;
     }

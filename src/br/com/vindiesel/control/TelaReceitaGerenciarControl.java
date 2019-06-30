@@ -109,12 +109,16 @@ public class TelaReceitaGerenciarControl {
 
     public void carregarCamposReceitaAction() {
         indexSelecionada = telaReceitaGerenciar.getTblReceita().getSelectedRow();
+        if (indexSelecionada == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return;
+        }
         receita = receitaTableModel.pegaObjeto(telaReceitaGerenciar.getTblReceita().getSelectedRow());
         telaReceitaGerenciar.getLblValorTotalReceita().setText(DecimalFormat.decimalFormat(receita.getValorTotal()));
         Double valorRestante = receita.getValorTotal() - receita.getValorRecebido();
         telaReceitaGerenciar.getLblValorReceitaRestante().setText(DecimalFormat.decimalFormat(valorRestante));
         telaReceitaGerenciar.getCbFormaPagamento().getModel().setSelectedItem(receita.getFormaPagamento());
-        telaReceitaGerenciar.getTfDataVencimento().setText(UtilDate.data(receita.getDataVencimento()));
+        telaReceitaGerenciar.getTfDataVencimento().setDate(receita.getDataVencimento());
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, true);
         telaReceitaGerenciar.getTpReceita().setSelectedIndex(1);
     }
@@ -123,7 +127,7 @@ public class TelaReceitaGerenciarControl {
         receita.setFormaPagamento((FormaPagamento) telaReceitaGerenciar.getCbFormaPagamento().getSelectedItem());
         Double valorRecebido = receita.getValorRecebido() + Double.valueOf(DecimalFormat.paraPonto(telaReceitaGerenciar.getTfValorRecebido().getText()));
         receita.setValorRecebido(valorRecebido);
-        receita.setDataVencimento(UtilDate.data(telaReceitaGerenciar.getTfDataVencimento().getText()));
+        receita.setDataVencimento(telaReceitaGerenciar.getTfDataVencimento().getDate());
         if (telaReceitaGerenciar.getCheckFinalizarReceita().isSelected()) {
             receita.setDataPagamento(new Timestamp(System.currentTimeMillis()));
         }

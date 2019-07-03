@@ -3,6 +3,7 @@ package br.com.vindiesel.model;
 import br.com.vindiesel.uteis.Texto;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -15,6 +16,8 @@ public class Remetente extends Pessoa {
     private String codigoPessoa;
     @NotBlank
     private String telefone;
+    @Email
+    private String email;
 
     public String getCodigoPessoa() {
         return codigoPessoa;
@@ -30,6 +33,14 @@ public class Remetente extends Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

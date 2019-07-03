@@ -103,6 +103,7 @@ public class TelaRemetenteGerenciarControl {
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
+        remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
 
         endereco = new Endereco();
 
@@ -151,6 +152,7 @@ public class TelaRemetenteGerenciarControl {
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
+        remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
 
         endereco = remetente.getEndereco();
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
@@ -275,6 +277,7 @@ public class TelaRemetenteGerenciarControl {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
+        telaRemetenteGerenciar.getTfEmail().setText(remetente.getEmail());
         String codigoPessoa = remetente.getCodigoPessoa();
         if (codigoPessoa.length() > 16) {
             formataTfCodigoPessoaParaCNPJ();
@@ -304,6 +307,7 @@ public class TelaRemetenteGerenciarControl {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteFicha.getLblNome().setText(remetente.getNome());
         telaRemetenteFicha.getLblTelefone().setText(remetente.getTelefone());
+        telaRemetenteFicha.getLblEmail().setText(remetente.getEmail());
         String codigoPessoa = remetente.getCodigoPessoa();
 
         if (codigoPessoa.length() > 15) {
@@ -344,6 +348,7 @@ public class TelaRemetenteGerenciarControl {
     private void limparCampos() {
         telaRemetenteGerenciar.getTfNome().setText("");
         telaRemetenteGerenciar.getTfCodigoPessoa().setText("");
+        telaRemetenteGerenciar.getTfEmail().setText("");
         telaRemetenteGerenciar.getTfBairro().setText("");
         telaRemetenteGerenciar.getTfCep().setText("");
         telaRemetenteGerenciar.getTfCidade().setText("");

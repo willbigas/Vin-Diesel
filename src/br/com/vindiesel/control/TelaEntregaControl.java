@@ -694,4 +694,5 @@ public class TelaEntregaControl {
             telaEntregaFicha.getLblDataEntrega().setText(UtilDate.data(entrega.getDataEntrega()));
         }
     }
+   
 }

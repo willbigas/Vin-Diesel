@@ -23,7 +23,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     @Override
     public int inserir(Remetente remetente) {
-        String queryInsert = "INSERT INTO remetente (NOME, CODIGOPESSOA , ENDERECO_ID, TELEFONE) VALUES(?, ?, ?, ?)";
+        String queryInsert = "INSERT INTO remetente (NOME, CODIGOPESSOA , ENDERECO_ID, TELEFONE , EMAIL) VALUES(?, ?, ?, ? , ?)";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -31,6 +31,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
             stmt.setString(2, remetente.getCodigoPessoa());
             stmt.setInt(3, remetente.getEndereco().getId());
             stmt.setString(4, remetente.getTelefone());
+            stmt.setString(5, remetente.getEmail());
             ResultSet res;
             if (stmt.executeUpdate() > 0) {
                 res = stmt.getGeneratedKeys();
@@ -47,14 +48,15 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
 
     @Override
     public boolean alterar(Remetente remetente) {
-        String queryUpdate = "UPDATE remetente SET nome = ?, CODIGOPESSOA = ?, ENDERECO_ID = ?, TELEFONE = ? WHERE ID = ?";
+        String queryUpdate = "UPDATE remetente SET nome = ?, CODIGOPESSOA = ?, ENDERECO_ID = ?, TELEFONE = ? , EMAIL = ? WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
             stmt.setString(1, remetente.getNome());
             stmt.setString(2, remetente.getCodigoPessoa());
             stmt.setInt(3, remetente.getEndereco().getId());
             stmt.setString(4, remetente.getTelefone());
-            stmt.setInt(5, remetente.getId());
+            stmt.setString(5, remetente.getEmail());
+            stmt.setInt(6, remetente.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -128,6 +130,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
+                remetente.setEmail(result.getString("email"));
                 remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }
@@ -154,6 +157,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
+                remetente.setEmail(result.getString("email"));
                 remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }
@@ -177,6 +181,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
+                remetente.setEmail(result.getString("email"));
                 remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 return remetente;
             } else {
@@ -201,6 +206,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
+                remetente.setEmail(result.getString("email"));
                 remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }
@@ -223,6 +229,7 @@ public class RemetenteDao extends DaoBD implements DaoI<Remetente> {
                 remetente.setNome(result.getString("nome"));
                 remetente.setCodigoPessoa(result.getString("codigoPessoa"));
                 remetente.setTelefone(result.getString("telefone"));
+                remetente.setEmail(result.getString("email"));
                 remetente.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
                 lista.add(remetente);
             }

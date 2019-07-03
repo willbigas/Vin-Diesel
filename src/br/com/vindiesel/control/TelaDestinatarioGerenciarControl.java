@@ -101,7 +101,6 @@ public class TelaDestinatarioGerenciarControl {
         destinatario = new Destinatario();
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
-
         endereco = new Endereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
 

@@ -153,6 +153,7 @@ CREATE TABLE `remetente` (
   `codigoPessoa` varchar(18) NOT NULL,
   `endereco_id` int(11) NOT NULL,
   `telefone` varchar(45) NOT NULL,
+  `email` varchar(45) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

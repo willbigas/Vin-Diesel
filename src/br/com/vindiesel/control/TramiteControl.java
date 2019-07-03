@@ -57,6 +57,10 @@ public class TramiteControl {
         }
 
         int idInserido = tramiteDao.inserir(tramite);
+        if (idInserido != 0) {
+            enviarEmailDeTramite(entrega, tramite);
+        }
+
         return idInserido;
     }
 
@@ -64,6 +68,15 @@ public class TramiteControl {
         tramite = tramiteDao.pesquisar(tramiteRecebido.getId());
         boolean deletado = tramiteDao.deletar(tramite.getId());
         return deletado;
+
+    }
+
+    public void enviarEmailDeTramite(Entrega entrega, Tramite tramite) {
+        String enderecoDestino = entrega.getRemetente().getEmail(); // pegar email do remetente aki
+        String assunto = "Status de Encomenda vindiesel :" + entrega.getEncomenda().getCodigoRastreio();
+        String corpo = "Olá, \n sua encomenda foi alterada pela nossa tranportadora para o status de:" + tramite.getNome()
+                + "\r Observação:" + tramite.getObservacao();
+        ServicoDeEmail servicoDeEmail = new ServicoDeEmail(enderecoDestino, assunto, corpo);
 
     }
 

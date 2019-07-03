@@ -1,5 +1,4 @@
 
-import br.com.vindiesel.control.ServicoDeEmail;
 import br.com.vindiesel.control.TelaLoginControl;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
@@ -14,16 +13,14 @@ public class VinDiesel {
 
     public static void main(String[] args) {
         
-        ServicoDeEmail servicoDeEmail = new ServicoDeEmail("williambmauro@hotmail.com", "Assunto teste", "Mensagem aqui!");
-        
-//
-//        try {
-//            UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
-//            UIManager.setLookAndFeel(new SyntheticaPlainLookAndFeel());
-//        } catch (Exception erro) {
-//            Mensagem.erro(Texto.ERRO_INTERFACE_SYNTHETICA);
-//        }
-//        TelaLoginControl telaLogin = new TelaLoginControl();
-//        telaLogin.chamarTelaLoginAction();
+
+        try {
+            UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
+            UIManager.setLookAndFeel(new SyntheticaPlainLookAndFeel());
+        } catch (Exception erro) {
+            Mensagem.erro(Texto.ERRO_INTERFACE_SYNTHETICA);
+        }
+        TelaLoginControl telaLogin = new TelaLoginControl();
+        telaLogin.chamarTelaLoginAction();
     }
 }

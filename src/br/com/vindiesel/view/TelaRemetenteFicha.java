@@ -54,6 +54,8 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         lblNome = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblTelefone = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         lblCep = new javax.swing.JLabel();
@@ -128,6 +130,12 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
         lblTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTelefone.setText("[Telefone]");
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("E-mail:");
+
+        lblEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEmail.setText("[E-mail]");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,10 +148,18 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodigoPessoa)
-                    .addComponent(lblNome)
-                    .addComponent(lblTelefone))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblCodigoPessoa)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNome)
+                            .addComponent(lblTelefone))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +167,9 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblCodigoPessoa))
+                    .addComponent(lblCodigoPessoa)
+                    .addComponent(jLabel5)
+                    .addComponent(lblEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -376,6 +394,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -386,6 +405,7 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCodigoPessoa;
     private javax.swing.JLabel lblComplemento;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumeroCasa;
@@ -471,6 +491,14 @@ public class TelaRemetenteFicha extends javax.swing.JDialog {
 
     public void setLblTelefone(JLabel lblTelefone) {
         this.lblTelefone = lblTelefone;
+    }
+
+    public JLabel getLblEmail() {
+        return lblEmail;
+    }
+
+    public void setLblEmail(JLabel lblEmail) {
+        this.lblEmail = lblEmail;
     }
 
 }

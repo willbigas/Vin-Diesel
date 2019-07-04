@@ -32,6 +32,13 @@ import javax.swing.JOptionPane;
  */
 public class TelaUsuarioGerenciarControl {
 
+    private static final int CPF = 0;
+    private static final int NOME = 1;
+    private static final int EMAIL = 2;
+    private static final int TELEFONE = 3;
+    private static final int TIPO_USUARIO = 4;
+    private static final int ATIVO = 5;
+
     TelaUsuarioGerenciar telaUsuarioGerenciar;
     TelaUsuarioFicha telaUsuarioFicha;
     List<TipoUsuario> listTipoUsuarios;
@@ -87,12 +94,12 @@ public class TelaUsuarioGerenciarControl {
 
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaUsuarioGerenciar.getTblUsuario());
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 135);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 264);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 2, 215);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 3, 118);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 118);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 5, 93);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), CPF, 135);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), NOME, 264);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), EMAIL, 215);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), TELEFONE, 118);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), TIPO_USUARIO, 118);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), ATIVO, 93);
     }
 
     private void carregarTiposUsuariosNaCombo() {
@@ -107,7 +114,6 @@ public class TelaUsuarioGerenciarControl {
         UtilTable.limparSelecaoDaTabela(telaUsuarioGerenciar.getTblUsuario());
         usuario = null;
         telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
-
     }
 
     private void inserirUsuario() {

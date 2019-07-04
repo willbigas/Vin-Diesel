@@ -59,7 +59,7 @@ public class TelaEntregaControl {
     TelaEntregaFreteNaoEncontrado telaFreteNaoEncontrado;
     TelaReceitaGerenciarControl receitaGerenciarControl;
     TramiteControl tramiteControl;
-    DistanciaCalculoControl calculoDeDistancia;
+    CalculadoraDeFrete calculoDeDistancia;
     TramiteTableModel tramiteTableModel;
     EntregaTableModel entregaTableModel;
     DestinatarioTableModel destinatarioTableModel;
@@ -85,7 +85,7 @@ public class TelaEntregaControl {
     MaskFormatter mascaraFormatadoraCNPJ;
 
     public TelaEntregaControl() {
-        calculoDeDistancia = new DistanciaCalculoControl();
+        calculoDeDistancia = new CalculadoraDeFrete();
         tramiteControl = new TramiteControl();
         entregaTableModel = new EntregaTableModel();
         tramiteTableModel = new TramiteTableModel();

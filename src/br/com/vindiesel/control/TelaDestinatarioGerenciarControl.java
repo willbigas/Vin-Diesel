@@ -28,6 +28,11 @@ import javax.swing.text.MaskFormatter;
  */
 public class TelaDestinatarioGerenciarControl {
 
+    private static final int CODIGO = 0;
+    private static final int NOME = 1;
+    private static final int CODIGO_PESSOA = 2;
+    private static final int CIDADE = 3;
+
     private TelaDestinatarioGerenciar telaDestinatarioGerenciar;
     private TelaDestinatarioFicha telaDestinatarioFicha;
     private Destinatario destinatario;
@@ -72,10 +77,10 @@ public class TelaDestinatarioGerenciarControl {
 
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaDestinatarioGerenciar.getTblDestinatario());
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 0, 80);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 1, 350);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 2, 155);
-        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), 3, 160);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), CODIGO, 80);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), NOME, 350);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), CODIGO_PESSOA, 155);
+        UtilTable.redimensionar(telaDestinatarioGerenciar.getTblDestinatario(), CIDADE, 160);
     }
 
     public void chamarDialogDestinatarioFichaAction() {

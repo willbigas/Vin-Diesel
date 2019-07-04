@@ -9,7 +9,7 @@ import br.com.vindiesel.model.geocoding.Location;
  *
  * @author William
  */
-public class DistanciaCalculoControl {
+public class CalculadoraDeFrete {
 
     Location primeiraLocalizacao;
     Location segundaLocalizacao;

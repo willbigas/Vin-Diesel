@@ -28,6 +28,11 @@ import javax.swing.text.MaskFormatter;
  */
 public class TelaRemetenteGerenciarControl {
 
+    private static final int CPF = 0;
+    private static final int NOME = 1;
+    private static final int TELEFONE = 2;
+    private static final int CIDADE = 3;
+
     TelaRemetenteGerenciar telaRemetenteGerenciar;
     TelaRemetenteFicha telaRemetenteFicha;
     Remetente remetente;
@@ -83,10 +88,10 @@ public class TelaRemetenteGerenciarControl {
 
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaRemetenteGerenciar.getTblRemetente());
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 0, 150);
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 1, 420);
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 2, 130);
-        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), 3, 160);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), CPF, 150);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), NOME, 420);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), TELEFONE, 130);
+        UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), CIDADE, 160);
     }
 
     public void novoRemetenteAction() {

@@ -188,15 +188,19 @@ public class TelaDestinatarioGerenciarControl {
         }
     }
 
-    public void desativarDestinatarioAction() {
-        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
-        if (retorno == JOptionPane.NO_OPTION) {
-            return;
-        }
-        if (retorno == JOptionPane.CLOSED_OPTION) {
+    public void excluirDestinatarioAction() {
+        if (telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow() == -1) {
+            Mensagem.info(Texto.SELECIONADA_LINHA);
             return;
         }
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
+        
+        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + destinatario.getNome() + " ?");
+        
+        if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
+            return;
+        }
+
         boolean deletado = destinatarioDao.deletar(destinatario);
         if (deletado) {
             destinatarioTableModel.remover(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());

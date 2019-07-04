@@ -510,7 +510,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btVisualizarActionPerformed
 
     private void btDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDesativarActionPerformed
-        destinatarioGerenciarControl.desativarDestinatarioAction();
+        destinatarioGerenciarControl.excluirDestinatarioAction();
     }//GEN-LAST:event_btDesativarActionPerformed
 
     private void tfPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisaKeyReleased

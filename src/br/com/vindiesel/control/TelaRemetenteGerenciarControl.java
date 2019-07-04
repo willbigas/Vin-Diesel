@@ -258,13 +258,18 @@ public class TelaRemetenteGerenciarControl {
     }
 
     public void excluirRemententeAction() {
-        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_DESATIVAR);
+        if (telaRemetenteGerenciar.getTblRemetente().getSelectedRow() == -1) {
+            Mensagem.info(Texto.SELECIONADA_LINHA);
+            return;
+        }
+        remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
+        int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + remetente.getNome() + " ?");
 
-        if (retorno == JOptionPane.NO_OPTION) {
+        if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }
         if (retorno == JOptionPane.YES_OPTION) {
-            remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
+
             boolean deletado = remetenteDao.deletar(remetente.getId());
             if (deletado) {
                 remetenteTableModel.remover(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());

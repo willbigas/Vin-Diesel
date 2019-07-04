@@ -66,7 +66,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         tfPesquisarEntrega = new javax.swing.JTextField();
         brBuscarEntrega = new javax.swing.JButton();
         btEditarEntrega = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
+        cbFiltroTabela = new javax.swing.JComboBox<>();
         panelEditarEntrega = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         cbTipoTramite = new javax.swing.JComboBox<>();
@@ -231,7 +231,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -272,19 +272,23 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel17.setText("BUSCAR:");
+        cbFiltroTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ENTREGUES", "PENDENTES" }));
+        cbFiltroTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbFiltroTabelaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelListarEntregaLayout = new javax.swing.GroupLayout(panelListarEntrega);
         panelListarEntrega.setLayout(panelListarEntregaLayout);
         panelListarEntregaLayout.setHorizontalGroup(
             panelListarEntregaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListarEntregaLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cbFiltroTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(brBuscarEntrega)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btEditarEntrega)
@@ -299,7 +303,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
                     .addComponent(brBuscarEntrega)
                     .addComponent(tfPesquisarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditarEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(cbFiltroTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -910,6 +914,12 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblEntregaMouseClicked
 
+    private void cbFiltroTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroTabelaActionPerformed
+        // TODO add your handling code here:
+        tfPesquisarEntrega.requestFocus();
+        entregaControl.pesquisarEntregasAction();
+    }//GEN-LAST:event_cbFiltroTabelaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brBuscarEntrega;
@@ -928,6 +938,7 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JButton btRemoverTramite;
     private javax.swing.JComboBox<Encomenda> cbEncomenda;
     private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JComboBox<String> cbFiltroTabela;
     private javax.swing.JComboBox<Remetente> cbRemetente;
     private javax.swing.JComboBox<String> cbTipoTramite;
     private javax.swing.JCheckBox checkCnpj;
@@ -940,7 +951,6 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1154,6 +1164,14 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
 
     public void setLblFreteTotal(JLabel lblFreteTotal) {
         this.lblFreteTotal = lblFreteTotal;
+    }
+
+    public JComboBox<String> getCbFiltroTabela() {
+        return cbFiltroTabela;
+    }
+
+    public void setCbFiltroTabela(JComboBox<String> cbFiltroTabela) {
+        this.cbFiltroTabela = cbFiltroTabela;
     }
 
 }

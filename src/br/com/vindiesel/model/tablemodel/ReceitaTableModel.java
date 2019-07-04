@@ -22,10 +22,10 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
     private static final int VALOR_TOTAL = 2;
     private static final int VALOR_RESTANTE = 3;
     private static final int FORMA_PAGAMENTO = 4;
-    private static final int ENTREGUE = 5;
+    private static final int STATUS_PEDIDO = 5;
 
     private List<Receita> linhas;
-    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL" , "VALOR RESTANTE", "FORMA PAGAMENTO", "STATUS"};
+    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL" , "VALOR RESTANTE", "FORMA PAGAMENTO", "STATUS PEDIDO"};
 
     public ReceitaTableModel() {
         linhas = new ArrayList<>();
@@ -63,7 +63,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
                 return String.class;
             case FORMA_PAGAMENTO:
                 return String.class;
-            case ENTREGUE:
+            case STATUS_PEDIDO:
                 return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
@@ -81,14 +81,14 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
             case VALOR_TOTAL:
                 return DecimalFormat.decimalFormat(receita.getValorTotal());
             case VALOR_RESTANTE:
-                return DecimalFormat.decimalFormat(receita.getValorRecebido());
+                return DecimalFormat.decimalFormat(receita.getValorTotal() - receita.getValorRecebido());
             case FORMA_PAGAMENTO:
                 if (receita.getFormaPagamento() == null) {
                     return "Não informado";
                 } else {
                     return receita.getFormaPagamento().getNome();
                 }
-            case ENTREGUE:
+            case STATUS_PEDIDO:
                 if (receita.getEntrega().getEntregue()== true) {
                     return "Entregue";
                 } else {
@@ -118,7 +118,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
             case FORMA_PAGAMENTO:
                 receita.getFormaPagamento().setNome((String) valor);
                 break;
-            case ENTREGUE:
+            case STATUS_PEDIDO:
                 receita.getEntrega().setEntregue((Boolean) valor);
                 break;
             default:

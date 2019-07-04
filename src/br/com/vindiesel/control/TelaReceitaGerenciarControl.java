@@ -75,7 +75,7 @@ public class TelaReceitaGerenciarControl {
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), VALOR_TOTAL, 120);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), VALOR_RESTANTE, 120);
         UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), FORMA_PAGAMENTO, 170);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), STATUS, 110);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), STATUS, 135);
     }
 
     private void carregarFormaPagamentoNaCombo() {

@@ -57,6 +57,10 @@ public class TelaEntregaControl {
     private static final int REMETENTE = 4;
     private static final int DESTINATARIO = 5;
 
+    private static final int CB_OPCAO_TODOS = 0;
+    private static final int CB_OPCAO_ENTREGUES = 1;
+    private static final int CB_OPCAO_PENDENTES = 2;
+
     TelaEntrega telaEntrega;
     TelaEntregaFicha telaEntregaFicha;
     TelaEntregaReceitaDialog telaEntregaReceita;
@@ -122,6 +126,7 @@ public class TelaEntregaControl {
                 telaEntrega.setVisible(true);
             }
         }
+        carregarFiltrosNaComboBox();
         carregarEstadosNaComboBox();
         carregarEncomendasNaCombo();
         carregarRemetentesNaCombo();
@@ -133,6 +138,10 @@ public class TelaEntregaControl {
         telaEntrega.getTpEntrega().setEnabledAt(1, false);
         telaEntrega.getTfPesquisarEntrega().requestFocus();
         criaInstanciasDeMascarasFormatadas();
+    }
+    
+    public void carregarFiltrosNaComboBox() {
+        telaEntrega.getCbFiltroTabela().setSelectedIndex(1);
     }
 
     public void atualizarTabelaEntregaAction() {
@@ -533,7 +542,7 @@ public class TelaEntregaControl {
     }
 
     public void pesquisarEntregasAction() {
-        List<Entrega> entregasPesquisadas = entregaDao.pesquisar(telaEntrega.getTfPesquisarEntrega().getText());
+        List<Entrega> entregasPesquisadas = pesquisarPorComboBoxAction(telaEntrega.getTfPesquisarEntrega().getText());
         if (entregaTableModel == null) {
             entregaTableModel.limpar();
             atualizaTotaisDeFrete(entregasPesquisadas);
@@ -544,6 +553,33 @@ public class TelaEntregaControl {
             atualizaTotaisDeFrete(entregasPesquisadas);
         }
     }
+    
+    
+    public List<Entrega> pesquisarPorComboBoxAction(String termo) {
+        List<Entrega> entregasPesquisadas = new ArrayList<>();
+        int result = telaEntrega.getCbFiltroTabela().getSelectedIndex();
+        if (result == CB_OPCAO_TODOS) {
+            entregaTableModel.limpar();
+            entregasPesquisadas = entregaDao.pesquisar(termo , null);
+            entregaTableModel.adicionar(entregaDao.pesquisar());
+            atualizaTotaisDeFrete(entregaDao.pesquisar());
+        }
+        if (result == CB_OPCAO_ENTREGUES) {
+            entregaTableModel.limpar();
+            entregasPesquisadas = entregaDao.pesquisar(termo , true);
+            entregaTableModel.adicionar(entregaDao.pesquisar(termo ,true));
+            atualizaTotaisDeFrete(entregaDao.pesquisar(termo ,true));
+        }
+        if (result == CB_OPCAO_PENDENTES) {
+            entregaTableModel.limpar();
+            entregasPesquisadas = entregaDao.pesquisar(termo , false);
+            entregaTableModel.adicionar(entregaDao.pesquisar(termo , false));
+            atualizaTotaisDeFrete(entregaDao.pesquisar(termo ,false));
+        }
+        return entregasPesquisadas;
+
+    }
+    
 
     public void pesquisarDestinatariosNoDialogPesquisaAvancadaAction() {
         List<Destinatario> destinatariosPesquisados = destinatarioDao.pesquisar(telaDestinatarioPesquisaAvancada.getTfCampoPesquisa().getText());

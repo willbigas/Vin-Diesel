@@ -109,7 +109,7 @@ public class TelaUsuarioGerenciarControl {
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), EMAIL, 215);
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), TELEFONE, 118);
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), TIPO_USUARIO, 118);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), ATIVO, 93);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), ATIVO, 96);
     }
 
     private void carregarTiposUsuariosNaCombo() {

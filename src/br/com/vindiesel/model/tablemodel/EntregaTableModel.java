@@ -78,7 +78,7 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
                 if (entrega.getEncomenda() == null) {
                     return "Não Informado";
                 } else {
-                 return entrega.getEncomenda().getCodigoRastreio();
+                    return entrega.getEncomenda().getCodigoRastreio();
                 }
             case DATA_CADASTRO:
                 return UtilDate.data(entrega.getDataCadastro());
@@ -91,9 +91,18 @@ public class EntregaTableModel extends AbstractTableModel implements AcoesTableM
             case VALOR_ENTREGA:
                 return DecimalFormat.decimalFormatR$(entrega.getValorTotal());
             case REMETENTE_NOME:
-                return entrega.getRemetente().getNome();
+                if (entrega.getRemetente() == null) {
+                    return "Não informado";
+                } else {
+                    return entrega.getRemetente().getNome();
+                }
+
             case DESTINATARIO_NOME:
-                return entrega.getDestinatario().getNome();
+                if (entrega.getDestinatario() == null) {
+                    return "Não informado";
+                } else {
+                    return entrega.getDestinatario().getNome();
+                }
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }

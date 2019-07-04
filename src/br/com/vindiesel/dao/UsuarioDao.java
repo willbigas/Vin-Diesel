@@ -225,7 +225,7 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
      */
     public List<Usuario> pesquisar(Boolean ativo) {
 
-        String querySelect = "SELECT * FROM USUARIO WHERE ATIVO = " + ativo + " ";
+        String querySelect = "SELECT * FROM USUARIO WHERE (ATIVO = " + ativo + " ";
         if (ativo == null) {
             querySelect = "SELECT * FROM USUARIO";
         }
@@ -344,5 +344,41 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
 
         }
         return null;
+    }
+    
+    public List<Usuario> pesquisar(String termo , Boolean ativo) {
+        String querySelectComTermo = "SELECT * FROM usuario WHERE (nome LIKE ? or email LIKE ? or telefone LIKE ? or cpf LIKE ?) AND ATIVO = " + ativo + " ";
+        if (ativo == null) {
+            querySelectComTermo = "SELECT * FROM USUARIO WHERE (nome LIKE ? or email LIKE ? or telefone LIKE ? or cpf LIKE ?) " ;
+        }
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
+            stmt.setString(3, "%" + termo + "%");
+            stmt.setString(4, "%" + termo + "%");
+            ResultSet result = stmt.executeQuery();
+            List<Usuario> lista = new ArrayList<>();
+            while (result.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId(result.getInt("id"));
+                usuario.setNome(result.getString("nome"));
+                usuario.setDataNascimento(result.getDate("dataNascimento").toLocalDate());
+                usuario.setTelefone(result.getString("telefone"));
+                usuario.setEmail(result.getString("email"));
+                usuario.setCpf(result.getString("cpf"));
+                usuario.setSenha(result.getString("senha"));
+                usuario.setSalario(result.getDouble("salario"));
+                usuario.setPis(result.getInt("numeroPis"));
+                usuario.setAtivo(result.getBoolean("ativo"));
+                usuario.setEndereco(enderecoDao.pesquisar(result.getInt("endereco_id")));
+                usuario.setTipoUsuario(tipoUsuarioDao.pesquisar(result.getInt("tipoUsuario_id")));
+                lista.add(usuario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
     }
 }

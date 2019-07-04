@@ -48,7 +48,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
         tpGerenciarUsuario = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         tfPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuario = new javax.swing.JTable();
@@ -121,10 +120,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(207, 207, 207));
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/lupa_32x32.png"))); // NOI18N
-        jLabel5.setText("Pesquisar:");
 
         tfPesquisar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tfPesquisar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -231,7 +226,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
-        cbFiltroTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbFiltroTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ATIVOS", "INATIVOS" }));
         cbFiltroTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbFiltroTabelaActionPerformed(evt);
@@ -261,11 +256,9 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cbFiltroTabela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(140, 140, 140)
                         .addComponent(btNovo)
                         .addGap(18, 18, 18)
                         .addComponent(btVisualizar)
@@ -282,14 +275,13 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
                     .addComponent(btVisualizar)
                     .addComponent(btDesativar)
                     .addComponent(btNovo)
-                    .addComponent(cbFiltroTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbFiltroTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -797,8 +789,11 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         tpGerenciarUsuario.setEnabledAt(1, false);
     }//GEN-LAST:event_tpGerenciarUsuarioMouseReleased
 
+
     private void cbFiltroTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroTabelaActionPerformed
-        usuarioGerenciarControl.filtroTabelaAction();
+        tfPesquisar.requestFocus();
+        usuarioGerenciarControl.pesquisarUsuarioAction();
+
     }//GEN-LAST:event_cbFiltroTabelaActionPerformed
 
 
@@ -831,7 +826,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

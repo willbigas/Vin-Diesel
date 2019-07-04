@@ -23,6 +23,13 @@ import javax.swing.JOptionPane;
  */
 public class TelaEncomendaGerenciarControl {
 
+    private static final int CODIGO_RASTREIO = 0;
+    private static final int VALOR_NF = 1;
+    private static final int PESO = 2;
+    private static final int LARGURA = 3;
+    private static final int ALTURA = 4;
+    private static final int COMPRIMENTO = 5;
+
     TelaEncomendaGerenciar telaEncomendaGerenciar;
     TelaEncomendaFicha telaEncomendaFicha;
     EncomendaTableModel encomendaTableModel;
@@ -65,12 +72,12 @@ public class TelaEncomendaGerenciarControl {
 
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaEncomendaGerenciar.getTblProduto());
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 0, 130);
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 1, 130);
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 2, 82);
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 3, 82);
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 4, 82);
-        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), 5, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), CODIGO_RASTREIO, 130);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), VALOR_NF, 130);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), PESO, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), LARGURA, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), ALTURA, 82);
+        UtilTable.redimensionar(telaEncomendaGerenciar.getTblProduto(), COMPRIMENTO, 82);
     }
 
     public void novaEncomendaAction() {

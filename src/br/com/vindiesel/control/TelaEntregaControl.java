@@ -50,6 +50,13 @@ import javax.swing.text.MaskFormatter;
  */
 public class TelaEntregaControl {
 
+    private static final int CODIGO_RASTREIO = 0;
+    private static final int CADASTRO = 1;
+    private static final int ENTREGA = 2;
+    private static final int FRETE = 3;
+    private static final int REMETENTE = 4;
+    private static final int DESTINATARIO = 5;
+
     TelaEntrega telaEntrega;
     TelaEntregaFicha telaEntregaFicha;
     TelaEntregaReceitaDialog telaEntregaReceita;
@@ -135,12 +142,12 @@ public class TelaEntregaControl {
 
     private void redimensionarTabelaEntregas() {
         UtilTable.centralizarCabecalho(telaEntrega.getTblEntrega());
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 0, 100);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 1, 90);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 2, 100);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 3, 95);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 4, 290);
-        UtilTable.redimensionar(telaEntrega.getTblEntrega(), 5, 290);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), CODIGO_RASTREIO, 100);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), CADASTRO, 90);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), ENTREGA, 100);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), FRETE, 95);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), REMETENTE, 290);
+        UtilTable.redimensionar(telaEntrega.getTblEntrega(), DESTINATARIO, 290);
     }
 
     public void chamarDialogEntregaFichaAction() {
@@ -694,5 +701,5 @@ public class TelaEntregaControl {
             telaEntregaFicha.getLblDataEntrega().setText(UtilDate.data(entrega.getDataEntrega()));
         }
     }
-   
+
 }

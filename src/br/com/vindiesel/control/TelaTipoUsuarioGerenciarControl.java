@@ -21,6 +21,11 @@ import javax.swing.JOptionPane;
  */
 public class TelaTipoUsuarioGerenciarControl {
 
+    private static final int CODIGO = 0;
+    private static final int NOME = 1;
+    private static final int PERMISSAO = 0;
+    private static final int ATIVO = 0;
+
     TipoUsuarioDao tipoUsuarioDao;
     TipoUsuarioTableModel tipoUsuarioTableModel;
     List<TipoPermissao> listTipoPermissao;
@@ -50,21 +55,23 @@ public class TelaTipoUsuarioGerenciarControl {
                 telaTipoUsuarioGerenciar.setVisible(true);
             }
         }
+
         criarListaDePermisssoesDeUsuarios();
         carregarComboBoxDeTipoPermissao();
         telaTipoUsuarioGerenciar.getTblTipoUsuario().setModel(tipoUsuarioTableModel);
+        tipoUsuarioTableModel.limpar();
         atualizarTabelaTipoUsuario();
         telaTipoUsuarioGerenciar.getTfNome().requestFocus();
         atualizaTotalUsuarios(tipoUsuarioDao.pesquisar());
-        redimensionarTela();
+        redimensionarTabela();
     }
 
-    private void redimensionarTela() {
+    private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaTipoUsuarioGerenciar.getTblTipoUsuario());
-        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 0, 50);
-        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 1, 350);
-        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 2, 100);
-        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), 3, 102);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), CODIGO, 90);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), NOME, 300);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), PERMISSAO, 190);
+        UtilTable.redimensionar(telaTipoUsuarioGerenciar.getTblTipoUsuario(), ATIVO, 102);
     }
 
     private void atualizarTabelaTipoUsuario() {

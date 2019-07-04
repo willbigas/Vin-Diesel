@@ -8,7 +8,6 @@ import br.com.vindiesel.model.Receita;
 import br.com.vindiesel.model.tablemodel.ReceitaTableModel;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
-import br.com.vindiesel.uteis.UtilDate;
 import br.com.vindiesel.uteis.DecimalFormat;
 import br.com.vindiesel.uteis.UtilTable;
 import br.com.vindiesel.uteis.Validacao;
@@ -24,6 +23,13 @@ import javax.swing.DefaultComboBoxModel;
  * @author William
  */
 public class TelaReceitaGerenciarControl {
+
+    private static final int DATA = 0;
+    private static final int VENCIMENTO = 1;
+    private static final int VALOR_TOTAL = 2;
+    private static final int VALOR_RESTANTE = 3;
+    private static final int FORMA_PAGAMENTO = 4;
+    private static final int STATUS = 5;
 
     TelaReceitaGerenciar telaReceitaGerenciar;
     ReceitaTableModel receitaTableModel;
@@ -64,12 +70,12 @@ public class TelaReceitaGerenciarControl {
 
     private void redimensionarTabelaReceita() {
         UtilTable.centralizarCabecalho(telaReceitaGerenciar.getTblReceita());
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 0, 100);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 1, 100);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 2, 120);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 3, 120);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 4, 170);
-        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), 5, 110);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), DATA, 100);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), VENCIMENTO, 100);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), VALOR_TOTAL, 120);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), VALOR_RESTANTE, 120);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), FORMA_PAGAMENTO, 170);
+        UtilTable.redimensionar(telaReceitaGerenciar.getTblReceita(), STATUS, 110);
     }
 
     private void carregarFormaPagamentoNaCombo() {

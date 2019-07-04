@@ -12,7 +12,6 @@ import javax.swing.UIManager;
 public class VinDiesel {
 
     public static void main(String[] args) {
-        
 
         try {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);

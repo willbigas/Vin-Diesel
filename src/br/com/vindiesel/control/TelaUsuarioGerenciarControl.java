@@ -39,6 +39,10 @@ public class TelaUsuarioGerenciarControl {
     private static final int TIPO_USUARIO = 4;
     private static final int ATIVO = 5;
 
+    private static final String TODOS = " TODOS "; //index 0
+    private static final String ATIVOS = " ATIVOS "; //index 1
+    private static final String INATIVOS = " INATIVOS "; //index 2
+
     TelaUsuarioGerenciar telaUsuarioGerenciar;
     TelaUsuarioFicha telaUsuarioFicha;
     List<TipoUsuario> listTipoUsuarios;
@@ -55,6 +59,15 @@ public class TelaUsuarioGerenciarControl {
         usuarioDao = new UsuarioDao();
         enderecoDao = new EnderecoDao();
         usuarioTableModel = new UsuarioTableModel();
+    }
+
+    public void carregarFiltrosNaComboBox() {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel();
+        telaUsuarioGerenciar.getCbFiltroTabela().setModel(model);
+        telaUsuarioGerenciar.getCbFiltroTabela().addItem(TODOS);
+        telaUsuarioGerenciar.getCbFiltroTabela().addItem(ATIVOS);
+        telaUsuarioGerenciar.getCbFiltroTabela().addItem(INATIVOS);
+        telaUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(1);
     }
 
     public void carregarEstadosNaComboBox() {
@@ -74,12 +87,13 @@ public class TelaUsuarioGerenciarControl {
                 telaUsuarioGerenciar.setVisible(true);
             }
         }
+        carregarFiltrosNaComboBox();
         carregarTiposUsuariosNaCombo();
         carregarEstadosNaComboBox();
         telaUsuarioGerenciar.getTblUsuario().setModel(usuarioTableModel);
         usuarioTableModel.limpar();
         usuarioTableModel.adicionar(usuarioDao.pesquisar(true));
-        atualizaTotalUsuarios(usuarioDao.pesquisar());
+        atualizaTotalUsuarios(usuarioDao.pesquisar(true));
         telaUsuarioGerenciar.getTpGerenciarUsuario().setEnabledAt(1, false);
         telaUsuarioGerenciar.getTfPesquisar().requestFocus();
         redimensionarTabela();
@@ -389,6 +403,26 @@ public class TelaUsuarioGerenciarControl {
             usuarioTableModel.limpar();
             usuarioTableModel.adicionar(usuariosPesquisados);
             atualizaTotalUsuarios(usuariosPesquisados);
+        }
+
+    }
+
+    public void filtroTabelaAction() {
+        int result = telaUsuarioGerenciar.getCbFiltroTabela().getSelectedIndex();
+        if (result == 0) {
+            usuarioTableModel.limpar();
+            usuarioTableModel.adicionar(usuarioDao.pesquisar());
+            atualizaTotalUsuarios(usuarioDao.pesquisar());
+        }
+        if (result == 1) {
+            usuarioTableModel.limpar();
+            usuarioTableModel.adicionar(usuarioDao.pesquisar(true));
+            atualizaTotalUsuarios(usuarioDao.pesquisar(true));
+        }
+        if (result == 2) {
+            usuarioTableModel.limpar();
+            usuarioTableModel.adicionar(usuarioDao.pesquisar(false));
+            atualizaTotalUsuarios(usuarioDao.pesquisar(false));
         }
 
     }

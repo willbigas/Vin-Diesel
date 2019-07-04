@@ -120,7 +120,7 @@ public class UsuarioDao extends DaoBD implements DaoI<Usuario> {
 
     @Override
     public List<Usuario> pesquisar() {
-        String querySelect = "SELECT * FROM USUARIO WHERE ATIVO = TRUE";
+        String querySelect = "SELECT * FROM USUARIO";
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);

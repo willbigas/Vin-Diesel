@@ -62,6 +62,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         lblUsuarioTotal = new javax.swing.JLabel();
         btNovo = new javax.swing.JButton();
+        cbFiltroTabela = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         tfCpf = new javax.swing.JFormattedTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -230,23 +231,18 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
+        cbFiltroTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbFiltroTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbFiltroTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                .addComponent(btNovo)
-                .addGap(18, 18, 18)
-                .addComponent(btVisualizar)
-                .addGap(18, 18, 18)
-                .addComponent(btDesativar)
-                .addGap(29, 29, 29))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -255,15 +251,31 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsuarioTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(365, 365, 365))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(cbFiltroTabela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btNovo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btVisualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btDesativar)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(365, 365, 365))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +288,8 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(btVisualizar)
                     .addComponent(btDesativar)
-                    .addComponent(btNovo))
+                    .addComponent(btNovo)
+                    .addComponent(cbFiltroTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -704,7 +717,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tpGerenciarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
+            .addComponent(tpGerenciarUsuario)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -784,6 +797,10 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         tpGerenciarUsuario.setEnabledAt(1, false);
     }//GEN-LAST:event_tpGerenciarUsuarioMouseReleased
 
+    private void cbFiltroTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroTabelaActionPerformed
+        usuarioGerenciarControl.filtroTabelaAction();
+    }//GEN-LAST:event_cbFiltroTabelaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
@@ -793,6 +810,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JButton btPesquisarCep;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JComboBox<String> cbFiltroTabela;
     private javax.swing.JComboBox<TipoUsuario> cbTipoUsuario;
     private javax.swing.JCheckBox checkAtivo;
     private javax.swing.JButton jButton1;
@@ -1019,6 +1037,14 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
     public void setLblUsuarioTotal(JLabel lblUsuarioTotal) {
         this.lblUsuarioTotal = lblUsuarioTotal;
+    }
+
+    public JComboBox<String> getCbFiltroTabela() {
+        return cbFiltroTabela;
+    }
+
+    public void setCbFiltroTabela(JComboBox<String> cbFiltroTabela) {
+        this.cbFiltroTabela = cbFiltroTabela;
     }
 
 }

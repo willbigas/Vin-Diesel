@@ -43,6 +43,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -67,12 +68,6 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
         lblCodigoPessoaRemetente = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         lblNomeRemetente = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        lblTelefoneRemetente = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        lblEstadoRemetente = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        lblNumeroRemetente = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         lblCidadeRemetente = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -83,6 +78,13 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
         lblComplementoRemetente = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         lblCepRemetente = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        lblTelefoneRemetente = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lblEstadoRemetente = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        lblNumeroRemetente = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -113,476 +115,263 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
             }
         });
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Encomenda"));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Encomenda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel40.setText("Codigo:");
+        jPanel4.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 43, -1, -1));
 
         lblCodigoEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCodigoEncomenda.setText("[Codigo]");
+        jPanel4.add(lblCodigoEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 43, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel42.setText("Valor:");
+        jPanel4.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 68, -1, -1));
 
         lblValorEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblValorEncomenda.setText("[Valor]");
+        jPanel4.add(lblValorEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 68, -1, -1));
 
         jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel44.setText("Peso:");
+        jPanel4.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 93, -1, -1));
 
         lblPesoEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblPesoEncomenda.setText("[Peso]");
+        jPanel4.add(lblPesoEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 93, -1, -1));
 
         jLabel52.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel52.setText("Largura:");
+        jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 118, -1, -1));
 
         lblLarguraEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblLarguraEncomenda.setText("[Largura]");
+        jPanel4.add(lblLarguraEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 118, -1, -1));
 
         jLabel54.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel54.setText("Altura:");
+        jPanel4.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 143, -1, -1));
 
         lblAlturaEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblAlturaEncomenda.setText("[Altura]");
+        jPanel4.add(lblAlturaEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 143, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel56.setText("Profundidade:");
+        jPanel4.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 168, -1, -1));
 
         lblProfundidadeEncomenda.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblProfundidadeEncomenda.setText("[Profundidade]");
+        jPanel4.add(lblProfundidadeEncomenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 168, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Data Cadastro:");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 193, -1, -1));
 
         lblDataCadastro.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblDataCadastro.setText("[DataCadastro]");
+        jPanel4.add(lblDataCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 193, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Data Entrega:");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 218, -1, -1));
 
         lblDataEntrega.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblDataEntrega.setText("[DataEntrega]");
+        jPanel4.add(lblDataEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 218, -1, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel52)
-                            .addComponent(jLabel56)
-                            .addComponent(jLabel54)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLarguraEncomenda)
-                            .addComponent(lblAlturaEncomenda)
-                            .addComponent(lblProfundidadeEncomenda)
-                            .addComponent(lblDataCadastro)
-                            .addComponent(lblDataEntrega)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel44))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblValorEncomenda)
-                            .addComponent(lblPesoEncomenda)
-                            .addComponent(lblCodigoEncomenda))))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel40)
-                    .addComponent(lblCodigoEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel42)
-                    .addComponent(lblValorEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel44)
-                    .addComponent(lblPesoEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel52)
-                    .addComponent(lblLarguraEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel54)
-                    .addComponent(lblAlturaEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel56)
-                    .addComponent(lblProfundidadeEncomenda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblDataCadastro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(lblDataEntrega))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 230, 250));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Remetente"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Remetente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Codigo Pessoa:");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 24, -1, -1));
 
         lblCodigoPessoaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCodigoPessoaRemetente.setText("[CodigoPessoa]");
+        jPanel3.add(lblCodigoPessoaRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 24, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setText("Nome:");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 49, -1, -1));
 
         lblNomeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblNomeRemetente.setText("[Nome]");
-
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setText("Telefone:");
-
-        lblTelefoneRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblTelefoneRemetente.setText("[Telefone]");
-
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel26.setText("Estado:");
-
-        lblEstadoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblEstadoRemetente.setText("[Estado]");
-
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setText("Numero:");
-
-        lblNumeroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNumeroRemetente.setText("[Numero]");
+        jPanel3.add(lblNomeRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 49, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel30.setText("Cidade:");
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 99, -1, -1));
 
         lblCidadeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCidadeRemetente.setText("[Cidade]");
+        jPanel3.add(lblCidadeRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 99, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel32.setText("Bairro:");
+        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 124, -1, -1));
 
         lblBairroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblBairroRemetente.setText("[Bairro]");
+        jPanel3.add(lblBairroRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 124, -1, -1));
 
         jLabel34.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel34.setText("Rua:");
+        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 149, -1, -1));
 
         lblRuaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblRuaRemetente.setText("[Rua]");
+        jPanel3.add(lblRuaRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 149, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel36.setText("Complemento:");
+        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 174, -1, -1));
 
         lblComplementoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblComplementoRemetente.setText("[Complemento]");
+        jPanel3.add(lblComplementoRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 174, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel38.setText("Cep:");
+        jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 74, -1, -1));
 
         lblCepRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCepRemetente.setText("[Cep]");
+        jPanel3.add(lblCepRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 74, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCodigoPessoaRemetente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel38))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCidadeRemetente)
-                                    .addComponent(lblBairroRemetente)
-                                    .addComponent(lblCepRemetente)
-                                    .addComponent(lblNomeRemetente))
-                                .addGap(42, 42, 42))
-                            .addComponent(lblRuaRemetente)
-                            .addComponent(lblComplementoRemetente))
-                        .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTelefoneRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEstadoRemetente)
-                            .addComponent(lblNumeroRemetente))))
-                .addGap(58, 58, 58))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblCodigoPessoaRemetente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(lblNomeRemetente)
-                    .addComponent(jLabel24)
-                    .addComponent(lblTelefoneRemetente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(lblEstadoRemetente))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel38)
-                        .addComponent(lblCepRemetente)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel28)
-                        .addComponent(lblNumeroRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblCidadeRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblBairroRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRuaRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblComplementoRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel36)))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setText("Telefone:");
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 20));
+
+        lblTelefoneRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTelefoneRemetente.setText("[Telefone]");
+        jPanel6.add(lblTelefoneRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 20));
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setText("Estado:");
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, 20));
+
+        lblEstadoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEstadoRemetente.setText("[Estado]");
+        jPanel6.add(lblEstadoRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 60, 20));
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setText("Numero:");
+        jPanel6.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 60, 20));
+
+        lblNumeroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNumeroRemetente.setText("[Numero]");
+        jPanel6.add(lblNumeroRemetente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, 20));
+
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 240, -1));
+
+        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 610, 210));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("                                 Ficha De Entrega");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Ficha de Entrega");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 76));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 890, -1));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do destinatário "));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Destinátario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Codigo Pessoa:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 24, -1, -1));
 
         lblCodigoPessoaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCodigoPessoaDestinatario.setText("[CodigoPessoa]");
+        jPanel2.add(lblCodigoPessoaDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 24, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Nome:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 49, -1, -1));
 
         lblNomeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblNomeDestinatario.setText("[Nome]");
+        jPanel2.add(lblNomeDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 49, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Cep:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 74, -1, -1));
 
         lblCepDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCepDestinatario.setText("[Cep]");
+        jPanel2.add(lblCepDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 74, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setText("Estado:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 74, -1, -1));
 
         lblEstadoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblEstadoDestinatario.setText("[Estado]");
+        jPanel2.add(lblEstadoDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 74, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("Numero:");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 99, -1, -1));
 
         lblNumeroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblNumeroDestinatario.setText("[Numero]");
+        jPanel2.add(lblNumeroDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 99, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setText("Cidade:");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 99, -1, -1));
 
         lblCidadeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblCidadeDestinatario.setText("[Cidade]");
+        jPanel2.add(lblCidadeDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 99, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setText("Bairro:");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 124, -1, -1));
 
         lblBairroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblBairroDestinatario.setText("[Bairro]");
+        jPanel2.add(lblBairroDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 124, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel18.setText("Rua:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 149, -1, -1));
 
         lblRuaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblRuaDestinatario.setText("[Rua]");
+        jPanel2.add(lblRuaDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 149, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setText("Complemento:");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 174, -1, -1));
 
         lblComplementoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblComplementoDestinatario.setText("[Complemento]");
+        jPanel2.add(lblComplementoDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 174, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCodigoPessoaDestinatario)
-                            .addComponent(lblNomeDestinatario)
-                            .addComponent(lblBairroDestinatario)
-                            .addComponent(lblRuaDestinatario)
-                            .addComponent(lblComplementoDestinatario))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCepDestinatario)
-                            .addComponent(lblCidadeDestinatario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEstadoDestinatario)
-                            .addComponent(lblNumeroDestinatario))
-                        .addGap(72, 72, 72))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblCodigoPessoaDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblNomeDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(lblCepDestinatario)
-                    .addComponent(jLabel10)
-                    .addComponent(lblEstadoDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(lblNumeroDestinatario)
-                    .addComponent(jLabel14)
-                    .addComponent(lblCidadeDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(lblBairroDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(lblRuaDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(lblComplementoDestinatario))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 106, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 610, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
         );
 
         pack();
@@ -670,6 +459,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblAlturaEncomenda;
     private javax.swing.JLabel lblBairroDestinatario;
     private javax.swing.JLabel lblBairroRemetente;

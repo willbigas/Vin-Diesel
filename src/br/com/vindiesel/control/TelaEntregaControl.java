@@ -397,7 +397,7 @@ public class TelaEntregaControl {
         valorDimensao = (comprimento * largura * altura) / 6000;
         valorDimensao = valorDimensao * 1.5;
 
-        valorEntrega = Double.valueOf(distanciaEmKm) / 20;
+        valorEntrega = Double.valueOf(DecimalFormat.paraPonto(distanciaEmKm)) / 20;
 
         valorTotalFrete = valorDimensao + valorEntrega + 0.015;
         System.out.println(valorTotalFrete);

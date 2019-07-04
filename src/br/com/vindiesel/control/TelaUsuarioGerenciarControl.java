@@ -20,7 +20,6 @@ import br.com.vindiesel.uteis.Validacao;
 import br.com.vindiesel.view.TelaPrincipal;
 import br.com.vindiesel.view.TelaUsuarioFicha;
 import br.com.vindiesel.view.TelaUsuarioGerenciar;
-import java.text.DateFormat;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
@@ -89,10 +88,11 @@ public class TelaUsuarioGerenciarControl {
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaUsuarioGerenciar.getTblUsuario());
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 0, 135);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 321);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 1, 264);
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 2, 215);
         UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 3, 118);
-        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 93);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 4, 118);
+        UtilTable.redimensionar(telaUsuarioGerenciar.getTblUsuario(), 5, 93);
     }
 
     private void carregarTiposUsuariosNaCombo() {
@@ -111,6 +111,11 @@ public class TelaUsuarioGerenciarControl {
     }
 
     private void inserirUsuario() {
+        if (verificarEmailMaiorQue45()) {
+            Mensagem.atencao(Texto.ERRO_EMAIL);
+            return;
+        }
+
         try {
             usuario = new Usuario();
 
@@ -156,6 +161,14 @@ public class TelaUsuarioGerenciarControl {
         endereco = null;
     }
 
+    private boolean verificarEmailMaiorQue45() {
+        String emailUsuario = telaUsuarioGerenciar.getTfEmail().getText();
+        if (emailUsuario.length() > 45) {
+            return true;
+        }
+        return false;
+    }
+
     private void setandoAtributosDeEndereco() throws NumberFormatException {
         endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
         endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
@@ -167,6 +180,11 @@ public class TelaUsuarioGerenciarControl {
     }
 
     private void alterarUsuario() {
+        if (verificarEmailMaiorQue45()) {
+            Mensagem.atencao(Texto.ERRO_EMAIL);
+            return;
+        }
+
         try {
             usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
 

@@ -124,7 +124,7 @@ public class TelaEncomendaGerenciarControl {
             encomenda.setId(idInserido);
             encomendaTableModel.adicionar(encomenda);
             atualizaTotalDeValorNf(encomendaDao.pesquisar());
-            atualizaTotalDeValorNf(encomendaDao.pesquisar());
+            atualizaTotalDosEncomendas(encomendaDao.pesquisar());
             limparCampos();
             Mensagem.info(Texto.SUCESSO_CADASTRAR);
         } else {
@@ -172,7 +172,7 @@ public class TelaEncomendaGerenciarControl {
             encomendaTableModel.atualizar(linhaSelecionada, encomenda);
             Mensagem.info(Texto.SUCESSO_EDITAR);
             atualizaTotalDeValorNf(encomendaDao.pesquisar());
-            atualizaTotalDeValorNf(encomendaDao.pesquisar());
+            atualizaTotalDosEncomendas(encomendaDao.pesquisar());
             limparCampos();
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);

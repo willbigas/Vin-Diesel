@@ -44,27 +44,24 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        lblCodigoPessoaDestinatario = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblNomeDestinatario = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lblCepDestinatario = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lblEstadoDestinatario = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        lblNumeroDestinatario = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        lblCidadeDestinatario = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        lblBairroDestinatario = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        lblRuaDestinatario = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        lblComplementoDestinatario = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        lblCodigoEncomenda = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        lblValorEncomenda = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        lblPesoEncomenda = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        lblLarguraEncomenda = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        lblAlturaEncomenda = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        lblProfundidadeEncomenda = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblDataCadastro = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblDataEntrega = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         lblCodigoPessoaRemetente = new javax.swing.JLabel();
@@ -86,23 +83,27 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
         lblComplementoRemetente = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         lblCepRemetente = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        lblCodigoEncomenda = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        lblValorEncomenda = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        lblPesoEncomenda = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        lblLarguraEncomenda = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        lblAlturaEncomenda = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        lblProfundidadeEncomenda = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblDataCadastro = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        lblDataEntrega = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lblCodigoPessoaDestinatario = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblNomeDestinatario = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblCepDestinatario = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblEstadoDestinatario = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblNumeroDestinatario = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        lblCidadeDestinatario = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lblBairroDestinatario = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        lblRuaDestinatario = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        lblComplementoDestinatario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ficha de Entrega");
@@ -111,322 +112,6 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                 formKeyPressed(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("                             Ficha De Entrega");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 905, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 905, -1));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do destinatário "));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Codigo Pessoa:");
-
-        lblCodigoPessoaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCodigoPessoaDestinatario.setText("[CodigoPessoa]");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Nome:");
-
-        lblNomeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNomeDestinatario.setText("[Nome]");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("Cep:");
-
-        lblCepDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCepDestinatario.setText("[Cep]");
-
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setText("Estado:");
-
-        lblEstadoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblEstadoDestinatario.setText("[Estado]");
-
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setText("Numero:");
-
-        lblNumeroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNumeroDestinatario.setText("[Numero]");
-
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel14.setText("Cidade:");
-
-        lblCidadeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCidadeDestinatario.setText("[Cidade]");
-
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel16.setText("Bairro:");
-
-        lblBairroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblBairroDestinatario.setText("[Bairro]");
-
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel18.setText("Rua:");
-
-        lblRuaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblRuaDestinatario.setText("[Rua]");
-
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel20.setText("Complemento:");
-
-        lblComplementoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblComplementoDestinatario.setText("[Complemento]");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCodigoPessoaDestinatario)
-                            .addComponent(lblNomeDestinatario)
-                            .addComponent(lblBairroDestinatario)
-                            .addComponent(lblRuaDestinatario)
-                            .addComponent(lblComplementoDestinatario))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCepDestinatario)
-                            .addComponent(lblCidadeDestinatario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEstadoDestinatario)
-                            .addComponent(lblNumeroDestinatario))
-                        .addGap(68, 68, 68))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblCodigoPessoaDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblNomeDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(lblCepDestinatario)
-                    .addComponent(jLabel10)
-                    .addComponent(lblEstadoDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(lblNumeroDestinatario)
-                    .addComponent(jLabel14)
-                    .addComponent(lblCidadeDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(lblBairroDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(lblRuaDestinatario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(lblComplementoDestinatario))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 220));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Remetente"));
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Codigo Pessoa:");
-
-        lblCodigoPessoaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCodigoPessoaRemetente.setText("[CodigoPessoa]");
-
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel22.setText("Nome:");
-
-        lblNomeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNomeRemetente.setText("[Nome]");
-
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setText("Telefone:");
-
-        lblTelefoneRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblTelefoneRemetente.setText("[Telefone]");
-
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel26.setText("Estado:");
-
-        lblEstadoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblEstadoRemetente.setText("[Estado]");
-
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setText("Numero:");
-
-        lblNumeroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblNumeroRemetente.setText("[Numero]");
-
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel30.setText("Cidade:");
-
-        lblCidadeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCidadeRemetente.setText("[Cidade]");
-
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel32.setText("Bairro:");
-
-        lblBairroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblBairroRemetente.setText("[Bairro]");
-
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel34.setText("Rua:");
-
-        lblRuaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblRuaRemetente.setText("[Rua]");
-
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel36.setText("Complemento:");
-
-        lblComplementoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblComplementoRemetente.setText("[Complemento]");
-
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel38.setText("Cep:");
-
-        lblCepRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        lblCepRemetente.setText("[Cep]");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCodigoPessoaRemetente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel22))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCidadeRemetente)
-                                    .addComponent(lblBairroRemetente)
-                                    .addComponent(lblCepRemetente)
-                                    .addComponent(lblNomeRemetente))
-                                .addGap(42, 42, 42))
-                            .addComponent(lblRuaRemetente)
-                            .addComponent(lblComplementoRemetente))
-                        .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTelefoneRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEstadoRemetente)
-                            .addComponent(lblNumeroRemetente))))
-                .addGap(91, 91, 91))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblCodigoPessoaRemetente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(lblNomeRemetente)
-                    .addComponent(jLabel24)
-                    .addComponent(lblTelefoneRemetente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(lblEstadoRemetente))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel38)
-                        .addComponent(lblCepRemetente)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel28)
-                        .addComponent(lblNumeroRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblCidadeRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblBairroRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRuaRemetente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblComplementoRemetente))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel36)))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 600, 210));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações de Encomenda"));
 
@@ -550,7 +235,355 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, -1, -1));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Remetente"));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Codigo Pessoa:");
+
+        lblCodigoPessoaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCodigoPessoaRemetente.setText("[CodigoPessoa]");
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setText("Nome:");
+
+        lblNomeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNomeRemetente.setText("[Nome]");
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setText("Telefone:");
+
+        lblTelefoneRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTelefoneRemetente.setText("[Telefone]");
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setText("Estado:");
+
+        lblEstadoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEstadoRemetente.setText("[Estado]");
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setText("Numero:");
+
+        lblNumeroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNumeroRemetente.setText("[Numero]");
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel30.setText("Cidade:");
+
+        lblCidadeRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCidadeRemetente.setText("[Cidade]");
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel32.setText("Bairro:");
+
+        lblBairroRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblBairroRemetente.setText("[Bairro]");
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel34.setText("Rua:");
+
+        lblRuaRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblRuaRemetente.setText("[Rua]");
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel36.setText("Complemento:");
+
+        lblComplementoRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblComplementoRemetente.setText("[Complemento]");
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel38.setText("Cep:");
+
+        lblCepRemetente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCepRemetente.setText("[Cep]");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCodigoPessoaRemetente))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel38))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCidadeRemetente)
+                                    .addComponent(lblBairroRemetente)
+                                    .addComponent(lblCepRemetente)
+                                    .addComponent(lblNomeRemetente))
+                                .addGap(42, 42, 42))
+                            .addComponent(lblRuaRemetente)
+                            .addComponent(lblComplementoRemetente))
+                        .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTelefoneRemetente))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel26))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstadoRemetente)
+                            .addComponent(lblNumeroRemetente))))
+                .addGap(58, 58, 58))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblCodigoPessoaRemetente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(lblNomeRemetente)
+                    .addComponent(jLabel24)
+                    .addComponent(lblTelefoneRemetente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel26)
+                        .addComponent(lblEstadoRemetente))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel38)
+                        .addComponent(lblCepRemetente)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel28)
+                        .addComponent(lblNumeroRemetente))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblCidadeRemetente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBairroRemetente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRuaRemetente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblComplementoRemetente))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel36)))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("                                 Ficha De Entrega");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do destinatário "));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Codigo Pessoa:");
+
+        lblCodigoPessoaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCodigoPessoaDestinatario.setText("[CodigoPessoa]");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Nome:");
+
+        lblNomeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNomeDestinatario.setText("[Nome]");
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("Cep:");
+
+        lblCepDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCepDestinatario.setText("[Cep]");
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Estado:");
+
+        lblEstadoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEstadoDestinatario.setText("[Estado]");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setText("Numero:");
+
+        lblNumeroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblNumeroDestinatario.setText("[Numero]");
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setText("Cidade:");
+
+        lblCidadeDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblCidadeDestinatario.setText("[Cidade]");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setText("Bairro:");
+
+        lblBairroDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblBairroDestinatario.setText("[Bairro]");
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setText("Rua:");
+
+        lblRuaDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblRuaDestinatario.setText("[Rua]");
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("Complemento:");
+
+        lblComplementoDestinatario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblComplementoDestinatario.setText("[Complemento]");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCodigoPessoaDestinatario)
+                            .addComponent(lblNomeDestinatario)
+                            .addComponent(lblBairroDestinatario)
+                            .addComponent(lblRuaDestinatario)
+                            .addComponent(lblComplementoDestinatario))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCepDestinatario)
+                            .addComponent(lblCidadeDestinatario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstadoDestinatario)
+                            .addComponent(lblNumeroDestinatario))
+                        .addGap(72, 72, 72))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblCodigoPessoaDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblNomeDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lblCepDestinatario)
+                    .addComponent(jLabel10)
+                    .addComponent(lblEstadoDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(lblNumeroDestinatario)
+                    .addComponent(jLabel14)
+                    .addComponent(lblCidadeDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(lblBairroDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(lblRuaDestinatario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(lblComplementoDestinatario))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 106, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -636,6 +669,7 @@ public class TelaEntregaFicha extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblAlturaEncomenda;
     private javax.swing.JLabel lblBairroDestinatario;
     private javax.swing.JLabel lblBairroRemetente;

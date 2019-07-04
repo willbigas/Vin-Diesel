@@ -82,6 +82,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         tfCodigoPessoa = new javax.swing.JFormattedTextField();
         checkCnpj = new javax.swing.JCheckBox();
         checkCpf = new javax.swing.JCheckBox();
+        btLimpar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         lblDestinatariosFiltrados = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -224,7 +225,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(btVisualizar)
                     .addComponent(btDesativar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -333,6 +334,19 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
+        btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
+        btLimpar.setText("Limpar");
+        btLimpar.setBorder(null);
+        btLimpar.setBorderPainted(false);
+        btLimpar.setContentAreaFilled(false);
+        btLimpar.setFocusPainted(false);
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -387,6 +401,8 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                                     .addComponent(tfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btLimpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btGravar)
                                 .addGap(18, 18, 18)))))
                 .addContainerGap(125, Short.MAX_VALUE))
@@ -428,12 +444,14 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(btGravar))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btGravar)
+                            .addComponent(btLimpar)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jLabel11)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         tpDestinatario.addTab("Editar", jPanel3);
@@ -550,10 +568,15 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tfComplementoKeyPressed
 
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+        destinatarioGerenciarControl.limparCampos();
+    }//GEN-LAST:event_btLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;

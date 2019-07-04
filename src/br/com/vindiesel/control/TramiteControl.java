@@ -58,7 +58,7 @@ public class TramiteControl {
 
         int idInserido = tramiteDao.inserir(tramite);
         if (idInserido != 0) {
-            enviarEmailDeTramite(entrega, tramite);
+            //enviarEmailDeTramite(entrega, tramite);
         }
 
         return idInserido;
@@ -71,6 +71,7 @@ public class TramiteControl {
 
     }
 
+    /*Implementando mais nao funciona dentro da rede do senac*/
     public void enviarEmailDeTramite(Entrega entrega, Tramite tramite) {
         String enderecoDestino = entrega.getRemetente().getEmail(); // pegar email do remetente aki
         String assunto = "Status de Encomenda vindiesel :" + entrega.getEncomenda().getCodigoRastreio();

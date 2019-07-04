@@ -98,6 +98,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         checkCpf = new javax.swing.JCheckBox();
         jLabel16 = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
+        btLimpar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -206,15 +207,19 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Total de Remetentes :");
 
+        lblTotalRemetentes.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalRemetentes.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalRemetentes.setText("[TotalRemetentes]");
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Remetentes Filtrados:");
 
+        lblTotalFiltrados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblTotalFiltrados.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalFiltrados.setText("[TotalFiltrados]");
 
@@ -271,7 +276,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(lblTotalRemetentes)
                     .addComponent(jLabel14)
                     .addComponent(lblTotalFiltrados))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         tpRemetente.addTab("Listar", jPanel2);
@@ -430,7 +435,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         btGravar.setBorder(null);
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -471,6 +476,20 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         tfEmail.setColumns(15);
         tfEmail.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
+        btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
+        btLimpar.setText("Limpar");
+        btLimpar.setBorder(null);
+        btLimpar.setBorderPainted(false);
+        btLimpar.setContentAreaFilled(false);
+        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLimpar.setFocusPainted(false);
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -506,6 +525,8 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btGravar)
                 .addGap(35, 35, 35))
         );
@@ -535,8 +556,10 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btGravar)
-                .addGap(23, 23, 23))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btGravar)
+                    .addComponent(btLimpar))
+                .addGap(22, 22, 22))
         );
 
         tpRemetente.addTab("Editar", jPanel3);
@@ -621,10 +644,15 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tfComplementoKeyPressed
 
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+        remetenteGerenciarControl.limparCampos();
+    }//GEN-LAST:event_btLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
+    private javax.swing.JButton btLimpar;
     private javax.swing.JButton btNovoRemetente;
     private javax.swing.JButton btVisualizar;
     private javax.swing.JComboBox<String> cbEstado;
@@ -813,7 +841,5 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     public void setTfEmail(JTextField tfEmail) {
         this.tfEmail = tfEmail;
     }
-    
-    
 
 }

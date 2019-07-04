@@ -143,7 +143,6 @@ public class TelaDestinatarioGerenciarControl {
 
     private void alterarDestinatario() {
         destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
-        destinatario.setNome(telaDestinatarioGerenciar.getTfNome().getText());
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
 
         endereco = destinatario.getEndereco();
@@ -348,7 +347,7 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getLblDestinatariosFiltrados().setText(String.valueOf(totalDestinatarioFiltrado));
     }
 
-    private void limparCampos() {
+    public void limparCampos() {
         telaDestinatarioGerenciar.getTfNome().setText("");
         telaDestinatarioGerenciar.getTfBairro().setText("");
         telaDestinatarioGerenciar.getTfCodigoPessoa().setText("");
@@ -360,6 +359,8 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTfPesquisa().setText("");
         telaDestinatarioGerenciar.getTfRua().setText("");
         telaDestinatarioGerenciar.getTfNome().requestFocus();
+        telaDestinatarioGerenciar.getCheckCpf().setSelected(false);
+        telaDestinatarioGerenciar.getCheckCnpj().setSelected(false);
         UtilTable.limparSelecaoDaTabela(telaDestinatarioGerenciar.getTblDestinatario());
     }
 

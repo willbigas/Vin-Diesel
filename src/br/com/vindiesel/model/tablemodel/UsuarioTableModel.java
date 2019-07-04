@@ -7,6 +7,7 @@ package br.com.vindiesel.model.tablemodel;
 
 import br.com.vindiesel.model.Usuario;
 import br.com.vindiesel.interfaces.AcoesTableModel;
+import br.com.vindiesel.model.TipoUsuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -21,10 +22,11 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
     private static final int NOME = 1;
     private static final int EMAIL = 2;
     private static final int TELEFONE = 3;
-    private static final int ATIVO = 4;
+    private static final int TIPOUSUARIO = 4;
+    private static final int ATIVO = 5;
 
     private List<Usuario> linhas;
-    private String[] COLUNAS = {"CPF", "NOME" ,"EMAIL", "TELEFONE", "ATIVO"};
+    private String[] COLUNAS = {"CPF", "NOME", "EMAIL", "TELEFONE", "TIPO USUARIO", "ATIVO"};
 
     public UsuarioTableModel() {
         linhas = new ArrayList<>();
@@ -60,6 +62,8 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
                 return String.class;
             case TELEFONE:
                 return String.class;
+            case TIPOUSUARIO:
+                return String.class;
             case ATIVO:
                 return String.class;
             default:
@@ -79,6 +83,8 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
                 return usuario.getEmail();
             case TELEFONE:
                 return usuario.getTelefone();
+            case TIPOUSUARIO:
+                return usuario.getTipoUsuario();
             case ATIVO:
                 if (usuario.getAtivo() == true) {
                     return "Ativado";
@@ -105,6 +111,9 @@ public class UsuarioTableModel extends AbstractTableModel implements AcoesTableM
                 break;
             case TELEFONE:
                 usuario.setTelefone((String) valor);
+                break;
+            case TIPOUSUARIO:
+                usuario.setTipoUsuario((TipoUsuario) valor);
                 break;
             case ATIVO:
                 if (valor.equals("Ativado")) {

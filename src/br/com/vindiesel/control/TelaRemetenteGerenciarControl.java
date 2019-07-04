@@ -103,6 +103,12 @@ public class TelaRemetenteGerenciarControl {
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
+
+        if (telaRemetenteGerenciar.getTfEmail().getText().length() > 45) {
+            Mensagem.atencao(Texto.ERRO_EMAIL);
+            remetente = null;
+            return;
+        }
         remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
 
         endereco = new Endereco();
@@ -152,6 +158,12 @@ public class TelaRemetenteGerenciarControl {
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
+
+        if (telaRemetenteGerenciar.getTfEmail().getText().length() > 45) {
+            Mensagem.atencao(Texto.ERRO_EMAIL);
+            return;
+        }
+
         remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
 
         endereco = remetente.getEndereco();
@@ -345,7 +357,7 @@ public class TelaRemetenteGerenciarControl {
 
     }
 
-    private void limparCampos() {
+    public void limparCampos() {
         telaRemetenteGerenciar.getTfNome().setText("");
         telaRemetenteGerenciar.getTfCodigoPessoa().setText("");
         telaRemetenteGerenciar.getTfEmail().setText("");
@@ -359,6 +371,8 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfPesquisar().setText("");
         telaRemetenteGerenciar.getTfRua().setText("");
         telaRemetenteGerenciar.getTfNome().requestFocus();
+        telaRemetenteGerenciar.getCheckCpf().setSelected(false);
+        telaRemetenteGerenciar.getCheckCnpj().setSelected(false);
         UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
     }
 

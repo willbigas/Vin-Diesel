@@ -71,7 +71,7 @@ public class TipoUsuarioTableModel extends AbstractTableModel implements AcoesTa
                 if (tipoUsuario.getTipoPermissao() == 1) {
                     return "Administrador";
                 } else {
-                    return "Caixa";
+                    return "Funcionário";
                 }
             case ATIVO:
                 if (tipoUsuario.getAtivo() == true) {

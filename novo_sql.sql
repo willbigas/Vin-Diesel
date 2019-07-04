@@ -253,7 +253,7 @@ INSERT INTO `vindiesel`.`formapagamento` (`id`, `nome`) VALUES ('3', 'BOLETO');
 
 
 INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('1', 'Administrador' , '1' , '1');
-INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('2', 'Caixa' ,'2' , '1');
+INSERT INTO `vindiesel`.`TipoUsuario` (`id`, `nome` , `tipoPermissao`, `ativo`) VALUES ('2', 'Funcionário' ,'2' , '1');
 
 INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('1', '88133810', 'SC', 'Palhoça', 'Jardim das Palmeiras', 'Dália', 'Casa Marrom', '538');
 INSERT INTO `vindiesel`.`endereco` (`id`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`, `numero`) VALUES ('2', '88130800', 'SC', 'Palhoça', 'Jardim Eldorado', 'Não sei o nome', 'Não sei', '500');

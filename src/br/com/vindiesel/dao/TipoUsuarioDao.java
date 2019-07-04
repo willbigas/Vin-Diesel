@@ -74,7 +74,32 @@ public class TipoUsuarioDao extends DaoBD implements DaoI<TipoUsuario> {
 
     @Override
     public List<TipoUsuario> pesquisar() {
-        String querySelect = "SELECT * FROM TIPOUSUARIO WHERE ATIVO = TRUE";
+        String querySelect = "SELECT * FROM TIPOUSUARIO";
+        try {
+            PreparedStatement stmt;
+            stmt = conexao.prepareStatement(querySelect);
+            ResultSet result = stmt.executeQuery();
+            List<TipoUsuario> lista = new ArrayList<>();
+            while (result.next()) {
+                TipoUsuario tipoUsuario = new TipoUsuario();
+                tipoUsuario.setId(result.getInt("id"));
+                tipoUsuario.setNome(result.getString("nome"));
+                tipoUsuario.setTipoPermissao(result.getInt("tipoPermissao"));
+                tipoUsuario.setAtivo(result.getBoolean("ativo"));
+                lista.add(tipoUsuario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<TipoUsuario> pesquisar(Boolean ativo) {
+        String querySelect = "SELECT * FROM TIPOUSUARIO WHERE (ATIVO = " + ativo + " ";
+        if (ativo == null) {
+            querySelect = "SELECT * FROM TIPOUSUARIO";
+        }
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(querySelect);
@@ -98,6 +123,32 @@ public class TipoUsuarioDao extends DaoBD implements DaoI<TipoUsuario> {
     @Override
     public List<TipoUsuario> pesquisar(String termo) {
         String querySelectComTermo = "SELECT * FROM TIPOUSUARIO WHERE (NOME like ? or TIPOPERMISSAO like ?)";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
+            ResultSet result = stmt.executeQuery();
+            List<TipoUsuario> lista = new ArrayList<>();
+            while (result.next()) {
+                TipoUsuario tipoUsuario = new TipoUsuario();
+                tipoUsuario.setId(result.getInt("id"));
+                tipoUsuario.setNome(result.getString("nome"));
+                tipoUsuario.setTipoPermissao(result.getInt("tipoPermissao"));
+                tipoUsuario.setAtivo(result.getBoolean("ativo"));
+                lista.add(tipoUsuario);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public List<TipoUsuario> pesquisar(String termo , Boolean ativo) {
+        String querySelectComTermo = "SELECT * FROM TIPOUSUARIO WHERE (NOME like ? or TIPOPERMISSAO like ?) AND ATIVO = " + ativo + " ";
+       if (ativo == null) {
+            querySelectComTermo = "SELECT * FROM TIPOUSUARIO WHERE (NOME like ? or TIPOPERMISSAO like ?)" ;
+        }
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
             stmt.setString(1, "%" + termo + "%");

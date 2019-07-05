@@ -141,7 +141,7 @@ public class TelaEntregaControl {
     }
     
     public void carregarFiltrosNaComboBox() {
-        telaEntrega.getCbFiltroTabela().setSelectedIndex(1);
+        telaEntrega.getCbFiltroTabela().setSelectedIndex(0);
     }
 
     public void atualizarTabelaEntregaAction() {
@@ -732,7 +732,6 @@ public class TelaEntregaControl {
         telaEntregaFicha.getLblDataCadastro().setText(UtilDate.data(entrega.getDataCadastro()));
         if (entrega.getDataEntrega() == null) {
             telaEntregaFicha.getLblDataEntrega().setVisible(false);
-
         } else {
             telaEntregaFicha.getLblDataEntrega().setText(UtilDate.data(entrega.getDataEntrega()));
         }

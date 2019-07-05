@@ -6,8 +6,8 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
+import br.com.vindiesel.control.TelaPrincipalControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
-import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
 
     TelaEntregaControl telaEntregaControl;
+    TelaPrincipalControl telaPrincipalControl;
 
     /**
      * Creates new form ProdutoDialogPesquisar
@@ -33,6 +34,7 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
         telaEntregaControl = control;
+        telaPrincipalControl = new TelaPrincipalControl();
         InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
@@ -88,6 +90,11 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
         btAdicionar.setBorderPainted(false);
         btAdicionar.setContentAreaFilled(false);
         btAdicionar.setFocusPainted(false);
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,6 +137,11 @@ public class TelaEncomendaPesquisaAvancada extends javax.swing.JDialog {
         // TODO add your handling code here:
         telaEntregaControl.pesquisarEncomendasNoDialogPesquisaAvancadaAction();
     }//GEN-LAST:event_tfCampoPesquisaKeyReleased
+
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        telaPrincipalControl.chamarTelaEncomendaAction();
+        this.dispose();
+    }//GEN-LAST:event_btAdicionarActionPerformed
 
     /**
      * @param args the command line arguments

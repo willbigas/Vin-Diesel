@@ -6,6 +6,7 @@
 package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaEntregaControl;
+import br.com.vindiesel.control.TelaPrincipalControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
 import javax.swing.JInternalFrame;
 import javax.swing.JTable;
@@ -18,6 +19,7 @@ import javax.swing.JTextField;
 public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
 
     TelaEntregaControl telaEntregaControl;
+    TelaPrincipalControl telaPrincipalControl;
 
     /**
      * Creates new form ProdutoDialogPesquisar
@@ -32,6 +34,7 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
         this.setLocationRelativeTo(parent);
         this.setModal(modal);
         telaEntregaControl = control;
+        telaPrincipalControl = new TelaPrincipalControl();
         InterfaceJanela.alteraIconePrincipalDoFrame(this, "/br/com/vindiesel/img/delivery_truck_16x16.png");
     }
 
@@ -137,6 +140,8 @@ public class TelaDestinatarioPesquisaAvancada extends javax.swing.JDialog {
     }//GEN-LAST:event_tfCampoPesquisaKeyReleased
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        telaPrincipalControl.chamarTelaDestinatarioGerenciarAction();
+        this.dispose();
     }//GEN-LAST:event_btAdicionarActionPerformed
 
     /**

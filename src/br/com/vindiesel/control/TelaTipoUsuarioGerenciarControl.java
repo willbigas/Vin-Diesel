@@ -71,7 +71,7 @@ public class TelaTipoUsuarioGerenciarControl {
     }
     
     public void carregarFiltrosNaComboBox() {
-        telaTipoUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(1);
+        telaTipoUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(0);
     }
 
     private void redimensionarTabela() {

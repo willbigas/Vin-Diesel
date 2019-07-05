@@ -63,7 +63,7 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void carregarFiltrosNaComboBox() {
-        telaUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(1);
+        telaUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(0);
     }
 
     public void carregarEstadosNaComboBox() {

@@ -6,6 +6,11 @@
 package br.com.vindiesel.model;
 
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -19,7 +24,14 @@ import org.hibernate.validator.constraints.br.CPF;
  *
  * @author william.mauro
  */
-public class Usuario extends Pessoa {
+@Entity
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @NotBlank
+    private String nome;
 
     @NotNull
     private LocalDate dataNascimento;
@@ -42,9 +54,11 @@ public class Usuario extends Pessoa {
     @NotNull
     private Boolean ativo;
     @Valid
+    @OneToOne
+    private Endereco endereco;
+    @Valid
     private TipoUsuario tipoUsuario;
-    
-    
+
     public Integer getPis() {
         return pis;
     }
@@ -115,6 +129,30 @@ public class Usuario extends Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override

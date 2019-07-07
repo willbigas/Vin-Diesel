@@ -5,18 +5,25 @@
  */
 package br.com.vindiesel.model;
 
-import javax.validation.constraints.Digits;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
  * @author ADJ-PC
  */
+
+@Entity
 public class Endereco {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Digits(integer = 10, fraction = 0)
-    private Integer cep;
+    @NotBlank
+    private String cep;
     @NotBlank
     private String estado;
     @NotBlank
@@ -25,9 +32,14 @@ public class Endereco {
     private String bairro;
     @NotBlank
     private String rua;
+    
     private String complemento;
     @NotBlank
     private String numero;
+
+    public Endereco() {
+    }
+    
 
     public Integer getId() {
         return id;
@@ -37,11 +49,11 @@ public class Endereco {
         this.id = id;
     }
 
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 

@@ -187,7 +187,7 @@ public class TelaUsuarioGerenciarControl {
 
     private void setandoAtributosDeEndereco() throws NumberFormatException {
         endereco.setBairro(telaUsuarioGerenciar.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaUsuarioGerenciar.getTfCep().getText()));
+        endereco.setCep(telaUsuarioGerenciar.getTfCep().getText());
         endereco.setCidade(telaUsuarioGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaUsuarioGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaUsuarioGerenciar.getCbEstado().getSelectedItem());

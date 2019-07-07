@@ -118,14 +118,7 @@ public class TelaRemetenteGerenciarControl {
 
         endereco = new Endereco();
 
-        try {
-            endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
-            remetente = null;
-            return;
-        }
-
+        endereco.setCep(telaRemetenteGerenciar.getTfCep().getText());
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
@@ -174,12 +167,7 @@ public class TelaRemetenteGerenciarControl {
         endereco = remetente.getEndereco();
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
 
-        try {
-            endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
-        }
-
+        endereco.setCep(telaRemetenteGerenciar.getTfCep().getText());
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaRemetenteGerenciar.getCbEstado().getSelectedItem());

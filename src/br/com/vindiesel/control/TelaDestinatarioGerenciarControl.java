@@ -108,13 +108,8 @@ public class TelaDestinatarioGerenciarControl {
         destinatario.setCodigoPessoa(telaDestinatarioGerenciar.getTfCodigoPessoa().getText());
         endereco = new Endereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
+        endereco.setCep(telaDestinatarioGerenciar.getTfCep().getText());
 
-        try {
-            endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
-
-        } catch (NumberFormatException numberFormatException) {
-            Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
-        }
         endereco.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
@@ -152,7 +147,7 @@ public class TelaDestinatarioGerenciarControl {
 
         endereco = destinatario.getEndereco();
         endereco.setBairro(telaDestinatarioGerenciar.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaDestinatarioGerenciar.getTfCep().getText()));
+        endereco.setCep(telaDestinatarioGerenciar.getTfCep().getText());
         endereco.setCidade(telaDestinatarioGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaDestinatarioGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaDestinatarioGerenciar.getCbEstado().getSelectedItem());
@@ -194,9 +189,9 @@ public class TelaDestinatarioGerenciarControl {
             return;
         }
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
-        
+
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + destinatario.getNome() + " ?");
-        
+
         if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }

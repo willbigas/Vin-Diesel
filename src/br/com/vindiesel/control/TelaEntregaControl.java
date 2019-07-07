@@ -313,7 +313,7 @@ public class TelaEntregaControl {
 
     private void setarAtributosDeEndereco() throws NumberFormatException {
         endereco.setBairro(telaEntrega.getTfBairro().getText());
-        endereco.setCep(Integer.valueOf(telaEntrega.getTfCep().getText()));
+        endereco.setCep(telaEntrega.getTfCep().getText());
         endereco.setCidade(telaEntrega.getTfCidade().getText());
         endereco.setComplemento(telaEntrega.getTfComplemento().getText());
         endereco.setEstado((String) telaEntrega.getCbEstado().getSelectedItem());

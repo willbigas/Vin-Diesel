@@ -29,7 +29,7 @@ public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
         try {
             PreparedStatement stmt;
             stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, endereco.getCep());
+            stmt.setString(1, endereco.getCep());
             stmt.setString(2, endereco.getEstado());
             stmt.setString(3, endereco.getCidade());
             stmt.setString(4, endereco.getBairro());
@@ -55,7 +55,7 @@ public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
         String queryUpdate = "UPDATE endereco SET CEP = ?, ESTADO = ?, CIDADE =?, BAIRRO = ?, RUA = ?, COMPLEMENTO = ?, NUMERO = ? WHERE ID = ?";
         try {
             PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
-            stmt.setInt(1, endereco.getCep());
+            stmt.setString(1, endereco.getCep());
             stmt.setString(2, endereco.getEstado());
             stmt.setString(3, endereco.getCidade());
             stmt.setString(4, endereco.getBairro());
@@ -117,7 +117,7 @@ public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
             while (result.next()) {
                 Endereco endereco = new Endereco();
                 endereco.setId(result.getInt("id"));
-                endereco.setCep(result.getInt("cep"));
+                endereco.setCep(result.getString("cep"));
                 endereco.setCidade(result.getString("cidade"));
                 endereco.setBairro(result.getString("bairro"));
                 endereco.setComplemento(result.getString("complemento"));
@@ -148,7 +148,7 @@ public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
             while (result.next()) {
                 Endereco endereco = new Endereco();
                 endereco.setId(result.getInt("id"));
-                endereco.setCep(result.getInt("cep"));
+                endereco.setCep(result.getString("cep"));
                 endereco.setRua(result.getString("rua"));
                 endereco.setCidade(result.getString("cidade"));
                 endereco.setBairro(result.getString("bairro"));
@@ -173,7 +173,7 @@ public class EnderecoDao extends DaoBD implements DaoI<Endereco> {
             while (result.next()) {
                 Endereco endereco = new Endereco();
                 endereco.setId(result.getInt("id"));
-                endereco.setCep(result.getInt("cep"));
+                endereco.setCep(result.getString("cep"));
                 endereco.setCidade(result.getString("cidade"));
                 endereco.setBairro(result.getString("bairro"));
                 endereco.setComplemento(result.getString("complemento"));

@@ -1,5 +1,9 @@
 package br.com.vindiesel.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 
@@ -7,8 +11,11 @@ import javax.validation.constraints.DecimalMin;
  *
  * @author William
  */
+@Entity
 public class Dimensao {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")

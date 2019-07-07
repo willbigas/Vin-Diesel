@@ -2,9 +2,11 @@ package br.com.vindiesel.model;
 
 import br.com.vindiesel.uteis.Texto;
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
@@ -15,6 +17,7 @@ import org.hibernate.validator.constraints.NotBlank;
  *
  * @author William
  */
+@Entity
 public class Remetente implements Serializable {
 
     @Id
@@ -31,7 +34,21 @@ public class Remetente implements Serializable {
     private String email;
     @Valid
     @OneToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+
+    public Remetente() {
+    }
+
+    public Remetente(Integer id, String nome, String codigoPessoa, String telefone, String email, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.codigoPessoa = codigoPessoa;
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+    }
+    
 
     public String getCodigoPessoa() {
         return codigoPessoa;

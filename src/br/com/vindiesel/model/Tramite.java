@@ -6,6 +6,14 @@
 package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -13,8 +21,11 @@ import org.hibernate.validator.constraints.NotBlank;
  *
  * @author ADJ-PC
  */
+@Entity
 public class Tramite {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDateTime dataHora;
     @NotBlank
@@ -22,11 +33,12 @@ public class Tramite {
     @NotBlank
     private String observacao;
     @Valid
+    @ManyToOne
     private Entrega entrega;
     @Valid
+    @OneToOne
+    @JoinColumn(name = "tipoTramite_id")
     private TipoTramite tipoTramite;
-    
-    
 
     public Integer getId() {
         return id;
@@ -75,7 +87,6 @@ public class Tramite {
     public void setTipoTramite(TipoTramite tipoTramite) {
         this.tipoTramite = tipoTramite;
     }
-    
 
     @Override
     public String toString() {

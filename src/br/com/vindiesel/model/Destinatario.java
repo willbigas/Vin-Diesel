@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
@@ -30,6 +31,7 @@ public class Destinatario implements Serializable {
     private String codigoPessoa;
     @Valid
     @OneToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
     public Destinatario() {

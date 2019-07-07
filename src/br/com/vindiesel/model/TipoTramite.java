@@ -1,13 +1,20 @@
 package br.com.vindiesel.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
  * @author Will
  */
+@Entity
 public class TipoTramite {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotBlank
     private String nome;

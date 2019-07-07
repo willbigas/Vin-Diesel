@@ -2,6 +2,11 @@ package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -12,8 +17,10 @@ import javax.validation.constraints.NotNull;
  *
  * @author william.mauro
  */
+@Entity
 public class Receita {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
     private Date dataCadastro;
@@ -28,8 +35,10 @@ public class Receita {
     @DecimalMax("999999999.00")
     private Double valorRecebido;
     @Valid
+    @OneToOne
     private Entrega entrega;
     @Valid
+    @OneToOne
     private FormaPagamento formaPagamento;
 
     public Integer getId() {

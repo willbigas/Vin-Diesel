@@ -49,9 +49,20 @@ Contributor(s):
     <!-- Customizacoes e propriedades -->
     <property name="show_sql">true</property>
     <property name="hibernate.id.new_generator_mappings">false</property>
-    <property name="hibernate.hbm2ddl.auto">validate</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <!-- Mapeamentos de Entidades -->
     <mapping class="br.com.vindiesel.model.Destinatario" file="" jar="" package="" resource="Destinatario"/>
     <mapping class="br.com.vindiesel.model.Endereco" resource="Endereco"/>
+    <mapping class="br.com.vindiesel.model.Dimensao" resource="Dimensao"/>
+    <mapping class="br.com.vindiesel.model.Encomenda" resource="Encomenda"/>
+    <mapping class="br.com.vindiesel.model.FormaPagamento" resource="FormaPagamento"/>
+    <mapping class="br.com.vindiesel.model.Remetente" resource="Remetente"/>
+    <mapping class="br.com.vindiesel.model.Entrega" resource="Entrega"/>
+    <mapping class="br.com.vindiesel.model.Usuario" resource="Usuario"/>
+    <mapping class="br.com.vindiesel.model.Receita" resource="Receita"/>
+    <mapping class="br.com.vindiesel.model.TipoPermissao" resource="TipoPermissao"/>
+    <mapping class="br.com.vindiesel.model.TipoTramite" resource="TipoTramite"/>
+    <mapping class="br.com.vindiesel.model.TipoUsuario" resource="TipoUsuario"/>
+    <mapping class="br.com.vindiesel.model.Tramite" resource="Tramite"/>
   </session-factory>
 </hibernate-configuration>

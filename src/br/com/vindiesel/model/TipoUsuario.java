@@ -5,6 +5,11 @@
  */
 package br.com.vindiesel.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
@@ -13,8 +18,11 @@ import org.hibernate.validator.constraints.NotBlank;
  *
  * @author william.mauro
  */
+@Entity
 public class TipoUsuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotBlank
     private String nome;

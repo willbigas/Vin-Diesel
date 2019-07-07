@@ -58,8 +58,11 @@ public class Dimensao {
     public void setAltura(Double altura) {
         this.altura = altura;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Dimensao{" + "id=" + id + ", comprimento=" + comprimento + ", largura=" + largura + ", altura=" + altura + '}';
+    }
     
 
 }

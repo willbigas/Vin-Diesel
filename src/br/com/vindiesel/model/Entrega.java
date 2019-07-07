@@ -1,8 +1,15 @@
 package br.com.vindiesel.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -12,8 +19,11 @@ import javax.validation.constraints.NotNull;
  *
  * @author william.mauro
  */
+@Entity
 public class Entrega {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
@@ -24,12 +34,17 @@ public class Entrega {
     @NotNull
     private Boolean entregue;
     @Valid
+    @OneToOne
     private Remetente remetente;
     @Valid
+    @OneToOne
     private Destinatario destinatario;
     @Valid
+    @OneToOne
+    @JoinColumn(name = "encomenda_id")
     private Encomenda encomenda;
     @Valid
+    @OneToMany(mappedBy = "entrega", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Tramite> tramites;
 
     public Integer getId() {
@@ -103,8 +118,7 @@ public class Entrega {
     public void setTramites(List<Tramite> tramites) {
         this.tramites = tramites;
     }
-    
-    
+
     @Override
     public String toString() {
         return "Entrega{" + "id=" + id + ", valorTotal=" + valorTotal + ", dataCadastro=" + dataCadastro + ", dataEntrega=" + dataEntrega + ", entregue=" + entregue + ", remetente=" + remetente + ", destinatario=" + destinatario + ", encomenda=" + encomenda + '}';

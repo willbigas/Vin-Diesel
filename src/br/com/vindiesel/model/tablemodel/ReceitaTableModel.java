@@ -81,7 +81,10 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
             case VALOR_TOTAL:
                 return DecimalFormat.decimalFormat(receita.getValorTotal());
             case VALOR_RESTANTE:
-                return DecimalFormat.decimalFormat(receita.getValorTotal() - receita.getValorRecebido());
+                if (receita.getValorTotal() == null || receita.getValorRecebido() == null) {
+                    return DecimalFormat.decimalFormatR$(0.0);
+                }
+                return DecimalFormat.decimalFormatR$(receita.getValorTotal() - receita.getValorRecebido());
             case FORMA_PAGAMENTO:
                 if (receita.getFormaPagamento() == null) {
                     return "Não informado";

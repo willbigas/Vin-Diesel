@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author william.mauro
  */
-public class EntregaDao extends DaoBD implements DaoI<Entrega> {
+public class EntregaDao extends GenericDao<Entrega> implements DaoI<Entrega> {
 
     RemetenteDao remetenteDao;
     DestinatarioDao destinatarioDao;
@@ -27,88 +27,8 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
         encomendaDao = new EncomendaDao();
     }
 
-    @Override
-    public int inserir(Entrega entrega) {
-        String queryInsert = "INSERT INTO entrega(valorTotal, dataCadastro, dataEntrega , entregue , "
-                + " remetente_id , destinatario_id , encomenda_id) VALUES(?, ?, ? , ?, ? ,? , ?)";
-        try {
-            PreparedStatement stmt;
-            stmt = conexao.prepareStatement(queryInsert, PreparedStatement.RETURN_GENERATED_KEYS);
-            stmt.setDouble(1, entrega.getValorTotal());
-            stmt.setTimestamp(2, new Timestamp(entrega.getDataCadastro().getTime()));
-            if (entrega.getDataEntrega() == null) {
-                stmt.setNull(3, Types.TIMESTAMP);
-            } else {
-                stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
-            }
-            stmt.setBoolean(4, entrega.getEntregue());
-            stmt.setInt(5, entrega.getRemetente().getId());
-            stmt.setInt(6, entrega.getDestinatario().getId());
-            stmt.setInt(7, entrega.getEncomenda().getId());
-            ResultSet res;
-            if (stmt.executeUpdate() > 0) {
-                res = stmt.getGeneratedKeys();
-                res.next();
-                return res.getInt(1);
-            } else {
-                return 0;
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return 0;
-        }
-    }
 
-    @Override
-    public boolean alterar(Entrega entrega) {
-        String queryUpdate = "UPDATE entrega SET valorTotal = ?, dataCadastro = ?, dataEntrega = ? , "
-                + " entregue = ? , remetente_id = ? , destinatario_id = ? , encomenda_id = ?  WHERE ID = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(queryUpdate);
-            stmt.setDouble(1, entrega.getValorTotal());
-            stmt.setTimestamp(2, new Timestamp(entrega.getDataCadastro().getTime()));
-            if (entrega.getDataEntrega() == null) {
-                stmt.setNull(3, Types.TIMESTAMP);
-            } else {
-                stmt.setTimestamp(3, new Timestamp(entrega.getDataEntrega().getTime()));
-            }
-            stmt.setBoolean(4, entrega.getEntregue());
-            stmt.setInt(5, entrega.getRemetente().getId());
-            stmt.setInt(6, entrega.getDestinatario().getId());
-            stmt.setInt(7, entrega.getEncomenda().getId());
-            stmt.setInt(8, entrega.getId());
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
-    }
 
-    @Override
-    public boolean deletar(Entrega entrega) {
-        String queryDelete = "DELETE FROM ENTREGA WHERE ID = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
-            stmt.setInt(1, entrega.getId());
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
-    }
-
-    @Override
-    public boolean deletar(int id) {
-        String queryDelete = "DELETE FROM ENTREGA WHERE ID = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(queryDelete);
-            stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
-    }
 
     @Override
     public boolean desativar(Entrega obj) {
@@ -136,36 +56,6 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
         }
     }
 
-    @Override
-    public List<Entrega> pesquisar() {
-        String querySelect = "SELECT * FROM ENTREGA";
-        try {
-            PreparedStatement stmt;
-            stmt = conexao.prepareStatement(querySelect);
-            ResultSet result = stmt.executeQuery();
-            List<Entrega> lista = new ArrayList<>();
-            while (result.next()) {
-                Entrega entrega = new Entrega();
-                entrega.setId(result.getInt("id"));
-                entrega.setValorTotal(result.getDouble("valorTotal"));
-                entrega.setDataCadastro((result.getDate("dataCadastro")));
-                if ((result.getDate("dataEntrega")) == null) {
-                    entrega.setDataEntrega(null);
-                } else {
-                    entrega.setDataEntrega(result.getDate("dataEntrega"));
-                }
-                entrega.setEntregue(result.getBoolean("entregue"));
-                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
-                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
-                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
-                lista.add(entrega);
-            }
-            return lista;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return null;
-        }
-    }
 
     public List<Entrega> pesquisar(Boolean entregue) {
         String querySelect = "SELECT * FROM ENTREGA WHERE (ENTREGUE = " + entregue + " ";
@@ -277,36 +167,6 @@ public class EntregaDao extends DaoBD implements DaoI<Entrega> {
         }
     }
 
-    @Override
-    public Entrega pesquisar(int id) {
-        String querySelectComTermo = "SELECT * FROM ENTREGA WHERE id = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-            stmt.setInt(1, id);
-            ResultSet result = stmt.executeQuery();
-            if (result.next()) {
-                Entrega entrega = new Entrega();
-                entrega.setId(result.getInt("id"));
-                entrega.setValorTotal(result.getDouble("valorTotal"));
-                entrega.setDataCadastro((result.getDate("dataCadastro")));
-                if ((result.getDate("dataEntrega")) == null) {
-                    entrega.setDataEntrega(null);
-                } else {
-                    entrega.setDataEntrega(result.getDate("dataEntrega"));
-                }
-                entrega.setEntregue(result.getBoolean("entregue"));
-                entrega.setRemetente(remetenteDao.pesquisar(result.getInt("remetente_id")));
-                entrega.setDestinatario(destinatarioDao.pesquisar(result.getInt("destinatario_id")));
-                entrega.setEncomenda(encomendaDao.pesquisar(result.getInt("encomenda_id")));
-                return entrega;
-            } else {
-                return null;
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return null;
-        }
-    }
 
     public List<Entrega> pesquisarPorDataEntrega(String dataEntrega) {
         String query = "SELECT * FROM ENTREGA WHERE(dataEntrega like ?)";

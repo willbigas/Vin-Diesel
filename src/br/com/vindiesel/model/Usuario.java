@@ -6,10 +6,13 @@
 package br.com.vindiesel.model;
 
 import java.time.LocalDate;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
@@ -55,8 +58,11 @@ public class Usuario {
     private Boolean ativo;
     @Valid
     @OneToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
     @Valid
+    @OneToOne
+    @JoinColumn(name = "tipoUsuario_id")
     private TipoUsuario tipoUsuario;
 
     public Integer getPis() {

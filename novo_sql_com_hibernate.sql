@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.38-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
--- Host: localhost    Database: vindiesel
+-- Host: 127.0.0.1    Database: vindiesel
 -- ------------------------------------------------------
--- Server version	10.1.38-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,9 +42,9 @@ DROP TABLE IF EXISTS `dimensao`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `dimensao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comprimento` decimal(10,0) DEFAULT NULL,
-  `largura` decimal(10,0) DEFAULT NULL,
-  `altura` decimal(10,0) DEFAULT NULL,
+  `comprimento` decimal(10,2) DEFAULT NULL,
+  `largura` decimal(10,2) DEFAULT NULL,
+  `altura` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -58,10 +58,10 @@ DROP TABLE IF EXISTS `encomenda`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `encomenda` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigoRastreio` varchar(255) DEFAULT NULL,
+  `codigoRastreio` varchar(15) DEFAULT NULL,
   `peso` decimal(10,2) NOT NULL,
   `dimensao_id` int(11) NOT NULL,
-  `valorNotaFiscal` double(10,2) NOT NULL,
+  `valorNotaFiscal` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK7svlcxvyf6o638h48wppior7y` (`dimensao_id`),
   CONSTRAINT `FK7svlcxvyf6o638h48wppior7y` FOREIGN KEY (`dimensao_id`) REFERENCES `dimensao` (`id`)
@@ -82,7 +82,7 @@ CREATE TABLE `endereco` (
   `cidade` varchar(45) NOT NULL,
   `bairro` varchar(45) NOT NULL,
   `rua` varchar(45) NOT NULL,
-  `complemento` varchar(45) DEFAULT NULL,
+  `complemento` varchar(150) DEFAULT NULL,
   `numero` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
@@ -111,7 +111,7 @@ CREATE TABLE `entrega` (
   CONSTRAINT `FK585q4q4k5nl0uxsbarh7o5sy7` FOREIGN KEY (`encomenda_id`) REFERENCES `encomenda` (`id`),
   CONSTRAINT `FKa9h2x8ket7hhfolda74si3pvt` FOREIGN KEY (`destinatario_id`) REFERENCES `destinatario` (`id`),
   CONSTRAINT `FKbfjakt56i8ee3aa15njw8s54x` FOREIGN KEY (`remetente_id`) REFERENCES `remetente` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,8 +140,8 @@ CREATE TABLE `receita` (
   `dataCadastro` datetime NOT NULL,
   `dataPagamento` datetime DEFAULT NULL,
   `dataVencimento` date NOT NULL,
-  `valorTotal` decimal(9,2) NOT NULL,
-  `valorRecebido` decimal(9,2) DEFAULT NULL,
+  `valorTotal` decimal(10,2) NOT NULL,
+  `valorRecebido` decimal(10,2) DEFAULT NULL,
   `entrega_id` int(11) NOT NULL,
   `formaPagamento_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -149,7 +149,7 @@ CREATE TABLE `receita` (
   KEY `FKfwdsr5bmj4tfkbxmsg2306scl` (`formaPagamento_id`),
   CONSTRAINT `FKfwdsr5bmj4tfkbxmsg2306scl` FOREIGN KEY (`formaPagamento_id`) REFERENCES `formapagamento` (`id`),
   CONSTRAINT `FKj0qusp912bc7m56dfihogjjli` FOREIGN KEY (`entrega_id`) REFERENCES `entrega` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `tramite` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `datahora` datetime NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `observacao` text,
+  `observacao` varchar(200) DEFAULT NULL,
   `entrega_id` int(11) NOT NULL,
   `tipoTramite_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -221,7 +221,7 @@ CREATE TABLE `tramite` (
   KEY `FKtrpk4brf3alv0yy8bk3j008x0` (`tipoTramite_id`),
   CONSTRAINT `FK3m79gmua8okbv6a9k25cjxxdy` FOREIGN KEY (`entrega_id`) REFERENCES `entrega` (`id`),
   CONSTRAINT `FKtrpk4brf3alv0yy8bk3j008x0` FOREIGN KEY (`tipoTramite_id`) REFERENCES `tipotramite` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,9 +242,9 @@ CREATE TABLE `usuario` (
   `salario` decimal(10,2) NOT NULL,
   `numeroPis` int(20) NOT NULL,
   `ativo` tinyint(4) NOT NULL,
+  `pis` int(11) NOT NULL,
   `endereco_id` int(11) NOT NULL,
   `tipoUsuario_id` int(11) NOT NULL,
-  `pis` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKjpjxurfuxsxph7n9qv4q8ougq` (`endereco_id`),
   KEY `FKl70vdy3uwxsyhb9h3vnp29q74` (`tipoUsuario_id`),
@@ -252,6 +252,14 @@ CREATE TABLE `usuario` (
   CONSTRAINT `FKl70vdy3uwxsyhb9h3vnp29q74` FOREIGN KEY (`tipoUsuario_id`) REFERENCES `tipousuario` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping events for database 'vindiesel'
+--
+
+--
+-- Dumping routines for database 'vindiesel'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -262,4 +270,4 @@ CREATE TABLE `usuario` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-07 20:18:31
+-- Dump completed on 2019-07-08 11:55:36

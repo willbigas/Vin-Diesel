@@ -1,12 +1,16 @@
 package br.com.vindiesel.dao;
 
+import br.com.vindiesel.factory.HibernateUtil;
 import br.com.vindiesel.interfaces.DaoI;
 import br.com.vindiesel.model.Receita;
+import br.com.vindiesel.uteis.UtilDate;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -23,43 +27,24 @@ public class ReceitaDao extends GenericDao<Receita> implements DaoI<Receita> {
         formaPagamentoDao = new FormaPagamentoDao();
     }
 
-
-
     @Override
     public boolean desativar(Receita obj) {
-        String sql = "UPDATE RECEITA SET ativo = false WHERE id = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setInt(1, obj.getId());
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean desativar(int id) {
-        String sql = "UPDATE RECEITA SET ativo = false WHERE id = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
     @Override
     public List<Receita> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM receita WHERE (dataVencimento LIKE ? or valorRecebido LIKE ? or valorTotal like ?)";
+        String querySelectComTermo = "SELECT * FROM Receita WHERE (dataVencimento LIKE ? or valorRecebido LIKE ? or valorTotal like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-            stmt.setString(1, "%" + termo + "%");
-            stmt.setString(2, "%" + termo + "%");
-            stmt.setString(3, "%" + termo + "%");
+             stmt.setString(1, "%" + termo + "%");
+             stmt.setString(2, "%" + termo + "%");
+             stmt.setString(3, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Receita> lista = new ArrayList<>();
             while (result.next()) {

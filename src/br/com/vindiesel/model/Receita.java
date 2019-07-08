@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -19,14 +21,18 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class Receita {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date dataCadastro;
+    @Temporal(TemporalType.DATE)
     private Date dataPagamento;
     @NotNull
     @Future
+    @Temporal(TemporalType.DATE)
     private Date dataVencimento;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
@@ -64,7 +70,7 @@ public class Receita {
     public void setDataPagamento(Date dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
-    
+
     public Date getDataVencimento() {
         return dataVencimento;
     }

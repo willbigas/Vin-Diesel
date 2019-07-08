@@ -32,28 +32,12 @@ public class EntregaDao extends GenericDao<Entrega> implements DaoI<Entrega> {
 
     @Override
     public boolean desativar(Entrega obj) {
-        String sql = "UPDATE ENTREGA SET ativo = false WHERE id = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setInt(1, obj.getId());
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean desativar(int id) {
-        String sql = "UPDATE ENTREGA SET ativo = false WHERE id = ?";
-        try {
-            PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

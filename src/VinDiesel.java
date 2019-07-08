@@ -1,8 +1,11 @@
 
 import br.com.vindiesel.control.TelaLoginControl;
+import br.com.vindiesel.dao.EnderecoDao;
+import br.com.vindiesel.model.Endereco;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel;
+import java.util.List;
 import javax.swing.UIManager;
 
 /**
@@ -12,6 +15,10 @@ import javax.swing.UIManager;
 public class VinDiesel {
 
     public static void main(String[] args) {
+        
+//        EnderecoDao enderecoDao = new EnderecoDao();
+//        List<Endereco>  enderecos =  enderecoDao.pesquisar("748");
+//        System.out.println(enderecos);
         
 
         try {

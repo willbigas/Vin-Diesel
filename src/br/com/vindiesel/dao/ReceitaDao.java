@@ -39,12 +39,12 @@ public class ReceitaDao extends GenericDao<Receita> implements DaoI<Receita> {
 
     @Override
     public List<Receita> pesquisar(String termo) {
-        String querySelectComTermo = "SELECT * FROM Receita WHERE (dataVencimento LIKE ? or valorRecebido LIKE ? or valorTotal like ?)";
+        String querySelectComTermo = "SELECT * FROM receita WHERE (dataVencimento LIKE ? or valorRecebido LIKE ? or valorTotal like ?)";
         try {
             PreparedStatement stmt = conexao.prepareStatement(querySelectComTermo);
-             stmt.setString(1, "%" + termo + "%");
-             stmt.setString(2, "%" + termo + "%");
-             stmt.setString(3, "%" + termo + "%");
+            stmt.setString(1, "%" + termo + "%");
+            stmt.setString(2, "%" + termo + "%");
+            stmt.setString(3, "%" + termo + "%");
             ResultSet result = stmt.executeQuery();
             List<Receita> lista = new ArrayList<>();
             while (result.next()) {

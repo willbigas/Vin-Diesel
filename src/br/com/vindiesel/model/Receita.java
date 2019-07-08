@@ -2,6 +2,7 @@ package br.com.vindiesel.model;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,9 +27,9 @@ public class Receita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataCadastro;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataPagamento;
     @NotNull
     @Future
@@ -36,9 +37,11 @@ public class Receita {
     private Date dataVencimento;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+     @Column(columnDefinition = "Decimal(10,2)")
     private Double valorTotal;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+     @Column(columnDefinition = "Decimal(10,2)")
     private Double valorRecebido;
     @Valid
     @OneToOne

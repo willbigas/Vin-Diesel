@@ -1,5 +1,6 @@
 package br.com.vindiesel.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,12 +20,15 @@ public class Dimensao {
     private Integer id;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double comprimento;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double largura;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double altura;
 
     public Integer getId() {
@@ -63,6 +67,5 @@ public class Dimensao {
     public String toString() {
         return "Dimensao{" + "id=" + id + ", comprimento=" + comprimento + ", largura=" + largura + ", altura=" + altura + '}';
     }
-    
 
 }

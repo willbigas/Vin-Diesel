@@ -1,5 +1,6 @@
 package br.com.vindiesel.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class Encomenda {
     private String codigoRastreio;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double peso;
     @Valid
     @OneToOne
@@ -32,6 +34,7 @@ public class Encomenda {
     private Dimensao dimensao;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double valorNotaFiscal;
 
     public Integer getId() {

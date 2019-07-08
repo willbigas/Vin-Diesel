@@ -44,11 +44,11 @@ Contributor(s):
     <!-- Configuracao do Banco de dados -->
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vindiesel</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vindiesel?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <!-- Customizacoes e propriedades -->
     <property name="hibernate.id.new_generator_mappings">false</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
     <!-- Mapeamentos de Entidades -->
     <mapping class="br.com.vindiesel.model.Destinatario" file="" jar="" package="" resource="Destinatario"/>
     <mapping class="br.com.vindiesel.model.Endereco" resource="Endereco"/>

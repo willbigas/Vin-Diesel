@@ -3,6 +3,7 @@ package br.com.vindiesel.model;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -27,11 +29,13 @@ public class Entrega {
     private Integer id;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double valorTotal;
     @NotNull
     private Date dataCadastro;
     private Date dataEntrega;
     @NotNull
+    @Column(columnDefinition = "TINYINT")
     private Boolean entregue;
     @Valid
     @OneToOne

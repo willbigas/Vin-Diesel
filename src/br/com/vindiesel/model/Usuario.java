@@ -7,6 +7,7 @@ package br.com.vindiesel.model;
 
 import java.time.LocalDate;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -51,10 +52,12 @@ public class Usuario {
     private String senha;
     @DecimalMin(value = "0.00")
     @DecimalMax("999999999.00")
+    @Column(columnDefinition = "Decimal(10,2)")
     private Double salario;
     @NotNull
     private Integer pis;
     @NotNull
+    @Column(columnDefinition = "TINYINT")
     private Boolean ativo;
     @Valid
     @OneToOne

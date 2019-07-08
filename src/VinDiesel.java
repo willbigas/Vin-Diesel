@@ -1,11 +1,8 @@
 
 import br.com.vindiesel.control.TelaLoginControl;
-import br.com.vindiesel.dao.EnderecoDao;
-import br.com.vindiesel.model.Endereco;
 import br.com.vindiesel.uteis.Mensagem;
 import br.com.vindiesel.uteis.Texto;
 import de.javasoft.plaf.synthetica.SyntheticaPlainLookAndFeel;
-import java.util.List;
 import javax.swing.UIManager;
 
 /**

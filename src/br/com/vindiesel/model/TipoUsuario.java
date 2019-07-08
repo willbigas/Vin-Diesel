@@ -5,6 +5,7 @@
  */
 package br.com.vindiesel.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class TipoUsuario {
     @NotBlank
     private String nome;
     @NotNull
+    @Column(columnDefinition = "TINYINT")
     private Boolean ativo;
     @Digits(integer = 1, fraction = 0)
     private Integer tipoPermissao;

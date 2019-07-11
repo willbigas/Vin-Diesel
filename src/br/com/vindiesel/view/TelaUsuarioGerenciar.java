@@ -54,8 +54,8 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar = new javax.swing.JButton();
         btDesativar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btAtualizar = new javax.swing.JButton();
+        btLimparListar = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         lblUsuarioFiltrado = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -149,12 +149,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblUsuario);
 
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btVisualizar.setForeground(new java.awt.Color(0, 0, 0));
         btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btVisualizar.setText("Visualizar");
-        btVisualizar.setBorder(null);
+        btVisualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
         btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btVisualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btVisualizarMouseExited(evt);
+            }
+        });
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -162,12 +171,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         });
 
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btDesativar.setForeground(new java.awt.Color(0, 0, 0));
         btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/desativar_32x32.png"))); // NOI18N
         btDesativar.setText("Desativar");
-        btDesativar.setBorder(null);
+        btDesativar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
         btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btDesativar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btDesativarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btDesativarMouseExited(evt);
+            }
+        });
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -177,25 +195,41 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Listar Usuarios");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/atualizar_32x32.png"))); // NOI18N
-        jButton1.setText("Atualizar");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setFocusPainted(false);
+        btAtualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btAtualizar.setForeground(new java.awt.Color(0, 0, 0));
+        btAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/atualizar_32x32.png"))); // NOI18N
+        btAtualizar.setText("Atualizar");
+        btAtualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
+        btAtualizar.setBorderPainted(false);
+        btAtualizar.setContentAreaFilled(false);
+        btAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btAtualizar.setFocusPainted(false);
+        btAtualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btAtualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btAtualizarMouseExited(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
-        jButton2.setText("Limpar");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.setFocusPainted(false);
+        btLimparListar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimparListar.setForeground(new java.awt.Color(0, 0, 0));
+        btLimparListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
+        btLimparListar.setText("Limpar");
+        btLimparListar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
+        btLimparListar.setBorderPainted(false);
+        btLimparListar.setContentAreaFilled(false);
+        btLimparListar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btLimparListar.setFocusPainted(false);
+        btLimparListar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btLimparListarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btLimparListarMouseExited(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
@@ -214,12 +248,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         lblUsuarioTotal.setText("[TotalUsuarios]");
 
         btNovo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btNovo.setForeground(new java.awt.Color(0, 0, 0));
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
         btNovo.setText("Novo");
-        btNovo.setBorder(null);
+        btNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btNovo.setBorderPainted(false);
         btNovo.setContentAreaFilled(false);
         btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btNovoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btNovoMouseExited(evt);
+            }
+        });
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
@@ -246,10 +289,10 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsuarioTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                .addComponent(btAtualizar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btLimparListar)
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -275,7 +318,7 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVisualizar)
@@ -286,8 +329,8 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(btAtualizar)
+                    .addComponent(btLimparListar)
                     .addComponent(jLabel19)
                     .addComponent(lblUsuarioFiltrado)
                     .addComponent(jLabel21)
@@ -482,12 +525,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         jLabel3.setText("PIS:");
 
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btGravar.setForeground(new java.awt.Color(0, 0, 0));
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
-        btGravar.setBorder(null);
+        btGravar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
         btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btGravarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btGravarMouseExited(evt);
+            }
+        });
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -534,12 +586,21 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
         tfTelefone.setPreferredSize(new java.awt.Dimension(0, 30));
 
         btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btLimpar.setForeground(new java.awt.Color(0, 0, 0));
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
         btLimpar.setText("Limpar");
-        btLimpar.setBorder(null);
+        btLimpar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btLimpar.setBorderPainted(false);
         btLimpar.setContentAreaFilled(false);
         btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btLimparMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btLimparMouseExited(evt);
+            }
+        });
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparActionPerformed(evt);
@@ -794,11 +855,69 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_cbFiltroTabelaActionPerformed
 
+    private void btLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseEntered
+        btLimpar.setBorderPainted(true);
+    }//GEN-LAST:event_btLimparMouseEntered
+
+    private void btLimparMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseExited
+        btLimpar.setBorderPainted(false);
+    }//GEN-LAST:event_btLimparMouseExited
+
+    private void btGravarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGravarMouseEntered
+        btGravar.setBorderPainted(true);
+    }//GEN-LAST:event_btGravarMouseEntered
+
+    private void btGravarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGravarMouseExited
+        btGravar.setBorderPainted(false);
+    }//GEN-LAST:event_btGravarMouseExited
+
+    private void btNovoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseEntered
+        btNovo.setBorderPainted(true);
+    }//GEN-LAST:event_btNovoMouseEntered
+
+    private void btNovoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseExited
+        btNovo.setBorderPainted(false);
+    }//GEN-LAST:event_btNovoMouseExited
+
+    private void btVisualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVisualizarMouseEntered
+        btVisualizar.setBorderPainted(true);
+    }//GEN-LAST:event_btVisualizarMouseEntered
+
+    private void btVisualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVisualizarMouseExited
+        btVisualizar.setBorderPainted(false);
+    }//GEN-LAST:event_btVisualizarMouseExited
+
+    private void btDesativarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesativarMouseEntered
+        btDesativar.setBorderPainted(true);
+    }//GEN-LAST:event_btDesativarMouseEntered
+
+    private void btDesativarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesativarMouseExited
+        btDesativar.setBorderPainted(false);
+    }//GEN-LAST:event_btDesativarMouseExited
+
+    private void btAtualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtualizarMouseEntered
+        btAtualizar.setBorderPainted(true);
+    }//GEN-LAST:event_btAtualizarMouseEntered
+
+    private void btAtualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAtualizarMouseExited
+        btAtualizar.setBorderPainted(false);
+    }//GEN-LAST:event_btAtualizarMouseExited
+
+    private void btLimparListarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparListarMouseEntered
+        btLimpar.setBorderPainted(true);
+    }//GEN-LAST:event_btLimparListarMouseEntered
+
+    private void btLimparListarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparListarMouseExited
+        btLimpar.setBorderPainted(false);
+    }//GEN-LAST:event_btLimparListarMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btDesativar;
     private javax.swing.JButton btGravar;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btLimparListar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btPesquisarCep;
     private javax.swing.JButton btVisualizar;
@@ -806,8 +925,6 @@ public class TelaUsuarioGerenciar extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbFiltroTabela;
     private javax.swing.JComboBox<TipoUsuario> cbTipoUsuario;
     private javax.swing.JCheckBox checkAtivo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -97,10 +97,18 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
         btCarregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/editar_32x32.png"))); // NOI18N
         btCarregar.setText("Editar");
-        btCarregar.setBorder(null);
+        btCarregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btCarregar.setBorderPainted(false);
-        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCarregar.setFocusPainted(false);
+        btCarregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btCarregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btCarregarMouseExited(evt);
+            }
+        });
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCarregarActionPerformed(evt);
@@ -327,6 +335,14 @@ public class TelaDestinatarioFicha extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void btCarregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCarregarMouseEntered
+        btCarregar.setBorderPainted(true);
+    }//GEN-LAST:event_btCarregarMouseEntered
+
+    private void btCarregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCarregarMouseExited
+        btCarregar.setBorderPainted(false);
+    }//GEN-LAST:event_btCarregarMouseExited
 
     /**
      * @param args the command line arguments

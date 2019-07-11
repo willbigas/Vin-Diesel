@@ -2,11 +2,7 @@ package br.com.vindiesel.view;
 
 import br.com.vindiesel.control.TelaLoginControl;
 import br.com.vindiesel.uteis.InterfaceJanela;
-import br.com.vindiesel.uteis.Visual;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 

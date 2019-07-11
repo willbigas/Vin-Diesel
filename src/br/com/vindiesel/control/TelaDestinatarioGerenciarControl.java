@@ -194,9 +194,9 @@ public class TelaDestinatarioGerenciarControl {
             return;
         }
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
-        
+
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + destinatario.getNome() + " ?");
-        
+
         if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }
@@ -226,6 +226,9 @@ public class TelaDestinatarioGerenciarControl {
     }
 
     public void carregarDestinatarioAction() {
+        if (validaLinhaNaoSelecionada()) {
+            return;
+        }
         destinatario = destinatarioTableModel.pegaObjeto(telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow());
         telaDestinatarioGerenciar.getTfNome().setText(destinatario.getNome());
         String codigoPessoa = destinatario.getCodigoPessoa();
@@ -246,6 +249,14 @@ public class TelaDestinatarioGerenciarControl {
         telaDestinatarioGerenciar.getTpDestinatario().setEnabledAt(1, true);
         telaDestinatarioGerenciar.getTpDestinatario().setSelectedIndex(1); // seleciona o tabbed pane
         telaDestinatarioGerenciar.getTfNome().requestFocus();
+    }
+
+    private boolean validaLinhaNaoSelecionada() {
+        if (telaDestinatarioGerenciar.getTblDestinatario().getSelectedRow() == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return true;
+        }
+        return false;
     }
 
     private void carregarDestinatarioJdialogFicha() {

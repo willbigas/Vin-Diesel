@@ -296,6 +296,9 @@ public class TelaRemetenteGerenciarControl {
     }
 
     public void carregarRemetenteAction() {
+        if (validaLinhaNaoSelecionada()) {
+            return;
+        }
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteGerenciar.getTfNome().setText(remetente.getNome());
         telaRemetenteGerenciar.getTfTelefone().setText(remetente.getTelefone());
@@ -323,6 +326,14 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
         telaRemetenteGerenciar.getTfNome().requestFocus();
 
+    }
+
+    private boolean validaLinhaNaoSelecionada() {
+        if (telaRemetenteGerenciar.getTblRemetente().getSelectedRow() == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return true;
+        }
+        return false;
     }
 
     private void carregarRemetenteJdialogFicha() {

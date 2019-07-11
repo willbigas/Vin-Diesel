@@ -200,10 +200,19 @@ public class TelaEncomendaFicha extends javax.swing.JDialog {
         btEditar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/editar_32x32.png"))); // NOI18N
         btEditar.setText("Editar");
-        btEditar.setBorder(null);
+        btEditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btEditar.setBorderPainted(false);
         btEditar.setContentAreaFilled(false);
+        btEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btEditar.setFocusPainted(false);
+        btEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btEditarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btEditarMouseExited(evt);
+            }
+        });
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
@@ -236,7 +245,7 @@ public class TelaEncomendaFicha extends javax.swing.JDialog {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btEditar)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,6 +261,14 @@ public class TelaEncomendaFicha extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void btEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEditarMouseEntered
+        btEditar.setBorderPainted(true);
+    }//GEN-LAST:event_btEditarMouseEntered
+
+    private void btEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEditarMouseExited
+        btEditar.setBorderPainted(false);
+    }//GEN-LAST:event_btEditarMouseExited
 
     /**
      * @param args the command line arguments

@@ -69,7 +69,7 @@ public class TelaTipoUsuarioGerenciarControl {
         atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar());
         redimensionarTabela();
     }
-    
+
     public void carregarFiltrosNaComboBox() {
         telaTipoUsuarioGerenciar.getCbFiltroTabela().setSelectedIndex(0);
     }
@@ -188,6 +188,9 @@ public class TelaTipoUsuarioGerenciarControl {
     }
 
     public void carregarTipoUsuarioAction() {
+        if (validaLinhaNaoSelecionada()) {
+            return;
+        }
         tipoUsuario = tipoUsuarioTableModel.pegaObjeto(telaTipoUsuarioGerenciar.getTblTipoUsuario().getSelectedRow());
         telaTipoUsuarioGerenciar.getTfNome().setText(tipoUsuario.getNome());
         if (tipoUsuario.getTipoPermissao() == ADMIN) {
@@ -202,6 +205,14 @@ public class TelaTipoUsuarioGerenciarControl {
         if (tipoUsuario.getAtivo() == false) {
             telaTipoUsuarioGerenciar.getCheckAtivo().setSelected(false);
         }
+    }
+
+    private boolean validaLinhaNaoSelecionada() {
+        if (telaTipoUsuarioGerenciar.getTblTipoUsuario().getSelectedRow() == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return true;
+        }
+        return false;
     }
 
     public void gravarTipoUsuarioAction() {
@@ -234,34 +245,31 @@ public class TelaTipoUsuarioGerenciarControl {
         }
 
     }
-    
-    
-     public List<TipoUsuario> pesquisarPorComboBoxAction(String termo) {
+
+    public List<TipoUsuario> pesquisarPorComboBoxAction(String termo) {
         List<TipoUsuario> tipoUsuarioPesquisados = new ArrayList<>();
         int result = telaTipoUsuarioGerenciar.getCbFiltroTabela().getSelectedIndex();
         if (result == CB_OPCAO_TODOS) {
             tipoUsuarioTableModel.limpar();
-            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo , null);
+            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo, null);
             tipoUsuarioTableModel.adicionar(tipoUsuarioDao.pesquisar());
             atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar());
         }
         if (result == CB_OPCAO_ATIVOS) {
             tipoUsuarioTableModel.limpar();
-            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo , true);
-            tipoUsuarioTableModel.adicionar(tipoUsuarioDao.pesquisar(termo ,true));
-            atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar(termo ,true));
+            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo, true);
+            tipoUsuarioTableModel.adicionar(tipoUsuarioDao.pesquisar(termo, true));
+            atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar(termo, true));
         }
         if (result == CB_OPCAO_INATIVOS) {
             tipoUsuarioTableModel.limpar();
-            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo , false);
-            tipoUsuarioTableModel.adicionar(tipoUsuarioDao.pesquisar(termo , false));
-            atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar(termo ,false));
+            tipoUsuarioPesquisados = tipoUsuarioDao.pesquisar(termo, false);
+            tipoUsuarioTableModel.adicionar(tipoUsuarioDao.pesquisar(termo, false));
+            atualizaTotalTipoUsuarios(tipoUsuarioDao.pesquisar(termo, false));
         }
         return tipoUsuarioPesquisados;
 
     }
-    
-    
 
     public void atualizaTotalTipoUsuarios(List<TipoUsuario> tipoUsuarios) {
         Integer totalTipoUsuario = 0;

@@ -92,7 +92,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Gerenciamento de destinátarios");
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,10 +155,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btVisualizar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/visualizar_32x32.png"))); // NOI18N
         btVisualizar.setText("Visualizar");
-        btVisualizar.setBorder(null);
+        btVisualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btVisualizar.setBorderPainted(false);
         btVisualizar.setContentAreaFilled(false);
-        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btVisualizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btVisualizarMouseExited(evt);
+            }
+        });
         btVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVisualizarActionPerformed(evt);
@@ -168,10 +176,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btDesativar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/excluir_32x32.png"))); // NOI18N
         btDesativar.setText("Excluir");
-        btDesativar.setBorder(null);
+        btDesativar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btDesativar.setBorderPainted(false);
         btDesativar.setContentAreaFilled(false);
-        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btDesativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btDesativar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btDesativarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btDesativarMouseExited(evt);
+            }
+        });
         btDesativar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDesativarActionPerformed(evt);
@@ -181,10 +197,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btNovo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/novo_32x32.png"))); // NOI18N
         btNovo.setText("Novo");
-        btNovo.setBorder(null);
+        btNovo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btNovo.setBorderPainted(false);
         btNovo.setContentAreaFilled(false);
-        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btNovoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btNovoMouseExited(evt);
+            }
+        });
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
@@ -203,7 +227,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                         .addComponent(btNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btVisualizar)
@@ -223,7 +247,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addComponent(btVisualizar)
                     .addComponent(btDesativar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -292,10 +316,18 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btGravar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/save_32x32.png"))); // NOI18N
         btGravar.setText("Gravar");
-        btGravar.setBorder(null);
+        btGravar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btGravar.setBorderPainted(false);
         btGravar.setContentAreaFilled(false);
-        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btGravar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGravar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btGravarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btGravarMouseExited(evt);
+            }
+        });
         btGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGravarActionPerformed(evt);
@@ -335,10 +367,19 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
         btLimpar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/clear_32x32.png"))); // NOI18N
         btLimpar.setText("Limpar");
-        btLimpar.setBorder(null);
+        btLimpar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btLimpar.setBorderPainted(false);
         btLimpar.setContentAreaFilled(false);
+        btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLimpar.setFocusPainted(false);
+        btLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btLimparMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btLimparMouseExited(evt);
+            }
+        });
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimparActionPerformed(evt);
@@ -449,7 +490,7 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jLabel11)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         tpDestinatario.addTab("Editar", jPanel3);
@@ -569,6 +610,46 @@ public class TelaDestinatarioGerenciar extends javax.swing.JInternalFrame {
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         destinatarioGerenciarControl.limparCampos();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void btNovoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseEntered
+        btNovo.setBorderPainted(true);
+    }//GEN-LAST:event_btNovoMouseEntered
+
+    private void btNovoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseExited
+        btNovo.setBorderPainted(false);
+    }//GEN-LAST:event_btNovoMouseExited
+
+    private void btVisualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVisualizarMouseEntered
+        btVisualizar.setBorderPainted(true);
+    }//GEN-LAST:event_btVisualizarMouseEntered
+
+    private void btVisualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVisualizarMouseExited
+        btVisualizar.setBorderPainted(false);
+    }//GEN-LAST:event_btVisualizarMouseExited
+
+    private void btDesativarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesativarMouseEntered
+        btDesativar.setBorderPainted(true);
+    }//GEN-LAST:event_btDesativarMouseEntered
+
+    private void btDesativarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesativarMouseExited
+        btDesativar.setBorderPainted(false);
+    }//GEN-LAST:event_btDesativarMouseExited
+
+    private void btLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseEntered
+        btLimpar.setBorderPainted(true);
+    }//GEN-LAST:event_btLimparMouseEntered
+
+    private void btLimparMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseExited
+        btLimpar.setBorderPainted(false);
+    }//GEN-LAST:event_btLimparMouseExited
+
+    private void btGravarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGravarMouseEntered
+        btGravar.setBorderPainted(true);
+    }//GEN-LAST:event_btGravarMouseEntered
+
+    private void btGravarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGravarMouseExited
+        btGravar.setBorderPainted(false);
+    }//GEN-LAST:event_btGravarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

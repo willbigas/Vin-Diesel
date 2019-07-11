@@ -203,6 +203,9 @@ public class TelaEncomendaGerenciarControl {
     }
 
     public void carregarEncomendaAction() {
+        if (validaLinhaNaoSelecionada()) {
+            return;
+        }
         encomenda = encomendaTableModel.pegaObjeto(telaEncomendaGerenciar.getTblProduto().getSelectedRow());
         telaEncomendaGerenciar.getTfCodigoRastreio().setText(encomenda.getCodigoRastreio());
         telaEncomendaGerenciar.getTfPeso().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getPeso())));
@@ -212,6 +215,14 @@ public class TelaEncomendaGerenciarControl {
         telaEncomendaGerenciar.getTfLargura().setText(DecimalFormat.paraVirgula(String.valueOf(encomenda.getDimensao().getLargura())));
         telaEncomendaGerenciar.getTpProduto().setSelectedIndex(1);
         // Atributos de encomenda
+    }
+
+    private boolean validaLinhaNaoSelecionada() {
+        if (telaEncomendaGerenciar.getTblProduto().getSelectedRow() == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return true;
+        }
+        return false;
     }
 
     public void excluirEncomendaAction() {

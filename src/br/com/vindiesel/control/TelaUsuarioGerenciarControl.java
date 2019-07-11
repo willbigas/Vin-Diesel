@@ -330,6 +330,10 @@ public class TelaUsuarioGerenciarControl {
     }
 
     public void carregarUsuarioAction() {
+        if (validaLinhaNaoSelecionada()) {
+            return;
+        }
+
         usuario = usuarioTableModel.pegaObjeto(telaUsuarioGerenciar.getTblUsuario().getSelectedRow());
         popularCamposDeUsuario();
         popularCamposDeEndereco();
@@ -343,6 +347,14 @@ public class TelaUsuarioGerenciarControl {
         telaUsuarioGerenciar.getTpGerenciarUsuario().setSelectedIndex(1);
         telaUsuarioGerenciar.getTfNome().requestFocus();
         telaUsuarioGerenciar.getTfEmail().setEnabled(false);
+    }
+
+    private boolean validaLinhaNaoSelecionada() {
+        if (telaUsuarioGerenciar.getTblUsuario().getSelectedRow() == -1) {
+            Mensagem.atencao(Texto.SELECIONADA_LINHA);
+            return true;
+        }
+        return false;
     }
 
     private void popularCamposDeEndereco() {
@@ -408,27 +420,25 @@ public class TelaUsuarioGerenciarControl {
         int result = telaUsuarioGerenciar.getCbFiltroTabela().getSelectedIndex();
         if (result == CB_OPCAO_TODOS) {
             usuarioTableModel.limpar();
-            usuariosPesquisados = usuarioDao.pesquisar(termo , null);
+            usuariosPesquisados = usuarioDao.pesquisar(termo, null);
             usuarioTableModel.adicionar(usuarioDao.pesquisar());
             atualizaTotalUsuarios(usuarioDao.pesquisar());
         }
         if (result == CB_OPCAO_ATIVOS) {
             usuarioTableModel.limpar();
-            usuariosPesquisados = usuarioDao.pesquisar(termo , true);
-            usuarioTableModel.adicionar(usuarioDao.pesquisar(termo ,true));
-            atualizaTotalUsuarios(usuarioDao.pesquisar(termo ,true));
+            usuariosPesquisados = usuarioDao.pesquisar(termo, true);
+            usuarioTableModel.adicionar(usuarioDao.pesquisar(termo, true));
+            atualizaTotalUsuarios(usuarioDao.pesquisar(termo, true));
         }
         if (result == CB_OPCAO_INATIVOS) {
             usuarioTableModel.limpar();
-            usuariosPesquisados = usuarioDao.pesquisar(termo , false);
-            usuarioTableModel.adicionar(usuarioDao.pesquisar(termo , false));
-            atualizaTotalUsuarios(usuarioDao.pesquisar(termo ,false));
+            usuariosPesquisados = usuarioDao.pesquisar(termo, false);
+            usuarioTableModel.adicionar(usuarioDao.pesquisar(termo, false));
+            atualizaTotalUsuarios(usuarioDao.pesquisar(termo, false));
         }
         return usuariosPesquisados;
 
     }
-    
-    
 
     public void atualizaTotalUsuarios(List<Usuario> usuarios) {
         Integer totalUsuario = 0;

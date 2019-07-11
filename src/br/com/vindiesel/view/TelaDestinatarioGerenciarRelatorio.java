@@ -64,9 +64,17 @@ public class TelaDestinatarioGerenciarRelatorio extends javax.swing.JInternalFra
         btGerarRelatorio.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btGerarRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/vindiesel/img/abrir_relatorio_32x32.png"))); // NOI18N
         btGerarRelatorio.setText("EXECUTAR");
-        btGerarRelatorio.setBorder(null);
+        btGerarRelatorio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(187, 187, 187), 2, true));
         btGerarRelatorio.setBorderPainted(false);
         btGerarRelatorio.setContentAreaFilled(false);
+        btGerarRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btGerarRelatorioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btGerarRelatorioMouseExited(evt);
+            }
+        });
         btGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGerarRelatorioActionPerformed(evt);
@@ -113,7 +121,7 @@ public class TelaDestinatarioGerenciarRelatorio extends javax.swing.JInternalFra
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfCampoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btGerarRelatorio)
                 .addGap(31, 31, 31))
         );
@@ -124,8 +132,16 @@ public class TelaDestinatarioGerenciarRelatorio extends javax.swing.JInternalFra
     private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarRelatorioActionPerformed
         // TODO add your handling code here:
         destinatarioGerenciarRelatorioControl.acionarRelatorioAction();
-        
+
     }//GEN-LAST:event_btGerarRelatorioActionPerformed
+
+    private void btGerarRelatorioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGerarRelatorioMouseEntered
+        btGerarRelatorio.setBorderPainted(true);
+    }//GEN-LAST:event_btGerarRelatorioMouseEntered
+
+    private void btGerarRelatorioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGerarRelatorioMouseExited
+        btGerarRelatorio.setBorderPainted(false);
+    }//GEN-LAST:event_btGerarRelatorioMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

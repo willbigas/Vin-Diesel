@@ -44,6 +44,7 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         ButtonGroup bg = new ButtonGroup();
         bg.add(checkCnpj);
         bg.add(checkCpf);
+
     }
 
     /**
@@ -477,6 +478,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         checkCnpj.setBackground(new java.awt.Color(207, 207, 207));
         checkCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCnpj.setText("CNPJ");
+        checkCnpj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkCnpjMouseClicked(evt);
+            }
+        });
         checkCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCnpjActionPerformed(evt);
@@ -496,6 +502,11 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
         checkCpf.setBackground(new java.awt.Color(207, 207, 207));
         checkCpf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCpf.setText("CPF");
+        checkCpf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkCpfMouseClicked(evt);
+            }
+        });
         checkCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCpfActionPerformed(evt);
@@ -667,14 +678,10 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
 
     private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
         // TODO add your handling code here:
-        remetenteGerenciarControl.formataTfCodigoPessoaParaCNPJ();
-        tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCnpjActionPerformed
 
     private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
-        // TODO add your handling code here:
-        remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
-        tfCodigoPessoa.requestFocus();
+
     }//GEN-LAST:event_checkCpfActionPerformed
 
     private void tfComplementoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfComplementoKeyPressed
@@ -727,6 +734,23 @@ public class TelaRemetenteGerenciar extends javax.swing.JInternalFrame {
     private void btGravarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGravarMouseExited
         btGravar.setBorderPainted(false);
     }//GEN-LAST:event_btGravarMouseExited
+
+    private void checkCnpjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkCnpjMouseClicked
+        if (evt.getClickCount() == 1) {
+            remetenteGerenciarControl.formataTfCodigoPessoaParaCNPJ();
+            tfCodigoPessoa.requestFocus();
+        }
+    }//GEN-LAST:event_checkCnpjMouseClicked
+
+    private void checkCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkCpfMouseClicked
+        if (evt.getClickCount() == 1) {
+            remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
+            tfCodigoPessoa.requestFocus();
+            remetenteGerenciarControl.formataTfCodigoPessoaParaCPF();
+            tfCodigoPessoa.requestFocus();
+
+        }
+    }//GEN-LAST:event_checkCpfMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -105,4 +105,6 @@ public class Texto {
 
     public static final String ATENCAO_FINALIZAR_ENTREGA = "Atencao , Ao selecionar este tipo de tramite o sistema automaticamente finalizara a entrega , tem certeza dessa acao?";
 
+    public static final String ATENCAO_RECEITA_ENTREGUE = "Não é possivel editar essa receita, pois ela ja esta finalizada";
+
 }

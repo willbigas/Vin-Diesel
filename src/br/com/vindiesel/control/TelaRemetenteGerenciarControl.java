@@ -27,12 +27,12 @@ import javax.swing.text.MaskFormatter;
  * @author Will
  */
 public class TelaRemetenteGerenciarControl {
-
+    
     private static final int CPF = 0;
     private static final int NOME = 1;
     private static final int TELEFONE = 2;
     private static final int CIDADE = 3;
-
+    
     TelaRemetenteGerenciar telaRemetenteGerenciar;
     TelaRemetenteFicha telaRemetenteFicha;
     Remetente remetente;
@@ -43,13 +43,13 @@ public class TelaRemetenteGerenciarControl {
     Integer linhaSelecionada;
     MaskFormatter mascaraFormatadoraCPF;
     MaskFormatter mascaraFormatadoraCNPJ;
-
+    
     public TelaRemetenteGerenciarControl() {
         remetenteDao = new RemetenteDao();
         enderecoDao = new EnderecoDao();
         remetenteTableModel = new RemetenteTableModel();
     }
-
+    
     public void chamarTelaRemetenteGerenciar() {
         if (telaRemetenteGerenciar == null) { // se tiver nulo chama janela normalmente
             telaRemetenteGerenciar = new TelaRemetenteGerenciar(this);
@@ -72,52 +72,54 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, false);
         telaRemetenteGerenciar.getTfPesquisar().requestFocus();
         criaInstanciasDeMascarasFormatadas();
-
+        formataTfCodigoPessoaParaCNPJ();
+        telaRemetenteGerenciar.getCheckCnpj().setSelected(true);
     }
-
+    
     public void carregarEstadosNaComboBox() {
         telaRemetenteGerenciar.getCbEstado().setModel(new DefaultComboBoxModel<>(EnderecoSigla.ESTADOS_BRASILEIROS));
-
+        
     }
-
+    
     public void chamarDialogRemetenteFichaAction() {
         telaRemetenteFicha = new TelaRemetenteFicha(telaRemetenteGerenciar, true, this);
         carregarRemetenteJdialogFicha();
         telaRemetenteFicha.setVisible(true);
     }
-
+    
     private void redimensionarTabela() {
         UtilTable.centralizarCabecalho(telaRemetenteGerenciar.getTblRemetente());
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), CPF, 150);
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), NOME, 420);
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), TELEFONE, 130);
         UtilTable.redimensionar(telaRemetenteGerenciar.getTblRemetente(), CIDADE, 160);
+        
     }
-
+    
     public void novoRemetenteAction() {
         limparCampos();
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, true);
         UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
         remetente = null;
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1);
-
+        
     }
-
+    
     private void cadastrarRemetente() {
         remetente = new Remetente();
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
-
+        
         if (telaRemetenteGerenciar.getTfEmail().getText().length() > 45) {
             Mensagem.atencao(Texto.ERRO_EMAIL);
             remetente = null;
             return;
         }
         remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
-
+        
         endereco = new Endereco();
-
+        
         try {
             endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
         } catch (NumberFormatException numberFormatException) {
@@ -125,7 +127,7 @@ public class TelaRemetenteGerenciarControl {
             remetente = null;
             return;
         }
-
+        
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
@@ -134,16 +136,16 @@ public class TelaRemetenteGerenciarControl {
         endereco.setRua(telaRemetenteGerenciar.getTfRua().getText());
         Integer idEndereco = enderecoDao.inserir(endereco);
         endereco.setId(idEndereco);
-
+        
         remetente.setEndereco(endereco);
-
+        
         if (Validacao.validaEntidade(remetente) != null) {
             Mensagem.info(Validacao.validaEntidade(remetente));
             remetente = null;
             endereco = null;
             return;
         }
-
+        
         Integer idInserido = remetenteDao.inserir(remetente);
         if (idInserido != 0) {
             remetente.setId(idInserido);
@@ -157,29 +159,29 @@ public class TelaRemetenteGerenciarControl {
         remetente = null;
         endereco = null;
     }
-
+    
     private void alterarRemetente() {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         remetente.setNome(telaRemetenteGerenciar.getTfNome().getText());
         remetente.setTelefone(telaRemetenteGerenciar.getTfTelefone().getText());
         remetente.setCodigoPessoa(telaRemetenteGerenciar.getTfCodigoPessoa().getText());
-
+        
         if (telaRemetenteGerenciar.getTfEmail().getText().length() > 45) {
             Mensagem.atencao(Texto.ERRO_EMAIL);
             return;
         }
-
+        
         remetente.setEmail(telaRemetenteGerenciar.getTfEmail().getText());
-
+        
         endereco = remetente.getEndereco();
         endereco.setBairro(telaRemetenteGerenciar.getTfBairro().getText());
-
+        
         try {
             endereco.setCep(Integer.valueOf(telaRemetenteGerenciar.getTfCep().getText()));
         } catch (NumberFormatException numberFormatException) {
             Mensagem.info(Texto.ERRO_COVERTER_CAMPO_CEP);
         }
-
+        
         endereco.setCidade(telaRemetenteGerenciar.getTfCidade().getText());
         endereco.setComplemento(telaRemetenteGerenciar.getTfComplemento().getText());
         endereco.setEstado((String) telaRemetenteGerenciar.getCbEstado().getSelectedItem());
@@ -190,7 +192,7 @@ public class TelaRemetenteGerenciarControl {
             Mensagem.erro(Texto.ERRO_EDITAR);
             return;
         }
-
+        
         if (Validacao.validaEntidade(remetente) != null) {
             Mensagem.info(Validacao.validaEntidade(remetente));
             return;
@@ -203,14 +205,14 @@ public class TelaRemetenteGerenciarControl {
             atualizaTotalDosRemetentes(remetenteDao.pesquisar());
             limparCampos();
             Mensagem.info(Texto.SUCESSO_EDITAR);
-
+            
         } else {
             Mensagem.erro(Texto.ERRO_EDITAR);
         }
         remetente = null;
         endereco = null;
     }
-
+    
     public void buscarCepAction() {
         BuscaCepEventos buscaCepEvents = new BuscaCepEventosImpl();
         BuscadorDeCepControl buscadorDeCep = new BuscadorDeCepControl();
@@ -248,7 +250,7 @@ public class TelaRemetenteGerenciarControl {
             return;
         }
     }
-
+    
     public void gravarRemetenteAction() {
         if (remetente == null) {
             cadastrarRemetente();
@@ -256,7 +258,7 @@ public class TelaRemetenteGerenciarControl {
             alterarRemetente();
         }
     }
-
+    
     public void excluirRemententeAction() {
         if (telaRemetenteGerenciar.getTblRemetente().getSelectedRow() == -1) {
             Mensagem.info(Texto.SELECIONADA_LINHA);
@@ -264,12 +266,12 @@ public class TelaRemetenteGerenciarControl {
         }
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         int retorno = Mensagem.confirmacao(Texto.PERGUNTA_EXCLUIR + remetente.getNome() + " ?");
-
+        
         if (retorno == JOptionPane.NO_OPTION || retorno == JOptionPane.CLOSED_OPTION) {
             return;
         }
         if (retorno == JOptionPane.YES_OPTION) {
-
+            
             boolean deletado = remetenteDao.deletar(remetente.getId());
             if (deletado) {
                 remetenteTableModel.remover(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
@@ -281,7 +283,7 @@ public class TelaRemetenteGerenciarControl {
         }
         remetente = null;
     }
-
+    
     public void pesquisarRemetenteAction() {
         List<Remetente> remetentesPesquisados = remetenteDao.pesquisar(telaRemetenteGerenciar.getTfPesquisar().getText());
         if (remetentesPesquisados == null) {
@@ -294,7 +296,7 @@ public class TelaRemetenteGerenciarControl {
             atualizaTotalDosRemetentes(remetentesPesquisados);
         }
     }
-
+    
     public void carregarRemetenteAction() {
         if (validaLinhaNaoSelecionada()) {
             return;
@@ -310,10 +312,10 @@ public class TelaRemetenteGerenciarControl {
         } else {
             formataTfCodigoPessoaParaCPF();
             telaRemetenteGerenciar.getCheckCpf().setSelected(true);
-
+            
         }
         telaRemetenteGerenciar.getTfCodigoPessoa().setText(remetente.getCodigoPessoa());
-
+        
         telaRemetenteGerenciar.getTfBairro().setText(remetente.getEndereco().getBairro());
         telaRemetenteGerenciar.getTfCidade().setText(remetente.getEndereco().getCidade());
         telaRemetenteGerenciar.getTfComplemento().setText(remetente.getEndereco().getComplemento());
@@ -321,13 +323,13 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getTfNumero().setText(remetente.getEndereco().getNumero());
         telaRemetenteGerenciar.getTfRua().setText(remetente.getEndereco().getRua());
         telaRemetenteGerenciar.getTfCep().setText(String.valueOf(remetente.getEndereco().getCep()));
-
+        
         telaRemetenteGerenciar.getTpRemetente().setEnabledAt(1, true); // habilita o tabbed pane
         telaRemetenteGerenciar.getTpRemetente().setSelectedIndex(1); // seleciona o tabbed pane
         telaRemetenteGerenciar.getTfNome().requestFocus();
-
+        
     }
-
+    
     private boolean validaLinhaNaoSelecionada() {
         if (telaRemetenteGerenciar.getTblRemetente().getSelectedRow() == -1) {
             Mensagem.atencao(Texto.SELECIONADA_LINHA);
@@ -335,21 +337,21 @@ public class TelaRemetenteGerenciarControl {
         }
         return false;
     }
-
+    
     private void carregarRemetenteJdialogFicha() {
         remetente = remetenteTableModel.pegaObjeto(telaRemetenteGerenciar.getTblRemetente().getSelectedRow());
         telaRemetenteFicha.getLblNome().setText(remetente.getNome());
         telaRemetenteFicha.getLblTelefone().setText(remetente.getTelefone());
         telaRemetenteFicha.getLblEmail().setText(remetente.getEmail());
         String codigoPessoa = remetente.getCodigoPessoa();
-
+        
         if (codigoPessoa.length() > 15) {
             formataTfCodigoPessoaParaCNPJ();
         } else {
             formataTfCodigoPessoaParaCPF();
         }
         telaRemetenteFicha.getLblCodigoPessoa().setText(remetente.getCodigoPessoa());
-
+        
         telaRemetenteFicha.getLblBairro().setText(remetente.getEndereco().getBairro());
         telaRemetenteFicha.getLblCidade().setText(remetente.getEndereco().getCidade());
         telaRemetenteFicha.getLblComplemento().setText(remetente.getEndereco().getComplemento());
@@ -358,7 +360,7 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteFicha.getLblRua().setText(remetente.getEndereco().getRua());
         telaRemetenteFicha.getLblCep().setText(String.valueOf(remetente.getEndereco().getCep()));
     }
-
+    
     private void criaInstanciasDeMascarasFormatadas() {
         try {
             mascaraFormatadoraCPF = new javax.swing.text.MaskFormatter("###.###.###-##");
@@ -366,18 +368,18 @@ public class TelaRemetenteGerenciarControl {
         } catch (ParseException parseException) {
             Mensagem.erro(Texto.ERRO_CONVERTER_CAMPO_MASCARA_CNPJ);
         }
-
+        
     }
-
+    
     public void formataTfCodigoPessoaParaCNPJ() {
         mascaraFormatadoraCNPJ.install(telaRemetenteGerenciar.getTfCodigoPessoa());
     }
-
+    
     public void formataTfCodigoPessoaParaCPF() {
         mascaraFormatadoraCPF.install(telaRemetenteGerenciar.getTfCodigoPessoa());
-
+        
     }
-
+    
     public void limparCampos() {
         telaRemetenteGerenciar.getTfNome().setText("");
         telaRemetenteGerenciar.getTfCodigoPessoa().setText("");
@@ -396,15 +398,15 @@ public class TelaRemetenteGerenciarControl {
         telaRemetenteGerenciar.getCheckCnpj().setSelected(false);
         UtilTable.limparSelecaoDaTabela(telaRemetenteGerenciar.getTblRemetente());
     }
-
+    
     public void atualizaTotalDosRemetentes(List<Remetente> remetentes) {
         Integer totalRemetentesBanco = 0;
         Integer totalRemetentesFiltrados = 0;
         List<Remetente> remetentesDoBanco = remetenteDao.pesquisar();
-
+        
         totalRemetentesBanco = remetentesDoBanco.size();
         totalRemetentesFiltrados = remetentes.size();
-
+        
         telaRemetenteGerenciar.getLblTotalRemetentes().setText(String.valueOf(totalRemetentesBanco));
         telaRemetenteGerenciar.getLblTotalFiltrados().setText(String.valueOf(totalRemetentesFiltrados));
     }

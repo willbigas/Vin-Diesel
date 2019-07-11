@@ -774,6 +774,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         checkCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCnpj.setText("CNPJ");
         checkCnpj.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        checkCnpj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkCnpjMouseClicked(evt);
+            }
+        });
         checkCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCnpjActionPerformed(evt);
@@ -783,6 +788,11 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
         checkCpf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         checkCpf.setText("CPF");
         checkCpf.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        checkCpf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkCpfMouseClicked(evt);
+            }
+        });
         checkCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkCpfActionPerformed(evt);
@@ -971,15 +981,10 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btPesquisaAvancadaDestinatarioActionPerformed
 
     private void checkCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCnpjActionPerformed
-        // TODO add your handling code here:
-        entregaControl.formataTfCodigoPessoaParaCNPJ();
-        tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCnpjActionPerformed
 
     private void checkCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCpfActionPerformed
         // TODO add your handling code here:
-        entregaControl.formataTfCodigoPessoaParaCPF();
-        tfCodigoPessoa.requestFocus();
     }//GEN-LAST:event_checkCpfActionPerformed
 
     private void btLimparCamposTabEntrega1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparCamposTabEntrega1ActionPerformed
@@ -1096,6 +1101,22 @@ public class TelaEntrega extends javax.swing.JInternalFrame {
     private void btEfetivarEntregaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEfetivarEntregaMouseExited
         btEfetivarEntrega.setBorderPainted(false);
     }//GEN-LAST:event_btEfetivarEntregaMouseExited
+
+    private void checkCnpjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkCnpjMouseClicked
+        if (evt.getClickCount() == 1) {
+            entregaControl.formataTfCodigoPessoaParaCNPJ();
+            tfCodigoPessoa.requestFocus();
+        }
+    }//GEN-LAST:event_checkCnpjMouseClicked
+
+    private void checkCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkCpfMouseClicked
+        if (evt.getClickCount() == 1) {
+            entregaControl.formataTfCodigoPessoaParaCPF();
+            tfCodigoPessoa.requestFocus();
+            entregaControl.formataTfCodigoPessoaParaCPF();
+            tfCodigoPessoa.requestFocus();
+        }
+    }//GEN-LAST:event_checkCpfMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -66,6 +66,7 @@ public class TelaReceitaGerenciarControl {
         redimensionarTabelaReceita();
         telaReceitaGerenciar.getTpReceita().setEnabledAt(1, false); // disabilita o tabbed pane
         telaReceitaGerenciar.getTfPesquisarReceita().requestFocus();
+
     }
 
     private void redimensionarTabelaReceita() {
@@ -120,6 +121,14 @@ public class TelaReceitaGerenciarControl {
             return;
         }
         receita = receitaTableModel.pegaObjeto(telaReceitaGerenciar.getTblReceita().getSelectedRow());
+
+        Double valorParaVerificar = receita.getValorRecebido() - receita.getValorTotal();
+        if (valorParaVerificar <= 0.0 && receita.getDataPagamento() != null) {
+            Mensagem.atencao(Texto.ATENCAO_RECEITA_ENTREGUE);
+            receita = null;
+            return;
+        }
+
         telaReceitaGerenciar.getLblValorTotalReceita().setText(DecimalFormat.decimalFormat(receita.getValorTotal()));
         Double valorRestante = receita.getValorTotal() - receita.getValorRecebido();
         telaReceitaGerenciar.getLblValorReceitaRestante().setText(DecimalFormat.decimalFormat(valorRestante));
@@ -134,9 +143,17 @@ public class TelaReceitaGerenciarControl {
         Double valorRecebido = receita.getValorRecebido() + Double.valueOf(DecimalFormat.paraPonto(telaReceitaGerenciar.getTfValorRecebido().getText()));
         receita.setValorRecebido(valorRecebido);
         receita.setDataVencimento(telaReceitaGerenciar.getTfDataVencimento().getDate());
+        if (receita.getFormaPagamento() != null && valorRecebido != null) {
+            receita.setDataPagamento(new Timestamp(System.currentTimeMillis()));
+        }
         if (telaReceitaGerenciar.getCheckFinalizarReceita().isSelected()) {
             receita.setDataPagamento(new Timestamp(System.currentTimeMillis()));
         }
+
+        if (receita.getValorRecebido() < 0) {
+            receita.setValorRecebido(0.0);
+        }
+
         boolean alterado = receitaDao.alterar(receita);
         if (!alterado) {
             Mensagem.erro(Texto.ERRO_EDITAR);

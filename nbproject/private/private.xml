@@ -12,7 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/William/Documents/GitHub/VinDiesel/src/VinDiesel.java</file>
+            <file>file:/C:/Users/agostinho.junior/Documents/GitHub/VinDiesel/src/br/com/vindiesel/control/TramiteControl.java</file>
+            <file>file:/C:/Users/agostinho.junior/Documents/GitHub/VinDiesel/src/br/com/vindiesel/control/TelaRemetenteGerenciarControl.java</file>
+            <file>file:/C:/Users/agostinho.junior/Documents/GitHub/VinDiesel/src/VinDiesel.java</file>
+            <file>file:/C:/Users/agostinho.junior/Documents/GitHub/VinDiesel/src/br/com/vindiesel/view/TelaDestinatarioGerenciar.java</file>
         </group>
     </open-files>
 </project-private>

@@ -27,6 +27,7 @@ public class TramiteControl {
     public TramiteControl() {
         tramiteDao = new TramiteDao();
         tipoTramiteDao = new TipoTramiteDao();
+        entregaDao = new EntregaDao();
     }
 
     /**
@@ -54,6 +55,8 @@ public class TramiteControl {
         if (codigoTipoTramite == CODIGO_CHEGOU_EM) {
             tramite.setNome(tipoTramiteDao.pesquisar(CODIGO_CHEGOU_EM).getNome() + " " + nome);
             tramite.setTipoTramite(tipoTramiteDao.pesquisar(CODIGO_CHEGOU_EM));
+            entrega.setEntregue(true);
+            entregaDao.alterar(entrega);
         }
 
         int idInserido = tramiteDao.inserir(tramite);

@@ -143,7 +143,7 @@ public class TelaReceitaGerenciarControl {
         Double valorRecebido = receita.getValorRecebido() + Double.valueOf(DecimalFormat.paraPonto(telaReceitaGerenciar.getTfValorRecebido().getText()));
         receita.setValorRecebido(valorRecebido);
         receita.setDataVencimento(telaReceitaGerenciar.getTfDataVencimento().getDate());
-        if (receita.getFormaPagamento() != null && valorRecebido != null) {
+        if (receita.getFormaPagamento() != null && receita.getValorTotal() - receita.getValorRecebido() == 0.0) {
             receita.setDataPagamento(new Timestamp(System.currentTimeMillis()));
         }
         if (telaReceitaGerenciar.getCheckFinalizarReceita().isSelected()) {

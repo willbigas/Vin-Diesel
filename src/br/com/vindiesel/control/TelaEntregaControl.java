@@ -247,6 +247,7 @@ public class TelaEntregaControl {
 
         int idTramiteInserido = tramiteControl.adicionarTramite(entrega, "VIN DIESEL", "Encomenda foi registrada para entrega na transportadora", 3);
 
+
         List<Tramite> tramites = new ArrayList<>();
         tramites.add(tramiteDao.pesquisar(idTramiteInserido));
         entrega.setTramites(tramites);

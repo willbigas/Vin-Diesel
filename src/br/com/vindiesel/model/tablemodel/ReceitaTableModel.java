@@ -25,7 +25,7 @@ public class ReceitaTableModel extends AbstractTableModel implements AcoesTableM
     private static final int STATUS_PEDIDO = 5;
 
     private List<Receita> linhas;
-    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL" , "VALOR RESTANTE", "FORMA PAGAMENTO", "STATUS PEDIDO"};
+    private String[] COLUNAS = {"DATA", "VENCIMENTO", "VL TOTAL" , "VALOR RESTANTE", "FORMA PAGAMENTO", "STATUS ENTREGA"};
 
     public ReceitaTableModel() {
         linhas = new ArrayList<>();
